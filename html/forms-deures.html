@@ -6,10 +6,26 @@
 	<body style="font-family:Arial; background-color:#111111; color:#EEEEEE">
 		<h1 align=center>Formularis</h1>
 		<form>
-			<label for=nom>Nom:</label><br>
-			<input type=text id=nom placeholder=Josep><br><br>
-			<label for=cnom1>1r Cognom</label><br>
-			<input type=text id=cnom1 placeholder>
+			<label for=nom>Nom:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
+			<input type=text name="nom" placeholder=Daniel><br><br>
+			<label for=cnom1>1r Cognom&emsp;&emsp;&emsp;&ensp;</label>
+			<input type=text name="cnom1" placeholder=Cardona><br><br>
+			<label for=cnom2>2n Cognom:&emsp;&emsp;&emsp;</label>
+			<input type="text" name="cnom2" placeholder="Civit"><br><br>
+			<label for="edat">Edat:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
+			<input type="number" name="edat" min="0" max="100" placeholder="21">
+			<hr>
+			<label for="eyecolor">Color d'ulls:&emsp;&emsp;&emsp;</label>
+			<select class="type" name="eyecolor" id=eyecolor>
+				<option value="nul"></option>
+				<option value="blau">Blau</option>
+				<option value="marro">Marró</option>
+				<option value="verd">Verd</option>
+				<option value="negre">Negre</option>
+			</select>
+			<hr>
+			<label for="correu">Adreça d'email:&emsp;&ensp;</label>
+			<input type="email" name="correu" placeholder="direccio@exmple.cat">
 		</form>
 	</body>
 </html>
