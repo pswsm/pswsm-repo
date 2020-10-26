@@ -1,0 +1,7 @@
+body {
+	/* background-color: rgba(0, 0, 0, 1);*/
+	background-image: url("https://www.mariowiki.com/images/thumb/6/6e/Small-mario.png/95px-Small-mario.png");
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-attachment: fixed	
+}
