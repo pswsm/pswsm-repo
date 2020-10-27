@@ -1,0 +1,27 @@
+div.a {
+	border-style: dashed double solid dotted;
+	border-width: 3px 8px 5px 8px;
+}
+
+div.b {
+	border-style: solid dashed dashed solid;
+	border-width: 3px 2px;
+}
+
+div.c {
+	border-top-style: dashed;
+	border-right-style: dotted;
+	border-bottom-style: solid;
+	border-left-style: double;
+	border-width: medium;
+}
+
+div.d {
+	border-bottom: solid medium;
+	background-color: rgba(255, 0, 0, 0.5);
+}
+
+div.e {
+	border: double 5px;
+	border-radius: 30px;
+}
