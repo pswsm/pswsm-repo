@@ -1,0 +1,17 @@
+body {
+	background-color: yellow;
+	background-image: url('Degradat.png');
+	background-cover: 
+}
+
+h2 {
+	background-color: lightblue;
+}
+
+#p11, #p12 {
+	background-color: rgb(138, 43, 226);
+}
+
+#p21, #p22 {
+	background-color: #ff69b4;
+}
