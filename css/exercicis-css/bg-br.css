@@ -1,6 +1,6 @@
 body {
 	background-color: yellow;
-	background-image: url(css.png), url('Degradat.png');
+	background-image: url('css.png'), url('Degradat.png');
 	background-position: right top, left top;
 	background-repeat: no-repeat, no-repeat;
 	background-size: auto, cover;
