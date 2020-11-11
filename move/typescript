@@ -1,0 +1,1091 @@
+Script started on 2020-11-11 17:11:04+01:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="238" LINES="55"]
+[ism24416766@a21 ~]$ ping 1.1.1.1
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=49 time=11.3 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=49 time=10.7 ms
+64 bytes from 1.1.1.1: icmp_seq=3 ttl=49 time=11.3 ms
+64 bytes from 1.1.1.1: icmp_seq=4 ttl=49 time=11.0 ms
+64 bytes from 1.1.1.1: icmp_seq=5 ttl=49 time=11.4 ms
+64 bytes from 1.1.1.1: icmp_seq=6 ttl=49 time=10.2 ms
+^C
+--- 1.1.1.1 ping statistics ---
+6 packets transmitted, 6 received, 0% packet loss, time 5008ms
+rtt min/avg/max/mdev = 10.174/10.989/11.363/0.423 ms
+[ism24416766@a21 ~]$ traceroute 1.1.1.1
+traceroute to 1.1.1.1 (1.1.1.1), 30 hops max, 60 byte packets
+ 1  _gateway (10.200.246.1)  3.368 ms  3.393 ms  3.431 ms
+ 2  10.200.150.1 (10.200.150.1)  2.897 ms  7.029 ms  7.068 ms
+ 3  10.10.1.4 (10.10.1.4)  0.230 ms  0.229 ms  0.212 ms
+ 4  192.168.4.1 (192.168.4.1)  0.657 ms  0.579 ms  0.544 ms
+ 5  10.187.1.141 (10.187.1.141)  2.554 ms  2.504 ms  2.490 ms
+ 6  217.red-80-58-88.staticip.rima-tde.net (80.58.88.217)  11.800 ms  11.751 ms  11.761 ms
+ 7  53.red-81-46-1.customer.static.ccgg.telefonica.net (81.46.1.53)  11.166 ms  10.933 ms  11.011 ms
+ 8  121.red-80-58-97.staticip.rima-tde.net (80.58.97.121)  11.475 ms  9.618 ms  9.956 ms
+ 9  * * *
+10  33.red-81-45-103.staticip.rima-tde.net (81.45.103.33)  9.197 ms  9.890 ms  9.684 ms
+11  170.red-80-58-106.staticip.rima-tde.net (80.58.106.170)  15.124 ms  13.967 ms  13.849 ms
+12  10.red-81-46-7.customer.static.ccgg.telefonica.net (81.46.7.10)  11.241 ms  11.182 ms  11.165 ms
+13  gramadix2-ae10.net.telefonicaglobalsolutions.com (216.184.113.182)  12.623 ms  12.607 ms  12.625 ms
+14  81.173.106.39 (81.173.106.39)  11.403 ms  11.347 ms  11.362 ms
+15  one.one.one.one (1.1.1.1)  12.432 ms  11.029 ms  11.395 ms
+[ism24416766@a21 ~]$ host 1.1.1.1
+1.1.1.1.in-addr.arpa domain name pointer one.one.one.one.
+[ism24416766@a21 ~]$ dig cloudfare.com
+; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> cloudfare.com A
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 63418
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 13, ADDITIONAL: 27
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;cloudfare.com.			IN	A
+
+;; ANSWER SECTION:
+cloudfare.com.		300	IN	A	104.16.54.76
+cloudfare.com.		300	IN	A	104.16.55.76
+
+;; AUTHORITY SECTION:
+.			497406	IN	NS	m.root-servers.net.
+.			497406	IN	NS	h.root-servers.net.
+.			497406	IN	NS	j.root-servers.net.
+.			497406	IN	NS	b.root-servers.net.
+.			497406	IN	NS	i.root-servers.net.
+.			497406	IN	NS	c.root-servers.net.
+.			497406	IN	NS	f.root-servers.net.
+.			497406	IN	NS	k.root-servers.net.
+.			497406	IN	NS	a.root-servers.net.
+.			497406	IN	NS	d.root-servers.net.
+.			497406	IN	NS	l.root-servers.net.
+.			497406	IN	NS	g.root-servers.net.
+.			497406	IN	NS	e.root-servers.net.
+
+;; ADDITIONAL SECTION:
+a.root-servers.net.	443076	IN	A	198.41.0.4
+a.root-servers.net.	443076	IN	AAAA	2001:503:ba3e::2:30
+h.root-servers.net.	52872	IN	A	198.97.190.53
+h.root-servers.net.	65939	IN	AAAA	2001:500:1::53
+k.root-servers.net.	169596	IN	A	193.0.14.129
+k.root-servers.net.	69345	IN	AAAA	2001:7fd::1
+g.root-servers.net.	52313	IN	A	192.112.36.4
+g.root-servers.net.	5998	IN	AAAA	2001:500:12::d0d
+f.root-servers.net.	169664	IN	A	192.5.5.241
+f.root-servers.net.	169496	IN	AAAA	2001:500:2f::f
+j.root-servers.net.	515275	IN	A	192.58.128.30
+j.root-servers.net.	515275	IN	AAAA	2001:503:c27::2:30
+d.root-servers.net.	52620	IN	A	199.7.91.13
+d.root-servers.net.	515275	IN	AAAA	2001:500:2d::d
+e.root-servers.net.	55814	IN	A	192.203.230.10
+e.root-servers.net.	82039	IN	AAAA	2001:500:a8::e
+b.root-servers.net.	49375	IN	A	199.9.14.201
+b.root-servers.net.	169638	IN	AAAA	2001:500:200::b
+l.root-servers.net.	602176	IN	A	199.7.83.42
+l.root-servers.net.	602176	IN	AAAA	2001:500:9f::42
+c.root-servers.net.	602176	IN	A	192.33.4.12
+c.root-servers.net.	515275	IN	AAAA	2001:500:2::c
+m.root-servers.net.	48819	IN	A	202.12.27.33
+m.root-servers.net.	51423	IN	AAAA	2001:dc3::35
+i.root-servers.net.	169063	IN	A	192.36.148.17
+i.root-servers.net.	168610	IN	AAAA	2001:7fe::53
+
+;; Query time: 15 msec
+;; SERVER: 10.200.240.10#53(10.200.240.10)
+;; WHEN: dc. de nov. 11 17:13:29 CET 2020
+;; MSG SIZE  rcvd: 857
+
+[ism24416766@a21 ~]$ host -t MX google.com
+]777;preexec\google.com mail is handled by 50 alt4.aspmx.l.google.com.
+google.com mail is handled by 20 alt1.aspmx.l.google.com.
+google.com mail is handled by 10 aspmx.l.google.com.
+google.com mail is handled by 40 alt3.aspmx.l.google.com.
+google.com mail is handled by 30 alt2.aspmx.l.google.com.
+[ism24416766@a21 ~]$ host -a uoc.es
+Trying "uoc.es"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 47193
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 2, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;uoc.es.				IN	ANY
+
+;; ANSWER SECTION:
+uoc.es.			18923	IN	NS	nepal.uoc.es.
+uoc.es.			18923	IN	NS	tibet.uoc.es.
+uoc.es.			18923	IN	MX	10 smtp.uoc.edu.
+uoc.es.			18923	IN	SOA	tibet.uoc.es. root.tibet.uoc.es. 2020111000 28800 7200 604800 86400
+
+;; AUTHORITY SECTION:
+uoc.es.			18923	IN	NS	tibet.uoc.es.
+uoc.es.			18923	IN	NS	nepal.uoc.es.
+
+Received 161 bytes from 10.200.240.10#53 in 1 ms
+
+[ism24416766@a21 ~]$ ping www.google.es
+PING www.google.es (216.58.211.227) 56(84) bytes of data.
+64 bytes from mad01s24-in-f227.1e100.net (216.58.211.227): icmp_seq=1 ttl=113 time=11.8 ms
+64 bytes from mad01s24-in-f227.1e100.net (216.58.211.227): icmp_seq=2 ttl=113 time=10.5 ms
+64 bytes from mad01s24-in-f227.1e100.net (216.58.211.227): icmp_seq=3 ttl=113 time=11.0 ms
+64 bytes from mad01s24-in-f227.1e100.net (216.58.211.227): icmp_seq=4 ttl=113 time=10.9 ms
+64 bytes from mad01s24-in-f227.1e100.net (216.58.211.227): icmp_seq=5 ttl=113 time=10.9 ms
+64 bytes from mad01s24-in-f227.1e100.net (216.58.211.227): icmp_seq=6 ttl=113 time=10.9 ms
+64 bytes from mad01s24-in-f227.1e100.net (216.58.211.227): icmp_seq=7 ttl=113 time=10.4 ms
+64 bytes from mad01s24-in-f227.1e100.net (216.58.211.227): icmp_seq=8 ttl=113 time=11.6 ms
+^C
+--- www.google.es ping statistics ---
+8 packets transmitted, 8 received, 0% packet loss, time 7010ms
+rtt min/avg/max/mdev = 10.392/11.015/11.832/0.474 ms
+[ism24416766@a21 ~]$ traceroute www.google.es
+traceroute to www.google.es (216.58.211.227), 30 hops max, 60 byte packets
+ 1  _gateway (10.200.246.1)  3.631 ms  3.675 ms  3.631 ms
+ 2  10.200.150.1 (10.200.150.1)  8.995 ms  9.077 ms  9.038 ms
+ 3  10.10.1.4 (10.10.1.4)  0.406 ms  0.381 ms  0.348 ms
+ 4  185.red-80-58-67.staticip.rima-tde.net (80.58.67.185)  2.030 ms  1.700 ms  1.622 ms
+ 5  190.red-80-58-64.staticip.rima-tde.net (80.58.64.190)  11.753 ms 69.red-80-58-86.staticip.rima-tde.net (80.58.86.69)  10.614 ms 197.red-80-58-64.staticip.rima-tde.net (80.58.64.197)  11.631 ms
+ 6  * * *
+ 7  * * *
+ 8  176.52.253.97 (176.52.253.97)  10.818 ms  10.900 ms  10.852 ms
+ 9  72.14.211.154 (72.14.211.154)  10.959 ms  11.633 ms  11.304 ms
+10  * * *
+11  209.85.142.100 (209.85.142.100)  10.973 ms  10.561 ms  10.388 ms
+12  108.170.253.231 (108.170.253.231)  10.231 ms 108.170.253.248 (108.170.253.248)  11.135 ms 108.170.253.232 (108.170.253.232)  12.324 ms
+13  74.125.242.177 (74.125.242.177)  11.731 ms mad07s20-in-f3.1e100.net (216.58.211.227)  11.441 ms  11.791 ms
+[ism24416766@a21 ~]$ host 172.217.17.3
+3.17.217.172.in-addr.arpa domain name pointer mad07s09-in-f3.1e100.net.
+[ism24416766@a21 ~]$ dig +qr www.isc.org any -x 127.0.0.1 isc.org ns +noqr
+; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> +qr www.isc.org any -x 127.0.0.1 isc.org ns +noqr
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 54876
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 4, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;www.isc.org.			IN	ANY
+
+;; ANSWER SECTION:
+www.isc.org.		59	IN	CNAME	dualstack.osff2.map.fastly.net.
+www.isc.org.		59	IN	RRSIG	CNAME 13 3 60 20201127073941 20201028072421 27566 isc.org. RMpjpHTD4Qu43zNwblXUewN/XVEt83ogqmlz5dW/mP4Ei+kV+Ij2WSMx JJZ7fq7RagK/Fqf3ZSCC1fjpKX8rBg==
+
+;; AUTHORITY SECTION:
+isc.org.		4131	IN	NS	ns1.isc.org.
+isc.org.		4131	IN	NS	ns3.isc.org.
+isc.org.		4131	IN	NS	ns2.isc.org.
+isc.org.		4131	IN	NS	ns.isc.afilias-nst.info.
+
+;; Query time: 84 msec
+;; SERVER: 10.200.240.10#53(10.200.240.10)
+;; WHEN: dc. de nov. 11 17:15:36 CET 2020
+;; MSG SIZE  rcvd: 278
+
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 52217
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 3
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;1.0.0.127.in-addr.arpa.		IN	PTR
+
+;; ANSWER SECTION:
+1.0.0.127.in-addr.arpa.	86400	IN	PTR	localhost.
+
+;; AUTHORITY SECTION:
+1.0.0.127.in-addr.arpa.	86400	IN	NS	1.0.0.127.in-addr.arpa.
+
+;; ADDITIONAL SECTION:
+1.0.0.127.in-addr.arpa.	86400	IN	A	127.0.0.1
+1.0.0.127.in-addr.arpa.	86400	IN	AAAA	::1
+
+;; Query time: 0 msec
+;; SERVER: 10.200.240.10#53(10.200.240.10)
+;; WHEN: dc. de nov. 11 17:15:36 CET 2020
+;; MSG SIZE  rcvd: 132
+
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 29958
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;isc.org.			IN	NS
+
+;; ANSWER SECTION:
+isc.org.		4131	IN	NS	ns3.isc.org.
+isc.org.		4131	IN	NS	ns.isc.afilias-nst.info.
+isc.org.		4131	IN	NS	ns1.isc.org.
+isc.org.		4131	IN	NS	ns2.isc.org.
+
+;; Query time: 0 msec
+;; SERVER: 10.200.240.10#53(10.200.240.10)
+;; WHEN: dc. de nov. 11 17:15:36 CET 2020
+;; MSG SIZE  rcvd: 127
+
+[ism24416766@a21 ~]$ host www.google.com
+www.google.com has address 216.58.201.164
+www.google.com has IPv6 address 2a00:1450:4003:80a::2004
+[ism24416766@a21 ~]$ dig www.google.com
+; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> www.google.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 35945
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 13, ADDITIONAL: 27
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;www.google.com.			IN	A
+
+;; ANSWER SECTION:
+www.google.com.		204	IN	A	216.58.201.164
+
+;; AUTHORITY SECTION:
+.			497279	IN	NS	g.root-servers.net.
+.			497279	IN	NS	m.root-servers.net.
+.			497279	IN	NS	a.root-servers.net.
+.			497279	IN	NS	i.root-servers.net.
+.			497279	IN	NS	b.root-servers.net.
+.			497279	IN	NS	l.root-servers.net.
+.			497279	IN	NS	h.root-servers.net.
+.			497279	IN	NS	d.root-servers.net.
+.			497279	IN	NS	f.root-servers.net.
+.			497279	IN	NS	k.root-servers.net.
+.			497279	IN	NS	e.root-servers.net.
+.			497279	IN	NS	c.root-servers.net.
+.			497279	IN	NS	j.root-servers.net.
+
+;; ADDITIONAL SECTION:
+a.root-servers.net.	442949	IN	A	198.41.0.4
+a.root-servers.net.	442949	IN	AAAA	2001:503:ba3e::2:30
+h.root-servers.net.	52745	IN	A	198.97.190.53
+h.root-servers.net.	65812	IN	AAAA	2001:500:1::53
+k.root-servers.net.	169469	IN	A	193.0.14.129
+k.root-servers.net.	69218	IN	AAAA	2001:7fd::1
+g.root-servers.net.	52186	IN	A	192.112.36.4
+g.root-servers.net.	5871	IN	AAAA	2001:500:12::d0d
+f.root-servers.net.	169537	IN	A	192.5.5.241
+f.root-servers.net.	169369	IN	AAAA	2001:500:2f::f
+j.root-servers.net.	515148	IN	A	192.58.128.30
+j.root-servers.net.	515148	IN	AAAA	2001:503:c27::2:30
+d.root-servers.net.	52493	IN	A	199.7.91.13
+d.root-servers.net.	515148	IN	AAAA	2001:500:2d::d
+e.root-servers.net.	55687	IN	A	192.203.230.10
+e.root-servers.net.	81912	IN	AAAA	2001:500:a8::e
+b.root-servers.net.	49248	IN	A	199.9.14.201
+b.root-servers.net.	169511	IN	AAAA	2001:500:200::b
+l.root-servers.net.	602049	IN	A	199.7.83.42
+l.root-servers.net.	602049	IN	AAAA	2001:500:9f::42
+c.root-servers.net.	602049	IN	A	192.33.4.12
+c.root-servers.net.	515148	IN	AAAA	2001:500:2::c
+m.root-servers.net.	48692	IN	A	202.12.27.33
+m.root-servers.net.	51296	IN	AAAA	2001:dc3::35
+i.root-servers.net.	168936	IN	A	192.36.148.17
+i.root-servers.net.	168483	IN	AAAA	2001:7fe::53
+
+;; Query time: 0 msec
+;; SERVER: 10.200.240.10#53(10.200.240.10)
+;; WHEN: dc. de nov. 11 17:15:36 CET 2020
+;; MSG SIZE  rcvd: 842
+
+[ism24416766@a21 ~]$ dig +trace www.iana.org
+; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> +trace www.iana.org
+;; global options: +cmd
+.			497279	IN	NS	g.root-servers.net.
+.			497279	IN	NS	l.root-servers.net.
+.			497279	IN	NS	j.root-servers.net.
+.			497279	IN	NS	b.root-servers.net.
+.			497279	IN	NS	f.root-servers.net.
+.			497279	IN	NS	c.root-servers.net.
+.			497279	IN	NS	m.root-servers.net.
+.			497279	IN	NS	k.root-servers.net.
+.			497279	IN	NS	i.root-servers.net.
+.			497279	IN	NS	a.root-servers.net.
+.			497279	IN	NS	d.root-servers.net.
+.			497279	IN	NS	h.root-servers.net.
+.			497279	IN	NS	e.root-servers.net.
+;; Received 811 bytes from 10.200.240.10#53(10.200.240.10) in 0 ms
+
+org.			172800	IN	NS	b0.org.afilias-nst.org.
+org.			172800	IN	NS	a2.org.afilias-nst.info.
+org.			172800	IN	NS	c0.org.afilias-nst.info.
+org.			172800	IN	NS	d0.org.afilias-nst.org.
+org.			172800	IN	NS	a0.org.afilias-nst.info.
+org.			172800	IN	NS	b2.org.afilias-nst.org.
+org.			86400	IN	DS	26974 8 2 4FEDE294C53F438A158C41D39489CD78A86BEB0D8A0AEAFF14745C0D 16E1DE32
+org.			86400	IN	RRSIG	DS 8 1 86400 20201124050000 20201111040000 26116 . H0mNG5BDlLITSuTfbFu3D/8cgLWaEfrlHoEf87ZrFEN9AyqdbafnnwCr FBTZF4L3a4OkrI33DmzwSBClhjGQ/gs8JB2ro21xdhHdYYsfeki5Opn9 V7Jm8fbGkumibtGq/2x6euhE0Jj+VVv2IE7CmyXJKnFBuBWjUsIjGLiu 6iIATzEf7CgFHQI1kpjNgqP+jwuD1+9b4K8flOm2/SJYObz6QVJEEHmV GSbyzVs5oWHHA8RaG0Rawk5lFElaHCYNJvEh4F1XG+gxEZQFVWNy9tAi IXR2AimwlWnGdfeeVfnBCUlkrtwBW6fJqWY2qWGqXI8QkbSn6OJuk/uA 2jdrcw==
+;; Received 812 bytes from 192.36.148.17#53(i.root-servers.net) in 251 ms
+
+iana.org.		86400	IN	NS	a.iana-servers.net.
+iana.org.		86400	IN	NS	b.iana-servers.net.
+iana.org.		86400	IN	NS	c.iana-servers.net.
+iana.org.		86400	IN	NS	ns.icann.org.
+iana.org.		86400	IN	DS	6730 8 2 FCA03776FA33AB57369AAE8B089938F4001E208094362734242A7EBE 4DDB5755
+iana.org.		86400	IN	DS	14351 8 1 4C08C05754DDA7CCF62B41AC450873D271221CC3
+iana.org.		86400	IN	DS	14351 8 2 E1A0C92C0663202240FC3481F747D00901CD14E268B884A1142D7A47 5DB1A810
+iana.org.		86400	IN	DS	39817 8 1 4B2634F69EDD8D0741DA8629E2064B05E8138E51
+iana.org.		86400	IN	DS	39817 8 2 5FB72AE84C35A35DDF7FA24EA791CD9763C4360979C0CBB6FF2C407A F9AE5802
+iana.org.		86400	IN	DS	6730 8 1 15A1EE709E51C0652799D9CD364A37ACB8E67285
+iana.org.		86400	IN	RRSIG	DS 8 2 86400 20201130153222 20201109143222 63858 org. kieMclNLec3k+2SbsofDrIQ2piNfHoF4D3hYiWDQvATeykTEUuCbwU1b R+Coqcimu95XFn7NcQjBMLApoBA4IFx/sS9bplKhIOhKaFzq+pWED0oA 7COpv9mFZqjHTy4yvijKsap6GUKqs5yAevHUPW97GrdU2NOJVOJV9dKS 2Wc=
+;; Received 587 bytes from 199.19.53.1#53(c0.org.afilias-nst.info) in 149 ms
+
+www.iana.org.		3600	IN	CNAME	ianawww.vip.icann.org.
+www.iana.org.		3600	IN	RRSIG	CNAME 8 3 3600 20201202030932 20201110182956 32754 iana.org. l+6GW8LYFNv8yAmAucwcC8HXuApcC2IrGBHbFkO2zc05jsyOiFhtCHP5 V5xcRxwV2F8Xd40i1yX9DIOQlMVYo1Eta+xWX0RuDpIFfqFTVUtpww4j J00QeyX8y0sTgo03DzAdDuZFH1l7ZkPueWKkrkOqqlj/OXrE+pTNy5IK P7o=
+vip.icann.org.		3600	IN	NS	gtm1.mdr.icann.org.
+vip.icann.org.		3600	IN	NS	gtm1.lax.icann.org.
+vip.icann.org.		3600	IN	NS	gtm1.dc.icann.org.
+vip.icann.org.		300	IN	DS	45993 7 2 4CC8B6337DE03514442B3BBA6C0A77EFE88C06D625A2E4FB97593E8C 874D4260
+vip.icann.org.		300	IN	DS	45993 7 1 6B735CEE64033E192C40A5F33EF0825FD7A9B628
+vip.icann.org.		300	IN	RRSIG	DS 7 3 300 20201121031313 20201031024208 23205 icann.org. wRiKXZW4ynulD5+MCq1Ro8+SZmPuxqAEVL7MOluLH+ajDdn19rGPSHmR sq1XH2HhVMCxkX3yJOMDQx12Z+4aDGiD22uzgZJNplivervmNBRH7Sq4 hxnjlOkEyCb1IZv2PUg1UI+kfrYpBmE+mIRao39aFHwj6tolyDAa5Xwg G0o=
+;; Received 1708 bytes from 199.43.134.53#53(c.iana-servers.net) in 146 ms
+
+[ism24416766@a21 ~]$ dig +trace www.google.es
+; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> +trace www.google.es
+;; global options: +cmd
+.			497275	IN	NS	h.root-servers.net.
+.			497275	IN	NS	m.root-servers.net.
+.			497275	IN	NS	c.root-servers.net.
+.			497275	IN	NS	k.root-servers.net.
+.			497275	IN	NS	f.root-servers.net.
+.			497275	IN	NS	i.root-servers.net.
+.			497275	IN	NS	a.root-servers.net.
+.			497275	IN	NS	e.root-servers.net.
+.			497275	IN	NS	d.root-servers.net.
+.			497275	IN	NS	l.root-servers.net.
+.			497275	IN	NS	b.root-servers.net.
+.			497275	IN	NS	j.root-servers.net.
+.			497275	IN	NS	g.root-servers.net.
+;; Received 811 bytes from 10.200.240.10#53(10.200.240.10) in 0 ms
+
+es.			172800	IN	NS	g.nic.es.
+es.			172800	IN	NS	f.nic.es.
+es.			172800	IN	NS	ns1.cesca.es.
+es.			172800	IN	NS	ns-es.nic.fr.
+es.			172800	IN	NS	a.nic.es.
+es.			172800	IN	NS	ssdns-tld.nic.cl.
+es.			172800	IN	NS	h.nic.es.
+es.			86400	IN	DS	29450 8 2 8BEC32A2C9CFE42E393BAF81FFE71B521D3E940612A4590B4763ADC5 39E4B563
+es.			86400	IN	DS	50252 8 1 9BF0115B43A4EE8F7223FBF5B294D91CDEED2DBE
+es.			86400	IN	DS	50252 8 2 DD2B515DA6DBC0E826006E6AE02864C05825694A84B3E4E0E59918C7 8C1BC8EB
+es.			86400	IN	DS	29450 8 1 417BEAFB46ABF3430B75C5C29AEF785D476B60E1
+es.			86400	IN	RRSIG	DS 8 1 86400 20201124050000 20201111040000 26116 . w0CWPQCBpO67E8p4xCIcSml2e4FPY0Afpv2WDcV9dHo4wOXwIPI+jAdl DdsGJVaLZQXlFSYeOM/6w9UJsiqM5+HlGnreJjfBp0vQUlXZF5/wor1J mSTj9NPAFeUQ4TR9yDZDiYvymYxSf50h4aIMLjKVEvipUiU6dJPdvx7L APeNvXGe68Hr18VwalFvU/1psqiRHZyVp70lSfVhdNt3MtQTpkj9wh1x CEfGxmEISyLaXN5RopYbFMO+7Xyomm+sU7wveCl4r6VomDsS/AJJliDq AgluS3ARqvVM0jz8uwnm8txtXyNWgjXYPzySYJVp7PlEoat3Jektp4Up j2ryxg==
+;; Received 953 bytes from 202.12.27.33#53(m.root-servers.net) in 28 ms
+
+google.es.		86400	IN	NS	ns2.google.com.
+google.es.		86400	IN	NS	ns1.google.com.
+google.es.		86400	IN	NS	ns3.google.com.
+google.es.		86400	IN	NS	ns4.google.com.
+4ji57vl8gvpotmuj8mpespm4st9cdeue.es. 86400 IN NSEC3 1 1 5 B157FFB0EFEB5033 4JIIGPM2AQLQVFUHJ0R7767QQ659OR0F NS SOA RRSIG DNSKEY NSEC3PARAM
+4ji57vl8gvpotmuj8mpespm4st9cdeue.es. 86400 IN RRSIG NSEC3 8 2 86400 20201114220758 20201031160531 33814 es. Z/GD6LJ5ZQCK15gnt9wy0lCYVkZ9R7X1QVYw3bOJZU2X9XYjrfWJzseV kgpSO8VxyXnkJaxJDIJZaOizJyFiSv2o2eE/MVo1op/YAWZPsq+eSeMp X+7YwOYrl+nbi7PAynoNdPwgpHEi5kNyOWrzsf+W08tJZnz/s3Xg2UNo c/4=
+ns2rjk2hotu2cbql2skh95fca9ggjsu0.es. 86400 IN NSEC3 1 1 5 B157FFB0EFEB5033 NS4QPFNKSGDQUEV3IEKCQDH3J4L6PNHG NS DS RRSIG
+ns2rjk2hotu2cbql2skh95fca9ggjsu0.es. 86400 IN RRSIG NSEC3 8 2 86400 20201114233911 20201101000602 33814 es. QnpPQpIxWPexs3+waLPci4BZOMURXmZoZW4OeiBOx/+irdBoxfvJMXQR GZP4FvDc+nh0jwBQ/eTdrE5HxMdGToxIYlLOa7KSDQS2wTgzWP+n3KxA 2WtY3Ok0uFlcEZB1S78WPnBQ3g1CNbLfc7XP2n/QpLtdSbaKUgFb6+ep Amg=
+;; Received 651 bytes from 200.7.5.14#53(ssdns-tld.nic.cl) in 230 ms
+
+www.google.es.		300	IN	A	216.58.209.67
+;; Received 58 bytes from 216.239.34.10#53(ns2.google.com) in 43 ms
+
+[ism24416766@a21 ~]$ dig -x 216.34.181.60
+; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> -x 216.34.181.60
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 57198
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 13, ADDITIONAL: 27
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;60.181.34.216.in-addr.arpa.	IN	PTR
+
+;; ANSWER SECTION:
+60.181.34.216.in-addr.arpa. 954	IN	PTR	ch3.sourceforge.net.
+
+;; AUTHORITY SECTION:
+.			497272	IN	NS	c.root-servers.net.
+.			497272	IN	NS	b.root-servers.net.
+.			497272	IN	NS	m.root-servers.net.
+.			497272	IN	NS	g.root-servers.net.
+.			497272	IN	NS	j.root-servers.net.
+.			497272	IN	NS	l.root-servers.net.
+.			497272	IN	NS	h.root-servers.net.
+.			497272	IN	NS	k.root-servers.net.
+.			497272	IN	NS	d.root-servers.net.
+.			497272	IN	NS	f.root-servers.net.
+.			497272	IN	NS	i.root-servers.net.
+.			497272	IN	NS	a.root-servers.net.
+.			497272	IN	NS	e.root-servers.net.
+
+;; ADDITIONAL SECTION:
+a.root-servers.net.	442942	IN	A	198.41.0.4
+a.root-servers.net.	442942	IN	AAAA	2001:503:ba3e::2:30
+h.root-servers.net.	52738	IN	A	198.97.190.53
+h.root-servers.net.	65805	IN	AAAA	2001:500:1::53
+k.root-servers.net.	169462	IN	A	193.0.14.129
+k.root-servers.net.	69211	IN	AAAA	2001:7fd::1
+g.root-servers.net.	52179	IN	A	192.112.36.4
+g.root-servers.net.	5864	IN	AAAA	2001:500:12::d0d
+f.root-servers.net.	169530	IN	A	192.5.5.241
+f.root-servers.net.	169362	IN	AAAA	2001:500:2f::f
+j.root-servers.net.	515141	IN	A	192.58.128.30
+j.root-servers.net.	515141	IN	AAAA	2001:503:c27::2:30
+d.root-servers.net.	52486	IN	A	199.7.91.13
+d.root-servers.net.	515141	IN	AAAA	2001:500:2d::d
+e.root-servers.net.	55680	IN	A	192.203.230.10
+e.root-servers.net.	81905	IN	AAAA	2001:500:a8::e
+b.root-servers.net.	49241	IN	A	199.9.14.201
+b.root-servers.net.	169504	IN	AAAA	2001:500:200::b
+l.root-servers.net.	602042	IN	A	199.7.83.42
+l.root-servers.net.	602042	IN	AAAA	2001:500:9f::42
+c.root-servers.net.	602042	IN	A	192.33.4.12
+c.root-servers.net.	515141	IN	AAAA	2001:500:2::c
+m.root-servers.net.	48685	IN	A	202.12.27.33
+m.root-servers.net.	51289	IN	AAAA	2001:dc3::35
+i.root-servers.net.	168929	IN	A	192.36.148.17
+i.root-servers.net.	168476	IN	AAAA	2001:7fe::53
+
+;; Query time: 1 msec
+;; SERVER: 10.200.240.10#53(10.200.240.10)
+;; WHEN: dc. de nov. 11 17:15:43 CET 2020
+;; MSG SIZE  rcvd: 868
+
+[ism24416766@a21 ~]$ dig linux.org any
+; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> linux.org any
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 55088
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 13, ADDITIONAL: 27
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;linux.org.			IN	ANY
+
+;; ANSWER SECTION:
+linux.org.		1271	IN	HINFO	"RFC8482" ""
+
+;; AUTHORITY SECTION:
+.			497272	IN	NS	i.root-servers.net.
+.			497272	IN	NS	g.root-servers.net.
+.			497272	IN	NS	k.root-servers.net.
+.			497272	IN	NS	e.root-servers.net.
+.			497272	IN	NS	b.root-servers.net.
+.			497272	IN	NS	c.root-servers.net.
+.			497272	IN	NS	a.root-servers.net.
+.			497272	IN	NS	l.root-servers.net.
+.			497272	IN	NS	f.root-servers.net.
+.			497272	IN	NS	m.root-servers.net.
+.			497272	IN	NS	j.root-servers.net.
+.			497272	IN	NS	h.root-servers.net.
+.			497272	IN	NS	d.root-servers.net.
+
+;; ADDITIONAL SECTION:
+a.root-servers.net.	442942	IN	A	198.41.0.4
+a.root-servers.net.	442942	IN	AAAA	2001:503:ba3e::2:30
+h.root-servers.net.	52738	IN	A	198.97.190.53
+h.root-servers.net.	65805	IN	AAAA	2001:500:1::53
+k.root-servers.net.	169462	IN	A	193.0.14.129
+k.root-servers.net.	69211	IN	AAAA	2001:7fd::1
+g.root-servers.net.	52179	IN	A	192.112.36.4
+g.root-servers.net.	5864	IN	AAAA	2001:500:12::d0d
+f.root-servers.net.	169530	IN	A	192.5.5.241
+f.root-servers.net.	169362	IN	AAAA	2001:500:2f::f
+j.root-servers.net.	515141	IN	A	192.58.128.30
+j.root-servers.net.	515141	IN	AAAA	2001:503:c27::2:30
+d.root-servers.net.	52486	IN	A	199.7.91.13
+d.root-servers.net.	515141	IN	AAAA	2001:500:2d::d
+e.root-servers.net.	55680	IN	A	192.203.230.10
+e.root-servers.net.	81905	IN	AAAA	2001:500:a8::e
+b.root-servers.net.	49241	IN	A	199.9.14.201
+b.root-servers.net.	169504	IN	AAAA	2001:500:200::b
+l.root-servers.net.	602042	IN	A	199.7.83.42
+l.root-servers.net.	602042	IN	AAAA	2001:500:9f::42
+c.root-servers.net.	602042	IN	A	192.33.4.12
+c.root-servers.net.	515141	IN	AAAA	2001:500:2::c
+m.root-servers.net.	48685	IN	A	202.12.27.33
+m.root-servers.net.	51289	IN	AAAA	2001:dc3::35
+i.root-servers.net.	168929	IN	A	192.36.148.17
+i.root-servers.net.	168476	IN	AAAA	2001:7fe::53
+
+;; Query time: 1 msec
+;; SERVER: 10.200.240.10#53(10.200.240.10)
+;; WHEN: dc. de nov. 11 17:15:43 CET 2020
+;; MSG SIZE  rcvd: 842
+
+[ism24416766@a21 ~]$ nslookup www.google.es
+Server:		10.200.240.10
+Address:	10.200.240.10#53
+
+Non-authoritative answer:
+Name:	www.google.es
+Address: 216.58.211.227
+Name:	www.google.es
+Address: 2a00:1450:4003:80b::2003
+
+[ism24416766@a21 ~]$ nslookup -type=any www.google.es
+\Server:		10.200.240.10
+Address:	10.200.240.10#53
+
+Non-authoritative answer:
+Name:	www.google.es
+Address: 2a00:1450:4003:80b::2003
+
+Authoritative answers can be found from:
+.	nameserver = h.root-servers.net.
+.	nameserver = j.root-servers.net.
+.	nameserver = e.root-servers.net.
+.	nameserver = l.root-servers.net.
+.	nameserver = f.root-servers.net.
+.	nameserver = m.root-servers.net.
+.	nameserver = a.root-servers.net.
+.	nameserver = d.root-servers.net.
+.	nameserver = b.root-servers.net.
+.	nameserver = i.root-servers.net.
+.	nameserver = c.root-servers.net.
+.	nameserver = g.root-servers.net.
+.	nameserver = k.root-servers.net.
+a.root-servers.net	internet address = 198.41.0.4
+a.root-servers.net	has AAAA address 2001:503:ba3e::2:30
+h.root-servers.net	internet address = 198.97.190.53
+h.root-servers.net	has AAAA address 2001:500:1::53
+k.root-servers.net	internet address = 193.0.14.129
+k.root-servers.net	has AAAA address 2001:7fd::1
+g.root-servers.net	internet address = 192.112.36.4
+g.root-servers.net	has AAAA address 2001:500:12::d0d
+f.root-servers.net	internet address = 192.5.5.241
+f.root-servers.net	has AAAA address 2001:500:2f::f
+j.root-servers.net	internet address = 192.58.128.30
+j.root-servers.net	has AAAA address 2001:503:c27::2:30
+d.root-servers.net	internet address = 199.7.91.13
+d.root-servers.net	has AAAA address 2001:500:2d::d
+e.root-servers.net	internet address = 192.203.230.10
+e.root-servers.net	has AAAA address 2001:500:a8::e
+b.root-servers.net	internet address = 199.9.14.201
+b.root-servers.net	has AAAA address 2001:500:200::b
+l.root-servers.net	internet address = 199.7.83.42
+l.root-servers.net	has AAAA address 2001:500:9f::42
+c.root-servers.net	internet address = 192.33.4.12
+c.root-servers.net	has AAAA address 2001:500:2::c
+m.root-servers.net	internet address = 202.12.27.33
+m.root-servers.net	has AAAA address 2001:dc3::35
+i.root-servers.net	internet address = 192.36.148.17
+i.root-servers.net	has AAAA address 2001:7fe::53
+
+]777;notify;Command completed;nslookup -type=any www.google.es\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ nslookup -type=any www.google.esnslookup -querytype=A www.google.esnslookup -class=IN www.google.esnslookup -type=any www.google.es
+]777;preexec\Server:		10.200.240.10
+Address:	10.200.240.10#53
+
+Non-authoritative answer:
+Name:	www.google.es
+Address: 216.58.201.163
+Name:	www.google.es
+Address: 2a00:1450:4003:80b::2003
+
+Authoritative answers can be found from:
+.	nameserver = g.root-servers.net.
+.	nameserver = b.root-servers.net.
+.	nameserver = m.root-servers.net.
+.	nameserver = a.root-servers.net.
+.	nameserver = h.root-servers.net.
+.	nameserver = d.root-servers.net.
+.	nameserver = i.root-servers.net.
+.	nameserver = k.root-servers.net.
+.	nameserver = f.root-servers.net.
+.	nameserver = e.root-servers.net.
+.	nameserver = c.root-servers.net.
+.	nameserver = l.root-servers.net.
+.	nameserver = j.root-servers.net.
+a.root-servers.net	internet address = 198.41.0.4
+a.root-servers.net	has AAAA address 2001:503:ba3e::2:30
+h.root-servers.net	internet address = 198.97.190.53
+h.root-servers.net	has AAAA address 2001:500:1::53
+k.root-servers.net	internet address = 193.0.14.129
+k.root-servers.net	has AAAA address 2001:7fd::1
+g.root-servers.net	internet address = 192.112.36.4
+g.root-servers.net	has AAAA address 2001:500:12::d0d
+f.root-servers.net	internet address = 192.5.5.241
+f.root-servers.net	has AAAA address 2001:500:2f::f
+j.root-servers.net	internet address = 192.58.128.30
+j.root-servers.net	has AAAA address 2001:503:c27::2:30
+d.root-servers.net	internet address = 199.7.91.13
+d.root-servers.net	has AAAA address 2001:500:2d::d
+e.root-servers.net	internet address = 192.203.230.10
+e.root-servers.net	has AAAA address 2001:500:a8::e
+b.root-servers.net	internet address = 199.9.14.201
+b.root-servers.net	has AAAA address 2001:500:200::b
+l.root-servers.net	internet address = 199.7.83.42
+l.root-servers.net	has AAAA address 2001:500:9f::42
+c.root-servers.net	internet address = 192.33.4.12
+c.root-servers.net	has AAAA address 2001:500:2::c
+m.root-servers.net	internet address = 202.12.27.33
+m.root-servers.net	has AAAA address 2001:dc3::35
+i.root-servers.net	internet address = 192.36.148.17
+i.root-servers.net	has AAAA address 2001:7fe::53
+
+[ism24416766@a21 ~]$ nslookup -querytype=A www.google.es
+\Server:		10.200.240.10
+Address:	10.200.240.10#53
+
+Non-authoritative answer:
+Name:	www.google.es
+Address: 216.58.201.163
+
+[ism24416766@a21 ~]$ nslookup -class=IN www.google.es
+Server:		10.200.240.10
+Address:	10.200.240.10#53
+
+Non-authoritative answer:
+Name:	www.google.es
+Address: 216.58.201.163
+Name:	www.google.es
+Address: 2a00:1450:4003:80b::2003
+
+[ism24416766@a21 ~]$ man nslookupman nslookup
+[ism24416766@a21 ~]$ dig www.lavanguardia.es
+
+; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> www.lavanguardia.es
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 21185
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 13, ADDITIONAL: 27
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;www.lavanguardia.es.		IN	A
+
+;; ANSWER SECTION:
+www.lavanguardia.es.	1455	IN	CNAME	ggcpvlhttpd.ggcdns.com.
+ggcpvlhttpd.ggcdns.com.	29	IN	A	213.4.81.211
+
+;; AUTHORITY SECTION:
+.			497145	IN	NS	b.root-servers.net.
+.			497145	IN	NS	i.root-servers.net.
+.			497145	IN	NS	f.root-servers.net.
+.			497145	IN	NS	g.root-servers.net.
+.			497145	IN	NS	k.root-servers.net.
+.			497145	IN	NS	d.root-servers.net.
+.			497145	IN	NS	m.root-servers.net.
+.			497145	IN	NS	c.root-servers.net.
+.			497145	IN	NS	j.root-servers.net.
+.			497145	IN	NS	l.root-servers.net.
+.			497145	IN	NS	e.root-servers.net.
+.			497145	IN	NS	a.root-servers.net.
+.			497145	IN	NS	h.root-servers.net.
+
+;; ADDITIONAL SECTION:
+a.root-servers.net.	442815	IN	A	198.41.0.4
+a.root-servers.net.	442815	IN	AAAA	2001:503:ba3e::2:30
+h.root-servers.net.	52611	IN	A	198.97.190.53
+h.root-servers.net.	65678	IN	AAAA	2001:500:1::53
+k.root-servers.net.	169335	IN	A	193.0.14.129
+k.root-servers.net.	69084	IN	AAAA	2001:7fd::1
+g.root-servers.net.	52052	IN	A	192.112.36.4
+g.root-servers.net.	5737	IN	AAAA	2001:500:12::d0d
+f.root-servers.net.	169403	IN	A	192.5.5.241
+f.root-servers.net.	169235	IN	AAAA	2001:500:2f::f
+j.root-servers.net.	515014	IN	A	192.58.128.30
+j.root-servers.net.	515014	IN	AAAA	2001:503:c27::2:30
+d.root-servers.net.	52359	IN	A	199.7.91.13
+d.root-servers.net.	515014	IN	AAAA	2001:500:2d::d
+e.root-servers.net.	55553	IN	A	192.203.230.10
+e.root-servers.net.	81778	IN	AAAA	2001:500:a8::e
+b.root-servers.net.	49114	IN	A	199.9.14.201
+b.root-servers.net.	169377	IN	AAAA	2001:500:200::b
+l.root-servers.net.	601915	IN	A	199.7.83.42
+l.root-servers.net.	601915	IN	AAAA	2001:500:9f::42
+c.root-servers.net.	601915	IN	A	192.33.4.12
+c.root-servers.net.	515014	IN	AAAA	2001:500:2::c
+.root-servers.net.	48558	IN	A	202.12.27.33
+m.root-servers.net.	51162	IN	AAAA	2001:dc3::35
+i.root-servers.net.	168802	IN	A	192.36.148.17
+i.root-servers.net.	168349	IN	AAAA	2001:7fe::53
+
+;; Query time: 56 msec
+;; SERVER: 10.200.240.10#53(10.200.240.10)
+;; WHEN: dc. de nov. 11 17:17:50 CET 2020
+;; MSG SIZE  rcvd: 883
+
+[ism24416766@a21 ~]$ dig -x 88.87.219.211
+; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> -x 88.87.219.211
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 40935
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 13, ADDITIONAL: 27
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;211.219.87.88.in-addr.arpa.	IN	PTR
+
+;; ANSWER SECTION:
+211.219.87.88.in-addr.arpa. 84320 IN	PTR	211.grupogodo.com.
+
+;; AUTHORITY SECTION:
+.			497145	IN	NS	a.root-servers.net.
+.			497145	IN	NS	m.root-servers.net.
+.			497145	IN	NS	k.root-servers.net.
+.			497145	IN	NS	f.root-servers.net.
+.			497145	IN	NS	h.root-servers.net.
+.			497145	IN	NS	i.root-servers.net.
+.			497145	IN	NS	l.root-servers.net.
+.			497145	IN	NS	d.root-servers.net.
+.			497145	IN	NS	b.root-servers.net.
+.			497145	IN	NS	g.root-servers.net.
+.			497145	IN	NS	c.root-servers.net.
+.			497145	IN	NS	j.root-servers.net.
+.			497145	IN	NS	e.root-servers.net.
+
+;; ADDITIONAL SECTION:
+a.root-servers.net.	442815	IN	A	198.41.0.4
+a.root-servers.net.	442815	IN	AAAA	2001:503:ba3e::2:30
+h.root-servers.net.	52611	IN	A	198.97.190.53
+h.root-servers.net.	65678	IN	AAAA	2001:500:1::53
+k.root-servers.net.	169335	IN	A	193.0.14.129
+k.root-servers.net.	69084	IN	AAAA	2001:7fd::1
+g.root-servers.net.	52052	IN	A	192.112.36.4
+g.root-servers.net.	5737	IN	AAAA	2001:500:12::d0d
+f.root-servers.net.	169403	IN	A	192.5.5.241
+f.root-servers.net.	169235	IN	AAAA	2001:500:2f::f
+j.root-servers.net.	515014	IN	A	192.58.128.30
+j.root-servers.net.	515014	IN	AAAA	2001:503:c27::2:30
+d.root-servers.net.	52359	IN	A	199.7.91.13
+d.root-servers.net.	515014	IN	AAAA	2001:500:2d::d
+e.root-servers.net.	55553	IN	A	192.203.230.10
+e.root-servers.net.	81778	IN	AAAA	2001:500:a8::e
+b.root-servers.net.	49114	IN	A	199.9.14.201
+b.root-servers.net.	169377	IN	AAAA	2001:500:200::b
+l.root-servers.net.	601915	IN	A	199.7.83.42
+l.root-servers.net.	601915	IN	AAAA	2001:500:9f::42
+c.root-servers.net.	601915	IN	A	192.33.4.12
+c.root-servers.net.	515014	IN	AAAA	2001:500:2::c
+m.root-servers.net.	48558	IN	A	202.12.27.33
+m.root-servers.net.	51162	IN	AAAA	2001:dc3::35
+i.root-servers.net.	168802	IN	A	192.36.148.17
+i.root-servers.net.	168349	IN	AAAA	2001:7fe::53
+
+;; Query time: 0 msec
+;; SERVER: 10.200.240.10#53(10.200.240.10)
+;; WHEN: dc. de nov. 11 17:17:50 CET 2020
+;; MSG SIZE  rcvd: 869
+
+[ism24416766@a21 ~]$ dig +trace www.lavanguardia.es
+; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> +trace www.lavanguardia.es
+;; global options: +cmd
+.			497145	IN	NS	c.root-servers.net.
+.			497145	IN	NS	m.root-servers.net.
+.			497145	IN	NS	g.root-servers.net.
+.			497145	IN	NS	a.root-servers.net.
+.			497145	IN	NS	j.root-servers.net.
+.			497145	IN	NS	e.root-servers.net.
+.			497145	IN	NS	k.root-servers.net.
+.			497145	IN	NS	d.root-servers.net.
+.			497145	IN	NS	h.root-servers.net.
+.			497145	IN	NS	b.root-servers.net.
+.			497145	IN	NS	l.root-servers.net.
+.			497145	IN	NS	f.root-servers.net.
+.			497145	IN	NS	i.root-servers.net.
+;; Received 811 bytes from 10.200.240.10#53(10.200.240.10) in 0 ms
+
+es.			172800	IN	NS	h.nic.es.
+es.			172800	IN	NS	g.nic.es.
+es.			172800	IN	NS	ns-es.nic.fr.
+es.			172800	IN	NS	f.nic.es.
+es.			172800	IN	NS	a.nic.es.
+es.			172800	IN	NS	ns1.cesca.es.
+es.			172800	IN	NS	ssdns-tld.nic.cl.
+es.			86400	IN	DS	50252 8 1 9BF0115B43A4EE8F7223FBF5B294D91CDEED2DBE
+es.			86400	IN	DS	50252 8 2 DD2B515DA6DBC0E826006E6AE02864C05825694A84B3E4E0E59918C7 8C1BC8EB
+es.			86400	IN	DS	29450 8 1 417BEAFB46ABF3430B75C5C29AEF785D476B60E1
+es.			86400	IN	DS	29450 8 2 8BEC32A2C9CFE42E393BAF81FFE71B521D3E940612A4590B4763ADC5 39E4B563
+es.			86400	IN	RRSIG	DS 8 1 86400 20201124050000 20201111040000 26116 . w0CWPQCBpO67E8p4xCIcSml2e4FPY0Afpv2WDcV9dHo4wOXwIPI+jAdl DdsGJVaLZQXlFSYeOM/6w9UJsiqM5+HlGnreJjfBp0vQUlXZF5/wor1J mSTj9NPAFeUQ4TR9yDZDiYvymYxSf50h4aIMLjKVEvipUiU6dJPdvx7L APeNvXGe68Hr18VwalFvU/1psqiRHZyVp70lSfVhdNt3MtQTpkj9wh1x CEfGxmEISyLaXN5RopYbFMO+7Xyomm+sU7wveCl4r6VomDsS/AJJliDq AgluS3ARqvVM0jz8uwnm8txtXyNWgjXYPzySYJVp7PlEoat3Jektp4Up j2ryxg==
+;; Received 987 bytes from 199.9.14.201#53(b.root-servers.net) in 30 ms
+
+lavanguardia.es.	86400	IN	NS	dns03.grupogodo.com.
+lavanguardia.es.	86400	IN	NS	dns01.grupogodo.com.
+lavanguardia.es.	86400	IN	NS	dns02.grupogodo.com.
+4ji57vl8gvpotmuj8mpespm4st9cdeue.es. 86400 IN NSEC3 1 1 5 B157FFB0EFEB5033 4JIIGPM2AQLQVFUHJ0R7767QQ659OR0F NS SOA RRSIG DNSKEY NSEC3PARAM
+4ji57vl8gvpotmuj8mpespm4st9cdeue.es. 86400 IN RRSIG NSEC3 8 2 86400 20201114220758 20201031160531 33814 es. Z/GD6LJ5ZQCK15gnt9wy0lCYVkZ9R7X1QVYw3bOJZU2X9XYjrfWJzseV kgpSO8VxyXnkJaxJDIJZaOizJyFiSv2o2eE/MVo1op/YAWZPsq+eSeMp X+7YwOYrl+nbi7PAynoNdPwgpHEi5kNyOWrzsf+W08tJZnz/s3Xg2UNo c/4=
+pdq98me6ia13t0ej39l2dmp0utjb94gu.es. 86400 IN NSEC3 1 1 5 B157FFB0EFEB5033 PDT6QHQ672MPPBCSL0CF1RFAROVR8ED4 NS DS RRSIG
+pdq98me6ia13t0ej39l2dmp0utjb94gu.es. 86400 IN RRSIG NSEC3 8 2 86400 20201114233200 20201101000602 33814 es. FtWboBI/KQS0SlqAQzH+QVv+yrFHgPrKQtkuB8cN2LC0brmFiayUtyZl FlIuvZ93YtpW++gFS+VLjn0hFohHz/890g8Sk3yySScriXFOpnheOmFN B5FaIhzdlE+9cMUpvHbw0LjG2tC5H/C4N7DX6Qx3cWjnYKswpsfrZEAo ZVM=
+;; Received 620 bytes from 194.69.254.1#53(a.nic.es) in 22 ms
+
+www.lavanguardia.es.	3600	IN	CNAME	ggcpvlhttpd.ggcdns.com.
+;; Received 112 bytes from 88.87.219.254#53(dns01.grupogodo.com) in 32 ms
+
+[ism24416766@a21 ~]$ dig +qr www.isc.org any -x
+Invalid option: -x
+Usage:  dig [@global-server] [domain] [q-type] [q-class] {q-opt}
+            {global-d-opt} host [@local-server] {local-d-opt}
+            [ host [@local-server] {local-d-opt} [...]]
+
+Use "dig -h" (or "dig -h | more") for complete list of options
+[ism24416766@a21 ~]$  127.0.0.1 isc.org ns +noqr
+bash: 127.0.0.1: command not found...
+[ism24416766@a21 ~]$ host www.gmail.com
+www.gmail.com is an alias for mail.google.com.
+mail.google.com is an alias for googlemail.l.google.com.
+googlemail.l.google.com has address 172.217.17.5
+googlemail.l.google.com has IPv6 address 2a00:1450:4003:809::2005
+[ism24416766@a21 ~]$ nslookup www.steam.com
+Server:		10.200.240.10
+Address:	10.200.240.10#53
+
+** server can't find www.steam.com: NXDOMAIN
+
+[ism24416766@a21 ~]$ nslookup https://steamcommunity.com
+]777;preexec\Server:		10.200.240.10
+Address:	10.200.240.10#53
+
+** server can't find https://steamcommunity.com: NXDOMAIN
+
+]777;notify;Command completed;nslookup https://steamcommunity.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ nslookup www.google.comdig https://steamcommunity.comhost https://steamcommunity.comhost http:/www.lavanguardia.comnmap www.escoladeltreball.orgdig www.escoladeltreball.orgnslookup www.escoladeltreball.orgnslookup www.google.com
+]777;preexec\Server:		10.200.240.10
+Address:	10.200.240.10#53
+
+Non-authoritative answer:
+Name:	www.google.com
+Address: 216.58.201.164
+Name:	www.google.com
+Address: 2a00:1450:4003:80a::2004
+
+]777;notify;Command completed;nslookup www.google.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;nslookup www.google.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ dig https://steamcommunity.com
+]777;preexec\
+; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> https://steamcommunity.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 38076
+;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;https://steamcommunity.com.	IN	A
+
+;; AUTHORITY SECTION:
+com.			731	IN	SOA	a.gtld-servers.net. nstld.verisign-grs.com. 1605111307 1800 900 604800 86400
+
+;; Query time: 0 msec
+;; SERVER: 10.200.240.10#53(10.200.240.10)
+;; WHEN: dc. de nov. 11 17:18:25 CET 2020
+;; MSG SIZE  rcvd: 128
+
+]777;notify;Command completed;dig https://steamcommunity.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;dig https://steamcommunity.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host https://steamcommunity.com
+]777;preexec\Host https://steamcommunity.com not found: 3(NXDOMAIN)
+]777;notify;Command completed;host https://steamcommunity.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;host https://steamcommunity.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host http:/www.lavanguardia.com
+]777;preexec\Host http:/www.lavanguardia.com not found: 3(NXDOMAIN)
+]777;notify;Command completed;host http:/www.lavanguardia.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;host http:/www.lavanguardia.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ nmap www.escoladeltreball.org
+]777;preexec\Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-11 17:18 CET
+Stats: 0:00:00 elapsed; 0 hosts completed (0 up), 1 undergoing Ping Scan
+Ping Scan Timing: About 100.00% done; ETC: 17:18 (0:00:00 remaining)
+Nmap scan report for www.escoladeltreball.org (10.1.1.8)
+Host is up (0.00027s latency).
+Not shown: 996 closed ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+80/tcp  open  http
+111/tcp open  rpcbind
+443/tcp open  https
+
+Nmap done: 1 IP address (1 host up) scanned in 0.11 seconds
+]777;notify;Command completed;nmap www.escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ dig www.escoladeltreball.orgnslookup www.escoladeltreball.orgnslookup 85.192.81.129dig www.escoladeltreball.org
+]777;preexec\
+; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> www.escoladeltreball.org
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 41596
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 2
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;www.escoladeltreball.org.	IN	A
+
+;; ANSWER SECTION:
+www.escoladeltreball.org. 2609	IN	A	10.1.1.8
+
+;; AUTHORITY SECTION:
+escoladeltreball.org.	2528	IN	NS	escoladeltreball.org.
+
+;; ADDITIONAL SECTION:
+escoladeltreball.org.	3029	IN	A	10.1.1.8
+
+;; Query time: 0 msec
+;; SERVER: 10.200.240.10#53(10.200.240.10)
+;; WHEN: dc. de nov. 11 17:18:42 CET 2020
+;; MSG SIZE  rcvd: 99
+
+]777;notify;Command completed;dig www.escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;dig www.escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ nslookup www.escoladeltreball.org
+]777;preexec\Server:		10.200.240.10
+Address:	10.200.240.10#53
+
+Non-authoritative answer:
+Name:	www.escoladeltreball.org
+Address: 10.1.1.8
+
+]777;notify;Command completed;nslookup www.escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;nslookup www.escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ nslookup 85.192.81.129
+]777;preexec\129.81.192.85.in-addr.arpa	name = iesescoladeltreball.xtec.cat.
+
+Authoritative answers can be found from:
+.	nameserver = h.root-servers.net.
+.	nameserver = f.root-servers.net.
+.	nameserver = i.root-servers.net.
+.	nameserver = c.root-servers.net.
+.	nameserver = e.root-servers.net.
+.	nameserver = j.root-servers.net.
+.	nameserver = a.root-servers.net.
+.	nameserver = g.root-servers.net.
+.	nameserver = d.root-servers.net.
+.	nameserver = b.root-servers.net.
+.	nameserver = m.root-servers.net.
+.	nameserver = l.root-servers.net.
+.	nameserver = k.root-servers.net.
+a.root-servers.net	internet address = 198.41.0.4
+a.root-servers.net	has AAAA address 2001:503:ba3e::2:30
+h.root-servers.net	internet address = 198.97.190.53
+h.root-servers.net	has AAAA address 2001:500:1::53
+k.root-servers.net	internet address = 193.0.14.129
+k.root-servers.net	has AAAA address 2001:7fd::1
+g.root-servers.net	internet address = 192.112.36.4
+g.root-servers.net	has AAAA address 2001:500:12::d0d
+f.root-servers.net	internet address = 192.5.5.241
+
+]777;notify;Command completed;nslookup 85.192.81.129\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ drill escoladeltreball.orgdig escoladeltreball.orghost escoladeltreball.orghost -a escoladeltreball.orghost -vt NS ioc.cathost dns1.nominalia.comhost 81.88.63.48host alt2.aspmx.l.google.comhost 74.125.24.27nslookup 212.82.100.151dig @ns0.aitcom.net linux.org anydrill escoladeltreball.org
+]777;preexec\bash: drill: command not found...
+Packages providing this file are:
+'drill'
+'ldns-utils'
+]777;notify;Command completed;drill escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;drill escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ dig escoladeltreball.org
+]777;preexec\
+; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> escoladeltreball.org
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 25465
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;escoladeltreball.org.		IN	A
+
+;; ANSWER SECTION:
+escoladeltreball.org.	2993	IN	A	10.1.1.8
+
+;; AUTHORITY SECTION:
+escoladeltreball.org.	2492	IN	NS	escoladeltreball.org.
+
+;; Query time: 0 msec
+;; SERVER: 10.200.240.10#53(10.200.240.10)
+;; WHEN: dc. de nov. 11 17:19:18 CET 2020
+;; MSG SIZE  rcvd: 79
+
+]777;notify;Command completed;dig escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;dig escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host escoladeltreball.org
+]777;preexec\escoladeltreball.org has address 10.1.1.8
+]777;notify;Command completed;host escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;host escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host -a escoladeltreball.org
+]777;preexec\Trying "escoladeltreball.org"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 35953
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 1, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;escoladeltreball.org.		IN	ANY
+
+;; ANSWER SECTION:
+escoladeltreball.org.	2993	IN	A	10.1.1.8
+escoladeltreball.org.	2492	IN	NS	escoladeltreball.org.
+
+;; AUTHORITY SECTION:
+escoladeltreball.org.	2492	IN	NS	escoladeltreball.org.
+
+Received 82 bytes from 10.200.240.10#53 in 0 ms
+]777;notify;Command completed;host -a escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;host -a escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host -vt NS ioc.cat
+]777;preexec\Trying "ioc.cat"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 17060
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 2
+
+;; QUESTION SECTION:
+;ioc.cat.			IN	NS
+
+;; ANSWER SECTION:
+ioc.cat.		900	IN	NS	dns2.nominalia.com.
+ioc.cat.		900	IN	NS	dns1.nominalia.com.
+
+;; ADDITIONAL SECTION:
+dns1.nominalia.com.	66	IN	A	81.88.57.102
+dns2.nominalia.com.	3161	IN	A	81.88.63.48
+
+Received 108 bytes from 10.200.240.10#53 in 56 ms
+]777;notify;Command completed;host -vt NS ioc.cat\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;host -vt NS ioc.cat\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host dns1.nominalia.com
+]777;preexec\dns1.nominalia.com has address 81.88.57.102
+dns1.nominalia.com mail is handled by 10 freedom.nominalia.com.
+]777;notify;Command completed;host dns1.nominalia.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;host dns1.nominalia.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host 81.88.63.48
+]777;preexec\48.63.88.81.in-addr.arpa domain name pointer dns2.nominalia.com.
+]777;notify;Command completed;host 81.88.63.48\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;host 81.88.63.48\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host alt2.aspmx.l.google.com
+]777;preexec\alt2.aspmx.l.google.com has address 172.253.118.26
+alt2.aspmx.l.google.com has IPv6 address 2404:6800:4003:c05::1a
+]777;notify;Command completed;host alt2.aspmx.l.google.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;host alt2.aspmx.l.google.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host 74.125.24.27
+]777;preexec\Host 27.24.125.74.in-addr.arpa. not found: 3(NXDOMAIN)
+]777;notify;Command completed;host 74.125.24.27\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;host 74.125.24.27\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ nslookup 212.82.100.151
+]777;preexec\151.100.82.212.in-addr.arpa	name = w2.src1.vip.ir2.yahoo.com.
+
+Authoritative answers can be found from:
+.	nameserver = g.root-servers.net.
+.	nameserver = c.root-servers.net.
+.	nameserver = k.root-servers.net.
+.	nameserver = b.root-servers.net.
+.	nameserver = l.root-servers.net.
+.	nameserver = a.root-servers.net.
+.	nameserver = i.root-servers.net.
+.	nameserver = d.root-servers.net.
+.	nameserver = f.root-servers.net.
+.	nameserver = e.root-servers.net.
+.	nameserver = j.root-servers.net.
+.	nameserver = m.root-servers.net.
+.	nameserver = h.root-servers.net.
+a.root-servers.net	internet address = 198.41.0.4
+a.root-servers.net	has AAAA address 2001:503:ba3e::2:30
+h.root-servers.net	internet address = 198.97.190.53
+h.root-servers.net	has AAAA address 2001:500:1::53
+k.root-servers.net	internet address = 193.0.14.129
+k.root-servers.net	has AAAA address 2001:7fd::1
+g.root-servers.net	internet address = 192.112.36.4
+g.root-servers.net	has AAAA address 2001:500:12::d0d
+f.root-servers.net	internet address = 192.5.5.241
+
+]777;notify;Command completed;nslookup 212.82.100.151\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
+]777;notify;Command completed;nslookup 212.82.100.151\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ dig @ns0.aitcom.net linux.org any
+]777;preexec\
+; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> @ns0.aitcom.net linux.org any
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: REFUSED, id: 4380
+;; flags: qr rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;linux.org.			IN	ANY
+
+;; Query time: 103 msec
+;; SERVER: 216.117.191.20#53(216.117.191.20)
+;; WHEN: dc. de nov. 11 17:19:20 CET 2020
+;; MSG SIZE  rcvd: 38
+
+]777;notify;Command completed;dig @ns0.aitcom.net linux.org any\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ eexxiitt
+]777;preexec\exit
+
+Script done on 2020-11-11 17:19:39+01:00 [COMMAND_EXIT_CODE="0"]
