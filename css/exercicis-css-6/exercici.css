@@ -1,0 +1,14 @@
+body {
+	background: olive;
+	align: auto;
+}
+
+.dots-w {
+	border: dotted white;
+}
+
+.dots-r {
+	border: dotted red;
+	border-radius: 5px;
+}
+
