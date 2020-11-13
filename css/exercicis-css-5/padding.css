@@ -5,7 +5,7 @@
 
 #parau {
 	margin: inherit;
-	/* border: solid black 1px; */
+	border: solid black 1px;
 }
 
 #h2u {
@@ -25,7 +25,7 @@
 }
 
 #h2dos {
-	padding: inherit 30px inherit 20px;
+	padding: 10px 30px 10px 20px;
 }
 
 #paratres {
