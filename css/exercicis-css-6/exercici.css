@@ -11,34 +11,39 @@ body {
 
 .dots-w {
 	margin: auto;
-	border: dotted white 1px;
+	outline: dotted white 1px;
+	outline-offset: 5px;
 	width: 400px;
 	align: center;
+	border: dotted red;
+	border-radius: 10px;
+	background: white;
+	padding: 8px;
 }
 
-.dots-r {
+/* .dots-r {
 	border: dotted red;
 	border-radius: 10px;
 	padding: 10px;
 	background: white;
 	margin: 5px;
 	font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
 .ou {
-	float: left;
 	border: solid white 8px;
 	background: orange;
 	font-family: monospace;
 	width: 500px;
 	line-height: 25px;
-	word-spacing: 7px
+	word-spacing: 7px;
+	padding: 10px;
 }
 
 .et {
 	padding: 10px 15px;
 	width: 500px;
-	float: right;
+	margin-left: auto;
 	border: dashed black 7px;
 	background: white;
 	color: black;
