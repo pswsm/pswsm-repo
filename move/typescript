@@ -569,8 +569,8 @@ m.root-servers.net	has AAAA address 2001:dc3::35
 i.root-servers.net	internet address = 192.36.148.17
 i.root-servers.net	has AAAA address 2001:7fe::53
 
-]777;notify;Command completed;nslookup -type=any www.google.es\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ nslookup -type=any www.google.esnslookup -querytype=A www.google.esnslookup -class=IN www.google.esnslookup -type=any www.google.es
-]777;preexec\Server:		10.200.240.10
+[ism24416766@a21 ~]$ nslookup -type=any www.google.esnslookup -querytype=A www.google.esnslookup -class=IN www.google.esnslookup -type=any www.google.es
+Server:		10.200.240.10
 Address:	10.200.240.10#53
 
 Non-authoritative answer:
@@ -621,7 +621,7 @@ i.root-servers.net	internet address = 192.36.148.17
 i.root-servers.net	has AAAA address 2001:7fe::53
 
 [ism24416766@a21 ~]$ nslookup -querytype=A www.google.es
-\Server:		10.200.240.10
+Server:		10.200.240.10
 Address:	10.200.240.10#53
 
 Non-authoritative answer:
@@ -638,7 +638,7 @@ Address: 216.58.201.163
 Name:	www.google.es
 Address: 2a00:1450:4003:80b::2003
 
-[ism24416766@a21 ~]$ man nslookupman nslookup
+[ism24416766@a21 ~]$ man nslookup
 [ism24416766@a21 ~]$ dig www.lavanguardia.es
 
 ; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> www.lavanguardia.es
@@ -837,8 +837,8 @@ Address:	10.200.240.10#53
 
 ** server can't find https://steamcommunity.com: NXDOMAIN
 
-]777;notify;Command completed;nslookup https://steamcommunity.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ nslookup www.google.comdig https://steamcommunity.comhost https://steamcommunity.comhost http:/www.lavanguardia.comnmap www.escoladeltreball.orgdig www.escoladeltreball.orgnslookup www.escoladeltreball.orgnslookup www.google.com
-]777;preexec\Server:		10.200.240.10
+[ism24416766@a21 ~]$ nslookup www.google.com
+Server:		10.200.240.10
 Address:	10.200.240.10#53
 
 Non-authoritative answer:
@@ -847,9 +847,9 @@ Address: 216.58.201.164
 Name:	www.google.com
 Address: 2a00:1450:4003:80a::2004
 
-]777;notify;Command completed;nslookup www.google.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;nslookup www.google.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ dig https://steamcommunity.com
-]777;preexec\
+[ism24416766@a21 ~]$
+[ism24416766@a21 ~]$ dig https://steamcommunity.com
+
 ; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> https://steamcommunity.com
 ;; global options: +cmd
 ;; Got answer:
@@ -869,15 +869,11 @@ com.			731	IN	SOA	a.gtld-servers.net. nstld.verisign-grs.com. 1605111307 1800 90
 ;; WHEN: dc. de nov. 11 17:18:25 CET 2020
 ;; MSG SIZE  rcvd: 128
 
-]777;notify;Command completed;dig https://steamcommunity.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;dig https://steamcommunity.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host https://steamcommunity.com
-]777;preexec\Host https://steamcommunity.com not found: 3(NXDOMAIN)
-]777;notify;Command completed;host https://steamcommunity.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;host https://steamcommunity.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host http:/www.lavanguardia.com
-]777;preexec\Host http:/www.lavanguardia.com not found: 3(NXDOMAIN)
-]777;notify;Command completed;host http:/www.lavanguardia.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;host http:/www.lavanguardia.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ nmap www.escoladeltreball.org
-]777;preexec\Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-11 17:18 CET
+[ism24416766@a21 ~]$ host https://steamcommunity.com
+Host https://steamcommunity.com not found: 3(NXDOMAIN)
+[ism24416766@a21 ~]$ host http:/www.lavanguardia.com
+[ism24416766@a21 ~]$ nmap www.escoladeltreball.org
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-11 17:18 CET
 Stats: 0:00:00 elapsed; 0 hosts completed (0 up), 1 undergoing Ping Scan
 Ping Scan Timing: About 100.00% done; ETC: 17:18 (0:00:00 remaining)
 Nmap scan report for www.escoladeltreball.org (10.1.1.8)
@@ -890,8 +886,9 @@ PORT    STATE SERVICE
 443/tcp open  https
 
 Nmap done: 1 IP address (1 host up) scanned in 0.11 seconds
-]777;notify;Command completed;nmap www.escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ dig www.escoladeltreball.orgnslookup www.escoladeltreball.orgnslookup 85.192.81.129dig www.escoladeltreball.org
-]777;preexec\
+
+[ism24416766@a21 ~]$ dig www.escoladeltreball.orgnslookup www.escoladeltreball.orgnslookup 85.192.81.129dig www.escoladeltreball.org
+
 ; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> www.escoladeltreball.org
 ;; global options: +cmd
 ;; Got answer:
@@ -917,18 +914,16 @@ escoladeltreball.org.	3029	IN	A	10.1.1.8
 ;; WHEN: dc. de nov. 11 17:18:42 CET 2020
 ;; MSG SIZE  rcvd: 99
 
-]777;notify;Command completed;dig www.escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;dig www.escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ nslookup www.escoladeltreball.org
-]777;preexec\Server:		10.200.240.10
+[ism24416766@a21 ~]$ nslookup www.escoladeltreball.org
+Server:		10.200.240.10
 Address:	10.200.240.10#53
 
 Non-authoritative answer:
 Name:	www.escoladeltreball.org
 Address: 10.1.1.8
 
-]777;notify;Command completed;nslookup www.escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;nslookup www.escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ nslookup 85.192.81.129
-]777;preexec\129.81.192.85.in-addr.arpa	name = iesescoladeltreball.xtec.cat.
+ism24416766@a21 ~]$ nslookup 85.192.81.129
+129.81.192.85.in-addr.arpa	name = iesescoladeltreball.xtec.cat.
 
 Authoritative answers can be found from:
 .	nameserver = h.root-servers.net.
@@ -954,14 +949,13 @@ g.root-servers.net	internet address = 192.112.36.4
 g.root-servers.net	has AAAA address 2001:500:12::d0d
 f.root-servers.net	internet address = 192.5.5.241
 
-]777;notify;Command completed;nslookup 85.192.81.129\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ drill escoladeltreball.orgdig escoladeltreball.orghost escoladeltreball.orghost -a escoladeltreball.orghost -vt NS ioc.cathost dns1.nominalia.comhost 81.88.63.48host alt2.aspmx.l.google.comhost 74.125.24.27nslookup 212.82.100.151dig @ns0.aitcom.net linux.org anydrill escoladeltreball.org
-]777;preexec\bash: drill: command not found...
+[ism24416766@a21 ~]$ drill escoladeltreball.org
+bash: drill: command not found...
 Packages providing this file are:
 'drill'
 'ldns-utils'
-]777;notify;Command completed;drill escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;drill escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ dig escoladeltreball.org
-]777;preexec\
+[ism24416766@a21 ~]$ dig escoladeltreball.org
+
 ; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> escoladeltreball.org
 ;; global options: +cmd
 ;; Got answer:
@@ -984,12 +978,11 @@ escoladeltreball.org.	2492	IN	NS	escoladeltreball.org.
 ;; WHEN: dc. de nov. 11 17:19:18 CET 2020
 ;; MSG SIZE  rcvd: 79
 
-]777;notify;Command completed;dig escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;dig escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host escoladeltreball.org
-]777;preexec\escoladeltreball.org has address 10.1.1.8
-]777;notify;Command completed;host escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;host escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host -a escoladeltreball.org
-]777;preexec\Trying "escoladeltreball.org"
+[ism24416766@a21 ~]$ host escoladeltreball.org
+escoladeltreball.org has address 10.1.1.8
+
+[ism24416766@a21 ~]$ host -a escoladeltreball.org
+Trying "escoladeltreball.org"
 ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 35953
 ;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 1, ADDITIONAL: 0
 
@@ -1004,9 +997,8 @@ escoladeltreball.org.	2492	IN	NS	escoladeltreball.org.
 escoladeltreball.org.	2492	IN	NS	escoladeltreball.org.
 
 Received 82 bytes from 10.200.240.10#53 in 0 ms
-]777;notify;Command completed;host -a escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;host -a escoladeltreball.org\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host -vt NS ioc.cat
-]777;preexec\Trying "ioc.cat"
+[ism24416766@a21 ~]$ host -vt NS ioc.cat
+Trying "ioc.cat"
 ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 17060
 ;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 2
 
@@ -1022,23 +1014,23 @@ dns1.nominalia.com.	66	IN	A	81.88.57.102
 dns2.nominalia.com.	3161	IN	A	81.88.63.48
 
 Received 108 bytes from 10.200.240.10#53 in 56 ms
-]777;notify;Command completed;host -vt NS ioc.cat\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;host -vt NS ioc.cat\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host dns1.nominalia.com
-]777;preexec\dns1.nominalia.com has address 81.88.57.102
+
+[ism24416766@a21 ~]$ host dns1.nominalia.com
+dns1.nominalia.com has address 81.88.57.102
 dns1.nominalia.com mail is handled by 10 freedom.nominalia.com.
-]777;notify;Command completed;host dns1.nominalia.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;host dns1.nominalia.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host 81.88.63.48
-]777;preexec\48.63.88.81.in-addr.arpa domain name pointer dns2.nominalia.com.
-]777;notify;Command completed;host 81.88.63.48\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;host 81.88.63.48\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host alt2.aspmx.l.google.com
-]777;preexec\alt2.aspmx.l.google.com has address 172.253.118.26
+
+[ism24416766@a21 ~]$ host 81.88.63.48
+48.63.88.81.in-addr.arpa domain name pointer dns2.nominalia.com.
+
+[ism24416766@a21 ~]$ host alt2.aspmx.l.google.com
+alt2.aspmx.l.google.com has address 172.253.118.26
 alt2.aspmx.l.google.com has IPv6 address 2404:6800:4003:c05::1a
-]777;notify;Command completed;host alt2.aspmx.l.google.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;host alt2.aspmx.l.google.com\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ host 74.125.24.27
-]777;preexec\Host 27.24.125.74.in-addr.arpa. not found: 3(NXDOMAIN)
-]777;notify;Command completed;host 74.125.24.27\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;host 74.125.24.27\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ nslookup 212.82.100.151
-]777;preexec\151.100.82.212.in-addr.arpa	name = w2.src1.vip.ir2.yahoo.com.
+
+[ism24416766@a21 ~]$ host 74.125.24.27
+Host 27.24.125.74.in-addr.arpa. not found: 3(NXDOMAIN)
+
+[ism24416766@a21 ~]$ nslookup 212.82.100.151
+151.100.82.212.in-addr.arpa	name = w2.src1.vip.ir2.yahoo.com.
 
 Authoritative answers can be found from:
 .	nameserver = g.root-servers.net.
@@ -1064,9 +1056,8 @@ g.root-servers.net	internet address = 192.112.36.4
 g.root-servers.net	has AAAA address 2001:500:12::d0d
 f.root-servers.net	internet address = 192.5.5.241
 
-]777;notify;Command completed;nslookup 212.82.100.151\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ 
-]777;notify;Command completed;nslookup 212.82.100.151\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ dig @ns0.aitcom.net linux.org any
-]777;preexec\
+[ism24416766@a21 ~]$ dig @ns0.aitcom.net linux.org any
+
 ; <<>> DiG 9.11.23-RedHat-9.11.23-1.fc32 <<>> @ns0.aitcom.net linux.org any
 ; (1 server found)
 ;; global options: +cmd
@@ -1085,7 +1076,6 @@ f.root-servers.net	internet address = 192.5.5.241
 ;; WHEN: dc. de nov. 11 17:19:20 CET 2020
 ;; MSG SIZE  rcvd: 38
 
-]777;notify;Command completed;dig @ns0.aitcom.net linux.org any\]777;precmd\]0;ism24416766@a21:~\]7;file://a21.informatica.escoladeltreball.org/home/users/inf/xism2/ism24416766\[ism24416766@a21 ~]$ eexxiitt
-]777;preexec\exit
+[ism24416766@a21 ~]$ exit
 
 Script done on 2020-11-11 17:19:39+01:00 [COMMAND_EXIT_CODE="0"]
