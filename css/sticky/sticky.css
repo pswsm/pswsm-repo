@@ -1,0 +1,21 @@
+body {
+	background: black;
+	color: white;
+	font-family: Arial, sans-serif;
+}
+
+#id1 {
+	border: solid white 1px;
+	margin: auto;
+	background: blue;
+	color: red;
+	width: 20000;
+}
+
+#id2 {
+	border: solid white 2px;
+	margin: 100px 50px 0px 0px ;
+	width: 1000;
+	background: blue;
+	color: red;
+
