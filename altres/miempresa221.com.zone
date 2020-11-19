@@ -1,0 +1,21 @@
+$TTL 60480
+@ IN   SOA      nsPau.miempresa221.com.      admin.miempresa221.com. (
+                20181106;
+                10000;
+                7200;
+                60480;  
+                86400;  
+)
+@		IN	NS	nsPau.miempresa221.com.
+nsPau		IN	A	10.200.246.221
+www		IN	CNAME	nsPau.miempresa221.com.
+www		IN	CNAME	10.200.246.221
+impressora	IN	A	10.200.246.11
+ftp		IN	A	10.200.246.10
+router		IN	CNAME	ftp
+c01Pau		IN	A	10.200.246.12
+c02Pau          IN      A       10.200.246.13
+host1		IN	CNAME	c01Pau
+host2		IN	CNAME	c02Pau
+v01Pau		IN	A	10.200.246.14
+v02Pau		IN	A	10.200.246.15
