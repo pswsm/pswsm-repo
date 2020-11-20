@@ -1,0 +1,12 @@
+$TTL 38400
+@ IN SOA ns1.miempresa221.com.  admin.miempresa221.com. (
+2010112403
+10800
+3600
+604800
+86400 )
+
+@ IN NS ns1.miempresa221.com.
+2 IN PTR ns1.miempresa221.com.
+3 IN PTR c01Y.miempresa221.com.
+
