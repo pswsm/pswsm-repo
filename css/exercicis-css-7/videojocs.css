@@ -1,0 +1,72 @@
+body {
+	/* Apartat Fons    */
+	background-color: black;
+	background-image: url(imatges/videojuegos_clasicosmatrix.png), url(imatges/videojuegos_clasicosmatrix2.png);
+	background-position: left top, right top;
+	background-repeat: repeat-y;
+	/* Fi apartat fons */
+	/* Apartat Estil */
+	font-family: 'Source Code Pro', monospace;
+	color: white;
+}
+
+p {
+	text-align: justify;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.allcaps-pare {
+	border-bottom: solid #00b800 4px;
+	text-transform: uppercase;
+	letter-spacing: 15px;
+	color: #00b800;
+	text-align: center;
+	text-decoration: underline;
+	word-spacing: -20px;
+	margin: auto auto 50px auto;
+	width: 680px;
+}
+
+.allcaps {
+	text-transform: uppercase;
+	letter-spacing: 15px;
+	color: #00b800;
+	text-align: center;
+	text-decoration: underline;
+	word-spacing: -20px;
+	margin-bottom: 10px;
+}
+
+.main {
+	margin: auto;
+	border: solid white 2px;
+	padding: 0px;
+	width: 1500px
+}
+
+.smallcaps {
+	background-color: #00b800;
+	border-bottom: solid white 2px;
+	margin-top: 0px;
+	font-variant: small-caps;
+}
+
+.dreta {
+	float: right;
+	border: solid white 5px;
+	outline: solid #00b800 5px;
+	margin: 10px 20px 10px 20px;
+}
+
+.esquerra {
+	float: left;
+	border: solid white 5px;
+	outline: solid #00b800 5px;
+}
+
+.main-petit {
+	margin: auto;
+	border: solid white 2px;
+	padding: 0px;
+	width: 1000px
