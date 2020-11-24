@@ -87,3 +87,15 @@ p {
 	margin: auto;
 	width: 70%;
 }
+
+.yellow {
+	color: yellow;
+}
+
+.red {
+	color: red;
+}
+
+.green {
+	color: lime;
+}
