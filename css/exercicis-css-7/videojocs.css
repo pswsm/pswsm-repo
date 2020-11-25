@@ -8,12 +8,12 @@ body {
 	/* Apartat Estil */
 	font-family: 'Source Code Pro', monospace;
 	color: white;
+	/* Fi Estil */
 }
 
 p {
 	text-align: justify;
 	margin-left: 10px;
-	margin-right: 10px;
 }
 
 .allcaps-pare {
@@ -25,7 +25,7 @@ p {
 	text-decoration: underline;
 	word-spacing: -20px;
 	margin: auto auto 50px auto;
-	width: 680px;
+	width: 678px;
 }
 
 .allcaps {
@@ -40,9 +40,10 @@ p {
 
 .main {
 	margin: auto;
+	margin-bottom: 50px;
 	border: solid white 2px;
 	padding: 0px;
-	width: 1500px
+	width: 70%;
 }
 
 .smallcaps {
@@ -63,10 +64,38 @@ p {
 	float: left;
 	border: solid white 5px;
 	outline: solid #00b800 5px;
+	margin-top: 0.3%;
+}
+
+.hidden {
+	margin: auto;
+	margin-bottom: 50px;
+	width: 70%;
+	padding: 0px;
 }
 
 .main-petit {
-	margin: auto;
+	margin-left: auto;
 	border: solid white 2px;
 	padding: 0px;
-	width: 1000px
+	width: 80%;
+}
+
+.smol {
+	border-top: solid #00b800 3px;
+	border-bottom: solid #00b800 3px;
+	margin: auto;
+	width: 70%;
+}
+
+.yellow {
+	color: yellow;
+}
+
+.red {
+	color: red;
+}
+
+.green {
+	color: lime;
+}

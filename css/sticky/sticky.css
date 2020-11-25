@@ -1,21 +1,21 @@
 body {
-	background: black;
-	color: white;
+	/* background: black; */
+	/* color: white; */
 	font-family: Arial, sans-serif;
 }
 
-#id1 {
-	border: solid white 1px;
-	margin: auto;
-	background: blue;
-	color: red;
-	width: 20000;
+div.relative {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  border: 3px solid black;
 }
 
-#id2 {
-	border: solid white 2px;
-	margin: 100px 50px 0px 0px ;
-	width: 1000;
-	background: blue;
-	color: red;
-
+div.sticky {
+  position: sticky;
+  top: 100px;
+	left: 150px;
+  width: 200px;
+  height: 100px;
+  border: 3px solid black;
+}
