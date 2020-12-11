@@ -13,27 +13,27 @@ Hi ha els arxius dels exercicis, els de l'examen i un parell de fulls d'estil.
 ## Comprimits
 Arxius comprimits d'exercicis de qualsevol mòdul. Pels noms ja es poden identificar.
 
-##CPP
+## CPP
 Aquí hi ha els projectes en C++, els executales són els `a.out`
 
-###Hello World!
+### Hello World!
 No li fa falta explicació.
 
-###Calculadora
+### Calculadora
 La típica calculadora, treball sota desenvolupament.
 De moment només opera amb dos nombres.
 
-##Python
+## Python
 Aquí hi ha els projectes en python
 
-###Selector de Fons
+### Selector de Fons
 El programa bg-select no fa res encara, quan m'enrecordi ja el farè.
 L'objectiu es que cada cop que l'executis et canvii el fons de pantalla.
 
-###Bots
+### Bots
 Bots del discord utilitzant l'API de discord.py.
 En tenia més, no sé on són.
 
-###Generador de Contrasentres
+### Generador de Contrasentres
 Genera una contrasenya aleatoria i la hasheja en SHA256
 
