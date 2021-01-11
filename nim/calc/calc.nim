@@ -24,15 +24,21 @@ proc mult(x, y: float): float =
 proc divisio(x, y: float): float =
   return x / y
 
+proc parseFloat(s: string; number: var float; start = 0): int {.gcsafe,
+    extern: "npuParseFloat", noSideEffect, raises: [], tags: [].}
+
 assert (suma(1, 1) == 2)
 assert (resta(1, 1) == 0)
 assert (mult(5, 5) == 25)
 assert (divisio(10, 2) == 5)
+assert (parseFloat("3.1415") == 3.1415)
 
 echo "Esperant\n"
 var entrada: string = readLine(stdin)
 # echo entrada.split[1]
 var s1: string = entrada.split[0]
-var s2 = entrada.split[1]
-var s3 = entrada.split[2]
-var x: float = parseFloat(s1: string): int
+var s2: string = entrada.split[1]
+var s3: string = entrada.split[2]
+var f1: float
+
+doAssert parseFloat(s1, f1, 0)
