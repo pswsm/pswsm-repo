@@ -37,3 +37,5 @@ En tenia més, no sé on són.
 ### Generador de Contrasentres
 Genera una contrasenya aleatoria i la hasheja en SHA256
 
+### Sh Scripts
+Scripts de shell. De moment el que hi ha nomes crea UOs per a *ldap* (Opció 1)
