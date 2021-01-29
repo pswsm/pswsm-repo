@@ -15,7 +15,7 @@ import random
 
 def passwd_gen():
     llargada = int(input("De quina llargada vols la contrasenya? "))
-    abc = list(string.hexdigits)
+    abc = list(string.printable)
     abc_psswd_list = random.sample(abc, llargada)
     final_passwd = ''.join(abc_psswd_list)
     print(f"Llista original: {abc}\nContrsenya generada: {final_passwd}")

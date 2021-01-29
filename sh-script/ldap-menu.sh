@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-_base="$(dirname $_script)"
+#_base="$(dirname $_script)"
 
 while :
 do
@@ -18,15 +18,59 @@ do
 
 		;;
 		2)
+                        clear  
+                        echo -e "Vols fer-ho amb manualment (1) o amb l'assistent (2)?"
+                        read ed   
+                        case $ed in
+                                1)
+                                        echo -e "Fitxer de sortida (Sense extensió)\t"
+                                        read file
+                                        $EDITOR $file
+                                ;;
+                                2)
+                                        clear
+
+                                        echo -e "\nCreador de Grups\n"
+                                        
+                                        echo -e "\nNom de domini (ou=X,dc=Y,dc=tld):\t"
+                                        read ub
+					echo -e "\nID de Grup (Un numerò que no esigui sent utilitzat per un altre grup)\t"
+					
+                                        echo -e "\nNom del grup (cn=Nom):\t"
+                                        read cn
+                                        
+                                        echo -e "Fitxer de sortida (Sense extensió)\t"
+                                        read file
+                                                
+                                        if [ -f "$file.ldif" ]; then
+                                                echo -e "\nEl fitxer existeix, vols sobreescriure'l? [Y/n]\t"
+                                                read yn
+                                                case $yn in
+                                                        y | Y)
+                                                                echo -e "dn:\tcn="$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\nou: "$uo"\n" > $file.ldif
+                                                        ;;
+                                                        n | N)
+								echo -e "dn:\tcn="$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\nou: "$uo"\n" > $file.ldif
+                                                esac
+                                        else
+                                                echo -e "dn: ou="$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $file.ldif
+
+                                        fi
+                                        # $_base/assistent.sh
+                                        # El fitxer assistent conte tot el que hi ha en aquest 2n cas
+                                ;;
+                        esac
 
 		;;
 		1)
 			clear
-			echo -e "Vols fer-ho amb editor (1) o amb l'assistent (2)?"
+			echo -e "Vols fer-ho amb manualment (1) o amb l'assistent (2)?"
 			read ed
 			case $ed in
 				1)
-					$EDITOR uo.ldif
+					echo -e "Fitxer de sortida (Sense extensió)\t"
+					read file
+					$EDITOR $file
 				;;
 				2)
 					clear
@@ -46,13 +90,13 @@ do
 					        read yn
 					        case $yn in
 					                y | Y)
-					                        echo -e "dn:\tou="$uo","$dn > $file.ldif
+					                        echo -e "dn:\tou="$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $file.ldif
 					                ;;
 					                n | N)
-					                        echo -e "\n\ndn:\tou="$uo","$dn >> $file.ldif
+					                        echo -e "\n\ndn:\tou="$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" >> $file.ldif
 					        esac
 					else
-					        echo -e "dn: ou="$uo","$dn"\nobjectClass: organizationalUnit\n" > $file.ldif
+					        echo -e "dn: ou="$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $file.ldif
 
 					fi
 					# $_base/assistent.sh
@@ -61,6 +105,7 @@ do
 			esac
 		;;
 		*)
+			clear
 			echo -e "Germà, has de posar algun dels numeros que està entre parentesis."
 		;;
 	esac
