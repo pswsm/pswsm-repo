@@ -1,0 +1,6 @@
+dn:	cn=cn=Nom,ou=s,dc=sat,dc=org
+gidNumber: 505
+cn: cn=Nom
+objectClass: posixGroup
+objectClass: top
+

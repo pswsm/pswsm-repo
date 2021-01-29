@@ -23,37 +23,45 @@ do
                         read ed   
                         case $ed in
                                 1)
-                                        echo -e "Fitxer de sortida (Sense extensió)\t"
-                                        read file
+                                        echo -e "És guradarà a groups.ldif\t"
+					file="groups.ldif"
                                         $EDITOR $file
                                 ;;
                                 2)
-                                        clear
-
                                         echo -e "\nCreador de Grups\n"
                                         
                                         echo -e "\nNom de domini (ou=X,dc=Y,dc=tld):\t"
                                         read ub
-					echo -e "\nID de Grup (Un numerò que no esigui sent utilitzat per un altre grup)\t"
+
+					if [ -f "$file" ]; then
+						gid=$(grep gid $file | cut -d " " -f2 | sort -d | tail -n 1)
+						((gid++))
+					else
+						gid=$(ldapsearch -x -LLL -b dc=edt,dc=org "(objectClass=posixGroup)" | grep gid | sort -d | cut -d " " -f2 | tail -n 1)
+						((gid++))
+					fi
 					
+					echo -e "El gid serà "$gid"."
+
                                         echo -e "\nNom del grup (cn=Nom):\t"
                                         read cn
                                         
-                                        echo -e "Fitxer de sortida (Sense extensió)\t"
-                                        read file
+                                        echo -e "És guardarà a groups.ldif\t"
+					file="groups.ldif"
                                                 
-                                        if [ -f "$file.ldif" ]; then
+                                        if [ -f "$file" ]; then
                                                 echo -e "\nEl fitxer existeix, vols sobreescriure'l? [Y/n]\t"
                                                 read yn
                                                 case $yn in
                                                         y | Y)
-                                                                echo -e "dn:\tcn="$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\nou: "$uo"\n" > $file.ldif
+                                                                echo -e "dn:\t"$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $file
                                                         ;;
                                                         n | N)
-								echo -e "dn:\tcn="$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\nou: "$uo"\n" > $file.ldif
+								echo -e "El contingut serà afegit al final del fitxer.\n"
+								echo -e "dn:\t"$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" >> $file
                                                 esac
                                         else
-                                                echo -e "dn: ou="$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $file.ldif
+                                                echo -e "dn: "$cn","$ub"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $file.ldif
 
                                         fi
                                         # $_base/assistent.sh
@@ -70,16 +78,14 @@ do
 				1)
 					echo -e "Fitxer de sortida (Sense extensió)\t"
 					read file
-					$EDITOR $file
+					$EDITOR $file.ldif
 				;;
 				2)
-					clear
-
 					echo -e "\nCreador d'UO\n"
 
 					echo -e "\nNom de domini (dc=X,dc=tld):\t"
 					read dn
-					echo -e "\nNom de la UO (uo=UO):\t"
+					echo -e "\nNom de la UO (ou=UO):\t"
 					read uo
 
 					echo -e "Fitxer de sortida (Sense extensió)\t"
@@ -90,7 +96,7 @@ do
 					        read yn
 					        case $yn in
 					                y | Y)
-					                        echo -e "dn:\tou="$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $file.ldif
+					                        echo -e "dn:\t"$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $file.ldif
 					                ;;
 					                n | N)
 					                        echo -e "\n\ndn:\tou="$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" >> $file.ldif
