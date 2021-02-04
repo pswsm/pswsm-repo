@@ -1,0 +1,12 @@
+dn: cn=Pommern,ou=FR,dc=edt,dc=org
+gidNumber: 500
+cn: cn=Pommern
+objectClass: posixGroup
+objectClass: top
+
+dn:	cn=Grupu,ou=FRA,dc=edt,dc=org
+gidNumber: 501
+cn: cn=Grupu
+objectClass: posixGroup
+objectClass: top
+
