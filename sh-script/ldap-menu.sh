@@ -3,6 +3,11 @@
 _script="$(readlink -f ${BASH_SOURCE[0]})"
 _base="$(dirname $_script)"
 
+fUsers="$_base/users.ldif"
+fUos="$_base/uos.ldif"
+fGroups="$_base/groups.ldif"
+dnBase="$_base/dn_base"
+
 while :
 do
 	clear
@@ -15,69 +20,67 @@ do
 			exit 0
 		;;
 		4)
-
+			# Carregar a la DB
+			clear
 		;;
 		3)
-
+			# Crear Usuaris
+			clear
 		;;
 		2)
 			# Crear Grups
-                        clear
-			file="$_base/groups"
+			clear
 			#DEBUG:
 			#echo -e "\n"$file"\n"
-                        echo -e "Vols fer-ho amb manualment (1) o amb l'assistent (2)?"
-                        read ed
-                        case $ed in
-                                1)
-                                        echo -e "És guradarà a groups.ldif\t"
-                                        $EDITOR $file.ldif
-                                ;;
-                                2)
-                                        echo -e "\nCreador de Grups\n"
-                                        
-                                        echo -e "\nNom de domini (ou=X,dc=Y,dc=tld):\t"
-                                        read ub
-
-
-					if [ -f "$file.ldif" ]; then
-						gid=$(grep gid $file.ldif | cut -d " " -f2 | sort -d | tail -n 1)
-						((gid++))
-					else
-						gidDB=$(ldapsearch -x -LLL -b dc=edt,dc=org "(objectClass=posixGroup)" | grep gid | sort -d | cut -d " " -f2 | tail -n 1)
-						if [ -z "$gidDB" ]; then
-							gid=500
-						else
-							gid=$((gidDB++))
-						fi
-					fi
+			echo -e "Vols fer-ho amb manualment (1) o amb l'assistent (2)?"
+			read ed
+			case $ed in
+				1)
+					echo -e "És guradarà a groups.ldif\t"
+					$EDITOR $fGroups
+					;;
+				2)
+					echo -e "\nCreador de Grups\n"
+					echo -e "\nNom de domini (ou=X,dc=Y,dc=tld):\t"
+					read ub
 					
+					# Treure el gidNumber
+					if [ -f $fGroups ]; then
+						gidFile=$(grep gid $fGroups | cut -d " " -f2 | sort -d | tail -n 1)
+						((gidFile++))
+						gidDB=$(ldapsearch -x -LLL -b dc=edt,dc=org "(objectClass=posixGroup)" | grep gid | sort -d | cut -d " " -f2 | tail -n 1)
+						((gidDB++))
+						if [ $gidFile > $gidDB]; then
+							gid=$gidFile
+						else
+							gid=$gidDB
+						fi
+					else
+						gid=$(ldapsearch -x -LLL -b dc=edt,dc=org "(objectClass=posixGroup)" | grep gid | sort -d | cut -d " " -f2 | tail -n 1)
+					fi
+
 					echo -e "El gid serà "$gid"."
-
-                                        echo -e "\nNom del grup (cn=Nom):\t"
-                                        read cn
-                                        
-                                        if [ -f "$file.ldif" ]; then
-                                                echo -e "\nEl fitxer existeix, vols sobreescriure'l? [Y/n]\t"
-                                                read yn
-                                                case $yn in
-                                                        y | Y)
-                                                                echo -e "dn:\t"$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $file.ldif
-                                                        ;;
-                                                        n | N)
+					echo -e "\nNom del grup (cn=Nom):\t"
+					read cn
+					if [ -f "$fGroups" ]; then
+						echo -e "\nEl fitxer existeix, vols sobreescriure'l? [Y/n]\t"
+						read yn
+						case $yn in
+							y | Y)
+								echo -e "dn:\t"$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $fGroups
+								;;
+							n | N)
 								echo -e "El contingut serà afegit al final del fitxer.\n"
-								echo -e "dn:\t"$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" >> $file.ldif
-                                                esac
-                                        else
-                                                echo -e "dn: "$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $file.ldif
-
-                                        fi
-                                        # $_base/assistent.sh
-                                        # El fitxer assistent conte tot el que hi ha en aquest 2n cas
-                                ;;
-                        esac
-
-		;;
+								echo -e "dn:\t"$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" >> $fGroups
+						esac
+					else
+						echo -e "dn: "$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $fGroups
+					fi
+					# $_base/assistent.sh
+					# El fitxer assistent conte tot el que hi ha en aquest 2n cas
+					;;
+			esac
+			;;
 		1)
 			#Crear UOs
 			clear
@@ -87,41 +90,40 @@ do
 				1)
 					echo -e "Fitxer de sortida (Sense extensió)\t"
 					read file
-					$EDITOR $file.ldif
-				;;
+					$EDITOR $fUos
+					;;
 				2)
 					echo -e "\nCreador d'UO\n"
-
 					echo -e "\nNom de domini (dc=X,dc=tld):\t"
 					read dn
+					echo -e $dn >> $dnBase
+
 					echo -e "\nNom de la UO (ou=UO):\t"
 					read uo
+					echo -e $uo","$dn >> $dnBase
 
-					echo -e "Fitxer de sortida (Sense extensió)\t"
-					read file
-
-					if [ -f "$file.ldif" ]; then
-					        echo -e "\nEl fitxer existeix, vols sobreescriure'l? [Y/n]\t"
-					        read yn
-					        case $yn in
-					                y | Y)
-					                        echo -e "dn:\t"$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $file.ldif
-					                ;;
-					                n | N)
-					                        echo -e "\n\ndn:\tou="$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" >> $file.ldif
-					        esac
+					if [ -f "$fUos" ]; then
+						echo -e "\nEl fitxer existeix, vols sobreescriure'l? [Y/n]\t"
+						read yn
+						case $yn in
+							y | Y)
+								echo -e "dn:\t"$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $fUos
+								;;
+							n | N)
+								echo -e "\ndn: ou="$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" >> $fUos
+								;;
+						esac
 					else
-					        echo -e "dn: ou="$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $file.ldif
-
+						echo -e "dn: ou="$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $fUos
 					fi
 					# $_base/assistent.sh
 					# El fitxer assistent conte tot el que hi ha en aquest 2n cas
-				;;
+					;;
 			esac
-		;;
+			;;
 		*)
-			clear
-			echo -e "Germà, has de posar algun dels numeros que està entre parentesis."
+		clear
+		echo -e "Germà, has de posar algun dels numeros que està entre parentesis."
 		;;
 	esac
 done
