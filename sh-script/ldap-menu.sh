@@ -50,17 +50,17 @@ do
 					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fUsers
 					;;
 			esac
-			echo -e "Vols carregar algo més? [y/N]"
+			echo -e "Vols fer algo més? [y/N]"
 			read yn
 			case $yn in
 				y | Y)
-					carregar=true
+					break
 					;;
 				n | N)
-					carregar=false
+					exit 0
 					;;
 				*)
-					carregar=false
+					exit 0
 			esac
 		done
 		;;
