@@ -21,8 +21,8 @@ do
 		;;
 		4)
 			# Carregar a la DB
-			carregar=True
-		while [[ carregar=True ]]; do
+			carregar=true
+		while [[ $carregar=true ]]; do
 			echo -e "Quins fitxer vols carregar?"
 			echo -e "\n\t1: Usuaris\n\t2: UOs\n\t3: Grups\n\t4: Tot"
 			read tria
@@ -30,37 +30,37 @@ do
 				1)
 					echo -e "Es carregaran els usuaris\n"
 					read -s -p "Escriu la contrasenya de la DB: " contrasenya
-					ldapadd -x -w $contrasenya -f $fUsers
+					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fUsers
 					;;
 				2)
 					echo -e "Es carregaran les UO\n"
 					read -s -p "Escriu la contrasenya de la DB: " contrasenya
-					ldapadd -x -w $contrasenya -f $fUos
+					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fUos
 					;;
 				3)
 					echo -e "Es carregaran els Grups\n"
 					read -s -p "Escriu la contrasenya de la DB: " contrasenya
-					ldapadd -x -w $contrasenya -f $fGroups
+					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fGroups
 					;;
 				4)
 					echo -e "Es carregaran tots els fitxers\n"
 					read -s -p "Escriu la contrasenya de la DB: " contrasenya
-					ldapadd -x -w $contrasenya -f $fGroups
-					ldapadd -x -w $contrasenya -f $fUos
-					ldapadd -x -w $contrasenya -f $fUsers
+					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fGroups
+					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fUos
+					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fUsers
 					;;
 			esac
 			echo -e "Vols carregar algo més? [y/N]"
 			read yn
 			case $yn in
 				y | Y)
-					carregar=True
+					carregar=true
 					;;
 				n | N)
-					carregar=False
+					carregar=false
 					;;
 				*)
-					carregar=False
+					carregar=false
 			esac
 		done
 		;;
@@ -83,9 +83,9 @@ do
 
 					# Treure el gidNumber
 					if [ -f $fUsers ]; then
-						gidFile=$(grep gid $fUsers | cut -d " " -f2 | sort -d | tail -n 1)
+						gidFile=$(grep uidNumber $fUsers | cut -d " " -f2 | sort -d | tail -n 1)
 						((gidFile++))
-						gidDB=$(ldapsearch -x -LLL -b dc=edt,dc=org "(objectClass=posixGroup)" | grep gid | sort -d | cut -d " " -f2 | tail -n 1)
+						gidDB=$(ldapsearch -x -LLL -b dc=edt,dc=org "(objectClass=inetOrgPerson)" | grep uidNumber | sort -d | cut -d " " -f2 | tail -n 1)
 						((gidDB++))
 						if [ $gidFile > $gidDB ]; then
 							gid=$gidFile
@@ -93,11 +93,11 @@ do
 							gid=$gidDB
 						fi
 					else
-						gid=$(ldapsearch -x -LLL -b dc=edt,dc=org "(objectClass=posixGroup)" | grep gid | sort -d | cut -d " " -f2 | tail -n 1)
+						gid=$(ldapsearch -x -LLL -b dc=edt,dc=org "(objectClass=inetOrgPerson)" | grep uidNumber | sort -d | cut -d " " -f2 | tail -n 1)
 					fi
 
 					echo -e "El gid serà "$gid"."
-					echo -e "\nNom del grup (cn=Nom):\t"
+					echo -e "\nNom del usuari (cn=Nom):\t"
 					read cn
 					if [ -f "$fUsers" ]; then
 						echo -e "\nEl fitxer existeix, vols sobreescriure'l? [Y/n]\t"
