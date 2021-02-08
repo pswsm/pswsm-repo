@@ -45,8 +45,8 @@ do
 				4)
 					echo -e "Es carregaran tots els fitxers\n"
 					read -s -p "Escriu la contrasenya de la DB: " contrasenya
-					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fGroups
 					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fUos
+					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fGroups
 					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fUsers
 					;;
 			esac
