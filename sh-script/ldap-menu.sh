@@ -21,11 +21,40 @@ do
 		;;
 		4)
 			# Carregar a la DB
-			clear
+			carregar=True
+		while [[ carregar=True ]]; do
+			echo -e "Quins fitxer vols carregar?"
+			echo -e "\n\t1: Usuaris\n\t2: UOs\n\t3: Grups\n\t4: Tot"
+			read tria
+			case $tria in
+				1)
+					echo -e "Es carregaran els usuaris\n"
+					read -s -p "Escriu la contrasenya de la DB: " contrasenya
+					ldapadd -x -w $contrasenya -f $fUsers
+					;;
+				2)
+					echo -e "Es carregaran les UO\n"
+					read -s -p "Escriu la contrasenya de la DB: " contrasenya
+					ldapadd -x -w $contrasenya -f $fUos
+					;;
+				3)
+					echo -e "Es carregaran els Grups\n"
+					read -s -p "Escriu la contrasenya de la DB: " contrasenya
+					ldapadd -x -w $contrasenya -f $fGroups
+					;;
+				4)
+					echo -e "Es carregaran tots els fitxers\n"
+					read -s -p "Escriu la contrasenya de la DB: " contrasenya
+					ldapadd -x -w $contrasenya -f $fGroups
+					ldapadd -x -w $contrasenya -f $fUos
+					ldapadd -x -w $contrasenya -f $fUsers
+					;;
+			esac
+		done
 		;;
 		3)
 			# Crear Usuaris
-			clear
+
 		;;
 		2)
 			# Crear Grups
@@ -43,7 +72,7 @@ do
 					echo -e "\nCreador de Grups\n"
 					echo -e "\nNom de domini (ou=X,dc=Y,dc=tld):\t"
 					read ub
-					
+
 					# Treure el gidNumber
 					if [ -f $fGroups ]; then
 						gidFile=$(grep gid $fGroups | cut -d " " -f2 | sort -d | tail -n 1)
