@@ -161,14 +161,14 @@ do
 						read yn
 						case $yn in
 							y | Y)
-								echo -e "dn:\t"$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $fGroups
+								echo -e "dn: "$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $fGroups
 								;;
 							n | N)
 								echo -e "El contingut serà afegit al final del fitxer.\n"
-								echo -e "dn:\t"$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" >> $fGroups
+								echo -e "dn: "$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" >> $fGroups
 								;;
 								*)
-								echo -e "dn:\t"$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $fGroups
+								echo -e "dn: "$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $fGroups
 						esac
 					else
 						echo -e "dn: "$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $fGroups
@@ -204,17 +204,17 @@ do
 						read yn
 						case $yn in
 							y | Y)
-								echo -e "dn:\t"$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $fUos
+								echo -e "dn: "$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $fUos
 								;;
 							n | N)
-								echo -e "\ndn: ou="$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" >> $fUos
+								echo -e "\ndn: "$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" >> $fUos
 								;;
 							*)
-								echo -e "dn:\t"$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $fUos
+								echo -e "dn: "$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $fUos
 								;;
 						esac
 					else
-						echo -e "dn: ou="$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $fUos
+						echo -e "dn: "$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $fUos
 					fi
 					# $_base/assistent.sh
 					# El fitxer assistent conte tot el que hi ha en aquest 2n cas
