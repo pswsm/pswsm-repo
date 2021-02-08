@@ -50,6 +50,18 @@ do
 					ldapadd -x -w $contrasenya -f $fUsers
 					;;
 			esac
+			echo -e "Vols carregar algo més? [y/N]"
+			read yn
+			case $yn in
+				y | Y)
+					carregar=True
+					;;
+				n | N)
+					carregar=False
+					;;
+				*)
+					carregar=False
+			esac
 		done
 		;;
 		3)
@@ -101,6 +113,9 @@ do
 							n | N)
 								echo -e "El contingut serà afegit al final del fitxer.\n"
 								echo -e "dn:\t"$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" >> $fGroups
+								;;
+								*)
+								echo -e "dn:\t"$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $fGroups
 						esac
 					else
 						echo -e "dn: "$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $fGroups
@@ -140,6 +155,9 @@ do
 								;;
 							n | N)
 								echo -e "\ndn: ou="$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" >> $fUos
+								;;
+							*)
+								echo -e "dn:\t"$uo","$dn"\nobjectClass: organizationalUnit\nobjectClass: top\nou: "$uo"\n" > $fUos
 								;;
 						esac
 					else
