@@ -69,14 +69,14 @@ do
 			clear
 			#DEBUG:
 			#echo -e "\n"$file"\n"
-			echo -e "Vols fer-ho amb manualment (1) o amb l'assistent (2)?"
+			echo -e "Vols fer-ho amb manualment (1) o amb l'assistent [2]?"
 			read ed
 			case $ed in
 				1)
 					echo -e "És guradarà a users.ldif\t"
 					$EDITOR $fUsers
 					;;
-				2)
+				2 | *)
 					echo -e "\nCreador de Grups\n"
 					echo -e "\nNom de domini (ou=X,dc=Y,dc=tld):\t"
 					read ub
@@ -126,14 +126,14 @@ do
 			clear
 			#DEBUG:
 			#echo -e "\n"$file"\n"
-			echo -e "Vols fer-ho amb manualment (1) o amb l'assistent (2)?"
+			echo -e "Vols fer-ho amb manualment (1) o amb l'assistent [2]?"
 			read ed
 			case $ed in
 				1)
 					echo -e "És guradarà a groups.ldif\t"
 					$EDITOR $fGroups
 					;;
-				2)
+				2 | *)
 					echo -e "\nCreador de Grups\n"
 					echo -e "\nNom de domini (ou=X,dc=Y,dc=tld):\t"
 					read ub
@@ -181,15 +181,14 @@ do
 		1)
 			#Crear UOs
 			clear
-			echo -e "Vols fer-ho amb manualment (1) o amb l'assistent (2)?"
+			echo -e "Vols fer-ho amb manualment (1) o amb l'assistent [2]?"
 			read ed
 			case $ed in
 				1)
-					echo -e "Fitxer de sortida (Sense extensió)\t"
-					read file
+					echo -e "El fitxer serà $fUos."
 					$EDITOR $fUos
 					;;
-				2)
+				2 | *)
 					echo -e "\nCreador d'UO\n"
 					echo -e "\nNom de domini (dc=X,dc=tld):\t"
 					read dn
