@@ -7,10 +7,23 @@ fUsers="$_base/users.ldif"
 fUos="$_base/uos.ldif"
 fGroups="$_base/groups.ldif"
 dnBase="$_base/dn_base"
+fAdmin="$_base/admin"
 
 while :
 do
 	clear
+
+	if [[ -f $fAdmin ]]; then
+		break
+	else
+		echo -e "\nQuin és l'usuari administrador d'LDAP?"
+		read adm
+		echo -e "\nQuin és el domini? (xyz.com)"
+		read url
+		dn=$(echo $url | tr -d "." | cut -f1)
+		dotsmth=$(echo $url | tr -d "." | cut -f1)
+		echo "dn="$cn,"dn="$dotsmth"\n" > $fAdmin
+	fi
 
 	echo -e "\nLDAP: Menu d'usuari\nSelecciona l'acció desitjada\n\t(1) Crear nova UO\n\t(2) Crear un nou grup\n\t(3) Crear un nou usuari\n\t(4) Carregar a LDAP\n\t(5) Sortir"
 	read -p ":	" num
@@ -30,24 +43,24 @@ do
 				1)
 					echo -e "Es carregaran els usuaris\n"
 					read -s -p "Escriu la contrasenya de la DB: " contrasenya
-					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fUsers
+					ldapadd -x -w $contrasenya -D $fAdmin -f $fUsers
 					;;
 				2)
 					echo -e "Es carregaran les UO\n"
 					read -s -p "Escriu la contrasenya de la DB: " contrasenya
-					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fUos
+					ldapadd -x -w $contrasenya -D $fAdmin -f $fUos
 					;;
 				3)
 					echo -e "Es carregaran els Grups\n"
 					read -s -p "Escriu la contrasenya de la DB: " contrasenya
-					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fGroups
+					ldapadd -x -w $contrasenya -D $fAdmin -f $fGroups
 					;;
 				4)
 					echo -e "Es carregaran tots els fitxers\n"
 					read -s -p "Escriu la contrasenya de la DB: " contrasenya
-					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fUos
-					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fGroups
-					ldapadd -x -w $contrasenya -D "cn=admin,dc=edt,dc=org" -f $fUsers
+					ldapadd -x -w $contrasenya -D $fAdmin -f $fUos
+					ldapadd -x -w $contrasenya -D $fAdmin -f $fGroups
+					ldapadd -x -w $contrasenya -D $fAdmin -f $fUsers
 					;;
 			esac
 			echo -e "Vols fer algo més? [y/N]"
