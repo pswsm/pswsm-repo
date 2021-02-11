@@ -18,7 +18,7 @@ do
 	else
 		echo -e "\nQuin és l'usuari administrador d'LDAP?"
 		read admin
-		echo -e "\nQuin és el domini? (xyz.com)"
+		echo -e "\nQuin és el domini? (domain.xyz)"
 		IFS=. read dn1 dn2
 		echo -e "cn="$admin",dn="$dn1",dn="$dn2"\n" > $fAdmin
 	fi
@@ -89,8 +89,14 @@ do
 					;;
 				2 | *)
 					echo -e "\nCreador de Grups\n"
-					echo -e "\nNom de domini (ou=X,dc=Y,dc=tld):\t"
-					read ub
+					echo -e "\nUbicació de l'usuari ((uo.)domain.xyz):\t"
+					IFS=. read ou dn1 dn2
+					if [[ -z $dn2 ]]; then
+						#statements
+						dn2=$dn1
+						dn1=$ou
+						unset $cn
+					fi
 
 					# Treure el gidNumber
 					if [ -f $fUsers ]; then
@@ -108,24 +114,24 @@ do
 					fi
 
 					echo -e "El gid serà "$gid"."
-					echo -e "\nNom del usuari (cn=Nom):\t"
-					read cn
+					echo -e "\nNom del usuari:"
+					read nuser
 					if [ -f "$fUsers" ]; then
 						echo -e "\nEl fitxer existeix, vols sobreescriure'l? [Y/n]\t"
 						read yn
 						case $yn in
 							y | Y)
-								echo -e "dn:\t"$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $fUsers
+								echo -e "cn: "$nuser",dn="$dn1",dn="$dn2"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: inetOrgPerson\nobjectClass: top\n" > $fUsers
 								;;
 							n | N)
 								echo -e "El contingut serà afegit al final del fitxer.\n"
-								echo -e "dn:\t"$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" >> $fUsers
+								echo -e "cn: "$nuser",dn="$dn1",dn="$dn2"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: inetOrgPerson\nobjectClass: top\n" >> $fUsers
 								;;
 								*)
-								echo -e "dn:\t"$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $fUsers
+								echo -e "dn:\t"$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: inetOrgPerson\nobjectClass: top\n" > $fUsers
 						esac
 					else
-						echo -e "dn: "$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: posixGroup\nobjectClass: top\n" > $fUsers
+						echo -e "dn: "$cn","$ub"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: inetOrgPerson\nobjectClass: top\n" > $fUsers
 					fi
 					# $_base/assistent.sh
 					# El fitxer assistent conte tot el que hi ha en aquest 2n cas
