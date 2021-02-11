@@ -17,12 +17,10 @@ do
 		continue
 	else
 		echo -e "\nQuin és l'usuari administrador d'LDAP?"
-		read adm
+		read admin
 		echo -e "\nQuin és el domini? (xyz.com)"
-		read url
-		dn=$(echo $url | tr -d "." | cut -f1)
-		dotsmth=$(echo $url | tr -d "." | cut -f1)
-		echo "dn="$cn,"dn="$dotsmth"\n" > $fAdmin
+		IFS=. read dn1 dn2
+		echo -e "cn="$admin",dn="$dn1",dn="$dn2"\n" > $fAdmin
 	fi
 
 	echo -e "\nLDAP: Menu d'usuari\nSelecciona l'acció desitjada\n\t(1) Crear nova UO\n\t(2) Crear un nou grup\n\t(3) Crear un nou usuari\n\t(4) Carregar a LDAP\n\t(5) Sortir"
