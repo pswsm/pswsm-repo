@@ -14,7 +14,7 @@ do
 	clear
 
 	if [[ -f $fAdmin ]]; then
-		break
+		continue
 	else
 		echo -e "\nQuin és l'usuari administrador d'LDAP?"
 		read adm
@@ -67,7 +67,7 @@ do
 			read yn
 			case $yn in
 				y | Y)
-					break
+					continue
 					;;
 				n | N)
 					exit 0
