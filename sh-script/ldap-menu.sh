@@ -6,8 +6,8 @@ _base="$(dirname $_script)"
 fUsers="$_base/users.ldif"
 fUos="$_base/uos.ldif"
 fGroups="$_base/groups.ldif"
-dnBase="$_base/dn_base"
-fAdmin="$_base/admin"
+dnBase="$_base/.dn_base"
+fAdmin="$_base/.admin"
 
 while :
 do
@@ -80,7 +80,7 @@ do
 			#DEBUG:
 			#echo -e "\n"$fUsers"\n"
 			echo -e "És guradarà a "$fUsers
-			echo -e "\nCreador de Grups\n"
+			echo -e "\nCreador d'Usuaris\n"
 			echo -e "\nUbicació de l'usuari ((uo.)domain.xyz):\t"
 			IFS=. read ou dn1 dn2
 			if [[ -z $dn2 ]]; then
@@ -91,6 +91,7 @@ do
 			fi
 
 			# Treure el gidNumber
+			gid=499
 			if [ -f $fUsers ]; then
 				gidFile=$(grep uidNumber $fUsers | cut -d " " -f2 | sort -d | tail -n 1)
 				((gidFile++))
@@ -106,15 +107,14 @@ do
 				((gid++))
 			fi
 
-			echo -e "El gid serà "$gid"."
-			echo -e "\nNom del usuari:"
+			printf "El gid serà %s.\nNom del usuari: " $gid
 			read nuser
 			if [[ -f "$fUsers" ]]; then
-				echo -e "\nEl fitxer existeix, vols sobreescriure'l? [Y/n]\t"
+				printf "\nEl fitxer existeix, vols sobreescriure'l? [Y/n]\t"
 				read yn
 				case $yn in
 					y | Y | *)
-						echo -e "cn: "$nuser",dn="$dn1",dn="$dn2"\ngidNumber: "$gid"\ncn: "$cn"\nobjectClass: inetOrgPerson\nobjectClass: top\n" > $fUsers
+						printf "cn:%s,dn=%s,dn=%s\ngidNumber: %s\ncn: %s\nobjectClass: inetOrgPerson\nobjectClass: top\n" $nuser $dn1 $dn2 $cn > $fUsers
 						;;
 					n | N)
 						echo -e "El contingut serà afegit al final del fitxer.\n"
