@@ -15,13 +15,14 @@ fadmin="$_base/.admin"
 while :
 do
 	clear
-	if [[ ! -f $fadmin  && ! -f $topdn ]]; then
+	if [[ ! -f $fadmin  || ! -f $topdn ]]; then
 		printf "\nEscriu el teu domnini (example.com):\t\t"
 		IFS=. read domainname tls
 		printf "\nEscriu l'usuari amb el que s'administra el domini (ex: Admin):\t"
 		read adminuser
 		printf "cn=%s,dn=%s,dn=%s" $adminuser $domainname $tls > $fadmin
-		printf "dn=%s,dn=%s" $domainname $tls > $topdn
+		printf "dn=%s,dn=%s" $domainname $tls | sed 's/.$//' #> $topdn
+		read
 		printf "%s.%s" $domainname $tls > $dname
 		unset domainname tls adminuser
 	fi
@@ -106,7 +107,7 @@ do
 		case $yn in
 			* )
 			gidfor=( $(ldapsearch -x -LLL -b $topdn "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sort -d | uniq | sed '/^[[:digit:]]*$/d') )
-			namefr=( $(ldapsearch -x -LLL -b $topdn "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sort -d | uniq | sed '/^[a-zA-z]*$/d') )
+			namefr=( $(ldapsearch -x -LLL -b $topdn "(objectClass=inetOrgPerson)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sort -d | uniq | sed '/^[a-zA-z]*$/d') )
 			printf "\n%s -- %s" ${gidfor[@]} ${namefr[@]}
 			printf "\nEn quin grup està? (Introdueix el gid)"
 			read gidUSR
