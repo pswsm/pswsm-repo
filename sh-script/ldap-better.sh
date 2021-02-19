@@ -20,9 +20,8 @@ do
 		IFS=. read domainname tls
 		printf "\nEscriu l'usuari amb el que s'administra el domini (ex: Admin):\t"
 		read adminuser
-		printf "cn=%s,dn=%s,dn=%s" $adminuser $domainname $tls > $fadmin
-		printf "dn=%s,dn=%s" $domainname $tls | sed 's/.$//' #> $topdn
-		read
+		printf "cn=%s,dc=%s,dc=%s" $adminuser $domainname $tls > $fadmin
+		printf "dc=%s,dc=%s" $domainname $tls | sed 's/.$//' > $topdn
 		printf "%s.%s" $domainname $tls > $dname
 		unset domainname tls adminuser
 	fi
@@ -81,7 +80,7 @@ do
 		uid=999
 		if [[ -f $fusers ]]; then
 			uifile=$(grep uidNumber $fusers | cut -d " " -f2 | sort -d | tail -n 1)
-			uidb=$(ldapsearch -x -LLL -b dc=edt,dc=org "(objectClass=inetOrgPerson)" | grep uidNumber | sort -d | cut -d " " -f2 | tail -n 1)
+			uidb=$(ldapsearch -x -LLL -b $topdn "(objectClass=inetOrgPerson)" | grep uidNumber | sort -d | cut -d " " -f2 | tail -n 1)
 			((uifile++))
 			((uidb++))
 			if [ $uifile > $uidb ]; then
@@ -90,7 +89,7 @@ do
 				uid=$uidb
 			fi
 		else
-			uid=$(ldapsearch -x -LLL -b dc=edt,dc=org "(objectClass=inetOrgPerson)" | grep uidNumber | sort -d | cut -d " " -f2 | tail -n 1)
+			uid=$(ldapsearch -x -LLL -b $topdn "(objectClass=inetOrgPerson)" | grep uidNumber | sort -d | cut -d " " -f2 | tail -n 1)
 			((uid++))
 		fi
 		printf "\nL\'arxiu d\'usuaris es guardarà a %s\nNom i 1r congnom de l\'usuari: " $fusers
