@@ -21,7 +21,7 @@ do
 		printf "\nEscriu l'usuari amb el que s'administra el domini (ex: Admin):\t"
 		read adminuser
 		printf "cn=%s,dc=%s,dc=%s" $adminuser $domainname $tls > $fadmin
-		printf "dc=%s,dc=%s" $domainname $tls | sed 's/.$//' > $topdn
+		printf "dc=%s,dc=%s" $domainname $tls > $topdn
 		printf "%s.%s" $domainname $tls > $dname
 		unset domainname tls adminuser
 	fi
@@ -80,7 +80,7 @@ do
 		uid=999
 		if [[ -f $fusers ]]; then
 			uifile=$(grep uidNumber $fusers | cut -d " " -f2 | sort -d | tail -n 1)
-			uidb=$(ldapsearch -x -LLL -b $topdn "(objectClass=inetOrgPerson)" | grep uidNumber | sort -d | cut -d " " -f2 | tail -n 1)
+			uidb=$(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=inetOrgPerson)" | grep uidNumber | sort -d | cut -d " " -f2 | tail -n 1)
 			((uifile++))
 			((uidb++))
 			if [ $uifile > $uidb ]; then
@@ -89,7 +89,7 @@ do
 				uid=$uidb
 			fi
 		else
-			uid=$(ldapsearch -x -LLL -b $topdn "(objectClass=inetOrgPerson)" | grep uidNumber | sort -d | cut -d " " -f2 | tail -n 1)
+			uid=$(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=inetOrgPerson)" | grep uidNumber | sort -d | cut -d " " -f2 | tail -n 1)
 			((uid++))
 		fi
 		printf "\nL\'arxiu d\'usuaris es guardarà a %s\nNom i 1r congnom de l\'usuari: " $fusers
@@ -105,8 +105,8 @@ do
 		read yn
 		case $yn in
 			* )
-			gidfor=( $(ldapsearch -x -LLL -b $topdn "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sort -d | uniq | sed '/^[[:digit:]]*$/d') )
-			namefr=( $(ldapsearch -x -LLL -b $topdn "(objectClass=inetOrgPerson)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sort -d | uniq | sed '/^[a-zA-z]*$/d') )
+			gidfor=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sort -d | uniq | sed '/^[[:digit:]]*$/d') )
+			namefr=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=inetOrgPerson)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sort -d | uniq | sed '/^[a-zA-z]*$/d') )
 			printf "\n%s -- %s" ${gidfor[@]} ${namefr[@]}
 			printf "\nEn quin grup està? (Introdueix el gid)"
 			read gidUSR
