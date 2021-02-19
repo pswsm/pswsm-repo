@@ -105,9 +105,9 @@ do
 		read yn
 		case $yn in
 			* )
-			gidfor=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sort -d | uniq | sed '/^[[:digit:]]*$/d') )
-			namefr=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=inetOrgPerson)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sort -d | uniq | sed '/^[a-zA-z]*$/d') )
-			printf "\n%s -- %s" ${gidfor[@]} ${namefr[@]}
+			namefr=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sort -d | uniq | sed '/^[[:digit:]]*$/d;/posixGroup/d;/top/d' | sort -d) )
+			gidfor=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=inetOrgPerson)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sort -d | uniq | sed '/^[a-zA-z]*$/d;/posixGroup/d;/top/d' | sort -d) )
+			printf "\n%d -- %s" ${gidfor[@]} ${namefr[@]}
 			printf "\nEn quin grup està? (Introdueix el gid)"
 			read gidUSR
 				;;
