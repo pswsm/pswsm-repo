@@ -15,7 +15,7 @@ fadmin="$_base/.admin"
 while :
 do
 	clear
-	if [[ ! -f $fadmin ]]; then
+	if [[ ! -f $fadmin  && ! -f $topdn ]]; then
 		printf "\nEscriu el teu domnini (example.com):\t\t"
 		IFS=. read domainname tls
 		printf "\nEscriu l'usuari amb el que s'administra el domini (ex: Admin):\t"
@@ -26,12 +26,13 @@ do
 		unset domainname tls adminuser
 	fi
 
+	clear
 	printf "░▒█░░░░█▀▄░█▀▀▄░▄▀▀▄░░░▒█▀▄▀█░█▀▀░█▀▀▄░█░▒█░░░▒█░▒█░█▀▀░█░░▄▀▀▄░█▀▀░█▀▀▄\n░▒█░░░░█░█░█▄▄█░█▄▄█░░░▒█▒█▒█░█▀▀░█░▒█░█░▒█░░░▒█▀▀█░█▀▀░█░░█▄▄█░█▀▀░█▄▄▀\n░▒█▄▄█░▀▀░░▀░░▀░█░░░░░░▒█░░▒█░▀▀▀░▀░░▀░░▀▀▀░░░▒█░▒█░▀▀▀░▀▀░█░░░░▀▀▀░▀░▀▀\n\n"
 
-	printf "n\t(1) Crear nova UO\n\t(2) Crear un nou grup\n\t(3) Crear un nou usuari\n\t(4) Carregar a LDAP\n\t(5) Sortir\n"
+	printf "\n\t(1) Crear nova UO\n\t(2) Crear un nou grup\n\t(3) Crear un nou usuari\n\t(4) Carregar a LDAP\n\t(5) Sortir\n"
 	read choice
 
-	case choice in
+	case $choice in
 		5 )
 		exit 0
 			;;
@@ -91,11 +92,30 @@ do
 			uid=$(ldapsearch -x -LLL -b dc=edt,dc=org "(objectClass=inetOrgPerson)" | grep uidNumber | sort -d | cut -d " " -f2 | tail -n 1)
 			((uid++))
 		fi
-		printf "L'arxiu d'usuaris es guardarà a %s\nUbicació de l'usuari en el domini (Per defecte %s): " $fusers $dname
-		IFS=. read dn1 dn2
-		if [[ -z $dn1 || -z $dn2 ]]; then
-			default=$topdn
-		fi
+		printf "\nL\'arxiu d\'usuaris es guardarà a %s\nNom i 1r congnom de l\'usuari: " $fusers
+		IFS=" " read -a nomcg
+		printf "dn: cn=%s %s" ${nomcg[@]} >> $fusers
+		printf "\nUbicació de l\'usuari en el domini (Per defecte %s)(uo.domini.tls): " $(cat $dname)
+		IFS=. read -a dn
+		printf "\n\n" | printf "ou=%s," ${dn[@]::${#dn[@]}-2} >> $fusers
+		printf "dn=%s," ${dn[-2]} ${dn[-1]} | sed 's/.$//' >> $fusers
+		printf "\ncn: %s %s"  ${nomcg[@]} >> $fusers
+		printf "\ngivenName: %s" ${nomcg[1]}
+		printf "\nEstà en algún grup? [Y/n] "
+		read yn
+		case $yn in
+			* )
+			gidfor=( $(ldapsearch -x -LLL -b $topdn "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sort -d | uniq | sed '/^[[:digit:]]*$/d') )
+			namefr=( $(ldapsearch -x -LLL -b $topdn "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sort -d | uniq | sed '/^[a-zA-z]*$/d') )
+			printf "\n%s -- %s" ${gidfor[@]} ${namefr[@]}
+			printf "\nEn quin grup està? (Introdueix el gid)"
+			read gidUSR
+				;;
+			N | n )
+			printf "A bé, tu sabràs manet"
+		esac
+
+			;;
 	esac
 
 done
