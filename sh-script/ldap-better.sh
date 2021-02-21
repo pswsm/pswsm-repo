@@ -106,8 +106,8 @@ do
 		case $yn in
 			* )
 			# marr=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | uniq | sed '/^[[:digit:]]*$/d;/posixGroup/d;/top/d') $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | uniq | sed '/^[a-zA-Z]*$/d;/posixGroup/d;/top/d') )
-			namefr=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | uniq | sed '/^[[:digit:]]*$/d;/posixGroup/d;/top/d' | sort -d) )
-			gidfor=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | uniq | sed '/^[a-zA-Z]*$/d;/posixGroup/d;/top/d' | sort -d) )
+			namefr=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sed '/posixGroup/d;/top/d;/^[[:space:]]*$/d;/^[[:digit:]]*$/d' | awk '!x[$0]++') )
+			gidfor=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sed '/posixGroup/d;/top/d;/^[[:space:]]*$/d;/[a-zA-Z]/d' | awk '!x[$0]++') )
 			paste <(printf "\n%d" ${gidfor[@]}) <(printf "\n%s" ${namefr[@]})
 			printf "\n\nEn quin grup està? (Introdueix el gid)"
 			# printf "%s -- %s" ${marr} ${marr[@]}
