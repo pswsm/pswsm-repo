@@ -94,29 +94,32 @@ do
 		fi
 		printf "\nL\'arxiu d\'usuaris es guardarà a %s\nNom i 1r congnom de l\'usuari: " $fusers
 		IFS=" " read -a nomcg
-		printf "dn: cn=%s %s" ${nomcg[@]} >> $fusers
+		printf "dn: cn=%s %s," ${nomcg[@]} >> $fusers
 		printf "\nUbicació de l\'usuari en el domini (Per defecte %s)(uo.domini.tls): " $(cat $dname)
 		IFS=. read -a dn
-		printf "\n\n" | printf "ou=%s," ${dn[@]::${#dn[@]}-2} >> $fusers
+		printf "\n\n" >> $fusers
+		printf "ou=%s," ${dn[@]::${#dn[@]}-2} >> $fusers
 		printf "dn=%s," ${dn[-2]} ${dn[-1]} | sed 's/.$//' >> $fusers
 		printf "\ncn: %s %s"  ${nomcg[@]} >> $fusers
-		printf "\ngivenName: %s" ${nomcg[1]}
+		printf "\ngivenName: %s" ${nomcg[1]} >> $fusers
 		printf "\nEstà en algún grup? [Y/n] "
 		read yn
 		case $yn in
-			* )
-			# marr=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | uniq | sed '/^[[:digit:]]*$/d;/posixGroup/d;/top/d') $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | uniq | sed '/^[a-zA-Z]*$/d;/posixGroup/d;/top/d') )
+			y | Y )
 			namefr=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sed '/posixGroup/d;/top/d;/^[[:space:]]*$/d;/^[[:digit:]]*$/d' | awk '!x[$0]++') )
 			gidfor=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | sed '/posixGroup/d;/top/d;/^[[:space:]]*$/d;/[a-zA-Z]/d' | awk '!x[$0]++') )
 			paste <(printf "\n%d" ${gidfor[@]}) <(printf "\n%s" ${namefr[@]})
-			printf "\n\nEn quin grup està? (Introdueix el gid)"
-			# printf "%s -- %s" ${marr} ${marr[@]}
-			# printf "\n\nEn quin grup està? (Introdueix el gid): "
+			printf "\n\nEn quin grup està? (Introdueix el gid): "
 			read gidUSR
+			printf "\ngidNumber: %s" $gidUSR >> $fusers
 				;;
 			N | n )
-			printf "Ah bé, tu sabràs manet"
+			printf "\nAh bé, tu sabràs manet"
 		esac
+		nomlow=$(tr [:upper:] [:lower:] <(printf "%s" ${nomcg[1]::1}))
+		cognomlow=$(tr [:upper:] [:lower:] <(printf "%s" ${nomcg[2]}))
+		printf "\nhomeDirectory: /home/users/%s%s" $nomlow
+		read
 
 			;;
 	esac
