@@ -105,14 +105,13 @@ do
 		read yn
 		case $yn in
 			* )
+			# marr=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | uniq | sed '/^[[:digit:]]*$/d;/posixGroup/d;/top/d') $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | uniq | sed '/^[a-zA-Z]*$/d;/posixGroup/d;/top/d') )
 			namefr=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | uniq | sed '/^[[:digit:]]*$/d;/posixGroup/d;/top/d' | sort -d) )
 			gidfor=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | uniq | sed '/^[a-zA-Z]*$/d;/posixGroup/d;/top/d' | sort -d) )
-			for i in ${namefr[@]}; do
-				arr[${gidfor[i]}]=${namefr[i]}
-				i++
-			done
-			printf "%s" ${arr[@]}
-			printf "\n\nEn quin grup està? (Introdueix el gid): "
+			paste <(printf "\n%d" ${gidfor[@]}) <(printf "\n%s" ${namefr[@]})
+			printf "\n\nEn quin grup està? (Introdueix el gid)"
+			# printf "%s -- %s" ${marr} ${marr[@]}
+			# printf "\n\nEn quin grup està? (Introdueix el gid): "
 			read gidUSR
 				;;
 			N | n )
