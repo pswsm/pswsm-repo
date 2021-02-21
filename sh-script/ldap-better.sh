@@ -109,6 +109,7 @@ do
 			gidfor=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | cut -d ' ' -f2 | cut -d ',' -f1 | sed 's/cn=//' | uniq | sed '/^[a-zA-Z]*$/d;/posixGroup/d;/top/d' | sort -d) )
 			for i in ${namefr[@]}; do
 				arr[${gidfor[i]}]=${namefr[i]}
+				i++
 			done
 			printf "%s" ${arr[@]}
 			printf "\n\nEn quin grup està? (Introdueix el gid): "
