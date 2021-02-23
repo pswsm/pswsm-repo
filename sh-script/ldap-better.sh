@@ -163,8 +163,9 @@ do
 		IFS=. read -a dn
 		if [[ ${#dn[@]} -eq 0 ]]; then
 			printf "dn=%s,dn=%s" $(cat $dname | cut -d "." -f1 ) $(cat $dname | cut -d "." -f2 )
+		else
+			printf "dn=%s," ${dn[-2]} ${dn[-1]} | sed 's/.$//' >> $fuos
 		fi
-		printf "dn=%s," ${dn[-2]} ${dn[-1]} | sed 's/.$//' >> $fuos
 		printf "\nobjectClass: organizationalUnit\nobjectClass: top" >> $fuos
 		printf "\nou: %s"  $nomuo >> $fuos
 	esac
