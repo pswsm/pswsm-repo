@@ -153,8 +153,18 @@ do
 		printf "\ngidNumber: %s" $gid >> $fgroups
 		printf "\ncn: %s"  $nomgr >> $fgroups
 		printf "\nobjectClass: posixGroup\nobjectClass: top\n" >> $fgroups
-		read
 			;;
+		1 )
+		printf "\nL\'arxiu d'UOs es guardarà a %s\nNom del grup: " $fuos
+		read nomuo
+		printf "\n\n" >> $fuos
+		printf "dn: ou=%s," $nomuo >> $fuos
+		printf "\nUbicació de la UO en el domini (Per defecte %s)((altra uo.)domini.tls): " $(cat $dname)
+		IFS=. read -a dn
+		printf "ou=%s," ${dn[@]::${#dn[@]}-2} >> $fuos
+		printf "dn=%s," ${dn[-2]} ${dn[-1]} | sed 's/.$//' >> $fuos
+		printf "\nobjectClass: organizationalUnit\nobjectClass: top\n" >> $fuos
+		printf "\nou: %s"  $nomuo >> $fuos
 	esac
 
 done
