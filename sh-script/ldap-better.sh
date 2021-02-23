@@ -120,8 +120,8 @@ do
 		cognomlow=$(printf "%s" ${nomcg[1]} | tr '[:upper:]' '[:lower:]')
 		printf "\nhomeDirectory: /home/users/%s%s" $nomlow $cognomlow >> $fusers
 		# sn: Surname
-		printf "\nsn: %s" ${nomcg[1]}
-		printf "\nloginShell: /bin/sh\nobjectClass: inetOrgPerson\nobjectClass: posixAccount\nobjectClass: top\nuidNumber: %s\nuid: %s%s" $uid $nomlow $cognomlow >> $fusers
+		printf "\nsn: %s" ${nomcg[1]} >> $fusers
+		printf "\nloginShell: /bin/sh\nobjectClass: inetOrgPerson\nobjectClass: posixAccount\nobjectClass: top\nuidNumber: %s\nuid: %s%s" $uid $nomlow $cognomlow# >> $fusers
 			;;
 	esac
 
