@@ -116,8 +116,8 @@ do
 			N | n )
 			printf "\nAh bé, tu sabràs manet"
 		esac
-		nomlow=$(tr [:upper:] [:lower:] <(printf "%s" ${nomcg[1]}))
-		cognomlow=$(tr [:upper:] [:lower:] <(printf "%s" ${nomcg[2]}))
+		nomlow=$(printf "%s" ${nomcg[1]} | tr [:upper:] [:lower:])
+		cognomlow=$(printf "%s" ${nomcg[2]} | tr '[:upper:]' '[:lower:]')
 		printf "\nhomeDirectory: /home/users/%s%s" ${nomlow::1} $cognomlow
 		read
 
