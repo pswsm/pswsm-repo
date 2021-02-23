@@ -118,6 +118,8 @@ do
 		esac
 		nomlow=$(printf "%s" ${nomcg[1]} | cut -c1 | tr '[:upper:]' '[:lower:]')
 		cognomlow=$(printf "%s" ${nomcg[2]} | tr '[:upper:]' '[:lower:]')
+		printf "%s" $nomlow
+		printf "\n%s" $cognomlow
 		printf "\nhomeDirectory: /home/users/%s%s" $nomlow $cognomlow
 		read
 
