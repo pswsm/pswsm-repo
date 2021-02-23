@@ -101,7 +101,7 @@ do
 		printf "ou=%s," ${dn[@]::${#dn[@]}-2} >> $fusers
 		printf "dn=%s," ${dn[-2]} ${dn[-1]} | sed 's/.$//' >> $fusers
 		printf "\ncn: %s %s"  ${nomcg[@]} >> $fusers
-		printf "\ngivenName: %s" ${nomcg[1]} >> $fusers
+		printf "\ngivenName: %s" ${nomcg[0]} >> $fusers
 		printf "\nEstà en algún grup? [Y/n] "
 		read yn
 		case $yn in
@@ -116,8 +116,8 @@ do
 			* )
 			printf "\nAh bé, tu sabràs manet"
 		esac
-		nomlow=$(printf "%s" ${nomcg[1]} | cut -c1)
-		cognomlow=$(printf "%s" ${nomcg[2]})
+		nomlow=$(printf "%s" ${nomcg[0]} | cut -c1 | tr '[:upper:]' '[:lower:]')
+		cognomlow=$(printf "%s" ${nomcg[1]} | tr '[:upper:]' '[:lower:]')
 		printf "%s" $nomlow
 		printf "\n%s" $cognomlow
 		printf "\nhomeDirectory: /home/users/%s%s" $nomlow $cognomlow
