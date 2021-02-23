@@ -118,11 +118,10 @@ do
 		esac
 		nomlow=$(printf "%s" ${nomcg[0]} | cut -c1 | tr '[:upper:]' '[:lower:]')
 		cognomlow=$(printf "%s" ${nomcg[1]} | tr '[:upper:]' '[:lower:]')
-		printf "%s" $nomlow
-		printf "\n%s" $cognomlow
-		printf "\nhomeDirectory: /home/users/%s%s" $nomlow $cognomlow
-		read
-
+		printf "\nhomeDirectory: /home/users/%s%s" $nomlow $cognomlow >> $fusers
+		# sn: Surname
+		printf "\nsn: %s" ${nomcg[1]}
+		printf "\nloginShell: /bin/sh\nobjectClass: inetOrgPerson\nobjectClass: posixAccount\nobjectClass: top\nuidNumber: %s\nuid: %s%s" $uid $nomlow $cognomlow >> $fusers
 			;;
 	esac
 
