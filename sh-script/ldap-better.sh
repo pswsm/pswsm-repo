@@ -116,12 +116,44 @@ do
 			* )
 			printf "\nAh bé, tu sabràs manet"
 		esac
+		# Escriure el homedir
 		nomlow=$(printf "%s" ${nomcg[0]} | cut -c1 | tr '[:upper:]' '[:lower:]')
 		cognomlow=$(printf "%s" ${nomcg[1]} | tr '[:upper:]' '[:lower:]')
 		printf "\nhomeDirectory: /home/users/%s%s" $nomlow $cognomlow >> $fusers
 		# sn: Surname
 		printf "\nsn: %s" ${nomcg[1]} >> $fusers
 		printf "\nloginShell: /bin/sh\nobjectClass: inetOrgPerson\nobjectClass: posixAccount\nobjectClass: top\nuidNumber: %s\nuid: %s%s\n" $uid $nomlow $cognomlow >> $fusers
+			;;
+		2 )
+		# Group Creation
+		## Get gidnum
+		gid=499
+		if [[ -f $fgroups ]]; then
+			gifile=$(grep gidNumber $fgroups | cut -d " " -f2 | sort -d | tail -n 1)
+			gidb=$(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | grep gidNumber | sort -d | cut -d " " -f2 | tail -n 1)
+			((uifile++))
+			((uidb++))
+			if [ $gifile > $gidb ]; then
+				gid=$gifile
+			else
+				gid=$gidb
+			fi
+		else
+			gid=$(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixGroup)" | grep gidNumber | sort -d | cut -d " " -f2 | tail -n 1)
+			((uid++))
+		fi
+		printf "\nL\'arxiu de grups es guardarà a %s\nNom del grup: " $fgroups
+		read nomgr
+		printf "\n\n" #>> $fgroups
+		printf "dn: cn=%s," $nomgr #>> $fgroups
+		printf "\nUbicació del grup en el domini (Per defecte %s)((uo.)domini.tls): " $(cat $dname)
+		IFS=. read -a dn
+		printf "ou=%s," ${dn[@]::${#dn[@]}-2} #>> $fgroups
+		printf "dn=%s," ${dn[-2]} ${dn[-1]} | sed 's/.$//' #>> $fgroups
+		printf "\ngidNumber: %s" $gid #>> $fgroups
+		printf "\ncn: %s"  $nomgr #>> $fgroups
+		printf "\nobjectClass: posixGroup\nobjectClass: top\n" #>> $fgroups
+		read
 			;;
 	esac
 
