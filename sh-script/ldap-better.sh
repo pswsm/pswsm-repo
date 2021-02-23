@@ -113,12 +113,12 @@ do
 			read gidUSR
 			printf "\ngidNumber: %s" $gidUSR >> $fusers
 				;;
-			N | n )
+			* )
 			printf "\nAh bé, tu sabràs manet"
 		esac
-		nomlow=$(printf "%s" ${nomcg[1]} | tr [:upper:] [:lower:])
+		nomlow=$(printf "%s" ${nomcg[1]} | cut -c1 | tr '[:upper:]' '[:lower:]')
 		cognomlow=$(printf "%s" ${nomcg[2]} | tr '[:upper:]' '[:lower:]')
-		printf "\nhomeDirectory: /home/users/%s%s" ${nomlow::1} $cognomlow
+		printf "\nhomeDirectory: /home/users/%s%s" $nomlow $cognomlow
 		read
 
 			;;
