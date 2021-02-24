@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<body>
+	<h1>Exercici 2</h1>
+	<p id='e2'></p>
+	</body>
+	<script>
+    // Exercici 2
+    var nums = prompt("Introdueix 4 nombres, separats per espais:");
+    nums = nums.split(" ", 4);
+    var n1 = parseFloat(nums[0]);
+    var n2 = parseFloat(nums[1]);
+    var n3 = parseFloat(nums[2]);
+    var n4 = parseFloat(nums[3]);
+    // document.write(typeof(n1))
+    while ((isNaN(n1) || isNaN(n2) || isNaN(n3) || isNaN(n4)) == true) {
+      nums = prompt("Germà, tot nombres no lletres.\nIntrodueix 4 nombres, separats per espais:");
+      nums = nums.split(" ");
+      n1 = parseFloat(nums[0]);
+      n2 = parseFloat(nums[1]);
+      n3 = parseFloat(nums[2]);
+      n4 = parseFloat(nums[3]);
+    }
+    document.getElementById('e2').innerHTML = "Suma dels dos primers nombres: " + (n1+n2) + "<br>Producte del 3r i el 4t nombre: " + (n3*n4);
+	</script>
+</html>

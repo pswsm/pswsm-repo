@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>UF1 - PR3 Exercicis</title>
+	</head>
+	
+	<body>
+		<h3>Exercici 1:</h3>
+		<p id=perimetre></p>
+		<h3>Exercici 2</h3>
+		<p id=operacions></p>
+	</body>
+	<script>
+	//Exercici 1
+	var pmetre = prompt("Escriu el quan mesura el costat d'un quadrat:", 4);
+	while (isNaN(pmetre) == true) {
+		document.getElementById("perimetre").innerHTML = "Has d'escriure un número!";
+		pmetre = prompt("Escriu el quan mesura el costat d'un quadrat:", 4);
+	}
+	
+	document.getElementById("perimetre").innerHTML = "El perimetre del quadrat és: " + pmetre*4 + ".";
+	
+	// Exercici 2
+	var nums = prompt("Escriu els quatre números que vulguis, separats per espais:", "1 2 3 4");
+	var numsplit = nums.split(" ");
+	var n1 = parseInt(numsplit[0])
+	var n2 = parseInt(numsplit[1])
+	var n3 = parseInt(numsplit[2])
+	var n4 = parseInt(numsplit[3])
+	while ((isNaN(n1) == true) || (isNaN(n2) == true) || (isNaN(n3) == true) || (isNaN(n4) == true)) {
+		document.getElementById("operacions").innerHTML = "Oops! Sembla que algún nombre no era un número!";
+		nums = prompt("Escriu els quatre números que vulguis, separats per espais:", "1 2 3 4");
+		numsplit = nums.split(" ");
+		n1 = parseInt(numsplit[0]);
+		n2 = parseInt(numsplit[1]);
+		n3 = parseInt(numsplit[2]);
+		n4 = parseInt(numsplit[3]);
+	}
+	
+	document.getElementById("operacions").innerHTML = "La sumo dels primers dos nombres és: " + n1 + "+" + n2 + "=" + (n1+n2) + "<br>" + "El producte dels dos últims nombres és: "  + n3 + "×" + n4 + "=" + (n3*n4);
+	
+	</script>
+</html>
