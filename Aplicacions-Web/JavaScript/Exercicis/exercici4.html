@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ca" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercici 4</title>
+  </head>
+  <body>
+    <p id="e4"></p>
+  </body>
+  <script>
+    // Exercici 4
+    var preuqtt = prompt("Preu de l'article i nombre (preu, nombre):", "15, 2");
+    preuqtt = preuqtt.split(", ");
+    var preu = parseInt(preuqtt[0]);
+    var qtt = parseInt(preuqtt[1]);
+    while ((isNaN(preu)) || (isNaN(qtt)) == true ) {
+      preuqtt = prompt("Preu de l'article i nombre (preu, nombre):", "15, 2");
+      preuqtt = preuqtt.split(", ");
+      preu = parseInt(preuqtt[0]);
+      qtt = parseInt(preuqtt[1]);
+    }
+    document.getElementById('e4').innerHTML = "Total a pagar: " + (preu*qtt);
+
+  </script>
+</html>

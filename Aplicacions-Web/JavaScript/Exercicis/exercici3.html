@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p id="e3"></p>
+  </body>
+  <script>
+    // Exercici 3
+    var nums = prompt("Introdueix 4 nombres (altre cop), separats per comes i espai:", "1, 2, 3, 4");
+    nums = nums.split(", ", 4);
+    var n12 = parseFloat(nums[0]);
+    var n22 = parseFloat(nums[1]);
+    var n32 = parseFloat(nums[2]);
+    var n42 = parseFloat(nums[3]);
+    // document.write(typeof(n12))
+    while ((isNaN(n12) || isNaN(n22) || isNaN(n32) || isNaN(n42)) == true) {
+      nums = prompt("Germà, tot nombres, cap lletra.\nIntrodueix 4 nombres, separats per espais:");
+      nums = nums.split(" ");
+      n12 = parseFloat(nums[0]);
+      n22 = parseFloat(nums[1]);
+      n32 = parseFloat(nums[2]);
+      n42 = parseFloat(nums[3]);
+    }
+    document.getElementById('e3').innerHTML = "La suma dels quatre nombres és: " + (n12+n22+n32+n42) + "<br>El producte dels quatre nombres és: " + (n12*n22*n32*n42);
+
+  </script>
+</html>

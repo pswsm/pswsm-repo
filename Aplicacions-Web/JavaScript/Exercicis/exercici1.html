@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ca" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>UF1-PR3</title>
+  </head>
+  <body>
+    <h3>Exercici 1</h3>
+    <p id="e1"></p>
+  </body>
+  <script type="text/javascript">
+    // Exercici 1
+    var c = prompt("Llargada del costat del quadrat?", 4);
+    while (isNaN(c) == true) {
+      c = prompt("Has d'introduir un nombre!\nLlargada del quadrat?", 4);
+    }
+    document.getElementById('e1').innerHTML = "El perímetre del quadrat és: " + c*4;
+
+  </script>
+</html>

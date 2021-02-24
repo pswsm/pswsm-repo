@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ca" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercici 8</title>
+  </head>
+  <body>
+    <p id="e8"></p>
+  </body>
+  <script>
+    // Exercici 8
+
+    function mesGran(arr) {
+      var mesGran = Math.max.apply(Math, arr);
+      return mesGran;
+    }
+
+    var nums = prompt("Introdueix tres nombres separats per comes:", "5, 6, 7");
+    nums = nums.split(", ", 3);
+    while ((isNaN(parseFloat(nums[0]))) || (isNaN(parseFloat(nums[1])) || (isNaN(parseFloat(nums[2])))) == true ) {
+      nums = prompt("Introdueix tres nombres separats per comes:", "5, 6, 7");
+      nums = nums.split(", ");
+    }
+
+    document.getElementById('e8').innerHTML = "El nombre més gran és: " + mesGran(nums);
+
+  </script>
+</html>

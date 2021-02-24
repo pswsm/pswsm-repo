@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ca" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercici 5</title>
+  </head>
+  <body>
+    <p id="e5"></p>
+  </body>
+  <script>
+    // Exercici 5
+    var notes = prompt("Introdueix les tres notes de l'alumne, separades per una coma:", "9, 10, 7.6");
+    notes = notes.split(", ", 3);
+    while ((isNaN(parseFloat(notes[0]))) || (isNaN(parseFloat(notes[1]))) || (isNaN(parseFloat(notes[2]))) == true ) {
+      notes = prompt("Introdueix les tres notes de l'alumne, separades per una coma:", "9, 10, 7.6");
+      notes = notes.split(", ");
+    }
+    if (((parseFloat(notes[0]) + parseFloat(notes[1]) + parseFloat(notes[2]))/ 3) >= 7) {
+        document.getElementById('e5').innerHTML = "L'alumne té un promig major a 7!";
+    }
+    else {
+      document.getElementById('e5').innerHTML = "L'alumne té promig menor a 7...";
+    }
+
+  </script>
+</html>

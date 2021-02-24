@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ca" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercici 10</title>
+  </head>
+  <body>
+    <p id="e10"></p>
+  </body>
+  <script>
+    // Exercici 10
+    var tenums = prompt("Escriu 10 nombres separats per comes:", "1, 2, 3, 4, 5, 6, 7, 8, 9, 10");
+    tenums = tenums.split(", ", 10);
+    while ((isNaN(parseFloat(tenums[3])) || isNaN(parseFloat(tenums[4])) || isNaN(parseFloat(tenums[5]))) == true ) {
+    	tenums = prompt("Escriu 10 nombres separats per comes:", "1, 2, 3, 4, 5, 6, 7, 8, 9, 10");
+      tenums = tenums.split(", ", 10);
+    }
+    document.getElementById('e10').innerHTML = (parseFloat(tenums[3]) + parseFloat(tenums[4]) + parseFloat(tenums[5]));
+
+  </script>
+</html>
