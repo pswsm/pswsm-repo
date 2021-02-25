@@ -158,8 +158,10 @@ do
 		printf "\nL\'arxiu d'UOs es guardarà a %s" $fuos
 		printf "\n\n" >> $fuos
 		printf "\nUbicació i nom de la UO en el domini (uo.domini.tls): " $(cat $dname)
-		printf "dn: ou=%s," ${dn[@]::${#dn[@]}-2} >> $fuos
 		IFS=. read -a dn
+		printf "dn: " >> $fuos
+		printf "ou=%s," ${dn[@]::${#dn[@]}-2} >> $fuos
+		printf "dn=%s,dn=%s" ${dn[-2]} ${dn[-1]} >> $fuos
 		printf "\nobjectClass: organizationalUnit\nobjectClass: top" >> $fuos
 		printf "\nou: %s"  ${dn[0]} >> $fuos
 	esac
