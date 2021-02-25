@@ -155,11 +155,10 @@ do
 		printf "\nobjectClass: posixGroup\nobjectClass: top\n" >> $fgroups
 			;;
 		1 )
-		printf "\nL\'arxiu d'UOs es guardarà a %s\nNom de la UO: " $fuos
-		read nomuo
+		printf "\nL\'arxiu d'UOs es guardarà a %s" $fuos
 		printf "\n\n" >> $fuos
 		printf "\nUbicació i nom de la UO en el domini (uo.domini.tls): " $(cat $dname)
-		printf "dn: ou=%s," ${dn[@]::${#dn[@]}-2}
+		printf "dn: ou=%s," ${dn[@]::${#dn[@]}-2} >> $fuos
 		IFS=. read -a dn
 		printf "\nobjectClass: organizationalUnit\nobjectClass: top" >> $fuos
 		printf "\nou: %s"  ${dn[0]} >> $fuos
