@@ -1,7 +1,7 @@
 # cfgm-smx
 Contigut que fagi al Grau Mitjà de Sistemes Microinformatics i Xarxes (SMX).
 
-## Aplicacions Web
+## [Aplicacions Web](https://github.com/pswsm/cfgm-smx/tree/master/Aplicacions-Web)
 ### [CSS](https://github.com/pswsm/cfgm-smx/tree/master/Aplicacions-Web/css)
 Aquí es troben els arxius de la Part 2 de l'UF1 de M08 - CSS.
 Hi ha alguns exemples i els exercicis.
@@ -28,7 +28,7 @@ La típica calculadora, treball sota desenvolupament.
 De moment només opera amb dos nombres.
 
 ## [Nim](https://github.com/pswsm/cfgm-smx/tree/master/nim)
-Una mica de `nim` que he fet pel meu compte. No hi ha gaire a veure. 
+Una mica de `nim` que he fet pel meu compte. No hi ha gaire a veure.
 
 ## [Python](https://github.com/pswsm/cfgm-smx/tree/master/python)
 Aquí hi ha els projectes en python
@@ -47,8 +47,11 @@ Genera una contrasenya aleatoria i la hasheja en SHA256
 ## [Sh Scripts](https://github.com/pswsm/cfgm-smx/tree/master/sh-script)
 Scripts de shell.
 
-### [*ldap-menu*](https://github.com/pswsm/cfgm-smx/tree/master/sh-script/ldap-menu.sh)
-L'script que crea OUs, Usuaris i Grups d'LDAP i els carrega a la DB
+### [*ldap-better*](https://github.com/pswsm/cfgm-smx/tree/master/sh-script/ldap-better.sh)
+L'script que crea OUs, Usuaris i Grups d'LDAP i els carrega a la DB. *better* perque és el millorat.
+
+### [*ldap-modify*](https://github.com/pswsm/cfgm-smx/tree/master/sh-script/ldap-modify.sh)
+L'script que es dedica a editar la base de ldap quetinguis. Bàsicament és una modificació i retallada de l'ldap-better.
 
 ### La resta
 Són arxius on es gurden variables i arxius de sortida *.ldif*.
