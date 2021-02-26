@@ -34,7 +34,6 @@ do
 
 	case $choice in
 		5 )
-		rm $fusers $fgroups $fuos $fall
 		exit 0
 			;;
 		4 )
@@ -50,6 +49,8 @@ do
 			printf "Escriu la contrasenya d'LDAP:\t"
 			read -s contrasenya
 			ldapadd -x -w $contrasenya -D $(cat $fadmin) -f $fusers
+			read -p "Prem ENTER"
+			rm $fusers
 				;;
 			2 )
 			#Load OUs
@@ -57,6 +58,8 @@ do
 			printf "Escriu la contrasenya d'LDAP:\t"
 			read -s contrasenya
 			ldapadd -x -w $contrasenya -D $(cat $fadmin) -f $fuos
+			read -p "Prem ENTER"
+			rm $fuos
 				;;
 			3 )
 			#Load Groups
@@ -64,6 +67,8 @@ do
 			printf "Escriu la contrasenya d'LDAP:\t"
 			read -s contrasenya
 			ldapadd -x -w $contrasenya -D $(cat $fadmin) -f $fgroups
+			read -p "Prem ENTER"
+			rm $fgroups
 				;;
 			4 )
 			#Load All
@@ -73,6 +78,7 @@ do
 			cat $fuos $fgroups $fusers > $fall
 			ldapadd -x -w $contrasenya -D $(cat $fadmin) -f $fall
 			read -p "Prem ENTER"
+			rm $fuos $fall $fgroups $fusers
 				;;
 		esac
 			;;
