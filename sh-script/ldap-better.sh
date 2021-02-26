@@ -20,8 +20,8 @@ do
 		IFS=. read domainname tls
 		printf "\nEscriu l'usuari amb el que s'administra el domini (ex: Admin):\t"
 		read adminuser
-		printf "cn=%s,dc=%s,dc=%s" $adminuser $domainname $tls > $fadmin
-		printf "dc=%s,dc=%s" $domainname $tls > $topdn
+		printf "cn=%s,dc=%s,dc=%s" $adminuser $domainname $tls | sed 's/$//' > $fadmin
+		printf "dc=%s,dc=%s" $domainname $tls | sed 's/$//' > $topdn
 		printf "%s.%s" $domainname $tls > $dname
 		unset domainname tls adminuser
 	fi
@@ -34,6 +34,7 @@ do
 
 	case $choice in
 		5 )
+		rm $fusers $fgroups $fuos $fall
 		exit 0
 			;;
 		4 )
@@ -42,35 +43,36 @@ do
 		printf "Que vols carregar a la Base de Dades?\n"
 		printf "\n\t1: Usuaris\n\t2: UOs\n\t3: Grups\n\t4: Tot\n"
 		read choice
-		case choice in
+		case $choice in
 			1 )
 			#Load users
 			printf "Es carregaran els usuaris.\n"
 			printf "Escriu la contrasenya d'LDAP:\t"
 			read -s contrasenya
-			ldapadd -x -w $contrasenya -D $fadmin -f $fusers
+			ldapadd -x -w $contrasenya -D $(cat $fadmin) -f $fusers
 				;;
-			2)
+			2 )
 			#Load OUs
 			printf "Es carregaran les UOs.\n"
 			printf "Escriu la contrasenya d'LDAP:\t"
 			read -s contrasenya
-			ldapadd -x -w $contrasenya -D $fadmin -f $fuos
+			ldapadd -x -w $contrasenya -D $(cat $fadmin) -f $fuos
 				;;
-			3)
+			3 )
 			#Load Groups
 			printf "Es carregaran els grups.\n"
 			printf "Escriu la contrasenya d'LDAP:\t"
 			read -s contrasenya
-			ldapadd -x -w $contrasenya -D $fadmin -f $fgroups
+			ldapadd -x -w $contrasenya -D $(cat $fadmin) -f $fgroups
 				;;
-			3)
+			4 )
 			#Load All
 			printf "Es carregarà tot.\n"
 			printf "Escriu la contrasenya d'LDAP:\t"
 			read -s contrasenya
 			cat $fuos $fgroups $fusers > $fall
-			ldapadd -x -w $contrasenya -D $fadmin -f $fall
+			ldapadd -x -w $contrasenya -D $(cat $fadmin) -f $fall
+			read -p "Prem ENTER"
 				;;
 		esac
 			;;
@@ -80,7 +82,7 @@ do
 		uid=999
 		if [[ -f $fusers ]]; then
 			uifile=$(grep uidNumber $fusers | cut -d " " -f2 | sort -d | tail -n 1)
-			uidb=$(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=inetOrgPerson)" | grep uidNumber | sort -d | cut -d " " -f2 | tail -n 1)
+			uidb=$(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixAccount)" | grep uidNumber | sort -d | cut -d " " -f2 | tail -n 1)
 			((uifile++))
 			((uidb++))
 			if [ $uifile > $uidb ]; then
@@ -89,17 +91,17 @@ do
 				uid=$uidb
 			fi
 		else
-			uid=$(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=inetOrgPerson)" | grep uidNumber | sort -d | cut -d " " -f2 | tail -n 1)
+			uid=$(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixAccount)" | grep uidNumber | sort -d | cut -d " " -f2 | tail -n 1)
 			((uid++))
 		fi
 		printf "\nL\'arxiu d\'usuaris es guardarà a %s\nNom i 1r congnom de l\'usuari: " $fusers
 		IFS=" " read -a nomcg
-		printf "dn: cn=%s %s," ${nomcg[@]} >> $fusers
+		printf "\n\n" >> $fusers
+		printf "\ndn: cn=%s %s," ${nomcg[@]} >> $fusers
 		printf "\nUbicació de l\'usuari en el domini (Per defecte %s)(uo.domini.tls): " $(cat $dname)
 		IFS=. read -a dn
-		printf "\n\n" >> $fusers
 		printf "ou=%s," ${dn[@]::${#dn[@]}-2} >> $fusers
-		printf "dn=%s," ${dn[-2]} ${dn[-1]} | sed 's/.$//' >> $fusers
+		printf "dc=%s," ${dn[-2]} ${dn[-1]} | sed 's/.$//' >> $fusers
 		printf "\ncn: %s %s"  ${nomcg[@]} >> $fusers
 		printf "\ngivenName: %s" ${nomcg[0]} >> $fusers
 		printf "\nEstà en algún grup? [Y/n] "
@@ -149,7 +151,7 @@ do
 		printf "\nUbicació del grup en el domini (Per defecte %s)((uo.)domini.tls): " $(cat $dname)
 		IFS=. read -a dn
 		printf "ou=%s," ${dn[@]::${#dn[@]}-2} >> $fgroups
-		printf "dn=%s," ${dn[-2]} ${dn[-1]} | sed 's/.$//' >> $fgroups
+		printf "dc=%s," ${dn[-2]} ${dn[-1]} | sed 's/.$//' >> $fgroups
 		printf "\ngidNumber: %s" $gid >> $fgroups
 		printf "\ncn: %s"  $nomgr >> $fgroups
 		printf "\nobjectClass: posixGroup\nobjectClass: top\n" >> $fgroups
@@ -161,7 +163,7 @@ do
 		IFS=. read -a dn
 		printf "dn: " >> $fuos
 		printf "ou=%s," ${dn[@]::${#dn[@]}-2} >> $fuos
-		printf "dn=%s,dn=%s" ${dn[-2]} ${dn[-1]} >> $fuos
+		printf "dc=%s,dc=%s" ${dn[-2]} ${dn[-1]} >> $fuos
 		printf "\nobjectClass: organizationalUnit\nobjectClass: top" >> $fuos
 		printf "\nou: %s"  ${dn[0]} >> $fuos
 	esac

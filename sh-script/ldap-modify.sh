@@ -34,9 +34,22 @@ do
     3 )
     printf "Segur que vols fer desapareixer un usuari? [y/N]"
     read yn
-    if [[ $yn == n || N ]]; then
+    case $yn in
+      n | N )
       printf "D'acord!"
       exit 0
-    fi
-    
+        ;;
+      y | Y )
+      printf "Molt bé, quin usuari vols que desaparegui?"
+      uidnum=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixAccount)" | grep uid | sed '/^dn:/,$d' | cut -d " " -f2 | sed '/[a-zA-Z]/d' | awk '!x[$0]++') )
+      usname=( $(ldapsearch -x -LLL -b $(cat $topdn) "(objectClass=posixAccount)" | grep uid | sed '/^dn:/,$d' | cut -d " " -f2 | sed '/[[:digit:]]/d' | awk '!x[$0]++'))
+      paste <(printf "\n%d" ${uidnum[@]}) <(printf "\n%s" ${usname[@]})
+      read
+        ;;
+      * )
+      printf "D'acord!"
+      exit 0
+    esac
+      ;;
   esac
+done
