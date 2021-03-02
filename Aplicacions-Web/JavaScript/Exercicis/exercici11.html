@@ -7,17 +7,29 @@
   </head>
   <body>
     <p id="e11"></p>
-    <button type="button" onclick="window.open('exercici12.html','_self')">Següent Exercici</button>
+    <button id='boto' type="button" onclick="window.open('exercici12.html','_self')">Següent Exercici</button>
   </body>
   <script>
-    // Exercci 11
-    var tenums3 = prompt("Escriu 10 nombres separats per comes:", "1, 2, 3, 4, 5, 6, 7, 8, 9, 10");
-    tenums3 = tenums3.split(", ", 10);
-    while ((isNaN(parseFloat(tenums3[2])) || isNaN(parseFloat(tenums3[3])) || isNaN(parseFloat(tenums3[4])) || isNaN(parseFloat(tenums3[5])) || isNaN(parseFloat(tenums3[6]))) == true ) {
-    	tenums3 = prompt("Escriu 10 *nombres* separats per comes:", "1, 2, 3, 4, 5, 6, 7, 8, 9, 10");
-      tenums3 = tenums3.split(", ", 10);
+    // Exercici 11
+    var tenums = prompt("Escriu 10 nombres separats per comes:", "1, 2, 3, 4, 5, 6, 7, 8, 9, 10");
+    tenums = tenums.split(", ", 10);
+    while (isNaN(parseFloat(tenums[2]))) {
+    	tenums[2] = prompt("Vaja, sembla que el el que hi ha en 3ra posició no és un nombre!\nTorna a introduir-ho:");
     }
-    document.getElementById('e11').innerHTML = ( (parseFloat(tenums3[2]) + parseFloat(tenums3[3]) + parseFloat(tenums3[4]) + parseFloat(tenums3[5]) + parseFloat(tenums3[6])) / 5 );
+    while (isNaN(parseFloat(tenums[3]))) {
+    	tenums[3] = prompt("Vaja, sembla que el el que hi ha en 4ta posició no és un nombre!\nTorna a introduir-ho:");
+    }
+    while (isNaN(parseFloat(tenums[4]))) {
+    	tenums[4] = prompt("Vaja, sembla que el el que hi ha en 5na posició no és un nombre!\nTorna a introduir-ho:");
+    }
+    while (isNaN(parseFloat(tenums[5]))) {
+    	tenums[5] = prompt("Vaja, sembla que el el que hi ha en 6na posició no és un nombre!\nTorna a introduir-ho:");
+    }
+    while (isNaN(parseFloat(tenums[6]))) {
+    	tenums[6] = prompt("Vaja, sembla que el el que hi ha en 7na posició no és un nombre!\nTorna a introduir-ho:");
+    }
+    document.getElementById('e11').innerHTML = ( (parseFloat(tenums[2]) + parseFloat(tenums[3]) + parseFloat(tenums[4]) + parseFloat(tenums[5]) + parseFloat(tenums[6])) / 5 );
+    document.getElementById('boto').style.visibility="visible";
 
   </script>
 </html>

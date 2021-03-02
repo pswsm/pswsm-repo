@@ -9,7 +9,7 @@
     <div>
     	<h3>Exercici 1</h3>
     	<p id="e1"></p>
-    	<button type="button" onclick="window.open('exercici2.html','_self')">Següent Exercici</button>
+    	<button id='boto' type="button" onclick="window.open('exercici2.html','_self')">Següent Exercici</button>
     </div>
   </body>
   <script type="text/javascript">
@@ -19,6 +19,7 @@
       c = prompt("Has d'introduir un nombre!\nLlargada del quadrat?", 4);
     }
     document.getElementById('e1').innerHTML = "El perímetre del quadrat és: " + c*4;
+    document.getElementById('boto').style.visibility="visible";
 
   </script>
 </html>

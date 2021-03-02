@@ -3,3 +3,7 @@ body {
 	color: #AAA;
 	font: Arial, sans-serif;
 }
+
+button {
+	visibility: hidden;
+}

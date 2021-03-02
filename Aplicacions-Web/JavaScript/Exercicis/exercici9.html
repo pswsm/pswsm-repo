@@ -7,17 +7,18 @@
   </head>
   <body>
     <p id="e9"></p>
-    <button type="button" onclick="window.open('exercici10.html','_self')">Següent Exercici</button>
+    <button id='boto' type="button" onclick="window.open('exercici10.html','_self')">Següent Exercici</button>
   </body>
   <script>
     // Exercici 9
     var tenums = prompt("Escriu 10 nombres separats per comes:", "1, 2, 3, 4, 5, 6, 7, 8, 9, 10");
     tenums = tenums.split(", ", 10);
-    while (tenums[5] == undefined || tenums[6 == undefined] || tenums[6] == undefined || tenums[7] == undefined || tenums[8] == undefined || tenums[9] == undefined) {
+    while (tenums[5] == undefined || tenums[6] == undefined || tenums[6] == undefined || tenums[7] == undefined || tenums[8] == undefined || tenums[9] == undefined) {
       tenums = prompt("T'has deixat algun nombre, torna a escriure'ls:", "5, 5, 5, 5, 6, 7, 8, 9, 10, 11");
       tenums = tenums.split(", ", 10);
     }
     document.getElementById('e9').innerHTML = tenums[5] + " " + tenums[6] + " " + tenums[7] + " " + tenums[8] + " " + tenums[9];
+    document.getElementById('boto').style.visibility="visible";
 
   </script>
 </html>

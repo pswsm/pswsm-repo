@@ -7,22 +7,28 @@
   </head>
   <body>
     <p id="e7"></p>
-    <button type="button" onclick="window.open('exercici8.html','_self')">Següent Exercici</button>
+    <button id='boto' type="button" onclick="window.open('exercici8.html','_self')">Següent Exercici</button>
   </body>
   <script>
     // Exercici 7
-    var nums7 = prompt("Introdueix dos nombres separats per comes:", "9, 10");
-    nums7 = nums7.split(", ", 2);
-    while ((isNaN(parseFloat(nums7[0])) || isNaN(parseFloat(nums7[1]))) == true ) {
-      nums7 = prompt("Introdueix dos nombres separats per comes:, no lletres:", "9, 10");
-      nums7 = nums7.split(", ", 2);
+    var nums = prompt("Introdueix dos nombres separats per comes:", "9, 10");
+    nums = nums.split(", ", 2);
+    while (isNaN(parseFloat(nums[0]))) {
+    	nums[2] = prompt("Error al 1r nombre, si us plau torna a introduir-lo:")
     }
-    if ((parseFloat(nums7[0]) > (parseFloat(nums7[1])))) {
-      document.getElementById('e7').innerHTML = "La seva suma és: " + ((parseFloat(nums7[0])) + (parseFloat(nums7[1]))) + "<br>La seva diferència és: " + ((parseFloat(nums7[0])) - (parseFloat(nums7[1])));
+    while (isNaN(parseFloat(nums[1]))) {
+		nums[1] = prompt("Error al 2n nombre, si us plau torna a introduir-lo:");
+    }
+    
+    // Si el 1r es major al 2n; fes...
+    if ((parseFloat(nums[0]) > (parseFloat(nums[1])))) {
+      document.getElementById('e7').innerHTML = "La seva suma és: " + ((parseFloat(nums[0])) + (parseFloat(nums[1]))) + "<br>La seva diferència és: " + ((parseFloat(nums[0])) - (parseFloat(nums[1])));
     }
     else {
-      document.getElementById('e7').innerHTML = "El seu producte és: " + ((parseFloat(nums7[0])) * (parseFloat(nums7[1]))) + "<br>La seva divisó és: " + ((parseFloat(nums7[0])) / (parseFloat(nums7[1])));
+      document.getElementById('e7').innerHTML = "El seu producte és: " + ((parseFloat(nums[0])) * (parseFloat(nums[1]))) + "<br>La seva divisó és: " + ((parseFloat(nums[0])) / (parseFloat(nums[1])));
     }
+    
+    document.getElementById('boto').style.visibility="visible";
 
   </script>
 </html>

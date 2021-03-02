@@ -8,25 +8,26 @@
 	<body>
 		<h1>Exercici 2</h1>
 		<p id='e2'></p>
-		<button type="button" onclick="window.open('exercici3.html','_self')">Següent Exercici</button>
+		<button id='boto' type="button" onclick="window.open('exercici3.html','_self')">Següent Exercici</button>
 	</body>
 	<script>
     // Exercici 2
     var nums = prompt("Introdueix 4 nombres, separats per comes i espais:", "1, 1, 1, 100");
     nums = nums.split(" ", 4);
-    var n1 = parseFloat(nums[0]);
-    var n2 = parseFloat(nums[1]);
-    var n3 = parseFloat(nums[2]);
-    var n4 = parseFloat(nums[3]);
     // document.write(typeof(n1))
-    while ((isNaN(n1) || isNaN(n2) || isNaN(n3) || isNaN(n4)) == true) {
-      nums = prompt("Germà, tot nombres no lletres.\nIntrodueix 4 nombres, separats per espais:");
-      nums = nums.split(" ");
-      n1 = parseFloat(nums[0]);
-      n2 = parseFloat(nums[1]);
-      n3 = parseFloat(nums[2]);
-      n4 = parseFloat(nums[3]);
+    while (isNaN(parseFloat(nums[0]))) {
+    	nums[0] = parseFloat(prompt("Germà, el 1r no és un nombre.\nTorna a escriure'l:"));
     }
-    document.getElementById('e2').innerHTML = "Suma dels dos primers nombres: " + (n1+n2) + "<br>Producte del 3r i el 4t nombre: " + (n3*n4);
+    while (isNaN(parseFloat(nums[1]))) {
+    	nums[1] = parseFloat(prompt("Germà, el 2n no es un nombre.\nTorna a escriure'l:"));
+    }
+    while (isNaN(parseFloat(nums[2]))) {
+    	nums[2] = parseFloat(prompt("Germà, el 3r no és un nombre.\nTorna a escriure'l:"));
+    }
+    while (isNaN(parseFloat(nums[3]))) {
+    	nums[3] = parseFloat(prompt("Germà, el 4t no és un nombre.\nTorna a escriure'l:"));
+    } 
+    document.getElementById('e2').innerHTML = "Suma dels dos primers nombres: " + (nums[0]+nums[1]) + "<br>Producte del 3r i el 4t nombre: " + (nums[2]*nums[3]);
+    document.getElementById('boto').style.visibility="visible";
 	</script>
 </html>

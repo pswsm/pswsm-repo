@@ -7,7 +7,7 @@
   </head>
   <body>
     <p id="e4"></p>
-    <button type="button" onclick="window.open('exercici5.html','_self')">Següent Exercici</button>
+    <button id='boto' type="button" onclick="window.open('exercici5.html','_self')">Següent Exercici</button>
   </body>
   <script>
     // Exercici 4
@@ -22,6 +22,7 @@
       qtt = parseInt(preuqtt[1]);
     }
     document.getElementById('e4').innerHTML = "Total a pagar: " + (preu*qtt);
+    document.getElementById('boto').style.visibility="visible";
 
   </script>
 </html>
