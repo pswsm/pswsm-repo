@@ -16,3 +16,13 @@ body {
   text-align: center;
   font-variant: small-caps;
 }
+
+.dcenter {
+  width: 100px;
+  margin: auto;
+}
+
+.subdcenter {
+  float: left;
+  margin-left: auto;
+}
