@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h3>Exercici 5</h3>
+  </body>
+  <script type="text/javascript">
+    var nombres = [+prompt("Primer Nombre:"), +prompt("Segon Nombre:")]
+    do {
+      while (isNaN(nombres[0]) || isNaN(nombres[1])) {
+        nombres = [+prompt("Primer Nombre:"), +prompt("Segon Nombre:")]
+      }
+      var suma = nombres[0] + nombres[1]
+      var resta = nombres[0] - nombres[1]
+      var prod = nombres[0] * nombres[1]
+      var divi = nombres[0] / nombres[1]
+      alert(suma + "\n" + resta + "\n" + prod + "\n" + divi)
+    } while (suma < 1000);
+  </script>
+</html>

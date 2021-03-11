@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h3>Exercici 3</h3>
+  </body>
+  <script type="text/javascript">
+    var mplicat = parseFloat(prompt("De quin nombre vols veure la taula:"));
+    while (isNaN(mplicat)) {
+      mplicat = parseFloat(prompt("De quin nombre vols veure la taula:"));
+    }
+    var mplican = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    for (var i = 0; i < mplican.length; i++) {
+      document.write((mplican[i] * mplicat) + "<br>");
+    }
+  </script>
+</html>
