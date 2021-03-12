@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercici 7</title>
+  </head>
+  <body>
+    <h3>Exercici 7</h3>
+  </body>
+  <script type="text/javascript">
+    var cent = []
+    var suma = 0
+    for (var i = 0; i <= 99; i++) {
+      cent[i] = i + 1
+    }
+    // document.write(cent)
+    for (var k = 0; k < cent.length; k++) {
+      suma += cent[k]
+      // document.write("<br>" + typeof(cent[k]) + suma)
+    }
+    promig = suma / cent.length
+    document.write("<br>La suma dels cent primers nombres és: " + suma + "<br>El promig del cent primers nombres és: " + parseInt(promig))
+  </script>
+</html>

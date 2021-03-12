@@ -11,7 +11,7 @@
     var nombres = [];
     for (var i = 0; i < 3; i++) {
       nombres[i] = parseFloat(prompt("Digues un nombre:"));
-      if (isNaN(nombres[i])) {
+      while (isNaN(nombres[i])) {
         nombres[i] = parseFloat(prompt("No has introduït un nombre. Torna-hi:"));
       }
     }
