@@ -1,0 +1,9 @@
+body {
+	background-color: #111111;
+	color: #AAA;
+	font: Arial, sans-serif;
+}
+
+button {
+	visibility: hidden;
+}
