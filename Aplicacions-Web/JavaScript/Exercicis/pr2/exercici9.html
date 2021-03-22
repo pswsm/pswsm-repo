@@ -8,17 +8,16 @@
     <h3>Exercici 9</h3>
   </body>
   <script type="text/javascript">
-    function sorts(arr) {
-      
-    }
-
-
-
     var senars = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21];
-    var text
-
-    alert("Senars = " + senars)
-
-
+    var se_sor = senars.sort(function(a, b){return b - a});
+    var se_so2 = senars.sort((a, b) => b - a);
+    alert("Senars: " + senars  + "\nMaj-men (v1): " + se_sor + "\nMaj-men (v2): " + se_so2);
+    var cerca = parseInt(prompt("Indica quin nombre vols cercar:"));
+    if (senars.indexOf(cerca) != -1) {
+      document.write("<p>Cerca exitosa, el nombre \"" + cerca + "\" ha estat trobat.</p>");
+    }
+    else {
+      document.write("<p>El nombre \"" + cerca + "\" no es troba a la llista.</p>");
+    }
   </script>
 </html>
