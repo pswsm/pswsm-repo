@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-    <h3>Exercici 1</h3>
+    <h3>Exercici 10</h3>
   </body>
   <script type="text/javascript">
     function arrFill(arr, len) {
@@ -14,13 +14,15 @@
         console.log(arr.length);
       }
     }
-
     function arrTTwo(iArr, oArr) {
       for (var i = 0; i < iArr.length; i++) {
-        
+        oArr[i] = iArr[i] * 2;
       }
     }
     var cinums = [];
     arrFill(cinums, 5);
+    var multinums = [];
+    arrTTwo(cinums, multinums);
+    document.write(multinums);
   </script>
 </html>
