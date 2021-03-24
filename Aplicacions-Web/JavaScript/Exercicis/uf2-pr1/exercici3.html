@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Exercici 1</title>
+    <title>Exercici 3</title>
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
@@ -18,14 +18,20 @@
       <li><a href="exercici9.html">Exercici 9</a></li>
       <li><a href="exercici10.html">Exercici 10</a></li>
     </ul>
-    <h1>Exercici 1</h1>
-    <button id="boto" onclick="clickbutton()">Clica Aquí!</button>
+    <h1>Exercici 3</h1>
+
   </body>
   <script type="text/javascript">
-    var clik = 0
-    function clickbutton() {
-      clik++;
-      alert("Has clicat " + clik + " vegades.");
+    var unor = [];
+    function entSort(arr) {
+      for (var i = 0; i < 3; i++) {
+        arr[i] = prompt("Enter " + (i + 1) + ":");
+        console.log(arr.length);
+      }
+      arr.sort((a, b) => a - b);
+      return arr;
     }
+
+    document.write(entSort(unor));
   </script>
 </html>
