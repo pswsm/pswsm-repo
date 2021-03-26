@@ -26,7 +26,11 @@
     function entSort(arr) {
       for (var i = 0; i < 3; i++) {
         arr[i] = prompt("Enter " + (i + 1) + ":");
+        while (isNaN(arr[i])) {
+          arr[i] = prompt("Ep! \"" + arr[i] + "\" no és un nombre.\nTorna a introduir-lo:");
+        }
         console.log(arr.length);
+        arr[i] = parseInt(arr[i]);
       }
       arr.sort((a, b) => a - b);
       return arr;
