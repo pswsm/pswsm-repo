@@ -19,6 +19,30 @@
       <li><a href="exercici10.html">Exercici 10</a></li>
     </ul>
     <h1>Exercici 8</h1>
-
+    <p>Que pasasría si no utilitzem una funció?:</br>
+      <textarea name="name" rows="8" cols="80">
+        <html>
+        <head>
+          <script language="JavaScript">
+            function color() {
+              var colors=new Array("black", "blue", "brown", "fuchsia", "green", "magenta", "orange", "red", "yellow");
+              return colors[Math.round(9 * Math.random() - 0.5)];
+            }
+          </script>
+        </head>
+        <body>
+          <script language="JavaScript">
+          document.writeln('<table border="1" width="350" align="center" >');
+          document.writeln('<tr><td bgcolor="' + color() + '">&nbsp;</td><td bgcolor="' + color() + '">&nbsp;</td><td bgcolor="' + color() + '">&nbsp;</td><td bgcolor="' + color() + '">&nbsp;</td></tr>');
+          document.writeln('<tr><td bgcolor="' + color() + '">&nbsp;</td><td bgcolor="' + color() + '">&nbsp;</td><td bgcolor="' + color() + '">&nbsp;</td><td bgcolor="' + color() + '">&nbsp;</td></tr>');
+          document.writeln('<tr><td bgcolor="' + color() + '">&nbsp;</td><td bgcolor="' + color() + '">&nbsp;</td><td bgcolor="' + color() + '">&nbsp;</td><td bgcolor="' + color() + '">&nbsp;</td></tr>');
+          document.writeln('<tr><td bgcolor="' + color() + '">&nbsp;</td><td bgcolor="' + color() + '">&nbsp;</td><td bgcolor="' + color() + '">&nbsp;</td><td bgcolor="' + color() + '">&nbsp;</td></tr>');
+          document.writeln('</table>');
+          </script>
+        </body>
+        </html>
+      </textarea>
+    </p>
+    <p>Que sería molt mes llarg i repetitiu, el codi, ja que hauriem de substituïr totes les instàncies de <i>color()</i> per el codi que hi ha dins la funció.</p>
   </body>
 </html>
