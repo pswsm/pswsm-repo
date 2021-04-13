@@ -27,6 +27,9 @@ No li fa falta explicació.
 La típica calculadora, treball sota desenvolupament.
 De moment només opera amb dos nombres.
 
+### [Tests](https://github.com/pswsm/cfgm-smx/tree/master/cpp/tests/)
+Proves de C++.
+
 ## [Nim](https://github.com/pswsm/cfgm-smx/tree/master/nim)
 Una mica de `nim` que he fet pel meu compte. No hi ha gaire a veure.
 
