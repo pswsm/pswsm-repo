@@ -4,11 +4,62 @@
 <head>
   <meta charset="UTF-8">
   <title>Exercici 4</title>
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
+  <ul>
+    <li><a href="exercici1.html">Exercici 1</a></li>
+    <li><a href="exercici2.html">Exercici 2</a></li>
+    <li><a href="exercici3.html">Exercici 3</a></li>
+    <li><a href="exercici4.html">Exercici 4</a></li>
+    <li><a href="exercici5.html">Exercici 5</a></li>
+    <li><a href="exercici6.html">Exercici 6</a></li>
+    <li><a href="exercici7.html">Exercici 7</a></li>
+    <li><a href="exercici8.html">Exercici 8</a></li>
+    <li><a href="exercici9.html">Exercici 9</a></li>
+    <li><a href="exercici10.html">Exercici 10</a></li>
+    <li><a href="exercici11.html">Exercici 11</a></li>
+    <li><a href="exercici12.html">Exercici 12</a></li>
+  </ul>
   <h3>Exercici 4</h3>
-  <buton></buton>
-  <buton></buton>
-  <buton></buton>
+  <form>
+    <table>
+      <tr>
+        <td>
+          <button type="button" name="1" onclick="boto1()">1</button>
+        </td>
+        <td id=b1></td>
+      </tr>
+      <tr>
+        <td>
+          <button type="button" name="2" onclick="boto2()">2</button>
+        </td>
+        <td id=b2></td>
+      </tr>
+      <tr>
+        <td>
+          <button type="button" name="3" onclick="boto3()">3</button>
+        </td>
+        <td id=b3></td>
+      </tr>
+    </table>
+  </form>
 </body>
+<script type="text/javascript">
+  function boto1() {
+    document.getElementById('b1').innerHTML = "Has clicat el botó número 1!";
+    document.getElementById('b2').innerHTML = "";
+    document.getElementById('b3').innerHTML = "";
+  }
+  function boto2() {
+    document.getElementById('b2').innerHTML = "Has clicat el botó número 2!";
+    document.getElementById('b1').innerHTML = "";
+    document.getElementById('b3').innerHTML = "";
+  }
+  function boto3() {
+    document.getElementById('b3').innerHTML = "Has clicat el botó número 3!";
+    document.getElementById('b1').innerHTML = "";
+    document.getElementById('b2').innerHTML = "";
+  }
+</script>
 </html>

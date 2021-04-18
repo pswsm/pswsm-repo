@@ -1,0 +1,39 @@
+<!-- Fer un formulari en el que es demani a l'usuari dos num. en dos input de text. Al presionar un botó es mostrarà el major en un alert. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercici 10</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <ul>
+    <li><a href="exercici1.html">Exercici 1</a></li>
+    <li><a href="exercici2.html">Exercici 2</a></li>
+    <li><a href="exercici3.html">Exercici 3</a></li>
+    <li><a href="exercici4.html">Exercici 4</a></li>
+    <li><a href="exercici5.html">Exercici 5</a></li>
+    <li><a href="exercici6.html">Exercici 6</a></li>
+    <li><a href="exercici7.html">Exercici 7</a></li>
+    <li><a href="exercici8.html">Exercici 8</a></li>
+    <li><a href="exercici9.html">Exercici 9</a></li>
+    <li><a href="exercici10.html">Exercici 10</a></li>
+    <li><a href="exercici11.html">Exercici 11</a></li>
+    <li><a href="exercici12.html">Exercici 12</a></li>
+  </ul>
+
+  <form onsubmit="mesGran()">
+    <p>Introdueix dos nombres:</p>
+    <input id="i" type="text"></input>
+    <input id="ii" type="text"></input>
+    <button type="submit" name="button">Calcular</button>
+  </form>
+</body>
+<script type="text/javascript">
+function mesGran() {
+  var nums = [parseFloat(document.getElementById('i').value), parseFloat(document.getElementById('ii').value)];
+  var mesGran = Math.max.apply(Math, nums);
+  alert(mesGran);
+}
+</script>
+</html>

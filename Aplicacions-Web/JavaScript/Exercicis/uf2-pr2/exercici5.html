@@ -1,8 +1,9 @@
+<!-- Fer un formulari que permeti carregar un enter en un input text i al presionar un botó ens mostri el seu valor elevat al cub (fent servir la funció alert) -->
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Exercici 1</title>
+    <title>Exercici 5</title>
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
@@ -20,7 +21,15 @@
       <li><a href="exercici11.html">Exercici 11</a></li>
       <li><a href="exercici12.html">Exercici 12</a></li>
     </ul>
-    <h1>Exercici 1</h1>
-    <p>El codi generarà un formulari i una area de text que mostrarà el que hi hagi al primer camp al clicar al boto <i>submit</i>.</p>
+    <form onsubmit="fesCub()">
+      <input type="number" id="int"></input>
+      <button type="submit">^3</button>
+    </form>
   </body>
+  <script type="text/javascript">
+    function fesCub() {
+      // console.log(document.getElementById('int').value);
+      alert(parseInt(document.getElementById('int').value) ** 3);
+    }
+  </script>
 </html>

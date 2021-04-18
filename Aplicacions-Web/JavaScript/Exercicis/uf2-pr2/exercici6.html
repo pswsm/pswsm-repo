@@ -1,0 +1,38 @@
+<!-- Fer un formulari en el que es demani a l'usuari el seu nom i cognom en dos input text. Al presionar un botó, es concatenaran i es mostraran en un tercer input text. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercici 6</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <ul>
+    <li><a href="exercici1.html">Exercici 1</a></li>
+    <li><a href="exercici2.html">Exercici 2</a></li>
+    <li><a href="exercici3.html">Exercici 3</a></li>
+    <li><a href="exercici4.html">Exercici 4</a></li>
+    <li><a href="exercici5.html">Exercici 5</a></li>
+    <li><a href="exercici6.html">Exercici 6</a></li>
+    <li><a href="exercici7.html">Exercici 7</a></li>
+    <li><a href="exercici8.html">Exercici 8</a></li>
+    <li><a href="exercici9.html">Exercici 9</a></li>
+    <li><a href="exercici10.html">Exercici 10</a></li>
+    <li><a href="exercici11.html">Exercici 11</a></li>
+    <li><a href="exercici12.html">Exercici 12</a></li>
+  </ul>
+  <form onsubmit="concatenar()">
+    <input type="text" id="nom" value="Nom" required></input>
+    <input type="text" id="cognom" value="Cognom" required></input>
+    <input type="text" id="resultat"></input>
+    <br><br>
+    <button type="submit" name="button">Entra</button>
+  </form>
+</body>
+<script type="text/javascript">
+  function concatenar() {
+    document.getElementById('resultat').value = document.getElementById('nom').value + document.getElementById('cognom').value;
+    alert("Freeze!")
+  }
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!-- Fes un formulari on demanis el DNI a l'usuari. Valida si la lletra que ha introduït és la que li correspon fent servir l'algorisme mòdul 23 que vas veure a una pràctica anterior. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercici 11</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <ul>
+    <li><a href="exercici1.html">Exercici 1</a></li>
+    <li><a href="exercici2.html">Exercici 2</a></li>
+    <li><a href="exercici3.html">Exercici 3</a></li>
+    <li><a href="exercici4.html">Exercici 4</a></li>
+    <li><a href="exercici5.html">Exercici 5</a></li>
+    <li><a href="exercici6.html">Exercici 6</a></li>
+    <li><a href="exercici7.html">Exercici 7</a></li>
+    <li><a href="exercici8.html">Exercici 8</a></li>
+    <li><a href="exercici9.html">Exercici 9</a></li>
+    <li><a href="exercici10.html">Exercici 10</a></li>
+    <li><a href="exercici11.html">Exercici 11</a></li>
+    <li><a href="exercici12.html">Exercici 12</a></li>
+  </ul>
+  <form onsubmit="calcLletra()">
+    <p>Introdueix el teu DNI:</p>
+    <input id="dni" type="text" maxlength="8"></input>
+    <input id="lla" type="text" maxlength="1" style="width:10px"></input>
+    <button type="submit" name="button">Entra</button>
+  </form>
+</body>
+<script type="text/javascript">
+  function calcLletra() {
+    var dni = document.getElementById('dni').value;
+    var lla = document.getElementById('lla').value;
+    var abc = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"];
+    var modul = parseInt(dni % 23);
+    if (abc[modul] == lla) {
+      alert("La lletra del DNI és correcta.");
+    }
+  }
+</script>
+</html>

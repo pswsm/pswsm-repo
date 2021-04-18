@@ -1,0 +1,35 @@
+<!-- Fer un formulari per a que els usuaris puguin expressar la seva opinió sobre la nostra pàgina web. Es demanarà els comentaris que vulguin fer. El camp dels comentaris (un textarea) només estarà identificat per un id i no per name. Els comentaris no podran sobrepassar els 300 caràcters i aquest control s'ha de fer amb una funció. L'àrea de text dels comentaris tindrà un valor per defecte inicialment que serà "escriu aqui els teus comentaris" i quan l'usuari faci click sobre el camp llavors el valor per defecte desapareixerà. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercici 9</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <ul>
+    <li><a href="exercici1.html">Exercici 1</a></li>
+    <li><a href="exercici2.html">Exercici 2</a></li>
+    <li><a href="exercici3.html">Exercici 3</a></li>
+    <li><a href="exercici4.html">Exercici 4</a></li>
+    <li><a href="exercici5.html">Exercici 5</a></li>
+    <li><a href="exercici6.html">Exercici 6</a></li>
+    <li><a href="exercici7.html">Exercici 7</a></li>
+    <li><a href="exercici8.html">Exercici 8</a></li>
+    <li><a href="exercici9.html">Exercici 9</a></li>
+    <li><a href="exercici10.html">Exercici 10</a></li>
+    <li><a href="exercici11.html">Exercici 11</a></li>
+    <li><a href="exercici12.html">Exercici 12</a></li>
+  </ul>
+<form>
+  <textarea id="ta" rows="8" cols="80" onfocus="deleteTa(this.id)" maxlength="300">Escriu aquí el teu comentari.</textarea>
+  <!-- Natalia, em sembla absurd fer una funció per limitar el textarea si jahi ha una built-in -->
+</form>
+</body>
+<script type="text/javascript">
+  ta = document.getElementById('ta').value;
+  function deleteTa(id) {
+    document.getElementById(id).innerHTML = "";
+  }
+</script>
+</html>

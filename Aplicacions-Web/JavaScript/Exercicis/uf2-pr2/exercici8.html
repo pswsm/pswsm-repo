@@ -1,0 +1,50 @@
+<!-- Fer un formulari en el que l'usuari omple les següents dades: nom, telèfon i ciutat. Al presionar un botó els camps que no hagin estat omplerts per l'usuari s'ompliran amb el text "dada no aportada". Finalment es farà un submit automàticament. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercici 8</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <ul>
+    <li><a href="exercici1.html">Exercici 1</a></li>
+    <li><a href="exercici2.html">Exercici 2</a></li>
+    <li><a href="exercici3.html">Exercici 3</a></li>
+    <li><a href="exercici4.html">Exercici 4</a></li>
+    <li><a href="exercici5.html">Exercici 5</a></li>
+    <li><a href="exercici6.html">Exercici 6</a></li>
+    <li><a href="exercici7.html">Exercici 7</a></li>
+    <li><a href="exercici8.html">Exercici 8</a></li>
+    <li><a href="exercici9.html">Exercici 9</a></li>
+    <li><a href="exercici10.html">Exercici 10</a></li>
+    <li><a href="exercici11.html">Exercici 11</a></li>
+    <li><a href="exercici12.html">Exercici 12</a></li>
+  </ul>
+  <form name="form" onsubmit="dadaNA()">
+    <input name="nom" type="text" value="Nom"></input>
+    <input name="tlf" type="text" value="Telefon"></input>
+    <input name="cta" type="text" value="Ciutat"></input>
+    <button type="submit">Entra</button>
+  </form>
+</body>
+<script type="text/javascript">
+  var nom = document.forms["form"]["nom"].value;
+  var tlf = document.forms["form"]["tlf"].value;
+  var cta = document.forms["form"]["cta"].value;
+  var frm = document.forms["form"];
+  function dadaNA() {
+    if (nom == "Nom") {
+      nom = "Dada no aportada";
+    }
+    if (tlf == "Telefon") {
+      tlf = "Dada no aportada";
+    }
+    if (cta == "Ciutat") {
+      cta = "Dada no aportada";
+    }
+    alert("Freeze!")
+    frm.submit;
+  }
+</script>
+</html>
