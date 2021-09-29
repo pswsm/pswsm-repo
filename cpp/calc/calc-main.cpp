@@ -2,9 +2,13 @@
 
 using namespace std;
 
-float suma(float a, float b) {
-  float r; r = a + b; return r;
-}
+float suma(float a, float b) { float r = a + b; return r; }
+
+float resta(float a, float b) { float r = a - b; return r; }
+
+float times(float a, float b) { float r = a * b; return r; }
+
+float divid(float a, float b) { float r = a / b; return r; }
 
 int main() {
   // Variables
@@ -17,28 +21,18 @@ int main() {
     //El switch de la calculadora
     //Determina quina operació es farà segons l'operador (op)
     switch (op) {
-      case '+':
-      // res = suma(n1, n2);
-      cout << suma(n1, n2) << endl;
+      case '+': cout << suma(n1, n2) << endl;
       break;
-      case '-':
-      cout << n1 << "-" << n2 << '=' << n1 - n2 << '\n';
-      // res = n1 - n2;
+      case '-': cout << resta(n1, n2) << endl;
       break;
-      case '*':
-      cout << n1 << "*" << n2 << '=' << n1 * n2 << '\n';
-      // res = n1 * n2;
+      case '*': cout << times(n1, n2) << endl;
       break;
-      case '/':
-      cout << n1 << "/" << n2 << '=' << n1 / n2 << '\n';
-      // res = n1 / n2;
+      case '/': cout << divid(n1, n2) << endl;
       break;
-      default:
-      cout << "Bad Operator: " << op << " not found!\n";
-      // kLoop = false;
+      default: cout << "Bad Operator: " << op << " not found!\n";
       break;
     }
-    cout << "Vols fer una altra operació?[y/n]" << '\n';
+    cout << "\nVols fer una altra operació?[y/n]" << '\n';
     cin >> qC;
     if (qC == 'n' || qC == 'N') {
       cout << endl;
