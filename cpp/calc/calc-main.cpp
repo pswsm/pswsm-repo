@@ -32,7 +32,7 @@ int main() {
       default: cout << "Bad Operator: " << op << " not found!\n";
       break;
     }
-    cout << "\nVols fer una altra operació?[y/n]" << '\n';
+    cout << "\nVols fer una altra operació?[y/n]\n";
     cin >> qC;
     if (qC == 'n' || qC == 'N') {
       cout << endl;
