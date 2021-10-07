@@ -1,5 +1,5 @@
 from turtle import *
-from os import *
+import os
 from random import *
 
 leftRight = ["left", "right"]
@@ -74,7 +74,7 @@ while 1:
     for i, value in enumerate(figures):
         print(f"{i+1}. {figures[i]}")
     figura = input("Quina figura vols fer?\n").lower()
-    system('clear')
+    os.system('clear')
     if "triangle" in figura or figura == '1':
         triangle()
     elif "quadrat" in figura or figura == '2':
@@ -104,4 +104,4 @@ while 1:
         exit(0)
     else:
         continue
-    system('clear')
+    os.system('clear')
