@@ -1,6 +1,6 @@
 from turtle import penup, goto, pendown, clear, setup, title, circle, right
 from turtle import forward, left, colormode, xcor, ycor, speed, pencolor
-import os
+from os import system
 from random import randint, choice
 
 leftRight = ["left", "right"]
@@ -81,14 +81,13 @@ figures = [
     "Pentagon",
     "Octagon",
     "Random",
-    "Random entre opcions",
 ]
 
 while 1:
     for i, value in enumerate(figures):
         print(f"{i+1}. {figures[i]}")
     figura = input("Quina figura vols fer?\n").lower()
-    os.system("clear")
+    system("clear")
     if "triangle" in figura or figura == "1":
         triangle()
     elif "quadrat" in figura or figura == "2":
@@ -99,22 +98,10 @@ while 1:
         octagon()
     elif "random" in figura or figura == "5":
         randomLines()
-    elif "random enter opcions" in figura or figura == "6":
-        randomFigura = randint(0, 4)
-        if randomFigura == 0:
-            triangle()
-        elif randomFigura == 1:
-            quadrat()
-        elif randomFigura == 2:
-            pentagon()
-        elif randomFigura == 3:
-            octagon()
-        elif randomFigura == 4:
-            randomLines()
 
     qc = input("\nVols continuar? [S/n]")
     if qc == "n" or qc == "N":
         exit(0)
     else:
         continue
-    os.system("clear")
+    system("clear")
