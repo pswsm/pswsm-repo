@@ -2,6 +2,9 @@ from turtle import *
 from os import *
 from random import *
 
+leftRight = ["left", "right"]
+dirShape = ["direction", "shape"]
+
 def goCenter():
     penup()
     goto(0, 0)
@@ -27,17 +30,12 @@ def quadrat():
     title("Quadrat")
     goStart()
     circle(50, None, 4)
-    # for i in range(4):
-    #     forward(100)
-    #     left(90)
 
 def pentagon():
     clear()
     setup(500, 500, 0, 0)
     title("Pentagon")
     circle(50, None, 5)
-
-
 
 def octagon():
     clear()
@@ -46,14 +44,15 @@ def octagon():
     circle(50, 360, 8)
 
 def randomLines():
-    leftRight = ["left", "right"]
-    dirShape = ["direction", "shape"]
+    traces = randint(3, 250)
+    print(f"Es faran {str(traces)} traces")
     clear()
     setup(1250, 750, 0, 0)
     title("Linies aleatories")
     colormode(255)
-    speed(6)
-    for i in range(randint(3, 999)):
+    speed(0)
+    for i in range(traces):
+        # print(f"Queden {str(traces - i)}")
         if (xcor() > 501 or xcor() < -501) or (ycor() > 501 or ycor() < -501):
             goto(randint(-1249, 1249), randint(-749, 749))
         pencolor(randint(0, 255),randint(0, 255),randint(0, 255))
@@ -66,7 +65,7 @@ def randomLines():
             else:
                 right(randint(1, 360))
         else:
-            shape(choice(getshapes()))
+            circle(randint(5, 500), randint(10, 360), randint(3, 10000))
 
 
 figures = ["Triangle", "Quadrat", "Pentagon", "Octagon", "Random", "Random entre opcions"]
