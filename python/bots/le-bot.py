@@ -166,6 +166,6 @@ async def rol(ctx, *, nickname):
 
 ###################TOKEN###################
 
-client.run("Njk3MjI2MDYzODAxMjIxMTUw.Xo0MiA.kePJkMxM5O3n7DqfK9c33ocb4Pg")
+client.run("")
 
 ###########################################
