@@ -1,5 +1,6 @@
-### Made by pswsm in 1/10/2021 ###
+# Made by pswsm in 1/10/2021 #
 import os
+
 
 def suma(a, b):
     try:
@@ -10,6 +11,7 @@ def suma(a, b):
         r = a + b
         print(r)
 
+
 def resta(a, b):
     try:
         a - b
@@ -18,6 +20,7 @@ def resta(a, b):
     else:
         r = a - b
         print(r)
+
 
 def multi(a, b):
     try:
@@ -28,6 +31,7 @@ def multi(a, b):
         r = a * b
         print(r)
 
+
 def divi(a, b):
     try:
         a / b
@@ -37,8 +41,9 @@ def divi(a, b):
         r = a / b
         print(r)
 
+
 while 1:
-    op = input("Introdueixi operació:\n").split(' ')
+    op = input("Introdueixi operació:\n").split(" ")
     for i in range(len(op)):
         # print(f"{type(op[i])}\t{op[i]}\n")
         try:
@@ -49,18 +54,18 @@ while 1:
             op[i] = float(op[i])
         # print(f"{type(op[i])}\t{op[i]}\n")
 
-    if '+' in op:
+    if "+" in op:
         suma(op[0], op[2])
-    elif '-' in op:
+    elif "-" in op:
         resta(op[0], op[2])
-    elif '*' in op:
+    elif "*" in op:
         multi(op[0], op[2])
-    elif '/' in op:
+    elif "/" in op:
         divi(op[0], op[2])
 
     qC = input("Vols fer una altra operació?[y/n]\n")
-    if (qC == 'n' or qC == 'N'):
+    if qC == "n" or qC == "N":
         exit(0)
     else:
-        os.system('clear')
+        os.system("clear")
         continue
