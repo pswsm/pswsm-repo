@@ -1,42 +1,48 @@
+"""Contains the code for drawing plantes venus, earth & mars"""
 import turtle
 
 
-def venus():
-    """Draws Venus
+def draw_venus(color: str = "#cd7f32", pos: tuple = (175, 50),
+               radius: int = 20):
+    """Draws Venus.
+    Parameter:
+        - color -- must be a string. must be a hex color code
+        - pos   -- must be a tuple, with at least 2 numbers to be coordinates
+        - radius-- must an integer. sets the radius fro the planet
     """
-    turtle.color("#cd7f32")
+    turtle.color(color)
     turtle.penup()
-    turtle.goto(175, 50)
+    turtle.goto(pos[0], pos[1])
     turtle.begin_fill()
-    turtle.circle(20)
+    turtle.circle(radius)
     turtle.end_fill()
 
 
-def terra():
-    """Draws a simple earth
-    """
-    turtle.color("#0073cf")
+def draw_terra(color: str = "#0073cf", land_color: str = "#1e4d2b",
+               pos: tuple = (200, -150), radius: int = 45):
+    """Draws a simple earth"""
+    turtle.color(color)
     turtle.penup()
-    turtle.goto(200, -150)
+    turtle.goto(pos[0], pos[1])
     turtle.begin_fill()
-    turtle.circle(45)
+    turtle.circle(radius)
     turtle.end_fill()
-    turtle.color("#1e4d2b")
+    turtle.color(land_color)
     turtle.pendown()
     turtle.begin_fill()
     turtle.goto(turtle.xcor(), turtle.ycor()+10)
     turtle.circle(15, None, 7)
-    turtle.goto(220, -120)
+    turtle.goto(turtle.xcor()+20, turtle.ycor()+30)
     turtle.circle(20, None, 10)
     turtle.end_fill()
 
 
-def mart():
-    """Draws the red planet
-    """
-    turtle.color("#fd0e35")
+def draw_mart(color: str = "#fd0e35", pos: tuple = (-30, -200),
+              radius: int = 30):
+    """Draws the red planet"""
+    turtle.color(color)
     turtle.penup()
-    turtle.goto(-30, -150)
+    turtle.goto(pos[0], pos[1])
     turtle.begin_fill()
-    turtle.circle(30)
+    turtle.circle(radius)
     turtle.end_fill()

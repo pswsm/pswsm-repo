@@ -1,27 +1,23 @@
+"""Contains the code for drawing the sun and mercury"""
 import turtle
 
 
-sun_color = "#ffbf00"
-mer_color = "#b2beb5"
-
-
-def sol():
-    """Draws the sun
-    """
-    turtle.color(sun_color)
+def draw_sol(color: str = "#ffbf00", pos: tuple = (0, -50), radius: int = 100):
+    """Draws the sun"""
+    turtle.color(color)
     turtle.penup()
-    turtle.goto(0, -50)
+    turtle.goto(pos[0], pos[1])
     turtle.begin_fill()
-    turtle.circle(100)
+    turtle.circle(radius)
     turtle.end_fill()
 
 
-def mercuri():
-    """Draws planet mercury
-    """
-    turtle.color(mer_color)
+def draw_mercuri(color: str = "#b2beb5", pos: tuple = (100, 150),
+                 radius: int = 10):
+    """Draws planet mercury"""
+    turtle.color(color)
     turtle.penup()
-    turtle.goto(100, 150)
+    turtle.goto(pos[0], pos[1])
     turtle.begin_fill()
-    turtle.circle(10)
+    turtle.circle(radius)
     turtle.end_fill()
