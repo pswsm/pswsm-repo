@@ -13,17 +13,17 @@ function get_salute () {
   if [ `date +%H` -ge 12 ] && [ `date +%H` -le 19 ]; then
     echo -e "こんばんわ"
   elif [ `date +%H` -ge 20 ] || [ `date +%H` -le 6 ]; then
-    salute="おやすみ"
+    echo -e "おやすみ"
   elif [ `date +%H` -ge 7 ] && [ `date +%H` -le 11 ]; then
-    salute="おはよう"
+    echo -e "おはよう"
   fi
 }
 
 
 #Git BS
 ZSH_THEME_GIT_PROMPT_PREFIX="lechuga || "
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$verd_git%}ツ%{$reset%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$roig_git%}※%{$reset%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$verd_git%} ツ%{$reset%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$roig_git%} ※ %{$reset%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset%}"
 
 #Prompt BS
