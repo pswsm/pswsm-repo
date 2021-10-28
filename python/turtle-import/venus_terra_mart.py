@@ -3,29 +3,29 @@ import turtle
 
 
 def draw_venus(color: str = "#cd7f32", pos: tuple = (175, 50),
-               radius: int = 20):
+               size: int = 20):
     """Draws Venus.
     Parameter:
         - color -- must be a string. must be a hex color code
         - pos   -- must be a tuple, with at least 2 numbers to be coordinates
-        - radius-- must an integer. sets the radius fro the planet
+        - size  -- must an integer. sets the radius of the planet
     """
     turtle.color(color)
     turtle.penup()
     turtle.goto(pos[0], pos[1])
     turtle.begin_fill()
-    turtle.circle(radius)
+    turtle.circle(size)
     turtle.end_fill()
 
 
 def draw_terra(color: str = "#0073cf", land_color: str = "#1e4d2b",
-               pos: tuple = (200, -150), radius: int = 45):
+               pos: tuple = (200, -150), size: int = 45):
     """Draws a simple earth"""
     turtle.color(color)
     turtle.penup()
     turtle.goto(pos[0], pos[1])
     turtle.begin_fill()
-    turtle.circle(radius)
+    turtle.circle(size)
     turtle.end_fill()
     turtle.color(land_color)
     turtle.pendown()
