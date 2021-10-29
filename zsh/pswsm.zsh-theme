@@ -27,6 +27,6 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$roig_git%} ※ %{$reset%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset%}"
 
 #Prompt BS
-PS1='%{$reset%}%D{%K}時%D{%m}分 $(get_salute) %{$verd%}%n%{$reset%}
+PS1='%{$reset%}%D{%K}時%D{%M}分 $(get_salute) %{$verd%}%n%{$reset%}
 %/ ==> ' 
 RPS1='$(git_prompt_info)'
