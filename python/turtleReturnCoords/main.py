@@ -6,20 +6,17 @@
 import turtle
 
 
-def square(x: float = 0, y: float = 0, length: float = 100):
-    '''Draws a square and returns the vertice coordinates'''
-    turtle.setup(width = 500, height = 500)
-    turtle.penup()
-    turtle.goto(turtle.xcor()-(length/2), turtle.ycor()-(length/2))
-    turtle.pendown()
-    for i in range(4):
-        turtle.forward(length)
-        print(f"Vertice {i} is on {turtle.pos()}")
-        turtle.left(90)
-    turtle.penup()
-    turtle.home()
-    return 0
+def squareVertices(x: float = 0, y: float = 0, length: float = 100) -> list:
+    '''Simulates a square and returns the vertice coordinates'''
+    vertices = []
+    vertice_dr = ((x + length/2), (y - length/2))
+    vertice_dl = ((x - length/2), (y - length/2))
+    vertice_ur = ((x + length/2), (y + length/2))
+    vertice_ul = ((x - length/2), (y + length/2))
+    vertices.extend((vertice_dr, vertice_ur, vertice_ul, vertice_dl))
+    return vertices 
 
 
-square()
-turtle.done()
+test = squareVertices()
+
+print(test)
