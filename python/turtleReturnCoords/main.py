@@ -7,16 +7,24 @@ import turtle
 
 
 def squareVertices(x: float = 0, y: float = 0, length: float = 100) -> list:
-    '''Simulates a square and returns the vertice coordinates'''
+    '''Simulates a square nd returns the vertice coordinates.
+    Returns the vertices in clockwise order, starting from the down-right.'''
     vertices = []
-    vertice_dr = ((x + length/2), (y - length/2))
-    vertice_dl = ((x - length/2), (y - length/2))
-    vertice_ur = ((x + length/2), (y + length/2))
-    vertice_ul = ((x - length/2), (y + length/2))
+    x_plus = x + length/2
+    x_less = x - length/2
+    y_plus = y + length/2
+    y_less = y - length/2
+    vertice_dr = ((x_plus), (y_less))
+    vertice_dl = ((x_less), (y_less))
+    vertice_ur = ((x_plus), (y_plus))
+    vertice_ul = ((x_less), (y_plus))
     vertices.extend((vertice_dr, vertice_ur, vertice_ul, vertice_dl))
     return vertices 
 
 
-test = squareVertices()
+vertices = squareVertices(length = 10)
+position = ['down-right', 'upper-right', 'upper-left', 'down-left']
 
-print(test)
+for i in range(len(position)):
+    print(f'Vertice {position[i]}: {vertices[i]}')
+
