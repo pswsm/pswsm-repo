@@ -1,8 +1,8 @@
-body { background-color: #111; color: #ddd; }
+body { background-color: #111; color: #ddd; margin: 0 auto;}
 h1 { text-align: center; }
 table { text-align: center; border-collapse: collapse; }
 td, th { border: 1pt solid red; padding: 10px 5px; }
-img.in-table { height: 200px; width: auto; }
+img.in-table { height: 190px; width: auto; }
 /* #freq { text-emphasis-color: red; } */
 #blafluix {
   background-color: #0071c5;
