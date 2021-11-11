@@ -1,4 +1,4 @@
-body { background-color: #111; color: #ddd; margin: 0 auto;}
+body { background-color: #eee; color: #111; margin: 0 auto;}
 h1 { text-align: center; }
 table { text-align: center; border-collapse: collapse; }
 td, th { border: 1pt solid red; padding: 10px 5px; }
@@ -22,8 +22,20 @@ img.in-table { height: 190px; width: auto; }
   height: 15px;
   display: inline-block;
 }
-#amdgris {
-  background-color: #aaaaaa;
+.gris {
+  background-color: #aaa;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+}
+.negre {
+  background-color: #000;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+}
+#gold {
+  background-color: #ffd700;
   width: 15px;
   height: 15px;
   display: inline-block;
