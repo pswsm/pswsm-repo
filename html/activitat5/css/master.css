@@ -1,0 +1,17 @@
+a:link { text-decoration: none; }
+a:visited { color: darkgray; }
+a:hover { color: white; }
+body { background-color: #000;
+      color: darkgray;
+      font-family: Roboto, Arial, sans-serif;
+      margin: auto 15%;
+}
+
+.center, h1 { text-align: center; }
+.right { text-align: right; }
+
+table { border-collapse: collapse; width: 75%; margin: auto; }
+td, th { border: 1pt solid darkgray; text-align: center; padding: auto; }
+th.onrow { background-color: #f00; color: #fff; }
+th.oncol { background-color: #fff; color: #f00; }
+td:hover { background-color: #333; }
