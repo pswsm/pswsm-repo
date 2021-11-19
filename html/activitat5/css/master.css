@@ -9,9 +9,19 @@ body { background-color: #000;
 
 .center, h1 { text-align: center; }
 .right { text-align: right; }
+.fl { display: inline-block; float: left; }
 
 table { border-collapse: collapse; width: 75%; margin: auto; }
 td, th { border: 1pt solid darkgray; text-align: center; padding: auto; }
 th.onrow { background-color: #f00; color: #fff; }
 th.oncol { background-color: #fff; color: #f00; }
 td:hover { background-color: #333; }
+th.oncol::first-letter { font-size: 24px }
+th:hover:last-child, td:hover:last-child { font-size: 24px; }
+
+label::after { 
+      content: "*";
+      color: #f00;
+}
+
+input:required { border: 5px solid red }
