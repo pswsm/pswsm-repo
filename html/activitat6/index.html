@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="pswsm">
+  <meta name="viewport" content="device-width, initial-scale=1.0">
+  <title>Activitat 6</title>
+  <link rel="stylesheet" href="css/master.css">
+  
+</head>
+<body>
+  <form action="accio.php" method="post" target="_self">
+    <fieldset>
+      <fieldset>
+        <legend>Dades de l'alumne</legend>
+        <label for="nomalu">Nom*:</label>
+        <input id="nomalu" type="text" name="nomalu" required>
+        <br>
+        <label for="correu">Correu*:</label>
+        <input id="correu" type="mail" name="email" required>
+        <br>
+        <label for="nascut">Data de naixement:</label>
+        <input type="date" min="1970-01-01" max="2021-12-31" name="nascut" id="nascut">
+        <br>
+        <p>*Camps Obligatoris</p>
+      </fieldset>
+      <fieldset>
+        <legend>Mòduls a cursar</legend>
+        <label for="m01">Mòdul 01</label>
+        <input id="m01" type="checkbox" name="m01">
+        <br>
+        <label for="m02">Mòdul 02</label>
+        <input id="m02" type="checkbox" name="m02">
+        <br>
+        <label for="m03">Mòdul 03</label>
+        <input id="m03" type="checkbox" name="m03">
+        <br>
+        <label for="m04">Mòdul 04</label>
+        <input id="m04" type="checkbox" name="m04">
+        <br>
+        <label for="m05">Mòdul 05</label>
+        <input id="m05" type="checkbox" name="m05">
+        <br>
+        <label for="m06">Mòdul 06</label>
+        <input id="m06" type="checkbox" name="m06">
+        <br>
+        <label for="m07">Mòdul 07</label>
+        <input id="m07" type="checkbox" name="m07">
+        <br>
+        <label for="m08">Mòdul 08</label>
+        <input id="m08" type="checkbox" name="m08">
+        <br>
+        <label for="m09">Mòdul 09</label>
+        <input id="m09" type="checkbox" name="m09">
+        <br>
+        <label for="m010">Mòdul 010</label>
+        <input id="m010" type="checkbox" name="m010">
+        <br>
+        <label for="m011">Mòdul 011</label>
+        <input id="m011" type="checkbox" name="m011">
+      </fieldset>
+      <fieldset>
+        <legend>Cicle Formatiu</legend>
+        <label for="asix">ASIX</label>
+        <input id="asix" type="radio" name="cicle" value="asix">
+        <label for="daw">DAW</label>
+        <input id="daw" type="radio" name="cicle" value="daw">
+        <label for="bio">DAWBIO</label>
+        <input id="bio" type="radio" name="cicle" value="dawbio">
+        <label for="dam">DAM</label>
+        <input id="dam" type="radio" name="cicle" value="dam">
+        <label for="smx">SMX</label>
+        <input id="smx" type="radio" name="cicle" value="smx">
+      </fieldset>
+      <fieldset>
+        <legend>Professors</legend>
+        <label for="profe">Professor Seleccionat</label>
+        <input id="profe" type="" list="llistatProfes" name="profe">
+        <datalist id="llistatProfes">
+          <option value="Joan">
+          <option value="Amorós">
+          <option value="Pablo">
+          <option value="Roser">
+          <option value="Montse">
+          <option value="Lluis">
+        </datalist>
+        <br>
+        <label for="satisfaccio">Del 0 al 10, com valoraríes el professor?</label>
+        <input id="satisfaccio" type="range" name="satisfaccio" min="0" max="10">
+        <br>
+        <label for="comentari">Recomanacions/Queixes sobre el professor:</label><br>
+        <textarea id="comentari" name="comentari" cols="30" rows="10" placeholder="Escriu un comentari."></textarea>
+      </fieldset>
+    </fieldset>
+  </form>
+</body>
+</html>
