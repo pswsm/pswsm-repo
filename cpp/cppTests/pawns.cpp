@@ -6,8 +6,7 @@
 
 class Pawn {
   std::string name;
-  int bioAge;
-  int age;
+  int bioAge, age;
   bool alive;
 
   public:
@@ -23,18 +22,24 @@ class Pawn {
   bool getAlive() {
     return alive;
   }
-  void setName(std::string newName) {
+  void buildPawn(std::string newName, int newAge, int newBioAge, bool state) {
     name = newName;
-  }
-  void setAge(int newAge) {
     age = newAge;
-  }
-  void setBioAge(int newBioAge) {
     bioAge = newBioAge;
-  }
-  void setAlive(bool state) {
     alive = state;
   }
+  // void setName(std::string newName) {
+    // name = newName;
+  // }
+  // void setAge(int newAge) {
+    // age = newAge;
+  // }
+  // void setBioAge(int newBioAge) {
+    // bioAge = newBioAge;
+  // }
+  // void setAlive(bool state) {
+    // alive = state;
+  // }
 };
 
 std::string genName(std::vector<std::string> names) {
@@ -47,10 +52,7 @@ int main() {
   std::vector<std::string> namePool = {"pau", "gabi", "berta", "carla", "txell", "miguel", "adrià", "alba", "gerard", "toni", "manel", "guillem"};
 
   Pawn human;
-  human.setName(genName(namePool));
-  human.setAge(rand() % 50 + 18);
-  human.setAlive(1);
-  human.setBioAge(rand() % 1000 + human.getAge());
+  human.buildPawn(genName(namePool), (rand() % 50 + 18), (rand() % 1000 + human.getAge()), 1);
 
   std::cout << "This human is called " << human.getName() << "\n" << "He is " << human.getAge() <<
     " years old, although he is " << human.getBioAge() << " years old." << std::endl;
