@@ -9,48 +9,51 @@
   
 </head>
 <body>
+  <p class="right">Pau Figueras</p>
+  <p class="right">DAWBIO1</p>
+  <h1 class="center">Activitat 6 - Formularis</h1>
   <form action="accio.php" method="post" target="_self">
     <fieldset>
       <fieldset>
         <legend>Dades de l'alumne</legend>
-        <label for="nomalu">Nom*:</label>
+        <label for="nomalu">Nom*: </label>
         <input id="nomalu" type="text" name="nomalu" required>
         <br>
-        <label for="correu">Correu*:</label>
+        <label for="correu">Correu*: </label>
         <input id="correu" type="mail" name="email" required>
         <br>
-        <label for="nascut">Data de naixement:</label>
+        <label for="nascut">Data de naixement: </label>
         <input type="date" min="1970-01-01" max="2021-12-31" name="nascut" id="nascut">
         <br>
         <p>*Camps Obligatoris</p>
       </fieldset>
       <fieldset>
         <legend>Mòduls a cursar</legend>
-        <label for="m01">Mòdul 01</label>
+        <label for="m01">Mòdul 01&numsp;</label>
         <input id="m01" type="checkbox" name="m01">
         <br>
-        <label for="m02">Mòdul 02</label>
+        <label for="m02">Mòdul 02&numsp;</label>
         <input id="m02" type="checkbox" name="m02">
         <br>
-        <label for="m03">Mòdul 03</label>
+        <label for="m03">Mòdul 03&numsp;</label>
         <input id="m03" type="checkbox" name="m03">
         <br>
-        <label for="m04">Mòdul 04</label>
+        <label for="m04">Mòdul 04&numsp;</label>
         <input id="m04" type="checkbox" name="m04">
         <br>
-        <label for="m05">Mòdul 05</label>
+        <label for="m05">Mòdul 05&numsp;</label>
         <input id="m05" type="checkbox" name="m05">
         <br>
-        <label for="m06">Mòdul 06</label>
+        <label for="m06">Mòdul 06&numsp;</label>
         <input id="m06" type="checkbox" name="m06">
         <br>
-        <label for="m07">Mòdul 07</label>
+        <label for="m07">Mòdul 07&numsp;</label>
         <input id="m07" type="checkbox" name="m07">
         <br>
-        <label for="m08">Mòdul 08</label>
+        <label for="m08">Mòdul 08&numsp;</label>
         <input id="m08" type="checkbox" name="m08">
         <br>
-        <label for="m09">Mòdul 09</label>
+        <label for="m09">Mòdul 09&numsp;</label>
         <input id="m09" type="checkbox" name="m09">
         <br>
         <label for="m010">Mòdul 010</label>
@@ -74,7 +77,7 @@
       </fieldset>
       <fieldset>
         <legend>Professors</legend>
-        <label for="profe">Professor Seleccionat</label>
+        <label for="profe">Professor Seleccionat:&emsp;</label>
         <input id="profe" type="" list="llistatProfes" name="profe">
         <datalist id="llistatProfes">
           <option value="Joan">
@@ -85,12 +88,44 @@
           <option value="Lluis">
         </datalist>
         <br>
-        <label for="satisfaccio">Del 0 al 10, com valoraríes el professor?</label>
+        <label for="satisfaccio">Del 0 al 10, com valoraríes el professor?</label><br>
         <input id="satisfaccio" type="range" name="satisfaccio" min="0" max="10">
         <br>
         <label for="comentari">Recomanacions/Queixes sobre el professor:</label><br>
         <textarea id="comentari" name="comentari" cols="30" rows="10" placeholder="Escriu un comentari."></textarea>
       </fieldset>
+      <fieldset>
+        <legend>Sobre tu</legend>
+        <a>Repeteixes:</a>
+        <input id="si" type="radio" name="repeteix" value="si">
+        <label for="si">Si</label>
+        <input id="no" type="radio" name="repeteix" value="no">
+        <label for="no">No</label>
+        <br><br>
+        <label for="color">Color preferit:</label>
+        <input id="color" type="datalist" list="llistaColors" name="color">
+        <datalist id="llistaColors">
+          <option value="Negre">
+          <option value="Groc">
+          <option value="Blau">
+          <option value="Roig">
+          <option value="Lila">
+          <option value="Rosa">
+        </datalist>
+        <br>
+        <br>
+        <label for="fitxer">Puja un fitxer del color preferit:</label>
+        <br>
+        <input id="fitxer" type="file" name="fitxer">
+        <br>
+      </fieldset>
+      <fieldset>
+        <legend>Data i hora de finalització</legend>
+        <label for="sendTime">Introdueix el dia i l'hora actuals:</label></br>
+        <input id="sendTime" type="datetime-local" name="sendTime">
+      </fieldset>
+      <input type="submit" value="Envia">
+      <input id="reset" type="reset" value="Esborra">
     </fieldset>
   </form>
 </body>
