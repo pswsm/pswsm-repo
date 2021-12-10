@@ -3,6 +3,8 @@
 
 #include <string>
 #include <vector>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
 
@@ -31,5 +33,17 @@ class Pawn {
       return v;
     }
 };
+
+class Spawn {
+  std::vector<std::string> namePool = {"pau", "victor", "pablo", "oriol", "ivan", "toni", "gerard"};
+  
+  std::string name() {
+    srand(time(nullptr));
+    std::string name = namePool
+  }
+
+  public:
+    Pawn *createInstance() {return new Pawn;}
+}
 
 #endif
