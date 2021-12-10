@@ -1,5 +1,5 @@
 #include <iostream>
-#include "pawns.h"
+#include "./pawns.h"
 
 int main() {
   Pawn p {20, 232, "Pau", "Figueras", "pswsm", true};
