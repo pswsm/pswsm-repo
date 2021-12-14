@@ -34,16 +34,16 @@ class Pawn {
     }
 };
 
-class Spawn {
-  std::vector<std::string> namePool = {"pau", "victor", "pablo", "oriol", "ivan", "toni", "gerard"};
+// class Spawn {
+  // std::vector<std::string> namePool = {"pau", "victor", "pablo", "oriol", "ivan", "toni", "gerard"};
   
-  std::string name() {
-    srand(time(nullptr));
-    std::string name = namePool
-  }
+  // std::string name() {
+    // srand(time(nullptr));
+    // std::string name = namePool;
+  // }
 
-  public:
-    Pawn *createInstance() {return new Pawn;}
-}
+  // public:
+    // Pawn *createInstance() {return new Pawn {name};}
+// }
 
 #endif

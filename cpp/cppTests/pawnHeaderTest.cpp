@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./pawns.h"
+#include "/home/pswsm/github/pswsm-repo/cpp/cppTests/pawns.h"
 
 int main() {
   Pawn p {20, 232, "Pau", "Figueras", "pswsm", true};
