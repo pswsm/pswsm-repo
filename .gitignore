@@ -1,3 +1,11 @@
+# Some python and environmental bullshit
 .replit
 .env
 *pycache*
+
+# All audio files
+.mp4
+.ogg
+.mp3
+.opus
+.m4a

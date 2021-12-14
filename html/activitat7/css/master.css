@@ -1,0 +1,31 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+video {
+  width: 500px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.fl {
+  float: left;
+}
+
+.fullwd {
+  margin: auto;
+  display: block;
+}
