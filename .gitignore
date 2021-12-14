@@ -4,8 +4,8 @@
 *pycache*
 
 # All audio files
-.mp4
-.ogg
-.mp3
-.opus
-.m4a
+*.mp4
+*.ogg
+*.mp3
+*.opus
+*.m4a
