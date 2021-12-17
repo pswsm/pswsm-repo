@@ -2,6 +2,7 @@ body {
   background-color: #000;
   color: #fff;
   font-family: Roboto, Arial, sans-serif;
+  margin: auto 15%;
 }
 
 video {
@@ -16,6 +17,10 @@ footer {
   background-color: #222;
   color: inherit;
   font-size: 12px;
+}
+
+input[type=submit] {
+  float: right;
 }
 
 .container {
