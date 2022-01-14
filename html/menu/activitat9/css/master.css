@@ -1,0 +1,63 @@
+body {
+  background-color: #222;
+  color: #ddd;
+  font-family: Roboto, Roboto Mono, Arial, Liberation Sans, sans-serif;
+}
+
+/* div { */
+  /* border: 0.25em solid red; */
+/* } */
+
+div:hover {
+  background-color: #999;
+  color: #000;
+}
+
+img {
+  width: 100%;
+}
+
+#navtop {
+  width: 100%;
+  background-color: black;
+  float: left;
+  margin: auto;
+}
+
+#navtop>div {
+  width: 20%;
+  float: left;
+  /* background-color: inherit; */
+  text-align: center;
+}
+
+#navleft {
+  width: 10%;
+  background-color: black;
+  float: left;
+  margin: 2% auto auto;
+}
+
+#navleft>div {
+  width: 90%;
+  float: right;
+  padding: 0.5em;
+  text-align: right;
+}
+
+.content {
+  float: right;
+  width: 80%;
+  margin: 2% auto auto auto;
+  /* border: solid purple 2px; */
+}
+
+.columns {
+  float: left;
+  text-align: center;
+  width: 33%;
+  height: 27em;
+  border-radius: 10px;
+  overflow: hidden;
+  border: solid white 2px;
+}
