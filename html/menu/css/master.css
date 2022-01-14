@@ -4,6 +4,10 @@ body {
   font-family: Roboto, Roboto Mono, Liberation Sans, Arial, sans-serif;
 }
 
+.container {
+  grid-template-columns: 4fr
+}
+
 ul {
   list-style-type: none;
   margin: 0;
