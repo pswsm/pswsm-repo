@@ -8,19 +8,19 @@ body {
   /* border: 0.25em solid red; */
 /* } */
 
-div:hover {
-  background-color: #999;
-  color: #000;
-}
-
 img {
   width: 100%;
 }
 
+#navtop:hover, #navleft:hover { background-color: #999; color: #000; }
+
+#navtop, #navleft {
+  background-color: #000;
+  float: left;
+}
+
 #navtop {
   width: 100%;
-  background-color: black;
-  float: left;
   margin: auto;
 }
 
@@ -33,16 +33,15 @@ img {
 
 #navleft {
   width: 10%;
-  background-color: black;
-  float: left;
   margin: 2% auto auto;
+  height: 150%;
 }
 
 #navleft>div {
   width: 90%;
-  float: right;
+  float: left;
   padding: 0.5em;
-  text-align: right;
+  text-align: left;
 }
 
 .content {
@@ -60,4 +59,12 @@ img {
   border-radius: 10px;
   overflow: hidden;
   border: solid white 2px;
+}
+
+.p-columns {
+  box-sizing: border-box;
+  float: left;
+  width: 33%;
+  padding: 3%;
+  overflow: scroll;
 }
