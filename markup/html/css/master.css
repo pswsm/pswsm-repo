@@ -1,0 +1,27 @@
+body {
+  background-color: #111;
+  color: #eee;
+  font-family: Roboto, Roboto Mono, Liberation Sans, Arial, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #555;
+}
+li { 
+  float: left;
+}
+li a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  padding: 5% 7%;
+}
+
+h1 { text-align: center; }
+
+.migi { text-align: right; }
