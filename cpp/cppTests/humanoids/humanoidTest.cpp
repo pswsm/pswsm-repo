@@ -7,16 +7,14 @@
             // << "\nHumanoid natural age: " << humanoid.getNatAge() << "\nHumanoid is alive: " << humanoid.getAlive();
 // }
 //
-// int main() {
-  // Pawn p {20, 232, "Pau", "Figueras", "pswsm", true};
-//
-  // for (std::string n : p.getEverything()) {
-    // std::cout << "Data: " << n << std::endl;
-  // }
-//
-  // showAllInfo(p);
-// }
-
 int main() {
-  std::make_unique(new Human(18, 18, "Pau", "", "pswsm", true));
+  Human p {20, 232, "Pau", "Figueras", "pswsm", true};
+
+  for (std::string n : p.getEverything()) {
+    std::cout << "Data: " << n << std::endl;
+  }
 }
+
+// int main() {
+//   std::make_unique(new Human(18, 18, "Pau", "", "pswsm", true));
+// }
