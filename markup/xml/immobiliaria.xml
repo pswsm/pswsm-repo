@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<habitatges>
+  <pis>
+    <refr>0011</refr>
+    <addr>
+      <carrer>Gran</carrer>
+      <codiPost>09001</codiPost>
+      <poclacio>Barcelona</poclacio>
+    </addr>
+    <tipusHab>Pis</tipusHab>
+    <vendaLloguer>venda</vendaLloguer>
+    <preu>120000</preu>
+  </pis>
+  <pis>
+    <refr>0012</refr>
+    <addr>
+      <carrer>Mitjà</carrer>
+      <codiPost>09002</codiPost>
+      <poclacio>L'Hospitalet de Llobregat</poclacio>
+    </addr>
+    <tipusHab>Pis</tipusHab>
+    <vendaLloguer>lloguer</vendaLloguer>
+    <preu>750</preu>
+  </pis>
+  <pis>
+    <refr>0013</refr>
+    <addr>
+      <carrer>Petit</carrer>
+      <codiPost>09003</codiPost>
+      <poclacio>Vic</poclacio>
+    </addr>
+    <tipusHab>Pis</tipusHab>
+    <vendaLloguer>venda</vendaLloguer>
+    <preu>95000</preu>
+  </pis>
+  <pis>
+    <refr>0014</refr>
+    <addr>
+      <carrer>Roda</carrer>
+      <codiPost>09004</codiPost>
+      <poclacio>Terrassa</poclacio>
+    </addr>
+    <tipusHab>Casa</tipusHab>
+    <vendaLloguer>venda</vendaLloguer>
+    <preu>250000</preu>
+  </pis>
+  <pis>
+    <refr>0015</refr>
+    <addr>
+      <carrer>Centre</carrer>
+      <codiPost>09005</codiPost>
+      <poclacio>Naut Aran</poclacio>
+    </addr>
+    <tipusHab>Casa</tipusHab>
+    <vendaLloguer>venda</vendaLloguer>
+    <preu>110000</preu>
+  </pis>
+</habitatges>

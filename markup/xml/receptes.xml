@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<receptes>
+  <plat fotografia="receptes/foto.png">
+    <nom>Llenties de la mama</nom>
+    <ingredients>
+      <ingredient>Llenties</ingredient>
+      <ingredient>Xoriç (talls al gust)</ingredient>
+      <ingredient>Butifarra negra (talls al gust)</ingredient>
+      <ingredient>Pastilla de brou de carn</ingredient>
+      <ingredient>Fulles de llaurer (1 o 2)</ingredient>
+      <ingredient>Oli</ingredient>
+    </ingredients>
+    <passos>
+      <pas>Escalfem 500Ml d'aigua i hi desfem la pastilla de brou</pas>
+      <pas>En una olla, posem un raig d'oli i les fulles de llaurer, a foc mitjà</pas>
+      <pas>Quan l'oli sigui calent, posem les llenties a l'olla</pas>
+      <pas>Ràpidament afegim el brou</pas>
+      <pas>Tapem i baixem el foc</pas>
+      <pas>Esperem 5 minuts i afegim el xoriç i la botifarra</pas>
+      <pas>Tapem l'olla i deixem 15 minuts amb le foc al mínim</pas>
+      <pas>Ja tenim les llenties llestes</pas>
+    </passos>
+  </plat>
+  <plat>
+    <nom>Pastís</nom>
+    <ingredients>
+      <ingredient>Ou</ingredient>
+      <ingredient>Farina</ingredient>
+      <ingredient>Oli</ingredient>
+      <ingredient>Sucre</ingredient>
+    </ingredients>
+    <passos>
+      <pas>Batir ous</pas>
+      <pas>Mesclar amb la farina</pas>
+      <pas>Afegir sucre</pas>
+      <pas>Afegir oli</pas>
+      <pas>Posar al motlle</pas>
+      <pas>Posar al forn durant 15 Minuts</pas>
+    </passos>
+  </plat>
+  <plat>
+    <nom>Arròs</nom>
+    <ingredients>
+      <ingredient>Arròs</ingredient>
+      <ingredient>Moŀluscs</ingredient>
+      <ingredient>Cranc</ingredient>
+    </ingredients>
+    <passos>
+      <pas>Posar l'arròs, el cranc i el moŀluscs a l'olla</pas>
+      <pas>Afegri el caldo (si es vol caldós)</pas>
+    </passos>
+  </plat>
+  <plat>
+    <nom>Entrepà de Formatge</nom>
+    <ingredients>
+      <ingredient>Pa</ingredient>
+      <ingredient>Formatge</ingredient>
+      <ingredient>Tomàquet</ingredient>
+    </ingredients>
+    <passos>
+      <pas>Tallar el pa i el formatge</pas>
+      <pas>Partir el tomàquet per la meitat</pas>
+      <pas>Untar el pa amb el tomàquet</pas>
+      <pas>Afegir el formatge entre les dues llesques</pas>
+    </passos>
+  </plat>
+  <plat>
+    <nom>Truita</nom>
+    <ingredients>
+      <ingredient>Ou</ingredient>
+    </ingredients>
+    <passos>
+      <pas>Trencar l'ou</pas>
+      <pas>Batir l'ou</pas>
+      <pas>Posar l'ou a la paella</pas>
+      <pas>Girar la truita</pas>
+    </passos>
+  </plat>
+</receptes>
