@@ -11,25 +11,26 @@ drop table zones;
 --  CREATE TABLES  --
 ---------------------
 create table zones (
-  id_zona number(3),
+  id number(3),
   nom varchar2(15),
-  constraint id_zona_pk primary key (id_zona)
+  constraint id_zona_pk primary key (id)
 );
 
 create table hotels (
+  id number(3),
   nom_hotel varchar2(20),
   num_habitacions number(3),
   id_zona number(3),
-  constraint nom_hotel_pk primary key (nom_hotel),
-  constraint zones_id_zona_fk foreign key (id_zona) references zones(id_zona) on delete cascade
+  constraint id_hotels_pk primary key (id),
+  constraint zones_id_zona_fk foreign key (id_zona) references zones(id) on delete cascade
 );
 
 create table habitacions (
-  nom_hotel varchar2(20),
-  numero number(3),
+  hotel_id number(3),
+  id number(3),
   planta number(5),
-  constraint nom_hotel_num_hab_pk primary key (numero, nom_hotel),
-  constraint htls_nom_hotel_fk foreign key (nom_hotel) references hotels(nom_hotel) on delete cascade
+  constraint nom_hotel_num_hab_pk primary key (id, hotel_id),
+  constraint htls_nom_hotel_fk foreign key (hotel_id) references hotels(id) on delete cascade
 );
 ---------------------
 create table forfaits (
@@ -45,7 +46,7 @@ create table forfaits (
   constraint date_is_valid_chk check (inici_valid <= fi_valid),
   constraint dte_Bar_is_okay_chk check (dte_Bar < 41),
   constraint dte_Rest_is_okay_chk check (dte_Rest < 41),
-  constraint dte_Llog_is_okay_chk check (dte_Llog < 41),
+  constraint dte_Llog_is_okay_chk check (dte_Llog < 41)
 );
 
 create table clients (
@@ -60,21 +61,23 @@ create table transportadors (
   id_zona number(3),
   nom varchar2(10),
   tipus varchar2(10),
-  long number(4),
-  constraint id_tp_pk primary key (id_tp)
+  longitud number(4),
+  constraint id_tp_pk primary key (id_tp),
+  constraint zones_id_zona_tp_fk foreign key (id_zona) references zones(id)
 );
 ---------------------
 -- RELATION TABLES --
 ---------------------
 create table registres (
-  codi varchar2(10),
-  nom_hotel varchar2(20),
-  num number(3),
+  codi_forfait varchar2(10),
+  id_hotel number(20),
+  id_habitacio number(3),
   chckin_date date default sysdate,
   chckout_date date,
-  constraint codi_hotel_num_pk primary key (codi, hotel, num),
-  constraint ff_codi_fk foreign key forfaits(codi),
-  constraint htls_nom_hotel_fk foreign key hotels(nom_hotel)
+  constraint registres_pk primary key (codi_forfait, id_hotel, id_habitacio),
+  -- constraint htls_id_hotel_reg_fk foreign key (id_hotel) references hotels(id),
+  constraint ff_codi_reg_fk foreign key (codi_forfait) references forfaits(codi),
+  constraint hbtc_id_num_fk foreign key (id_habitacio, id_hotel) references habitacions(id, hotel_id)
 );
 
 create table compres (
@@ -83,5 +86,6 @@ create table compres (
   qtt_EUR number(4),
   data date default sysdate,
   constraint targ_codi_pk primary key (targ_paga, codi),
-  constraint ff_codi_fk foreign key forfaits(codi),
+  constraint ff_codi_compra_fk foreign key (codi) references forfaits(codi),
+  constraint clnts_targ_paga_fk foreign key (targ_paga) references clients(targ_paga)
 );
