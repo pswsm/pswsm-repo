@@ -50,19 +50,19 @@ create table forfaits (
 );
 
 create table clients (
-  targ_paga number(16),
+  tgt_paga number(16),
   nom varchar2(20),
   congnom varchar2(20),
   constraint targ_paga_pk primary key (targ_paga)
 );
 ---------------------
 create table transportadors (
-  id_tp number(5),
+  id number(2),
   id_zona number(3),
   nom varchar2(10),
   tipus varchar2(10),
   longitud number(4),
-  constraint id_tp_pk primary key (id_tp),
+  constraint id_tp_pk primary key (id),
   constraint zones_id_zona_tp_fk foreign key (id_zona) references zones(id)
 );
 ---------------------
@@ -81,7 +81,7 @@ create table registres (
 );
 
 create table compres (
-  targ_paga number(16),
+  tgt_paga number(16),
   codi varchar2(10),
   qtt_EUR number(4),
   data date default sysdate,
@@ -89,3 +89,17 @@ create table compres (
   constraint ff_codi_compra_fk foreign key (codi) references forfaits(codi),
   constraint clnts_targ_paga_fk foreign key (targ_paga) references clients(targ_paga)
 );
+
+create table viatge (
+  codi_forfait varchar2(10),
+  id_tp number(3),
+  data date,
+  hora int(4),
+  constraint viatge_pk primary key (codi_forfait, id_tp),
+  constraint ttd_vtg_id_fk foreign key transportadors(id),
+  constraint ff_codi_vtg_fk foreign key forfaits(codi)
+);
+
+---------------------
+--   DATA INSERT   --
+---------------------
