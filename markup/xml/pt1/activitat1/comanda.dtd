@@ -1,0 +1,11 @@
+<!ELEMENT comanda (dades, articles+)>
+<!ELEMENT dades (número, data, client)>
+<!ELEMENT número (#PCDATA)>
+<!ELEMENT data (#PCDATA)>
+<!ELEMENT client (nom, poblacio)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT poblacio (#PCDATA)>
+<!ELEMENT articles (article+)>
+<!ELEMENT article (codi, descripció)>
+<!ELEMENT codi (#PCDATA)>
+<!ELEMENT descripció (#PCDATA)>

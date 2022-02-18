@@ -1,0 +1,7 @@
+<!ELEMENT xarxa (domini, ordinadors+)>
+<!ELEMENT domini (#PCDATA)>
+<!ELEMENT ordinadors (pc*)>
+<!ELEMENT pc (nom, configuracio, sistemaOperatiu)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT configuracio (#PCDATA)>
+<!ELEMENT sistemaOperatiu (#PCDATA)>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE juego SYSTEM "the.dtd">
+
+<juego nombre="collblanc" dificultad="baja">
+  <escenario>
+    <pais>Catalunya</pais>
+    <nombre_lugar>L'Hospitalet de Llobregat</nombre_lugar>
+    <coordenadas>
+      <x>41</x>
+      <y>35</y>
+      <z>67+</z>
+    </coordenadas>
+  </escenario>
+  <musica>
+    <nombre_cancion>PDA</nombre_cancion>
+    <genero>Trap Catala</genero>
+  </musica>
+</juego>
