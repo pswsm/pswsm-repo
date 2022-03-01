@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<agenda xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="P4.xsd">
+	<contacto>
+		<nombre>Francisco</nombre>
+    <apellidos>Gutierrez Garcia</apellidos>
+    <hombre/>
+    <nacimiento dia="29" mes="Enero" anyo="1940">1940-01-29</nacimiento>
+    <nif>12345678-A</nif>
+    <telefono>612345678</telefono>
+    <direccion>
+      <tipo_via>Avenida</tipo_via>
+      <via>Tibidabo</via>
+      <numero>1</numero>
+      <piso>2</piso>
+      <puerta>A</puerta>
+      <poblacion>Barcelona</poblacion>
+      <codigo_postal>08016</codigo_postal>
+    </direccion>
+	</contacto>
+	<contacto>
+		<nombre>Elisa</nombre>
+    <apellidos>Moreno Perez</apellidos>
+    <mujer/>
+    <nacimiento dia="03" mes="Marzo" anyo="1966">1966-03-03</nacimiento>
+    <nif>12345678-Z</nif>
+    <telefono>612345678</telefono>
+    <telefono>687654321</telefono>
+    <direccion>
+      <tipo_via>Plaza</tipo_via>
+      <via>Catalunya</via>
+      <numero>3</numero>
+      <piso>4</piso>
+      <poblacion>Hospitalet</poblacion>
+      <codigo_postal>08030</codigo_postal>
+    </direccion>
+	</contacto>
+</agenda>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <!-- Attributes -->
+  <xs:attribute name="anyo" type="xs:integer"/>
+  <xs:attribute name="mes" type="xs:string"/>
+  <xs:attribute name="dia">
+    <xs:simpleType>
+      <xs:restriction base="xs:positiveInteger">
+        <xs:pattern value="[0-30-1]"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <!-- Simple Types -->
+  <xs:element name="nif">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[0-9]{8}-[A-Z]"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="telefono">
+    <xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:pattern value="[67][0-9]{8}"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="codigo_postal">
+    <xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:pattern value="[0-51-8][0-9]{3}"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="apellidos">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Gutierrez Garcia"/>
+        <xs:enumeration value="Moreno Perez"/>
+        <xs:enumeration value="Pablo Luis"/>
+        <xs:enumeration value="Sanzhez Diaz"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="date" type="xs:date"/>
+
+  <!-- Complex Types -->
+
+  <xs:element name="hombre">
+    <xs:complexType>
+      <xs:sequence/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="mujer">
+    <xs:complexType>
+      <xs:sequence/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="nacimiento">
+    <xs:complexType mixed="true">
+      <xs:attribute ref="anyo"/>
+      <xs:attribute ref="dia"/>
+      <xs:attribute ref="mes"/>
+      <xs:sequence>
+        <xs:element ref="date"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="contacto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string"/>
+        <xs:element ref="apellidos"/>
+        <xs:choice>
+          <xs:element ref="mujer"/>
+          <xs:element ref="hombre"/>
+        </xs:choice>
+        <xs:element ref="nacimiento"/>
+        <xs:element ref="nif"/>
+        <xs:element ref="telefono"/>
+        <xs:element ref="direccion"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="agenda">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="contacto" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="direccion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="tipo_via" type="xs:string"/>
+        <xs:element name="via" type="xs:string"/>
+        <xs:element name="numero" type="xs:string"/>
+        <xs:element name="piso" type="xs:string"/>
+        <xs:element name="puerta" type="xs:string"/>
+        <xs:element name="poblacion" type="xs:string"/>
+        <xs:element ref="codigo_postal"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
