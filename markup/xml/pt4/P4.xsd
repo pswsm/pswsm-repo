@@ -7,7 +7,8 @@
   <xs:attribute name="dia">
     <xs:simpleType>
       <xs:restriction base="xs:positiveInteger">
-        <xs:pattern value="[0-30-1]"/>
+        <xs:minInclusive value="1"/>
+        <xs:maxInclusive value="31"/>
       </xs:restriction>
     </xs:simpleType>
   </xs:attribute>
@@ -32,7 +33,7 @@
   <xs:element name="codigo_postal">
     <xs:simpleType>
       <xs:restriction base="xs:integer">
-        <xs:pattern value="[0-51-8][0-9]{3}"/>
+        <xs:pattern value="[0-5][1-8][0-9]{3}"/>
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
@@ -48,7 +49,7 @@
     </xs:simpleType>
   </xs:element>
 
-  <xs:element name="date" type="xs:date"/>
+  <xs:element name="date" type="xs:string"/>
 
   <!-- Complex Types -->
 
@@ -65,13 +66,13 @@
   </xs:element>
 
   <xs:element name="nacimiento">
-    <xs:complexType mixed="true">
-      <xs:attribute ref="anyo"/>
-      <xs:attribute ref="dia"/>
-      <xs:attribute ref="mes"/>
+    <xs:complexType>
       <xs:sequence>
         <xs:element ref="date"/>
       </xs:sequence>
+      <xs:attribute ref="anyo"/>
+      <xs:attribute ref="dia"/>
+      <xs:attribute ref="mes"/>
     </xs:complexType>
   </xs:element>
 
