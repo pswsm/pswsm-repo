@@ -2,7 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 
   <!-- Attributes -->
-  <xs:attribute name="anyo" type="xs:integer"/>
+  <xs:attribute name="anyo" type="xs:positiveInteger"/>
   <xs:attribute name="mes" type="xs:string"/>
   <xs:attribute name="dia">
     <xs:simpleType>
@@ -49,7 +49,28 @@
     </xs:simpleType>
   </xs:element>
 
-  <xs:element name="date" type="xs:string"/>
+  <xs:element name="tipo_via">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Avinguda"/>
+        <xs:enumeration value="Carrer"/>
+        <xs:enumeration value="Plaça"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="via" type="xs:string"/>
+  <xs:element name="numero" type="xs:positiveInteger"/>
+  <xs:element name="piso">
+    <xs:simpleType>
+      <xs:restriction base="xs:positiveInteger">
+        <xs:maxInclusive value="99"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="puerta" type="xs:string"/>
+  <xs:element name="poblacion" type="xs:string"/>
+
 
   <!-- Complex Types -->
 
@@ -67,12 +88,13 @@
 
   <xs:element name="nacimiento">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="date"/>
-      </xs:sequence>
-      <xs:attribute ref="anyo"/>
-      <xs:attribute ref="dia"/>
-      <xs:attribute ref="mes"/>
+      <xs:simpleContent>
+        <xs:extension base="xs:date">
+          <xs:attribute ref="anyo"/>
+          <xs:attribute ref="dia"/>
+          <xs:attribute ref="mes"/>
+        </xs:extension>
+      </xs:simpleContent>
     </xs:complexType>
   </xs:element>
 
@@ -87,7 +109,7 @@
         </xs:choice>
         <xs:element ref="nacimiento"/>
         <xs:element ref="nif"/>
-        <xs:element ref="telefono"/>
+        <xs:element ref="telefono" maxOccurs="2"/>
         <xs:element ref="direccion"/>
       </xs:sequence>
     </xs:complexType>
@@ -104,12 +126,12 @@
   <xs:element name="direccion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="tipo_via" type="xs:string"/>
-        <xs:element name="via" type="xs:string"/>
-        <xs:element name="numero" type="xs:string"/>
-        <xs:element name="piso" type="xs:string"/>
-        <xs:element name="puerta" type="xs:string"/>
-        <xs:element name="poblacion" type="xs:string"/>
+        <xs:element ref="tipo_via"/>
+        <xs:element ref="via"/>
+        <xs:element ref="numero"/>
+        <xs:element ref="piso"/>
+        <xs:element ref="puerta" minOccurs="0"/>
+        <xs:element ref="poblacion"/>
         <xs:element ref="codigo_postal"/>
       </xs:sequence>
     </xs:complexType>
