@@ -8,7 +8,7 @@
     <nif>12345678-A</nif>
     <telefono>612345678</telefono>
     <direccion>
-      <tipo_via>Avinguda</tipo_via>
+      <tipo_via>Avenida</tipo_via>
       <via>Tibidabo</via>
       <numero>1</numero>
       <piso>2</piso>
@@ -26,7 +26,7 @@
     <telefono>612345678</telefono>
     <telefono>687654321</telefono>
     <direccion>
-      <tipo_via>Plaça</tipo_via>
+      <tipo_via>Plaza</tipo_via>
       <via>Catalunya</via>
       <numero>3</numero>
       <piso>4</piso>
