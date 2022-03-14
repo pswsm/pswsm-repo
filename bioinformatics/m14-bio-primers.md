@@ -43,6 +43,7 @@ Hi dues formules
 - Fromula de Wallace (aprox.):
 `Tm oligonucleòtids = 2(A+T) + 4(G+C)`
 <br>La sedüent taula mostra la temperatura de fusió segons el nombre de bases, seguint la formula de Wallace i assumint un contingut G/C del 50%:
+
 | Tamany (bases) | Tm (°C) |
 |----------------|---------|
 | 4              | 12      |
@@ -57,7 +58,8 @@ Hi dues formules
 | 24             | 72      |
 | 26             | 78      |
 | 28             | 84      |
-e
+
+
 #### Temperatura d'anellament
 La temperatura d'anellament (Ta), a diferència de la Tm (que depèn segons la llargada i composició de l'ADN), aquesta depén exclusivament dels primers i la seva longitud i composició.
 Comunament, s'utilitzen temperatures 5°C per sota la Tm més baixa dels dos primers utilitzats.
