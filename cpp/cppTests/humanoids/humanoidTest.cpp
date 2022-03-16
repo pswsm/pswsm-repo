@@ -16,7 +16,7 @@ int main() {
   };
 
   for (int i = 1; Human a : humanPtrs) {
-    std::cout << "Human " << std::to_string(i) << "\n";
+    std::cout << "Human " << i << "\n";
     for (std::string n : a.getEverything()) {
       std::cout << "Data: " << n << std::endl;
     }
