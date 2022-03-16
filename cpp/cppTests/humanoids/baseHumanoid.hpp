@@ -10,11 +10,11 @@
 class Human {
   int natAge, bioAge;
   std::string firstName, lastName, nickName;
-  bool state;
+  bool is_alive;
 
   public:
     Human(int naturalAge, int biologicalAge, std::string fName, std::string lName, std::string niName, bool alive): natAge{naturalAge}, bioAge{biologicalAge},
-      firstName{fName}, lastName{lName}, nickName{niName}, state{alive}
+      firstName{fName}, lastName{lName}, nickName{niName}, is_alive{alive}
     {};
 
     std::vector<std::string> getEverything() {
@@ -24,7 +24,7 @@ class Human {
       v.push_back(firstName);
       v.push_back(nickName);
       v.push_back(lastName);
-      if (state == true) {
+      if (is_alive == true) {
         v.push_back("Alive");
       } else {
         v.push_back("Dead");
@@ -46,10 +46,12 @@ class Human {
     }
 
     std::string getAlive() {
-      if (state == true) {
+      if (is_alive == true) {
         return "Alive";
-      } else {
+      } else if (is_alive == false){
         return "Deceased";
+      } else {
+        return "Unknown";
       }
     }
 };

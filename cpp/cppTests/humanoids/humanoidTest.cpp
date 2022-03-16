@@ -1,5 +1,6 @@
 #include <iostream>
 #include <memory>
+#include <vector>
 #include "/home/pswsm/github/pswsm-repo/cpp/cppTests/humanoids/baseHumanoid.hpp"
 
 // void showAllInfo(Pawn humanoid) {
@@ -8,11 +9,22 @@
 // }
 //
 int main() {
-  Human p {20, 232, "Pau", "Figueras", "pswsm", true};
+  std::vector<Human> humanPtrs;
 
-  for (std::string n : p.getEverything()) {
-    std::cout << "Data: " << n << std::endl;
+  for (int i = 0; i < 5; i++) {
+    humanPtrs.push_back(*new Human {i, i, std::to_string(i), std::to_string(i), std::to_string(i), 1});
+  };
+
+  for (int i = 1; Human a : humanPtrs) {
+    std::cout << "Human " << std::to_string(i) << "\n";
+    for (std::string n : a.getEverything()) {
+      std::cout << "Data: " << n << std::endl;
+    }
+    std::cout << std::endl;
+    i++;
   }
+
+
 }
 
 // int main() {
