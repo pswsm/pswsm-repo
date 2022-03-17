@@ -10,28 +10,14 @@
 class Human {
   int natAge, bioAge;
   std::string firstName, lastName, nickName;
-  bool is_alive;
+  bool isAlive;
+  char sex;
 
   public:
-    Human(int naturalAge, int biologicalAge, std::string fName, std::string lName, std::string niName, bool alive): natAge{naturalAge}, bioAge{biologicalAge},
-      firstName{fName}, lastName{lName}, nickName{niName}, is_alive{alive}
+    Human(int naturalAge, int biologicalAge, std::string fName, std::string lName, std::string niName, bool alive, char sx): natAge{naturalAge}, bioAge{biologicalAge},
+      firstName{fName}, lastName{lName}, nickName{niName}, isAlive{alive}, sex{sx}
     {};
-
-    std::vector<std::string> getEverything() {
-      std::vector<std::string> v = {};
-      v.push_back(std::to_string(natAge));
-      v.push_back(std::to_string(bioAge));
-      v.push_back(firstName);
-      v.push_back(nickName);
-      v.push_back(lastName);
-      if (is_alive == true) {
-        v.push_back("Alive");
-      } else {
-        v.push_back("Dead");
-      }
-      return v;
-    }
-
+    
     int getNatAge() {
       return natAge;
     }
@@ -45,14 +31,36 @@ class Human {
       return fullName;
     }
 
+    std::string getSex() {
+      if (sex == 'x' || sex == 'X') {
+        return "Female";
+      } else if (sex == 'y' || sex == 'Y') {
+        return "Male";
+      } else {
+        return "Unknown";
+      }
+    }
+
     std::string getAlive() {
-      if (is_alive == true) {
+      if (isAlive == true) {
         return "Alive";
-      } else if (is_alive == false){
+      } else if (isAlive == false){
         return "Deceased";
       } else {
         return "Unknown";
       }
+    }
+
+    std::vector<std::string> getEverything() {
+      std::vector<std::string> v = {};
+      v.push_back(std::to_string(natAge));
+      v.push_back(std::to_string(bioAge));
+      v.push_back(firstName);
+      v.push_back(nickName);
+      v.push_back(lastName);
+      v.push_back(getSex());
+      v.push_back(getAlive());
+      return v;
     }
 };
 

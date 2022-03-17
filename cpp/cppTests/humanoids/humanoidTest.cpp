@@ -10,15 +10,17 @@
 //
 int main() {
   std::vector<Human> humanPtrs;
+  std::string humanValues[7] = {"Natural Age", "Biological Age", "First Name", "Last Name", "Nick Name", "Sex", "Currently"};
 
   for (int i = 0; i < 5; i++) {
-    humanPtrs.push_back(*new Human {i, i, std::to_string(i), std::to_string(i), std::to_string(i), 1});
+    humanPtrs.push_back(*new Human {i, i, std::to_string(i), std::to_string(i), std::to_string(i), 1, 'x'});
   };
 
   for (int i = 1; Human a : humanPtrs) {
     std::cout << "Human " << i << "\n";
-    for (std::string n : a.getEverything()) {
-      std::cout << "Data: " << n << std::endl;
+    for (int j = 0; std::string n : a.getEverything()) {
+      std::cout << humanValues[j] << ": " << n << std::endl;
+      j++;
     }
     std::cout << std::endl;
     i++;
