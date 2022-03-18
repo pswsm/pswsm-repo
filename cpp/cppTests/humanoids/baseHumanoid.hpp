@@ -4,20 +4,19 @@
 #include <string>
 #include <vector>
 #include <ctime>
-#include <cstdlib>
-#include <memory>
 
-class Human {
-  int natAge, bioAge;
-  std::string firstName, lastName, nickName;
-  bool isAlive;
-  char sex;
+namespace human {
+  class Human {
+    int natAge, bioAge;
+    std::string firstName, lastName, nickName;
+    bool isAlive;
+    char sex;
 
-  public:
+    public:
     Human(int naturalAge, int biologicalAge, std::string fName, std::string lName, std::string niName, bool alive, char sx): natAge{naturalAge}, bioAge{biologicalAge},
       firstName{fName}, lastName{lName}, nickName{niName}, isAlive{alive}, sex{sx}
     {};
-    
+
     int getNatAge() {
       return natAge;
     }
@@ -62,6 +61,13 @@ class Human {
       v.push_back(getAlive());
       return v;
     }
-};
+  };
+
+  std::string selectName(std::vector<std::string> possibleNames) {
+    // srand(time(nullptr));
+    std::string selectedName = possibleNames[random() % possibleNames.size()];
+    return selectedName;
+  }
+}
 
 #endif
