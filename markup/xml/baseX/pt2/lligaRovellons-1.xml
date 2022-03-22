@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<lliga edicio="1">
+    <descripcio>
+        <nom>Lliga dels rovellons</nom>
+        <edicio>1</edicio>
+        <llista-equips>
+            <club>
+                <nom>Verds</nom>
+                <entrenador>Bill Finestres</entrenador>
+            </club>
+            <club>
+                <nom>Vermells</nom>
+                <entrenador>Alfred Soques</entrenador>
+            </club>
+            <club>
+                <nom>Blaus</nom>
+                <entrenador>Gori Rabassa</entrenador>
+            </club>
+            <club>
+                <nom>Blancs</nom>
+                <entrenador>Manolo Carro</entrenador>
+            </club>
+        </llista-equips>
+    </descripcio>
+    
+    <jornada num="1">
+        <partit num="1">
+            <dia>23-12-2010</dia>
+            <equip juga="local">
+                <nom>Verds</nom>
+                <resultat>2</resultat>
+                <gols>
+                    <jugador minut="12">Palol</jugador>
+                    <jugador minut="60">Palol</jugador>
+                </gols>                
+            </equip>
+            
+            <equip juga="visitant">
+                <nom>Vermells</nom>
+                <resultat>0</resultat>
+                <gols />
+            </equip>
+        </partit>
+        
+        <partit num="2">
+            <dia>23-12-2010</dia>
+            <equip juga="local">
+                <nom>Blaus</nom>
+                <resultat>1</resultat>
+                <gols>
+                    <jugador minut="90">Pinxito</jugador>
+                </gols>
+            </equip>
+            <equip juga="visitant">
+                <nom>Blancs</nom>
+                <resultat>1</resultat>
+                <gols>
+                    <jugador minut="24">Moreno</jugador>
+                </gols>
+            </equip>
+        </partit>
+    </jornada>
+    
+    <jornada num="2">
+        
+        <partit num="1">
+            <dia>30-12-2010</dia>
+
+            <equip juga="local">
+                <nom>Blaus</nom>
+                <resultat>2</resultat>
+                <gols>
+                    <jugador minut="5">Pinxito</jugador>
+                    <jugador minut="10">Bramón</jugador>
+                </gols>
+            </equip>
+
+            <equip juga="visitant">
+                <nom>Verds</nom>
+                <resultat>1</resultat>
+                <gols>
+                    <jugador minut="71">Garcia</jugador>
+                </gols>
+            </equip>
+        </partit>
+        
+        <partit num="2">
+            <dia>31-12-2010</dia>
+
+            <equip juga="local">
+                <nom>Blancs</nom>
+                <resultat>0</resultat>
+                <gols />
+            </equip>
+
+            <equip juga="visitant">
+                <nom>Vermells</nom>
+                <resultat>4</resultat>
+                <gols>
+                    <jugador minut="25">Filomenu</jugador>
+                    <jugador minut="39">Filomenu</jugador>
+                    <jugador minut="56">Federicu</jugador>
+                    <jugador minut="70">Filomenu</jugador>
+                </gols>
+            </equip>
+        </partit>
+        
+    </jornada>
+    
+    <jornada num="3">
+
+        <partit num="1">
+            <dia>07-01-2011</dia>
+            
+            <equip juga="local">
+                <nom>Verds</nom>
+                <resultat>0</resultat>
+                <gols />                
+            </equip>
+            
+            <equip juga="visitant">
+                <nom>Blancs</nom>
+                <resultat>0</resultat>
+                <gols />                
+            </equip>            
+        </partit>
+        
+        <partit num="2">
+            <dia>07-01-2011</dia>
+            
+            <equip juga="local">
+                <nom>Blaus</nom>
+                <resultat>1</resultat>
+                <gols>
+                    <jugador minut="33">Pinxito</jugador>
+                </gols>
+            </equip>
+            
+            <equip juga="visitant">
+                <nom>Vermells</nom>
+                <resultat>2</resultat>
+                <gols>
+                    <jugador minut="24">Filomenu</jugador>
+                    <jugador minut="60">Filomenu</jugador>
+                </gols>
+            </equip>            
+        </partit>
+        
+    </jornada>
+    
+    <jornada num="4">
+        
+        <partit num="1">
+            <dia>14-01-2011</dia>
+            
+            <equip juga="local">
+                <nom>Blancs</nom>
+                <resultat>0</resultat>
+                <gols />                
+            </equip>
+            
+            <equip juga="visitant">
+                <nom>Verds</nom>
+                <resultat>1</resultat>
+                <gols>
+                    <jugador minut="89">Pere</jugador>
+                </gols>
+            </equip>            
+        </partit>
+        
+        <partit num="2">
+            <dia>15-01-2011</dia>
+            
+            <equip juga="local">
+                <nom>Vermells</nom>
+                <resultat>5</resultat>
+                <gols>
+                    <jugador minut="3">Filomenu</jugador>
+                    <jugador minut="18">Federicu</jugador>
+                    <jugador minut="30">Manolito</jugador>
+                    <jugador minut="51">Filomenu</jugador>
+                    <jugador minut="70">Eustaquiu</jugador>
+                </gols>
+            </equip>
+            
+            <equip juga="visitant">
+                <nom>Blaus</nom>
+                <resultat>1</resultat>
+                <gols>
+                    <jugador minut="25">Pinxito</jugador>
+                </gols>
+            </equip>            
+        </partit>
+        
+    </jornada>
+    
+    <jornada num="5">
+                
+        <partit num="1">
+            <dia>21-01-2011</dia>
+            
+            <equip juga="local">
+                <nom>Verds</nom>
+                <resultat>2</resultat>
+                <gols>
+                    <jugador minut="39">Mario</jugador>
+                    <jugador minut="52">Palol</jugador>
+                </gols>
+            </equip>
+            
+            <equip juga="visitant">
+                <nom>Blaus</nom>
+                <resultat>2</resultat>
+                <gols>
+                    <jugador minut="22">Pinxito</jugador>
+                    <jugador minut="45">Toni Moco</jugador>
+                </gols>
+            </equip>            
+        </partit>
+        
+        <partit num="2">
+            <dia>21-01-2011</dia>
+
+            <equip juga="local">
+                <nom>Vermells</nom>
+                <resultat>1</resultat>
+                <gols>
+                    <jugador minut="34">Filomenu</jugador>
+                </gols>
+            </equip>
+
+            <equip juga="visitant">
+                <nom>Blancs</nom>
+                <resultat>1</resultat>
+                <gols>
+                    <jugador minut="5">Bilis</jugador>
+                </gols>
+            </equip>
+        </partit>
+        
+    </jornada>
+    
+    <jornada num="6">
+  
+        <partit num="1">
+            <dia>27-01-2011</dia>
+
+            <equip juga="local">
+                <nom>Vermells</nom>
+                <resultat>3</resultat>
+                <gols>
+                    <jugador minut="15">Filomenu</jugador>
+                    <jugador minut="85">Manolito</jugador>
+                    <jugador minut="89">Filomenu</jugador>
+                </gols>
+            </equip>
+
+            <equip juga="visitant">
+                <nom>Verds</nom>
+                <resultat>1</resultat>
+                <gols>
+                    <jugador minut="22">Monster</jugador>
+                </gols>
+            </equip>
+        </partit>
+        
+        <partit num="2">
+            <dia>27-01-2011</dia>
+
+            <equip juga="local">
+                <nom>Blancs</nom>
+                <resultat>0</resultat>
+                <gols />                
+            </equip>
+
+            <equip juga="visitant">
+                <nom>Blaus</nom>
+                <resultat>2</resultat>
+                <gols>
+                    <jugador minut="23">Pinxito</jugador>
+                    <jugador minut="49">Bramón</jugador>
+                </gols>
+            </equip>
+        </partit>
+        
+    </jornada>
+
+</lliga>
