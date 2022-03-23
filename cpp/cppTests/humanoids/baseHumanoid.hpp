@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <random>
 
 namespace human {
   class Blood {
@@ -103,7 +104,9 @@ namespace human {
 
 
   std::string selectName(std::vector<std::string> possibleNames) {
-    std::string selectedName = possibleNames[random() % possibleNames.size()];
+    std::random_device rd; std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> distribution(0, possibleNames.size());
+    std::string selectedName = possibleNames[distribution(gen)];
     return selectedName;
   }
 
