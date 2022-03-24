@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cxxopts.hpp>
+#include <string>
 #include "/home/pswsm/github/pswsm-repo/cpp/cppTests/humanoids/baseHumanoid.hpp"
 
 auto makeArguments( int argCount, char ** argVector) {
