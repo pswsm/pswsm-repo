@@ -1,27 +1,31 @@
-# Un generador de contrasenyes funcional però "cutre". Fet en python.
+# Un generador de contrasenyes funcional.
 
+from pathlib import Path
 from passlib.hash import pbkdf2_sha256
-import string
-import random
+import string, random, argparse
 
-# pwd_context = CryptContext(
-#     schemes=["pbkdf2_sha256"],
-#     default="pbkdf2_sha256",
-#     pbkdf2_sha256__default_rounds=30000
-# )
-#
-# def passwd_encrypt(m):
-#     return pwd_context.hash(m)
+def mk_args():
+    """Parses arguments if given, uses the defaults when not."""
+    parser = argparse.ArgumentParser(description="Password generator. Stores its sha256 hash in a file")
+    parser.add_argument('-l', '--length', help='Length of the password', required=True)
+    parser.add_argument('-f', '--file', help='File to save the passwords. Defaults to .passwords', default='.passwords')
+    parsed_args = parser.parse_args()
+    return parsed_args.len, parsed_args.file
 
-def passwd_gen():
-    llargada = int(input("De quina llargada vols la contrasenya? "))
-    abc = list(string.printable)
-    abc_psswd_list = random.sample(abc, llargada)
-    final_passwd = ''.join(abc_psswd_list)
-    print(f"Llista original: {abc}\nContrsenya generada: {final_passwd}")
-    passwd_encriptat = pbkdf2_sha256.hash(final_passwd)
-    f = open('passwd.txt', 'a+')
-    f.write(f'{final_passwd}.{passwd_encriptat}\n')
-    f.close()
+def passwd_gen(length) -> tuple[str, str]:
+    abc: list[str] = list(string.printable)
+    abc_psswd_list: list[str] = random.sample(abc, length)
+    final_passwd: str = ''.join(abc_psswd_list)
+    passwd_encriptat: str = pbkdf2_sha256.hash(final_passwd)
+    return final_passwd, passwd_encriptat
 
-passwd_gen()
+def main(length, file):
+    password, crypt_password = passwd_gen(length)
+    print(password)
+    open_file = Path(file).open(mode='a', encoding='UTF-8')
+    open_file.write(crypt_password+'\n')
+    open_file.close()
+
+if __name__ == '__main__':
+    length, file = mk_args()
+    main(length, file)
