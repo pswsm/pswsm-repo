@@ -7,10 +7,10 @@ import string, random, argparse
 def mk_args():
     """Parses arguments if given, uses the defaults when not."""
     parser = argparse.ArgumentParser(description="Password generator. Stores its sha256 hash in a file")
-    parser.add_argument('-l', '--length', help='Length of the password', required=True)
+    parser.add_argument('-l', '--length', help='Length of the password', type=int, required=True)
     parser.add_argument('-f', '--file', help='File to save the passwords. Defaults to .passwords', default='.passwords')
     parsed_args = parser.parse_args()
-    return parsed_args.len, parsed_args.file
+    return parsed_args.length, parsed_args.file
 
 def passwd_gen(length) -> tuple[str, str]:
     abc: list[str] = list(string.printable)
