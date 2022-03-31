@@ -1,6 +1,8 @@
+extern crate rand;
+// use rand::prelude::*;
+use rand::seq::SliceRandom;
 use std::fmt;
 
-#[derive(Debug)]
 struct Human {
     fname: String,
     lname: String,
@@ -8,7 +10,6 @@ struct Human {
     blood_type: Blood,
 }
 
-#[derive(Debug)]
 struct Blood {
     genotype: String,
     fenotype: String,
@@ -47,6 +48,12 @@ impl fmt::Display for Human {
 }
 
 fn main() {
-    let human_test: Human = Human::make_human(String::from("Pau"), String::from("Figueras"), 18, Blood::make_blood(String::from("aa"), String::from("A")));
+    let possible_first_names = [String::from("Pau"), String::from("Denys"), String::from("Victor"), String::from("Gabriel"), String::from("Luis")];
+    let possible_last_names = [String::from("Figueras"), String::from("Pavón"), String::from("Pablo"), String::from("Tugas"), String::from("Comas")];
+  
+    let selected_first_name: String = String::from(possible_first_names.choose(&mut rand::thread_rng()).unwrap());
+    let selected_last_name: String = String::from(possible_last_names.choose(&mut rand::thread_rng()).unwrap());
+
+    let human_test: Human = Human::make_human(selected_first_name, selected_last_name, 18, Blood::make_blood(String::from("aa"), String::from("A")));
     println!("{}", human_test);
 }
