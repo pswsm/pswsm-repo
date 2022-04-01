@@ -47,13 +47,20 @@ impl fmt::Display for Human {
     }
 }
 
+fn select_rnd_str(string_list: [String; 5]) -> String {
+    let selected_string: String = String::from(string_list.choose(&mut rand::thread_rng()).unwrap());
+    selected_string
+}
+
+fn select_rnd_int(max_number: u32) -> u32 {
+    let selected_uint: u32 = &mut rand::thread_rng().gen_range(0..=max_number);
+    selected_uint
+}
+
 fn main() {
     let possible_first_names = [String::from("Pau"), String::from("Denys"), String::from("Victor"), String::from("Gabriel"), String::from("Luis")];
     let possible_last_names = [String::from("Figueras"), String::from("Pavón"), String::from("Pablo"), String::from("Tugas"), String::from("Comas")];
   
-    let selected_first_name: String = String::from(possible_first_names.choose(&mut rand::thread_rng()).unwrap());
-    let selected_last_name: String = String::from(possible_last_names.choose(&mut rand::thread_rng()).unwrap());
-
-    let human_test: Human = Human::make_human(selected_first_name, selected_last_name, 18, Blood::make_blood(String::from("aa"), String::from("A")));
+    let human_test: Human = Human::make_human(select_rnd_str(possible_first_names), select_rnd_str(possible_last_names), 18, Blood::make_blood(String::from("aa"), String::from("A")));
     println!("{}", human_test);
 }
