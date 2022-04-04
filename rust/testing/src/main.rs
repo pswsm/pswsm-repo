@@ -2,6 +2,7 @@ extern crate rand;
 // use rand::prelude::*;
 use rand::seq::SliceRandom;
 use std::fmt;
+use crate::rand::Rng;
 
 struct Human {
     fname: String,
@@ -52,8 +53,8 @@ fn select_rnd_str(string_list: [String; 5]) -> String {
     selected_string
 }
 
-fn select_rnd_int(max_number: u32) -> u32 {
-    let selected_uint: u32 = &mut rand::thread_rng().gen_range(0..=max_number);
+fn select_rnd_int(max_number: u64) -> u64 {
+    let selected_uint: u64 = rand::thread_rng().gen_range(0..=max_number);
     selected_uint
 }
 
@@ -61,6 +62,6 @@ fn main() {
     let possible_first_names = [String::from("Pau"), String::from("Denys"), String::from("Victor"), String::from("Gabriel"), String::from("Luis")];
     let possible_last_names = [String::from("Figueras"), String::from("Pavón"), String::from("Pablo"), String::from("Tugas"), String::from("Comas")];
   
-    let human_test: Human = Human::make_human(select_rnd_str(possible_first_names), select_rnd_str(possible_last_names), 18, Blood::make_blood(String::from("aa"), String::from("A")));
+    let human_test: Human = Human::make_human(select_rnd_str(possible_first_names), select_rnd_str(possible_last_names), select_rnd_int(90), Blood::make_blood(String::from("aa"), String::from("A")));
     println!("{}", human_test);
 }
