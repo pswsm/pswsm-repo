@@ -1,4 +1,4 @@
-# Some python and environmental bullshit
+# Some python and environmental 
 .replit
 .env
 *pycache*
@@ -25,3 +25,6 @@ target/
 
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
+
+# Neovim backup files
+*~
