@@ -3,6 +3,8 @@
 from pathlib import Path
 from passlib.hash import pbkdf2_sha256
 import string, random, argparse
+import random
+
 
 def mk_args():
     """Parses arguments if given, uses the defaults when not."""
