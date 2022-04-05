@@ -61,6 +61,7 @@ fn select_rnd_int(max_number: u64) -> u64 {
 fn main() {
     let possible_first_names = [String::from("Pau"), String::from("Denys"), String::from("Victor"), String::from("Gabriel"), String::from("Luis")];
     let possible_last_names = [String::from("Figueras"), String::from("Pavón"), String::from("Pablo"), String::from("Tugas"), String::from("Comas")];
+    let possible_genotypes = [String::from("aa")];
   
     let human_test: Human = Human::make_human(select_rnd_str(possible_first_names), select_rnd_str(possible_last_names), select_rnd_int(90), Blood::make_blood(String::from("aa"), String::from("A")));
     println!("{}", human_test);
