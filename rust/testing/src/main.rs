@@ -3,6 +3,7 @@ extern crate rand;
 use rand::seq::SliceRandom;
 use std::fmt;
 use crate::rand::Rng;
+use std::vec;
 
 struct Human {
     fname: String,
@@ -48,7 +49,7 @@ impl fmt::Display for Human {
     }
 }
 
-fn select_rnd_str(string_list: [String; 5]) -> String {
+fn select_rnd_str(string_list: Vec<String>) -> String {
     let selected_string: String = String::from(string_list.choose(&mut rand::thread_rng()).unwrap());
     selected_string
 }
@@ -59,10 +60,10 @@ fn select_rnd_int(max_number: u64) -> u64 {
 }
 
 fn main() {
-    let possible_first_names = [String::from("Pau"), String::from("Denys"), String::from("Victor"), String::from("Gabriel"), String::from("Luis")];
-    let possible_last_names = [String::from("Figueras"), String::from("Pavón"), String::from("Pablo"), String::from("Tugas"), String::from("Comas")];
-    let possible_genotypes = [String::from("aa")];
+    let possible_first_names: Vec<String> = vec![String::from("Pau"), String::from("Denys"), String::from("Victor"), String::from("Gabriel"), String::from("Luis")];
+    let possible_last_names: Vec<String> = vec![String::from("Figueras"), String::from("Pavón"), String::from("Pablo"), String::from("Tugas"), String::from("Comas")];
+    let possible_genotypes: Vec<String> = vec![String::from("aa"), String::from("ab"), String::from("ao"), String::from("bb"), String::from("bo"), String::from("oo")];
   
-    let human_test: Human = Human::make_human(select_rnd_str(possible_first_names), select_rnd_str(possible_last_names), select_rnd_int(90), Blood::make_blood(String::from("aa"), String::from("A")));
+    let human_test: Human = Human::make_human(select_rnd_str(possible_first_names), select_rnd_str(possible_last_names), select_rnd_int(90), Blood::make_blood(select_rnd_str(possible_genotypes), String::from("A")));
     println!("{}", human_test);
 }
