@@ -7,16 +7,8 @@ class Blood:
     '''Blood class. Has a fenotype and a genotype'''
 
     def __init__(self):
-        genotype: str = self.generate_enotype()
-        fenotype: str = self.generate_enotype(for_genotype=False)
-
-    def generate_genotype(self, for_genotype=True) -> str:
-        '''Selects a string from the tuple'''
-        genotypes: tuple[str] = ('aa', 'bb', 'ab', 'ao', 'bo', 'oo')
-        fenotypes: tuple[str] = ('a', 'b', 'o')
-        if for_genotype:
-            return choice(genotypes)
-        return choice(fenotypes)
+        genotype: str = select_string(['aa', 'ab', 'bb', 'bo', 'oo'])
+        fenotype: str = select_string(for_genotype=False)
 
 
 class Human:
@@ -26,9 +18,10 @@ class Human:
     '''
 
     def __init__(self):
-        fname: str = self.select_string()
-        lname: str = self.select_string(for_fname=False)
+        fname: str = select_string(['pau', 'joan', 'josep', 'gerard', 'jaume'])
+        lname: str = select_string(['dsa'])
         age: int = randrange(100)
+        state: bool = True
         blood_type: Blood
 
     def __str__(self):
@@ -37,15 +30,10 @@ class Human:
                 Age:\t{self.age}\nBlood:\t{self.blood_type.fenotype}
                 '''
 
-    def select_string(self, for_fname=True) -> str:
-        '''Selects a string from the tuple'''
-        possible_fnames: tuple[str, str, str, str] = (
-            'pau', 'joan', 'pabl', 'josep')
-        possible_lnames: tuple[str, str, str, str] = (
-            'miø', 'jove', 'gean', 'jran')
-        if for_fname:
-            return choice(possible_fnames)
-        return choice(possible_lnames)
+
+def select_string(strings: list[str]) -> str:
+    '''Selects a string from the given list'''
+    return choice(strings)
 
 
 if __name__ == '__main__':
