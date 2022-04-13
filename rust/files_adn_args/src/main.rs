@@ -26,8 +26,8 @@ enum Command {
             about = "Reads file, prints its content",
             rename_all = "kebab-case")]
 struct CatOptions {
-    #[structopt(short, long = "input", help = "The file to read")]
-    input_file_name: PathBuf,
+    #[structopt(help = "The file to read")]
+    file: PathBuf,
 }
 
 #[derive(Debug, StructOpt)]
@@ -38,7 +38,7 @@ struct CutOptions {
     #[structopt(short, long = "output", help = "File to write", parse(from_os_str))]
     output_file_name: PathBuf,
     
-    #[structopt(short, long = "input", help = "File to read", parse(from_os_str))]
+    #[structopt(short, long = "input", help = "File to read")] 
     input_file_name: PathBuf,
 
     #[structopt(short, long, help = "Range(s) to cut")]
@@ -55,17 +55,22 @@ struct GenerateOptions {
 }
 
 fn main() {
+
     let args = Args::from_args();
 
     match args.cmdline {
-        Command::Cut(args) => cutting(args.input_file_name, args.output_file_name, args.range).unwrap(),
+        Command::Cut(args) => cutting(args.input_file_name, args.output_file_name, args.range).unwrap_or_default(),
         Command::Generate(args) => generate(args.length).unwrap(),
-        Command::Print(args) => cat(args.input_file_name).unwrap(),
+        Command::Print(args) => cat(args.file).expect("File not found"),
     };
 }
 
 fn cutting(input_file_path: PathBuf, output_file_path: PathBuf, range: String) -> std::io::Result<()> {
-    println!("Reading {}\nWriting {} with range {}", input_file_path.into_os_string().into_string().unwrap(), output_file_path.into_os_string().into_string().unwrap(), range);
+
+    let text: String = input_file_path.into_os_string().into_string().expect("Can't read file. Maybe it does not exist?");
+    let writing: String = output_file_path.into_os_string().into_string().unwrap_or(String::from("output.fasta"));
+
+    println!("Reading {}\nWriting {} with range {}", text, writing, range);
     Ok(())
 }
 
