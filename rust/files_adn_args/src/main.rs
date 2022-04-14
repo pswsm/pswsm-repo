@@ -3,7 +3,8 @@ use std::io::prelude::*;
 use std::io::BufReader;
 use std::fs::File;
 use structopt::StructOpt;
-//use std::vec;
+use std::vec;
+use rand::seq::SliceRandom;
 
 #[derive(StructOpt)]
 #[structopt(name = "CLI fasta toolkit",
@@ -47,10 +48,14 @@ struct CutOptions {
 
 #[derive(Debug, StructOpt)]
 #[structopt(name = "generation options",
-            about = "Generates a fasta file long n nucleotides",
+            about = "Generates a fasta file long n bases",
             rename_all = "kebab-case")]
 struct GenerateOptions {
-    #[structopt(short = "n", long, help = "Number of bases")] 
+
+    #[structopt(help = "File to write to")]
+    output_file: PathBuf,
+
+    #[structopt(short = "n", long = "lines", help = "Number of lines to generate. Each line has 60 bases")] 
     length: u32,
 }
 
@@ -59,31 +64,50 @@ fn main() {
     let args = Args::from_args();
 
     match args.cmdline {
-        Command::Cut(args) => cutting(args.input_file_name, args.output_file_name, args.range).unwrap_or_default(),
-        Command::Generate(args) => generate(args.length).unwrap(),
-        Command::Print(args) => cat(args.file).expect("File not found"),
+        Command::Cut(args) => println!("{}", cutting(args.input_file_name, args.output_file_name, args.range).unwrap()),
+        Command::Generate(args) => println!("{}", generate(args.length, args.output_file).unwrap()),
+        Command::Print(args) => println!("{}", cat(args.file).unwrap_or(String::from("File not found. Check the if file exists."))),
     };
 }
 
-fn cutting(input_file_path: PathBuf, output_file_path: PathBuf, range: String) -> std::io::Result<()> {
-
+fn cutting(input_file_path: PathBuf, output_file_path: PathBuf, range: String) -> std::io::Result<String> {
     let text: String = input_file_path.into_os_string().into_string().expect("Can't read file. Maybe it does not exist?");
     let writing: String = output_file_path.into_os_string().into_string().unwrap_or(String::from("output.fasta"));
+    let cutted_fasta: String = String::from("Cutted fasta");
 
-    println!("Reading {}\nWriting {} with range {}", text, writing, range);
-    Ok(())
+    Ok(cutted_fasta)
 }
 
-fn cat(input_file: PathBuf) -> std::io::Result<()> {
+fn cat(input_file: PathBuf) -> std::io::Result<String> {
     let file = File::open(input_file)?;
     let mut reader = BufReader::new(file);
     let mut contents: String = String::new();
     reader.read_to_string(&mut contents)?;
-    println!("{}", contents);
-    Ok(())
+    Ok(contents)
 }
 
-fn generate(length: u32) -> std::io::Result<()> {
-    println!("Length to generate is: {}", length);
-    Ok(())
+fn generate(length: u32, file: PathBuf) -> std::io::Result<String> {
+    let mut output_file = File::create(file).expect("Cannot create file");
+    let atcg: Vec<String> = vec![String::from("a"), String::from("t"), String::from("c"), String::from("g")];
+    let header: String = format!(">randomly generated sequence of {} bases\n", length);
+    let mut sequence: String = String::new();
+
+    output_file.write(header.as_bytes())?;
+    output_file.write(b"\n")?;
+
+    for _line in 1..=length {
+        for _base in 1..=60 {
+            sequence.push_str(&select_rnd_str(&atcg));
+        }
+        sequence.push_str("\n");
+    }
+
+    output_file.write(sequence.as_bytes())?;
+
+    Ok(sequence)
+}
+
+fn select_rnd_str(string_list: &Vec<String>) -> String {
+    let selected_string: String = String::from(string_list.choose(&mut rand::thread_rng()).unwrap());
+    selected_string
 }
