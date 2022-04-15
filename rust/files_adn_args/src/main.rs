@@ -1,4 +1,4 @@
-use std::path::PathBuf;
+use std::path::{PathBuf, Path};
 use std::io::prelude::*;
 use std::io::BufReader;
 use std::fs::File;
@@ -42,8 +42,11 @@ struct CutOptions {
     #[structopt(short, long = "input", help = "File to read")] 
     input_file_name: PathBuf,
 
-    #[structopt(short, long, help = "Range(s) to cut")]
-    range: String
+    #[structopt(help = "Position to start cutting")]
+    from: usize,
+    
+    #[structopt(help = "Position to start cutting")]
+    to: usize
 }
 
 #[derive(Debug, StructOpt)]
@@ -63,22 +66,51 @@ fn main() {
 
     let args = Args::from_args();
 
-    match args.cmdline {
-        Command::Cut(args) => println!("{}", cutting(args.input_file_name, args.output_file_name, args.range).unwrap()),
-        Command::Generate(args) => println!("{}", generate(args.length, args.output_file).unwrap()),
-        Command::Print(args) => println!("{}", cat(args.file).unwrap_or(String::from("File not found. Check the if file exists."))),
+    let result = match args.cmdline {
+        Command::Cut(args) => cutting(args.input_file_name, args.output_file_name, args.from, args.to).unwrap_or(String::from("Could not cut")),
+        Command::Generate(args) => generate(args.length, args.output_file).unwrap_or(String::from("Could not generate")),
+        Command::Print(args) => cat(args.file).unwrap_or(String::from("File not found. Check the if file exists.")),
     };
+
+    println!("{}", result);
 }
 
-fn cutting(input_file_path: PathBuf, output_file_path: PathBuf, range: String) -> std::io::Result<String> {
-    let text: String = input_file_path.into_os_string().into_string().expect("Can't read file. Maybe it does not exist?");
-    let writing: String = output_file_path.into_os_string().into_string().unwrap_or(String::from("output.fasta"));
-    let cutted_fasta: String = String::from("Cutted fasta");
+fn cutting(input_file: PathBuf, output_file: PathBuf, start: usize, end: usize) -> std::io::Result<String> {
+    let text: String = match cat(&input_file) {
+        Ok(contents) => contents,
+        Err(e) => panic!("Could not read file!. Error {}", e)
+    };
+    let mut text_lines = text.lines();
+    let mut sequence: String = String::new();
+    text_lines.next();
+    text_lines.next();
+    for line in text_lines {
+        sequence.push_str(line);
+    };
 
-    Ok(cutted_fasta)
+    let seq_copy: String = String::from(&sequence);
+    for char in seq_copy.char_indices() {
+        if char.1.to_string() == "\n" {
+            sequence.remove(char.0);
+        }
+    };
+
+    let header: String = format!("> Original file: {}. Range {} to {}", input_file.display().to_string(), start, end);
+    let mut cut_fasta: String = sequence.get(start..end).unwrap_or("Out of range.").to_string();
+
+    for indice in (59..cut_fasta.len()).step_by(60) {
+        cut_fasta.insert_str(indice, "\n");
+    };
+
+    let result: String = format!("{}\n{}", header, cut_fasta);
+
+    let mut output_f = File::create(&output_file)?;
+    output_f.write(result.as_bytes())?;
+
+    Ok(result)
 }
 
-fn cat(input_file: PathBuf) -> std::io::Result<String> {
+fn cat<PB: AsRef<Path>>(input_file: PB) -> std::io::Result<String> {
     let file = File::open(input_file)?;
     let mut reader = BufReader::new(file);
     let mut contents: String = String::new();
@@ -86,16 +118,16 @@ fn cat(input_file: PathBuf) -> std::io::Result<String> {
     Ok(contents)
 }
 
-fn generate(length: u32, file: PathBuf) -> std::io::Result<String> {
-    let mut output_file = File::create(file).expect("Cannot create file");
+fn generate(lines: u32, file: PathBuf) -> std::io::Result<String> {
+    let mut output_file = File::create(&file)?;
     let atcg: Vec<String> = vec![String::from("a"), String::from("t"), String::from("c"), String::from("g")];
-    let header: String = format!(">randomly generated sequence of {} bases\n", length);
+    let header: String = format!(">randomly generated sequence of {} lines\n", lines);
     let mut sequence: String = String::new();
 
     output_file.write(header.as_bytes())?;
     output_file.write(b"\n")?;
 
-    for _line in 1..=length {
+    for _line in 1..=lines {
         for _base in 1..=60 {
             sequence.push_str(&select_rnd_str(&atcg));
         }
@@ -104,7 +136,9 @@ fn generate(length: u32, file: PathBuf) -> std::io::Result<String> {
 
     output_file.write(sequence.as_bytes())?;
 
-    Ok(sequence)
+    let result: String = format!("Generated file {} with {} bases", file.display(), lines * 60);
+
+    Ok(result)
 }
 
 fn select_rnd_str(string_list: &Vec<String>) -> String {
