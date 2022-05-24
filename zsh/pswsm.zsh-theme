@@ -21,7 +21,6 @@ function get_salute () {
 
 
 #Git BS
-ZSH_THEME_GIT_PROMPT_PREFIX="lechuga || "
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$verd_git%} ツ%{$reset%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$roig_git%} ※ %{$reset%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset%}"
