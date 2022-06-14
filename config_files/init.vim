@@ -8,12 +8,13 @@ let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
 
 let g:dashboard_default_executive ='fzf'
 
+let g:python3_host_prog = '/home/pswsm/.virtualenvs/nvim/bin/python'
 "remaps
 tnoremap <Esc> <C-\><C-n>
 
 nmap <A-t> :sp term://zsh<CR>i
+
 nmap <A-h> :w<CR>:bdelete<CR>:Dashboard<CR>
-nmap <A-d> :bdelete<CR>:Dashboard<CR>
 
 set smarttab
 set tabstop=4
