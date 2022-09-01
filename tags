@@ -1,0 +1,690 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/pswsm/code/pswsm-repo/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20220828.0/
+#amdtaronja	markup/html/activitat4/css/master.css	/^#amdtaronja {$/;"	i
+#fgtpwd	markup/html/pe1uf1nf1/css/master.css	/^#fgtpwd {$/;"	i
+#fgtpwd	markup/html/pe1uf1nf1/css/master.css	/^input, label, #fgtpwd {$/;"	i
+#footer	markup/html/activitat9/css/master.css	/^#footer {$/;"	i
+#footer	markup/html/pe1uf1nf1/css/master.css	/^#footer {$/;"	i
+#gold	markup/html/activitat4/css/master.css	/^#gold {$/;"	i
+#intelblafluix	markup/html/activitat4/css/master.css	/^#intelblafluix {$/;"	i
+#intelblaufort	markup/html/activitat4/css/master.css	/^#intelblaufort {$/;"	i
+#logo	markup/html/pe1uf1nf1/css/master.css	/^#logo {$/;"	i
+#logo>img	markup/html/pe1uf1nf1/css/master.css	/^#logo>img {$/;"	i
+#main	markup/html/pe1uf1nf1/css/master.css	/^#main {$/;"	i
+#mleft	markup/html/pe1uf1nf1/css/master.css	/^#mleft {$/;"	i
+#mright	markup/html/pe1uf1nf1/css/master.css	/^#mright {$/;"	i
+#navleft	markup/html/activitat9/css/master.css	/^#navleft {$/;"	i
+#navleft	markup/html/activitat9/css/master.css	/^#navtop, #navleft {$/;"	i
+#navleft>div	markup/html/activitat9/css/master.css	/^#navleft>div {$/;"	i
+#navleft>div:hover	markup/html/activitat9/css/master.css	/^#navtop>div:hover, #navleft>div:hover { background-color: #999; color: #000; }$/;"	i
+#navright	markup/html/activitat8/css/master.css	/^#navright {$/;"	i
+#navtop	markup/html/activitat10/css/master.css	/^#navtop {$/;"	i
+#navtop	markup/html/activitat10/css/master.css	/^#navtop, #search {$/;"	i
+#navtop	markup/html/activitat8/css/master.css	/^#navtop {$/;"	i
+#navtop	markup/html/activitat9/css/master.css	/^#navtop {$/;"	i
+#navtop	markup/html/activitat9/css/master.css	/^#navtop, #navleft {$/;"	i
+#navtop>div	markup/html/activitat9/css/master.css	/^#navtop>div {$/;"	i
+#navtop>div:hover	markup/html/activitat9/css/master.css	/^#navtop>div:hover, #navleft>div:hover { background-color: #999; color: #000; }$/;"	i
+#onnav	markup/html/activitat8/css/master.css	/^#onnav {$/;"	i
+#photo1	markup/html/activitat8/css/master.css	/^#photo1 {$/;"	i
+#photo2	markup/html/activitat8/css/master.css	/^#photo2 {$/;"	i
+#photo3	markup/html/activitat8/css/master.css	/^#photo3 {$/;"	i
+#photo4	markup/html/activitat8/css/master.css	/^#photo4 {$/;"	i
+#search	markup/html/activitat10/css/master.css	/^#navtop, #search {$/;"	i
+#search	markup/html/activitat10/css/master.css	/^#search {$/;"	i
+#search:hover	markup/html/activitat10/css/master.css	/^#search:hover {$/;"	i
+#search:hover input	markup/html/activitat10/css/master.css	/^#search:hover input {$/;"	s
+#taulaedats	markup/html/pe1uf1nf1/css/master.css	/^#taulaedats {$/;"	i
+#taulaedats	markup/html/pe1uf1nf1/css/master.css	/^#taulaedats, #taulaedats td, #taulaedats th {$/;"	i
+#taulaedats td	markup/html/pe1uf1nf1/css/master.css	/^#taulaedats td, #taulaedats th {$/;"	s
+#taulaedats td	markup/html/pe1uf1nf1/css/master.css	/^#taulaedats, #taulaedats td, #taulaedats th {$/;"	s
+#taulaedats th	markup/html/pe1uf1nf1/css/master.css	/^#taulaedats td, #taulaedats th {$/;"	s
+#taulaedats th	markup/html/pe1uf1nf1/css/master.css	/^#taulaedats, #taulaedats td, #taulaedats th {$/;"	s
+#topnav	markup/html/pe1uf1nf1/css/master.css	/^#topnav {$/;"	i
+.big	markup/html/activitat10/css/master.css	/^.big {$/;"	c
+.center	markup/html/activitat5/css/master.css	/^.center, h1 { text-align: center; }$/;"	c
+.center	markup/html/activitat6/css/master.css	/^.center {$/;"	c
+.center	markup/html/activitat7/css/master.css	/^.center {$/;"	c
+.columns	markup/html/activitat9/css/master.css	/^.columns {$/;"	c
+.container	markup/html/activitat7/css/master.css	/^.container {$/;"	c
+.container	markup/html/activitat8/css/master.css	/^.container {$/;"	c
+.content	markup/html/activitat9/css/master.css	/^.content {$/;"	c
+.diaimg	markup/html/pe1uf1nf1/css/master.css	/^.diaimg {$/;"	c
+.dropdwn	markup/html/activitat10/css/master.css	/^.dropdwn {$/;"	c
+.dropdwn-elem	markup/html/activitat10/css/master.css	/^.dropdwn-elem {$/;"	c
+.dropdwn-elem:hover	markup/html/activitat10/css/master.css	/^.dropdwn-elem:hover {$/;"	c
+.fl	markup/html/activitat5/css/master.css	/^.fl { display: inline-block; float: left; }$/;"	c
+.fl	markup/html/activitat7/css/master.css	/^.fl {$/;"	c
+.footleft	markup/html/pe1uf1nf1/css/master.css	/^.footleft {$/;"	c
+.footleft	markup/html/pe1uf1nf1/css/master.css	/^.footleft, .footright {$/;"	c
+.footright	markup/html/pe1uf1nf1/css/master.css	/^.footleft, .footright {$/;"	c
+.footright	markup/html/pe1uf1nf1/css/master.css	/^.footright {$/;"	c
+.fullwd	markup/html/activitat7/css/master.css	/^.fullwd {$/;"	c
+.gris	markup/html/activitat4/css/master.css	/^.gris {$/;"	c
+.has-dropdwn:hover .dropdwn	markup/html/activitat10/css/master.css	/^.has-dropdwn:hover .dropdwn {$/;"	c
+.hides	markup/html/activitat10/css/master.css	/^.hides {$/;"	c
+.img-container	markup/html/activitat10/css/master.css	/^.img-container {$/;"	c
+.img-holder	markup/html/activitat10/css/master.css	/^.img-holder {$/;"	c
+.imgholder	markup/html/pe1uf1nf1/css/master.css	/^.imgholder {$/;"	c
+.imgplace	markup/html/pe1uf1nf1/css/master.css	/^.imgplace {$/;"	c
+.istitle	markup/html/pe1uf1nf1/css/master.css	/^.istitle {$/;"	c
+.migi	markup/html/css/master.css	/^.migi { text-align: right; }$/;"	c
+.nav-elem	markup/html/activitat10/css/master.css	/^.nav-elem {$/;"	c
+.nav-elem:hover	markup/html/activitat10/css/master.css	/^.nav-elem:hover {$/;"	c
+.navelem	markup/html/pe1uf1nf1/css/master.css	/^.navelem {$/;"	c
+.negre	markup/html/activitat4/css/master.css	/^.negre {$/;"	c
+.p-columns	markup/html/activitat9/css/master.css	/^.p-columns {$/;"	c
+.photos	markup/html/activitat8/css/master.css	/^.photos {$/;"	c
+.red	markup/html/pe1uf1nf1/css/master.css	/^.red { color: #f00; }$/;"	c
+.right	markup/html/activitat4/css/master.css	/^.right { text-align: right; }$/;"	c
+.right	markup/html/activitat5/css/master.css	/^.right { text-align: right; }$/;"	c
+.right	markup/html/activitat6/css/master.css	/^.right {$/;"	c
+.right	markup/html/activitat7/css/master.css	/^.right {$/;"	c
+.srx-elem	markup/html/activitat10/css/master.css	/^.srx-elem {$/;"	c
+.srx-elem:hover	markup/html/activitat10/css/master.css	/^.srx-elem:hover {$/;"	c
+.titleimg	markup/html/pe1uf1nf1/css/master.css	/^.titleimg {$/;"	c
+.titulars	markup/html/pe1uf1nf1/css/master.css	/^.titulars {$/;"	c
+17598535894874457435	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	o	object:outputs
+2797684049618456168	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	o	object:outputs
+5309432699494263626	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	o	object:outputs
+931469667778813386	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	o	object:outputs
+ADN Recombinat	bioinformatics/m14-bio.md	/^## ADN Recombinat$/;"	s	chapter:Bioinformàtica
+AF	markup/xml/baseX/pt2/P1.xml	/^      <cicle id="AF" grau="Superior">Administració i Finances<\/cicle>$/;"	i
+ASIX	markup/xml/baseX/pt2/P1.xml	/^      <cicle id="ASIX" grau="Superior">Administració de Sistemes Informàtics i Xarxes<\/cicle>$/;"	i
+Activitat 1	markup/html/activitat1/index.html	/^  <h1>Activitat 1<\/h1>$/;"	h
+Activitat 1 - Meta i redireccions	markup/html/activitat1/index.html	/^  <title>Activitat 1 - Meta i redireccions<\/title>$/;"	j
+Activitat 10	markup/html/activitat10/index.html	/^  <title>Activitat 10<\/title>$/;"	j
+Activitat 2	markup/html/activitat2/index.html	/^  <h1>Activitat 2<\/h1>$/;"	h
+Activitat 2	markup/html/activitat2/index.html	/^  <title>Activitat 2<\/title>$/;"	j
+Activitat 4	markup/html/activitat4/index.html	/^  <h1>Activitat 4<\/h1>$/;"	h
+Activitat 4	markup/html/activitat4/index.html	/^  <title>Activitat 4<\/title>$/;"	j
+Activitat 5	markup/html/activitat5/index.html	/^  <h1>Activitat 5<\/h1>$/;"	h
+Activitat 5	markup/html/activitat5/index.html	/^  <title>Activitat 5<\/title>$/;"	j
+Activitat 6	markup/html/activitat6/index.html	/^  <title>Activitat 6<\/title>$/;"	j
+Activitat 6 - Formularis	markup/html/activitat6/index.html	/^  <h1 class="center">Activitat 6 - Formularis<\/h1>$/;"	h
+Activitat 7	markup/html/activitat7/index.html	/^    <h1 class="center">Activitat 7<\/h1>$/;"	h
+Activitat 7	markup/html/activitat7/index.html	/^  <title>Activitat 7<\/title>$/;"	j
+Activitat 8	markup/html/activitat8/index.html	/^  <title>Activitat 8<\/title>$/;"	j
+Activitat 9	markup/html/activitat9/index.html	/^  <title>Activitat 9<\/title>$/;"	j
+Activitat Taules	markup/html/activitat3/index.html	/^  <title>Activitat Taules<\/title>$/;"	j
+Amplificació ADN - Polimerasa Chain Reaction (PCR)	bioinformatics/m14-bio.md	/^##  Amplificació ADN - Polimerasa Chain Reaction (PCR)$/;"	s	chapter:Bioinformàtica
+AnalysisOptions	rust/fasta_cli_tools/src/main.rs	/^struct AnalysisOptions {$/;"	s
+Analyze	rust/fasta_cli_tools/README.md	/^### Analyze$/;"	S	section:Fasta CLI Toolkit""Syntax
+Analyze	rust/fasta_cli_tools/src/main.rs	/^    Analyze(AnalysisOptions),$/;"	e	enum:Command
+Args	rust/fasta_cli_tools/src/main.rs	/^struct Args {$/;"	s
+Bioinformàtica	bioinformatics/m14-bio.md	/^#   Bioinformàtica$/;"	c
+Blood	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    Blood(std::string gnt): genotype{gnt}$/;"	f	class:human::Blood
+Blood	cpp/cppTests/humanoids/baseHumanoid.hpp	/^  class Blood {$/;"	c	namespace:human
+Blood	python/humans/humans.py	/^class Blood:$/;"	c
+Blood	rust/humans/src/main.rs	/^impl Blood {$/;"	c
+Blood	rust/humans/src/main.rs	/^struct Blood {$/;"	s
+Blood	rust/testing/src/main.rs	/^impl Blood {$/;"	c
+Blood	rust/testing/src/main.rs	/^impl fmt::Display for Blood {$/;"	c
+Blood	rust/testing/src/main.rs	/^struct Blood {$/;"	s
+Blood	rust/testing/src/main_v1.rs	/^impl Blood {$/;"	c
+Blood	rust/testing/src/main_v1.rs	/^impl fmt::Display for Blood {$/;"	c
+Blood	rust/testing/src/main_v1.rs	/^struct Blood {$/;"	s
+Bots	python/README.md	/^## Bots$/;"	s	chapter:pswsm-python
+Calc	python/README.md	/^## Calc$/;"	s	chapter:pswsm-python
+CatOptions	rust/fasta_cli_tools/src/main.rs	/^struct CatOptions {$/;"	s
+Command	rust/fasta_cli_tools/src/main.rs	/^enum Command {$/;"	g
+ComplementOptions	rust/fasta_cli_tools/src/main.rs	/^struct ComplementOptions {$/;"	s
+Complementary	rust/fasta_cli_tools/src/main.rs	/^    Complementary(ComplementOptions),$/;"	e	enum:FastaOperation
+Cut	rust/fasta_cli_tools/src/main.rs	/^    Cut(CutOptions),$/;"	e	enum:Command
+CutOptions	rust/fasta_cli_tools/src/main.rs	/^struct CutOptions {$/;"	s
+Cutting sequences	rust/fasta_cli_tools/README.md	/^### Cutting sequences$/;"	S	section:Fasta CLI Toolkit""Syntax
+DNA_BASES	rust/fasta_cli_tools/src/fasta_ops/fasta.rs	/^const DNA_BASES: (&str, &str, &str, &str) = ("a", "t", "c", "g");$/;"	C
+Disseny	bioinformatics/m14-bio-primers.md	/^### Disseny$/;"	S	section:Primers""Eines
+Eines	bioinformatics/m14-bio-primers.md	/^##  Eines$/;"	s	chapter:Primers
+Eines per seleccionar Enzims de Restricció	bioinformatics/m14-bio.md	/^### Eines per seleccionar Enzims de Restricció$/;"	S	section:Bioinformàtica""Amplificació ADN - Polimerasa Chain Reaction (PCR)
+Enzims de Restricció	bioinformatics/m14-bio.md	/^##  Enzims de Restricció$/;"	s	chapter:Bioinformàtica
+Fases de la PCR	bioinformatics/m14-bio-primers.md	/^#### Fases de la PCR$/;"	t	subsection:Primers""PCR""_Primers_ per PCR
+Fasta	rust/fasta_cli_tools/src/fasta_ops/fasta.rs	/^impl Fasta {$/;"	c
+Fasta	rust/fasta_cli_tools/src/fasta_ops/fasta.rs	/^pub struct Fasta {$/;"	s
+Fasta CLI Toolkit	rust/fasta_cli_tools/README.md	/^# Fasta CLI Toolkit$/;"	c
+FastaOperation	rust/fasta_cli_tools/src/main.rs	/^enum FastaOperation {$/;"	g
+Format	rust/fasta_cli_tools/README.md	/^### Format$/;"	S	section:Fasta CLI Toolkit""Syntax
+Format	rust/fasta_cli_tools/src/main.rs	/^    Format(FormatOptions),$/;"	e	enum:Command
+FormatOptions	rust/fasta_cli_tools/src/main.rs	/^struct FormatOptions {$/;"	s
+GA	markup/xml/baseX/pt2/P1.xml	/^      <cicle id="GA" grau="Mig">Gestió Administrativa<\/cicle>$/;"	i
+Generate	rust/fasta_cli_tools/README.md	/^### Generate$/;"	S	section:Fasta CLI Toolkit""Syntax
+Generate	rust/fasta_cli_tools/src/main.rs	/^    Generate(GenerateOptions),$/;"	e	enum:Command
+GenerateOptions	rust/fasta_cli_tools/src/main.rs	/^struct GenerateOptions {$/;"	s
+Get	rust/fasta_cli_tools/README.md	/^### Get$/;"	S	section:Fasta CLI Toolkit""Syntax
+Get	rust/fasta_cli_tools/src/main.rs	/^    Get(FastaOperation)$/;"	e	enum:Command
+H_HUMAN	cpp/cppTests/humanoids/baseHumanoid.hpp	/^#define H_HUMAN$/;"	d
+H_HUMANOID	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^#define H_HUMANOID$/;"	d
+Human	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    Human(int naturalAge, int biologicalAge, std::string fName, std::string lName, std::string n/;"	f	class:human::Human
+Human	cpp/cppTests/humanoids/baseHumanoid.hpp	/^  class Human {$/;"	c	namespace:human
+Human	python/humans/humans.py	/^class Human:$/;"	c
+Human	rust/humans/src/main.rs	/^struct Human {$/;"	s
+Human	rust/testing/src/main.rs	/^impl Human {$/;"	c
+Human	rust/testing/src/main.rs	/^impl fmt::Display for Human {$/;"	c
+Human	rust/testing/src/main.rs	/^struct Human {$/;"	s
+Human	rust/testing/src/main_v1.rs	/^impl Human {$/;"	c
+Human	rust/testing/src/main_v1.rs	/^impl fmt::Display for Human {$/;"	c
+Human	rust/testing/src/main_v1.rs	/^struct Human {$/;"	s
+Humanoid	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^    Humanoid(int naturalAge, int biologicalAge, std::string fName, std::string lName, std::strin/;"	f	class:Humanoid
+Humanoid	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^class Humanoid {$/;"	c
+Leg	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^  struct Leg {$/;"	s	class:Humanoid
+PCR	bioinformatics/m14-bio-primers.md	/^## PCR$/;"	s	chapter:Primers
+Pawn	cpp/cppTests/pawns.cpp	/^class Pawn {$/;"	c	file:
+Pe1 Uf1 Nf1	markup/html/pe1uf1nf1/index.html	/^  <title>Pe1 Uf1 Nf1<\/title>$/;"	j
+Primers	bioinformatics/m14-bio-primers.md	/^# Primers$/;"	c
+Print	rust/fasta_cli_tools/src/main.rs	/^    Print(CatOptions),$/;"	e	enum:Command
+Printing files	rust/fasta_cli_tools/README.md	/^### Printing files$/;"	S	section:Fasta CLI Toolkit""Syntax
+Problemes comuns amb els Primers	bioinformatics/m14-bio-primers.md	/^### Problemes comuns amb els Primers$/;"	S	section:Primers""PCR
+RNA_BASES	rust/fasta_cli_tools/src/fasta_ops/fasta.rs	/^const RNA_BASES: (&str, &str, &str, &str) = ("a", "u", "c", "g");$/;"	C
+RevCompOptions	rust/fasta_cli_tools/src/main.rs	/^struct RevCompOptions {$/;"	s
+Revcomp	rust/fasta_cli_tools/src/main.rs	/^    Revcomp(RevCompOptions)$/;"	e	enum:FastaOperation
+Reverse	rust/fasta_cli_tools/src/main.rs	/^    Reverse(ReverseOptions),$/;"	e	enum:FastaOperation
+ReverseOptions	rust/fasta_cli_tools/src/main.rs	/^struct ReverseOptions {$/;"	s
+SMX	markup/xml/baseX/pt2/P1.xml	/^      <cicle id="SMX" grau="Mig">Sistemes Microinformàtics i Xarxes<\/cicle>$/;"	i
+Syntax	rust/fasta_cli_tools/README.md	/^## Syntax$/;"	s	chapter:Fasta CLI Toolkit
+TODO	rust/fasta_cli_tools/README.md	/^## TODO$/;"	s	chapter:Fasta CLI Toolkit
+TOKEN	python/bots/un-bot.py	/^TOKEN = os.getenv('DISCORD_TOKEN')$/;"	v
+Taq Polimerasa	bioinformatics/m14-bio-primers.md	/^### Taq Polimerasa$/;"	S	section:Primers""PCR
+Taules	markup/html/activitat3/index.html	/^  <h1 class="center">Taules<\/h1>$/;"	h
+Temperatura d'anellament	bioinformatics/m14-bio-primers.md	/^#### Temperatura d'anellament$/;"	t	subsection:Primers""PCR""_Primers_ per PCR
+Temperatura de fusió	bioinformatics/m14-bio-primers.md	/^##### Temperatura de fusió$/;"	T	subsubsection:Primers""PCR""_Primers_ per PCR""Temperatures _Primers_
+Temperatures _Primers_	bioinformatics/m14-bio-primers.md	/^#### Temperatures _Primers_$/;"	t	subsection:Primers""PCR""_Primers_ per PCR
+Till here I think it's kinda easy	rust/fasta_cli_tools/README.md	/^Till here I think it's kinda easy$/;"	s	chapter:Fasta CLI Toolkit
+Tipus d'enzims	bioinformatics/m14-bio.md	/^### Tipus d'enzims$/;"	S	section:Bioinformàtica""Enzims de Restricció
+Tipus de  talls	bioinformatics/m14-bio.md	/^### Tipus de  talls$/;"	S	section:Bioinformàtica""Enzims de Restricció
+[CPP](https://github.com/pswsm/pswsm-repo/tree/master/cpp)	README.md	/^## [CPP](https:\/\/github.com\/pswsm\/pswsm-repo\/tree\/master\/cpp)$/;"	s	chapter:pswsm-repo
+[Nim](https://github.com/pswsm/pswsm-repo/tree/master/nim)	README.md	/^## [Nim](https:\/\/github.com\/pswsm\/pswsm-repo\/tree\/master\/nim)$/;"	s	chapter:pswsm-repo
+[Python](https://github.com/pswsm/pswsm-repo/tree/master/python)	README.md	/^## [Python](https:\/\/github.com\/pswsm\/pswsm-repo\/tree\/master\/python)$/;"	s	chapter:pswsm-repo
+[Rust](https://github.com/pswsm/pswsm-repo/tree/master/rust)	README.md	/^## [Rust](https:\/\/github.com\/pswsm\/pswsm-repo\/tree\/master\/rust)$/;"	s	chapter:pswsm-repo
+[Shellscripts](https://github.com/pswsm/pswsm-repo/tree/master/sh-script)	README.md	/^## [Shellscripts](https:\/\/github.com\/pswsm\/pswsm-repo\/tree\/master\/sh-script)$/;"	s	chapter:pswsm-repo
+[markup](https://github.com/pswsm/pswsm-repo/tree/master/markup/html)	README.md	/^## [markup](https:\/\/github.com\/pswsm\/pswsm-repo\/tree\/master\/markup\/html)$/;"	s	chapter:pswsm-repo
+_8ball	python/bots/le-bot.py	/^async def _8ball(ctx, *, question):$/;"	f
+_Primers_ per PCR	bioinformatics/m14-bio-primers.md	/^### _Primers_ per PCR$/;"	S	section:Primers""PCR
+__init__	python/humans/humans.py	/^    def __init__(self):$/;"	m	class:Blood
+__init__	python/humans/humans.py	/^    def __init__(self):$/;"	m	class:Human
+__str__	python/humans/humans.py	/^    def __str__(self):$/;"	m	class:Human
+a	markup/html/activitat1/images/Flag_of_Tokyo_Metropolis.svg	/^<path id="a" d="M0 6L.5 5.519259V2h-1V5.519259z"\/><!--12-√42-->$/;"	i
+a:hover	markup/html/activitat5/css/master.css	/^a:hover { color: white; }$/;"	s
+a:link	markup/html/activitat5/css/master.css	/^a:link { text-decoration: none; color: green}$/;"	s
+a:visited	markup/html/activitat5/css/master.css	/^a:visited { color: red; }$/;"	s
+addLeg	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^    void addLeg() {$/;"	f	struct:Humanoid::Leg	typeref:typename:void
+age	cpp/cppTests/pawns.cpp	/^  int bioAge, age;$/;"	m	class:Pawn	typeref:typename:int	file:
+age	rust/testing/src/main.rs	/^    age: u64,$/;"	m	struct:Human
+age	rust/testing/src/main_v1.rs	/^  age: u64,$/;"	m	struct:Human
+age	sql/examen1.sql	/^  age number(2),$/;"	E	table:pe2_employees
+agenda	markup/xml/pt1/activitat2/agenda.dtd	/^<!ELEMENT agenda (persona)*>$/;"	e
+algo	cpp/tests/0004/test0004.cpp	/^   int algo = 100;$/;"	m	class:claseTest	typeref:typename:int	file:
+alien	markup/xml/pt1/activitat3/the.dtd	/^<!ATTLIST personaje alien (si|no) "no">$/;"	a
+alive	cpp/cppTests/pawns.cpp	/^  bool alive;$/;"	m	class:Pawn	typeref:typename:bool	file:
+altres	cpp/tests/0004/test0004.cpp	/^    std::string altres = "lol, very funny";$/;"	m	class:claseTest	typeref:typename:std::string	file:
+amdtaronja	markup/html/activitat4/index.html	/^            <div id="amdtaronja"><\/div>$/;"	I
+amigo_de	markup/xml/pt1/activitat2/agenda.dtd	/^<!ATTLIST relacion amigo_de CDATA #REQUIRED>$/;"	a
+analize	rust/fasta_cli_tools/src/fasta_ops/view.rs	/^pub fn analize(file: &Path) -> Result<String, io::Error> {$/;"	f
+anna	python/bots/le-bot.py	/^async def anna(ctx, *, remain):$/;"	f
+annaSleep	python/bots/le-bot.py	/^annaSleep = 9$/;"	v
+area	sql/examen1.sql	/^  area number(5, 2),$/;"	E	table:pe2_cities
+armas	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT armas (#PCDATA)>$/;"	e
+article	markup/xml/pt1/activitat1/comanda.dtd	/^<!ELEMENT article (codi, descripció)>$/;"	e
+articles	markup/xml/pt1/activitat1/comanda.dtd	/^<!ELEMENT articles (article+)>$/;"	e
+asix	markup/html/activitat6/index.html	/^        <input id="asix" type="radio" name="cicle" value="asix">$/;"	I
+assig_date	sql/examen1.sql	/^  assig_date date default sysdate,$/;"	E	table:pe2_employeesprojects
+b	markup/html/activitat1/images/Flag_of_Tokyo_Metropolis.svg	/^<g id="b">$/;"	i
+ban	python/bots/le-bot.py	/^async def ban(ctx, member : discord.Member, *, reason=None):$/;"	f
+bdgms	markup/html/activitat3/index.html	/^      <th id="bdgms"><img src="images\/bad.png" alt="bad" title="bad"><br>straight bad<\/th>$/;"	I
+bio	markup/html/activitat6/index.html	/^        <input id="bio" type="radio" name="cicle" value="dawbio">$/;"	I
+bioAge	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    int natAge, bioAge;$/;"	m	class:human::Human	typeref:typename:int
+bioAge	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^  int natAge, bioAge;$/;"	m	class:Humanoid	typeref:typename:int
+bioAge	cpp/cppTests/pawns.cpp	/^  int bioAge, age;$/;"	m	class:Pawn	typeref:typename:int	file:
+biologicAge	rust/humans/src/main.rs	/^  biologicAge: u8 $/;"	m	struct:Human
+blood	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    std::string firstName, lastName, nickName, blood;$/;"	m	class:human::Human	typeref:typename:std::string
+bloodType	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    Blood bloodType {blood};$/;"	m	class:human::Human	typeref:typename:Blood
+bloodType	rust/humans/src/main.rs	/^  bloodType: Blood,$/;"	m	struct:Human
+blood_type	rust/testing/src/main.rs	/^    blood_type: Blood,$/;"	m	struct:Human
+blood_type	rust/testing/src/main_v1.rs	/^  blood_type: Blood,$/;"	m	struct:Human
+body	markup/html/activitat10/css/master.css	/^body {$/;"	s
+body	markup/html/activitat4/css/master.css	/^body { background-color: #eee; color: #111; margin: 0 auto; }$/;"	s
+body	markup/html/activitat5/css/master.css	/^body { background-color: #000;$/;"	s
+body	markup/html/activitat6/css/master.css	/^body {$/;"	s
+body	markup/html/activitat7/css/master.css	/^body {$/;"	s
+body	markup/html/activitat8/css/master.css	/^body {$/;"	s
+body	markup/html/activitat9/css/master.css	/^body {$/;"	s
+body	markup/html/activitat9/css/master.css	/^html, body {$/;"	s
+body	markup/html/css/master.css	/^body {$/;"	s
+body	markup/html/pe1uf1nf1/css/master.css	/^body {$/;"	s
+budget	sql/examen1.sql	/^  budget number(5, 2) not null,$/;"	E	table:pe2_projects
+buildPawn	cpp/cppTests/pawns.cpp	/^  void buildPawn(std::string newName, int newAge, int newBioAge, bool state) {$/;"	f	class:Pawn	typeref:typename:void	file:
+can_heal	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^    bool can_heal = (cur_hitpoints < (max_hitpoints-50)) ? true : false;$/;"	m	struct:Humanoid::Leg	typeref:typename:bool
+carlagutierrez	markup/xml/pt1/activitat2/activitat2.xml	/^    <persona id="carlagutierrez">$/;"	i
+cat	rust/fasta_cli_tools/src/fasta_ops/view.rs	/^pub fn cat(file: &Path) -> io::Result<String> {$/;"	f
+cat_f	rust/fasta_cli_tools/src/fasta_ops/view.rs	/^pub fn cat_f(file: &Path) -> Result<Fasta, io::Error> {$/;"	f
+change_status	python/bots/le-bot.py	/^async def change_status():$/;"	f
+chckin_date	sql/tableTest.sql	/^  chckin_date date default sysdate,$/;"	E	table:registres
+chckout_date	sql/tableTest.sql	/^  chckout_date date,$/;"	E	table:registres
+city_name	sql/examen1.sql	/^  city_name varchar2(40),$/;"	E	table:pe2_cities
+claseTest	cpp/tests/0004/test0004.cpp	/^class claseTest {$/;"	c	file:
+classeTest	cpp/tests/0003/test0003.cpp	/^class classeTest {$/;"	c	file:
+clear	python/bots/le-bot.py	/^async def clear(ctx, amount=1):$/;"	f
+client	markup/xml/pt1/activitat1/comanda.dtd	/^<!ELEMENT client (nom, poblacio)>$/;"	e
+client	python/bots/le-bot.py	/^client = commands.Bot(command_prefix = "|")$/;"	v
+clients	sql/tableTest.sql	/^create table clients ($/;"	t
+cmdline	rust/fasta_cli_tools/src/main.rs	/^    cmdline: Command$/;"	m	struct:Args
+code	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	n	object:outputs.17598535894874457435
+code	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	n	object:outputs.2797684049618456168
+code	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	n	object:outputs.5309432699494263626
+code	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	n	object:outputs.931469667778813386
+codi	markup/xml/pt1/activitat1/comanda.dtd	/^<!ELEMENT codi (#PCDATA)>$/;"	e
+codi	sql/tableTest.sql	/^  codi varchar2(10),$/;"	E	table:compres
+codi	sql/tableTest.sql	/^  codi varchar2(10),$/;"	E	table:forfaits
+codi_forfait	sql/tableTest.sql	/^  codi_forfait varchar2(10),$/;"	E	table:registres
+codi_forfait	sql/tableTest.sql	/^  codi_forfait varchar2(10),$/;"	E	table:viatge
+color	markup/html/activitat6/index.html	/^        <input id="color" type="datalist" list="llistaColors" name="color">$/;"	I
+comanda	markup/xml/pt1/activitat1/comanda.dtd	/^<!ELEMENT comanda (dades, articles+)>$/;"	e
+comentari	markup/html/activitat6/index.html	/^        <textarea id="comentari" name="comentari" cols="30" rows="10" placeholder="Escriu un com/;"	I
+comp	rust/fasta_cli_tools/src/fasta_ops/make.rs	/^pub fn comp(file: PathBuf, ofile: Option<PathBuf>) -> Result<String, io::Error> {$/;"	f
+comp_f	rust/fasta_cli_tools/src/fasta_ops/make.rs	/^fn comp_f(file: PathBuf, ofile: Option<PathBuf>) -> Result<Fasta, io::Error> {$/;"	f
+complement	rust/fasta_cli_tools/src/fasta_ops/fasta.rs	/^    pub fn complement(&self) -> Fasta {$/;"	P	implementation:Fasta
+compres	sql/tableTest.sql	/^create table compres ($/;"	t
+configuracio	markup/xml/pt1/activitat1/xarxa.dtd	/^<!ELEMENT configuracio (#PCDATA)>$/;"	e
+congnom	sql/tableTest.sql	/^  congnom varchar2(20),$/;"	E	table:clients
+coordenadas	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT coordenadas (x,y,z)>$/;"	e
+correu	markup/html/activitat6/index.html	/^          <input id="correu" type="mail" name="email" required>$/;"	I
+cur_hitpoints	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^    int cur_hitpoints = default_hitpoints;$/;"	m	struct:Humanoid::Leg	typeref:typename:int
+cur_legs	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^    int cur_legs = default_legs;$/;"	m	struct:Humanoid::Leg	typeref:typename:int
+cutting	rust/fasta_cli_tools/src/fasta_ops/edit.rs	/^pub fn cutting(input_file: PathBuf, output_file: PathBuf, start: usize, end: usize) -> std::io::/;"	f
+dades	markup/html/pe1uf1nf1/index.html	/^      <section id="dades">$/;"	I
+dades	markup/xml/pt1/activitat1/comanda.dtd	/^<!ELEMENT dades (número, data, client)>$/;"	e
+dam	markup/html/activitat6/index.html	/^        <input id="dam" type="radio" name="cicle" value="dam">$/;"	I
+data	markup/xml/pt1/activitat1/comanda.dtd	/^<!ELEMENT data (#PCDATA)>$/;"	e
+data	sql/tableTest.sql	/^  data date default sysdate,$/;"	E	table:compres
+data	sql/tableTest.sql	/^  data date,$/;"	E	table:viatge
+daw	markup/html/activitat6/index.html	/^        <input id="daw" type="radio" name="cicle" value="daw">$/;"	I
+deductBloodFenotype	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    std::string deductBloodFenotype(std::string gen) {$/;"	f	class:human::Blood	typeref:typename:std::string
+default_hitpoints	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^    int default_hitpoints = 1000;$/;"	m	struct:Humanoid::Leg	typeref:typename:int
+default_legs	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^    int default_legs = 2;$/;"	m	struct:Humanoid::Leg	typeref:typename:int
+descripci	markup/xml/pt1/activitat1/comanda.dtd	/^<!ELEMENT descripció (#PCDATA)>$/;"	e
+descripcion	markup/xml/pt1/activitat3/the.dtd	/^<!ATTLIST superpoder descripcion CDATA #IMPLIED>$/;"	a
+diaimg	markup/html/pe1uf1nf1/index.html	/^  <section id="diaimg">$/;"	I
+dificultad	markup/xml/pt1/activitat3/the.dtd	/^<!ATTLIST juego dificultad (baja|media|alta) #REQUIRED>$/;"	a
+divi	python/calc/calc.py	/^def divi(a, b):$/;"	f
+divid	cpp/calc/calc-main.cpp	/^float divid(float a, float b) { float r = a \/ b; return r; }$/;"	f	typeref:typename:float
+domini	markup/xml/pt1/activitat1/xarxa.dtd	/^<!ELEMENT domini (#PCDATA)>$/;"	e
+doubleNum	cpp/tests/0003/test0003.cpp	/^		double doubleNum;$/;"	m	class:classeTest	typeref:typename:double	file:
+dte_Bar	sql/tableTest.sql	/^  dte_Bar number(2) default 0,$/;"	E	table:forfaits
+dte_Llog	sql/tableTest.sql	/^  dte_Llog number(2) default 0,$/;"	E	table:forfaits
+dte_Rest	sql/tableTest.sql	/^  dte_Rest number(2) default 0,$/;"	E	table:forfaits
+edit	rust/fasta_cli_tools/src/fasta_ops.rs	/^pub mod edit;$/;"	n
+elisamoreno	markup/xml/pt1/activitat2/activitat2.xml	/^    <persona genero="mujer" id="elisamoreno">$/;"	i
+email	markup/xml/pt1/activitat2/agenda.dtd	/^<!ELEMENT email (#PCDATA)>$/;"	e
+emp_id	sql/examen1.sql	/^  emp_id number,$/;"	E	table:pe2_employees
+emp_id	sql/examen1.sql	/^  emp_id number,$/;"	E	table:pe2_employeesprojects
+escenario	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT escenario ((planeta|pais),nombre_lugar,coordenadas)>$/;"	e
+fasta	rust/fasta_cli_tools/src/fasta_ops.rs	/^pub mod fasta;$/;"	n
+fasta_ops	rust/fasta_cli_tools/src/main.rs	/^mod fasta_ops;$/;"	n
+fee	sql/examen1.sql	/^  fee number(5, 2),$/;"	E	table:pe2_employees
+fenotype	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    std::string genotype, fenotype;$/;"	m	class:human::Blood	typeref:typename:std::string
+fenotype	rust/humans/src/main.rs	/^  fenotype: String,$/;"	m	struct:Blood
+fenotype	rust/testing/src/main.rs	/^    fenotype: String,$/;"	m	struct:Blood
+fenotype	rust/testing/src/main_v1.rs	/^  fenotype: String,$/;"	m	struct:Blood
+fgtpwd	markup/html/pe1uf1nf1/index.html	/^          <a id="fgtpwd" href="#">Has oblidat la contrasenya?<\/a>$/;"	I
+fi_valid	sql/tableTest.sql	/^  fi_valid date,$/;"	E	table:forfaits
+fieldset > div	markup/html/activitat6/css/master.css	/^fieldset > div {$/;"	s
+fijo	markup/xml/pt1/activitat2/agenda.dtd	/^<!ELEMENT fijo EMPTY>$/;"	e
+file	python/py-passwd-gen/psswd-gen.py	/^    length, file = mk_args()$/;"	v
+file	rust/fasta_cli_tools/src/main.rs	/^    file: PathBuf,$/;"	m	struct:AnalysisOptions
+file	rust/fasta_cli_tools/src/main.rs	/^    file: PathBuf,$/;"	m	struct:CatOptions
+file	rust/fasta_cli_tools/src/main.rs	/^    file: PathBuf,$/;"	m	struct:ComplementOptions
+file	rust/fasta_cli_tools/src/main.rs	/^    file: PathBuf,$/;"	m	struct:FormatOptions
+file	rust/fasta_cli_tools/src/main.rs	/^    file: PathBuf,$/;"	m	struct:RevCompOptions
+file	rust/fasta_cli_tools/src/main.rs	/^    file: PathBuf,$/;"	m	struct:ReverseOptions
+firstName	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    std::string firstName, lastName, nickName, blood;$/;"	m	class:human::Human	typeref:typename:std::string
+firstName	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^  std::string firstName, lastName, nickName;$/;"	m	class:Humanoid	typeref:typename:std::string
+firstName	rust/humans/src/main.rs	/^  firstName: String,$/;"	m	struct:Human
+firstname	sql/examen1.sql	/^  firstname varchar2(20) not null,$/;"	E	table:pe2_employees
+fitxer	markup/html/activitat6/index.html	/^        <input id="fitxer" type="file" name="fitxer">$/;"	I
+fmt	rust/testing/src/main.rs	/^    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {$/;"	P	implementation:Blood
+fmt	rust/testing/src/main.rs	/^    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {$/;"	P	implementation:Human
+fmt	rust/testing/src/main_v1.rs	/^  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {$/;"	P	implementation:Blood
+fmt	rust/testing/src/main_v1.rs	/^  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {$/;"	P	implementation:Human
+fn	rust/fasta_cli_tools/src/fasta_ops/fasta.rs	/^    pub const fn from(headr: String, seqnc: String) -> Fasta {$/;"	C	implementation:Fasta
+fn	rust/fasta_cli_tools/src/fasta_ops/fasta.rs	/^    pub const fn new() -> Fasta {$/;"	C	implementation:Fasta
+fname	rust/testing/src/main.rs	/^    fname: String,$/;"	m	struct:Human
+fname	rust/testing/src/main_v1.rs	/^  fname: String,$/;"	m	struct:Human
+footer	markup/html/activitat7/css/master.css	/^footer {$/;"	s
+footer	markup/html/activitat9/index.html	/^  <footer id="footer">$/;"	I
+footer	markup/html/pe1uf1nf1/index.html	/^  <footer id="footer">$/;"	I
+forfaits	sql/tableTest.sql	/^create table forfaits ($/;"	t
+form	markup/html/pe1uf1nf1/index.html	/^      <sectiom id="form">$/;"	I
+format	rust/fasta_cli_tools/src/fasta_ops/edit.rs	/^pub fn format(file: PathBuf, is_upper: bool, out_file: PathBuf) -> std::io::Result<String> {$/;"	f
+format_str	rust/fasta_cli_tools/src/fasta_ops/edit.rs	/^pub fn format_str(sequence: String) -> std::result::Result<String, String> {$/;"	f
+from	rust/fasta_cli_tools/src/fasta_ops/fasta.rs	/^    pub const fn from(headr: String, seqnc: String) -> Fasta {$/;"	P	implementation:Fasta
+from	rust/fasta_cli_tools/src/main.rs	/^    from: usize,$/;"	m	struct:CutOptions
+genName	cpp/cppTests/pawns.cpp	/^std::string genName(std::vector<std::string> names) {$/;"	f	typeref:typename:std::string
+generate	rust/fasta_cli_tools/src/fasta_ops/make.rs	/^pub fn generate(bases: usize, file: PathBuf) -> std::io::Result<String> {$/;"	f
+generate_bases	rust/fasta_cli_tools/src/fasta_ops/make.rs	/^fn generate_bases(num_threads: usize, num_bases: usize, bases: Vec<String>) -> thread::Result<Ve/;"	f
+genero	markup/xml/pt1/activitat2/agenda.dtd	/^<!ATTLIST persona genero (hombre|mujer) #IMPLIED>$/;"	a
+genero	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT genero (#PCDATA)>$/;"	e
+genotype	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    std::string genotype, fenotype;$/;"	m	class:human::Blood	typeref:typename:std::string
+genotype	rust/humans/src/main.rs	/^  genotype: String,$/;"	m	struct:Blood
+genotype	rust/testing/src/main.rs	/^    genotype: String,$/;"	m	struct:Blood
+genotype	rust/testing/src/main_v1.rs	/^  genotype: String,$/;"	m	struct:Blood
+getAge	cpp/cppTests/pawns.cpp	/^  int getAge() {$/;"	f	class:Pawn	typeref:typename:int	file:
+getAlgo	cpp/tests/0004/test0004.cpp	/^   int getAlgo() {return algo;}$/;"	f	class:claseTest	typeref:typename:int	file:
+getAlive	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    std::string getAlive() {$/;"	f	class:human::Human	typeref:typename:std::string
+getAlive	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^    std::string getAlive() {$/;"	f	class:Humanoid	typeref:typename:std::string
+getAlive	cpp/cppTests/pawns.cpp	/^  bool getAlive() {$/;"	f	class:Pawn	typeref:typename:bool	file:
+getAltres	cpp/tests/0004/test0004.cpp	/^   std::string getAltres() {return altres;}$/;"	f	class:claseTest	typeref:typename:std::string	file:
+getBioAge	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    int getBioAge() {$/;"	f	class:human::Human	typeref:typename:int
+getBioAge	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^    int getBioAge() {$/;"	f	class:Humanoid	typeref:typename:int
+getBioAge	cpp/cppTests/pawns.cpp	/^  int getBioAge() {$/;"	f	class:Pawn	typeref:typename:int	file:
+getBlood	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    std::string getBlood() {$/;"	f	class:human::Blood	typeref:typename:std::string
+getBloodType	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    std::string getBloodType() {$/;"	f	class:human::Human	typeref:typename:std::string
+getEverything	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    std::vector<std::string> getEverything() {$/;"	f	class:human::Human	typeref:typename:std::vector<std::string>
+getEverything	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^    std::vector<std::string> getEverything() {$/;"	f	class:Humanoid	typeref:typename:std::vector<std::string>
+getName	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    std::string getName() {$/;"	f	class:human::Human	typeref:typename:std::string
+getName	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^    std::string getName() {$/;"	f	class:Humanoid	typeref:typename:std::string
+getName	cpp/cppTests/pawns.cpp	/^  std::string getName() {$/;"	f	class:Pawn	typeref:typename:std::string	file:
+getNatAge	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    int getNatAge() {$/;"	f	class:human::Human	typeref:typename:int
+getNatAge	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^    int getNatAge() {$/;"	f	class:Humanoid	typeref:typename:int
+getSex	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    std::string getSex() {$/;"	f	class:human::Human	typeref:typename:std::string
+godtier	markup/html/activitat3/index.html	/^      <th id="godtier"><img src="images\/verygod.jpg" alt="verygood" title="god"><br>god tier<\//;"	I
+gold	markup/html/activitat4/index.html	/^            <div id="gold"><\/div>$/;"	I
+goodtier	markup/html/activitat3/index.html	/^      <th id="goodtier"><img src="images\/god.jpg" alt="ok sign" title="ok sign"><br>good tier<\//;"	I
+h1	markup/html/activitat4/css/master.css	/^h1 { text-align: center; }$/;"	s
+h1	markup/html/activitat5/css/master.css	/^.center, h1 { text-align: center; }$/;"	s
+h1	markup/html/css/master.css	/^h1 { text-align: center; }$/;"	s
+habitacions	sql/tableTest.sql	/^create table habitacions ($/;"	t
+header	rust/fasta_cli_tools/src/fasta_ops/fasta.rs	/^    pub header: String,$/;"	m	struct:Fasta
+herramientas	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT herramientas (#PCDATA)>$/;"	e
+hired_date	sql/examen1.sql	/^  hired_date date default sysdate,$/;"	E	table:pe2_employees
+hora	sql/tableTest.sql	/^  hora int(4),$/;"	E	table:viatge
+hotel_id	sql/tableTest.sql	/^  hotel_id number(3),$/;"	E	table:habitacions
+hotels	sql/tableTest.sql	/^create table hotels ($/;"	t
+html	markup/html/activitat9/css/master.css	/^html, body {$/;"	s
+human	cpp/cppTests/humanoids/baseHumanoid.hpp	/^namespace human {$/;"	n
+hw	python/bots/le-bot.py	/^async def hw(ctx):$/;"	f
+id	markup/xml/pt1/activitat2/agenda.dtd	/^<!ATTLIST persona id CDATA #REQUIRED>$/;"	a
+id	sql/tableTest.sql	/^  id number(2),$/;"	E	table:transportadors
+id	sql/tableTest.sql	/^  id number(3),$/;"	E	table:habitacions
+id	sql/tableTest.sql	/^  id number(3),$/;"	E	table:hotels
+id	sql/tableTest.sql	/^  id number(3),$/;"	E	table:zones
+id_habitacio	sql/tableTest.sql	/^  id_habitacio number(3),$/;"	E	table:registres
+id_hotel	sql/tableTest.sql	/^  id_hotel number(20),$/;"	E	table:registres
+id_tp	sql/tableTest.sql	/^  id_tp number(3),$/;"	E	table:viatge
+id_zona	sql/tableTest.sql	/^  id_zona number(3),$/;"	E	table:hotels
+id_zona	sql/tableTest.sql	/^  id_zona number(3),$/;"	E	table:transportadors
+img	markup/html/activitat10/css/master.css	/^img {$/;"	s
+img	markup/html/activitat8/css/master.css	/^img {$/;"	s
+img	markup/html/activitat9/css/master.css	/^img {$/;"	s
+img.in-table	markup/html/activitat4/css/master.css	/^img.in-table { height: 190px; width: auto; }$/;"	c
+inhabitants	sql/examen1.sql	/^  inhabitants number(12),$/;"	E	table:pe2_cities
+inici_valid	sql/tableTest.sql	/^  inici_valid date default sysdate,$/;"	E	table:forfaits
+input	markup/html/pe1uf1nf1/css/master.css	/^input, label, #fgtpwd {$/;"	s
+input:required	markup/html/activitat5/css/master.css	/^input:required { border: 5px solid red }$/;"	s
+input[type=date]	markup/html/activitat6/css/master.css	/^input[type=text], input[type=mail], input[type=date]{$/;"	s
+input[type=mail]	markup/html/activitat6/css/master.css	/^input[type=text], input[type=mail], input[type=date]{$/;"	s
+input[type=submit]	markup/html/activitat7/css/master.css	/^input[type=submit] {$/;"	s
+input[type=submit]	markup/html/pe1uf1nf1/css/master.css	/^input[type=submit] {$/;"	s
+input[type=text]	markup/html/activitat6/css/master.css	/^input[type=text], input[type=mail], input[type=date]{$/;"	s
+input_file_name	rust/fasta_cli_tools/src/main.rs	/^    input_file_name: PathBuf,$/;"	m	struct:CutOptions
+intelblafluix	markup/html/activitat4/index.html	/^            <div id="intelblafluix"><\/div>$/;"	I
+intelblaufort	markup/html/activitat4/index.html	/^            <div id="intelblaufort"><\/div>$/;"	I
+isAlive	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    bool isAlive;$/;"	m	class:human::Human	typeref:typename:bool
+isNice	python/bots/le-bot.py	/^def isNice(n):$/;"	f
+juego	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT juego (personaje+,escenario,musica)>$/;"	e
+kick	python/bots/le-bot.py	/^async def kick(ctx, member : discord.Member, *, reason=None):$/;"	f
+label	markup/html/pe1uf1nf1/css/master.css	/^input, label, #fgtpwd {$/;"	s
+label::after	markup/html/activitat5/css/master.css	/^label::after { $/;"	s
+label[for=passwd]	markup/html/pe1uf1nf1/css/master.css	/^label[for=passwd] {$/;"	s
+lastName	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    std::string firstName, lastName, nickName, blood;$/;"	m	class:human::Human	typeref:typename:std::string
+lastName	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^  std::string firstName, lastName, nickName;$/;"	m	class:Humanoid	typeref:typename:std::string
+lastName	rust/humans/src/main.rs	/^  lastName: String,$/;"	m	struct:Human
+lastname	sql/examen1.sql	/^  lastname varchar2(20) not null,$/;"	E	table:pe2_employees
+length	python/py-passwd-gen/psswd-gen.py	/^    length, file = mk_args()$/;"	v
+length	rust/fasta_cli_tools/src/main.rs	/^    length: usize,$/;"	m	struct:GenerateOptions
+let	rust/humans/src/main.rs	/^  let possibleGenotypes: [String; 6] = ["aa", "bb", "ab", "ao", "bo", "oo"],$/;"	m	struct:Blood
+li	markup/html/css/master.css	/^li { $/;"	s
+li a	markup/html/css/master.css	/^li a {$/;"	s
+llistaColors	markup/html/activitat6/index.html	/^        <datalist id="llistaColors">$/;"	I
+llistatProfes	markup/html/activitat6/index.html	/^        <datalist id="llistatProfes">$/;"	I
+lname	rust/testing/src/main.rs	/^    lname: String,$/;"	m	struct:Human
+lname	rust/testing/src/main_v1.rs	/^  lname: String,$/;"	m	struct:Human
+logo	markup/html/pe1uf1nf1/index.html	/^  <header id="logo">$/;"	I
+longitud	sql/tableTest.sql	/^  longitud number(4),$/;"	E	table:transportadors
+m01	markup/html/activitat6/index.html	/^          <input id="m01" type="checkbox" name="m01">$/;"	I
+m010	markup/html/activitat6/index.html	/^          <input id="m010" type="checkbox" name="m010">$/;"	I
+m011	markup/html/activitat6/index.html	/^          <input id="m011" type="checkbox" name="m011">$/;"	I
+m02	markup/html/activitat6/index.html	/^          <input id="m02" type="checkbox" name="m02">$/;"	I
+m03	markup/html/activitat6/index.html	/^          <input id="m03" type="checkbox" name="m03">$/;"	I
+m04	markup/html/activitat6/index.html	/^          <input id="m04" type="checkbox" name="m04">$/;"	I
+m05	markup/html/activitat6/index.html	/^          <input id="m05" type="checkbox" name="m05">$/;"	I
+m06	markup/html/activitat6/index.html	/^          <input id="m06" type="checkbox" name="m06">$/;"	I
+m07	markup/html/activitat6/index.html	/^          <input id="m07" type="checkbox" name="m07">$/;"	I
+m08	markup/html/activitat6/index.html	/^          <input id="m08" type="checkbox" name="m08">$/;"	I
+m09	markup/html/activitat6/index.html	/^          <input id="m09" type="checkbox" name="m09">$/;"	I
+mail	markup/html/activitat5/index.html	/^    <input id="mail" type="mail" placeholder="abcde@mail.cat" required>$/;"	I
+mail	markup/html/pe1uf1nf1/index.html	/^          <input type="mail" id="mail">$/;"	I
+main	cpp/arrays/arrays1.cpp	/^int main() {$/;"	f	typeref:typename:int
+main	cpp/calc/calc-main.cpp	/^int main() {$/;"	f	typeref:typename:int
+main	cpp/cppTests/humanoids/humanoidTest.cpp	/^int main(int argc, char ** argv) {$/;"	f	typeref:typename:int
+main	cpp/cppTests/humanoids/newhumanoid.cpp	/^int main() {$/;"	f	typeref:typename:int
+main	cpp/cppTests/pawns.cpp	/^int main() {$/;"	f	typeref:typename:int
+main	cpp/hello-world/helloworld.cpp	/^int main() {$/;"	f	typeref:typename:int
+main	cpp/tests/0001/test0001.cpp	/^int main() {$/;"	f	typeref:typename:int
+main	cpp/tests/0002/0002ptrs.cpp	/^int main() {$/;"	f	typeref:typename:int
+main	cpp/tests/0003/test0003.cpp	/^int main() {$/;"	f	typeref:typename:int
+main	cpp/tests/0004/test0004.cpp	/^int main() {$/;"	f	typeref:typename:int
+main	markup/html/activitat10/css/master.css	/^main {$/;"	s
+main	markup/html/pe1uf1nf1/index.html	/^  <main id="main">$/;"	I
+main	python/py-passwd-gen/psswd-gen.py	/^def main(length, file):$/;"	f
+main	rust/fasta_cli_tools/src/main.rs	/^fn main() {$/;"	f
+main	rust/hello-world/main.rs	/^fn main() {$/;"	f
+main	rust/humans/src/main.rs	/^fn main() {$/;"	f
+main	rust/testing/src/main.rs	/^fn main() {$/;"	f
+main	rust/testing/src/main_v1.rs	/^fn main() {$/;"	f
+make	rust/fasta_cli_tools/src/fasta_ops.rs	/^pub mod make;$/;"	n
+makeArguments	cpp/cppTests/humanoids/humanoidTest.cpp	/^auto makeArguments( int argCount, char ** argVector) {$/;"	f	typeref:typename:auto
+make_blood	rust/testing/src/main.rs	/^    fn make_blood(genotype: String, fenotype: String) -> Blood {$/;"	P	implementation:Blood
+make_blood	rust/testing/src/main_v1.rs	/^  fn make_blood(genotype: String, fenotype: String) -> Blood {$/;"	P	implementation:Blood
+make_human	rust/testing/src/main.rs	/^    fn make_human(fname: String, lname: String, age: u64, blood_type: Blood) -> Human {$/;"	P	implementation:Human
+make_human	rust/testing/src/main_v1.rs	/^  fn make_human(fname: String, lname: String, age: u64, blood_type: Blood) -> Human {$/;"	P	implementation:Human
+manager	sql/examen1.sql	/^  manager number,$/;"	E	table:pe2_employees
+max_hitpoints	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^    int max_hitpoints = 1000;$/;"	m	struct:Humanoid::Leg	typeref:typename:int
+max_legs	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^    int max_legs = 2;$/;"	m	struct:Humanoid::Leg	typeref:typename:int
+mehtier	markup/html/activitat3/index.html	/^      <th id="mehtier"><img src="images\/meh.jpg" alt="meh" title="alt"><br>meh tier<\/th>$/;"	I
+mk_args	python/py-passwd-gen/psswd-gen.py	/^def mk_args():$/;"	f
+mleft	markup/html/pe1uf1nf1/index.html	/^    <div id="mleft">$/;"	I
+movil	markup/xml/pt1/activitat2/agenda.dtd	/^<!ELEMENT movil EMPTY>$/;"	e
+mright	markup/html/pe1uf1nf1/index.html	/^    <div id="mright">$/;"	I
+multi	python/calc/calc.py	/^def multi(a, b):$/;"	f
+musica	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT musica (nombre_cancion,genero)*>$/;"	e
+n	markup/xml/pt1/activitat1/comanda.dtd	/^<!ELEMENT número (#PCDATA)>$/;"	e
+nPers	sql/tableTest.sql	/^  nPers number(2) default 1,$/;"	E	table:forfaits
+name	cpp/cppTests/pawns.cpp	/^  std::string name;$/;"	m	class:Pawn	typeref:typename:std::string	file:
+nascut	markup/html/activitat6/index.html	/^          <input type="date" min="1970-01-01" max="2021-12-31" name="nascut" id="nascut">$/;"	I
+natAge	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    int natAge, bioAge;$/;"	m	class:human::Human	typeref:typename:int
+natAge	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^  int natAge, bioAge;$/;"	m	class:Humanoid	typeref:typename:int
+naturalAge	rust/humans/src/main.rs	/^  naturalAge: u8,$/;"	m	struct:Human
+navleft	markup/html/activitat9/index.html	/^  <aside id="navleft">$/;"	I
+navright	markup/html/activitat8/index.html	/^    <div id="navright">$/;"	I
+navtop	markup/html/activitat10/index.html	/^  <nav id="navtop">$/;"	I
+navtop	markup/html/activitat8/index.html	/^    <div id="navtop">$/;"	I
+navtop	markup/html/activitat9/index.html	/^  <nav id="navtop">$/;"	I
+new	rust/fasta_cli_tools/src/fasta_ops/fasta.rs	/^    pub const fn new() -> Fasta {$/;"	P	implementation:Fasta
+nice	python/bots/le-bot.py	/^async def nice(ctx, num):$/;"	f
+niceNum	python/bots/le-bot.py	/^niceNum = ["69", "422", "420", "777", "1312", "666", "80085", "1337"]$/;"	v
+nicev2	python/bots/le-bot.py	/^async def nicev2(ctx, n):$/;"	f
+nickName	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    std::string firstName, lastName, nickName, blood;$/;"	m	class:human::Human	typeref:typename:std::string
+nickName	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^  std::string firstName, lastName, nickName;$/;"	m	class:Humanoid	typeref:typename:std::string
+no	markup/html/activitat6/index.html	/^        <input id="no" type="radio" name="repeteix" value="no">$/;"	I
+nom	markup/xml/pt1/activitat1/comanda.dtd	/^<!ELEMENT nom (#PCDATA)>$/;"	e
+nom	markup/xml/pt1/activitat1/xarxa.dtd	/^<!ELEMENT nom (#PCDATA)>$/;"	e
+nom	sql/tableTest.sql	/^  nom varchar2(10),$/;"	E	table:transportadors
+nom	sql/tableTest.sql	/^  nom varchar2(15),$/;"	E	table:zones
+nom	sql/tableTest.sql	/^  nom varchar2(20),$/;"	E	table:clients
+nom_hotel	sql/tableTest.sql	/^  nom_hotel varchar2(20),$/;"	E	table:hotels
+nomalu	markup/html/activitat6/index.html	/^          <input id="nomalu" type="text" name="nomalu" required>$/;"	I
+nombre	markup/xml/pt1/activitat2/agenda.dtd	/^<!ELEMENT nombre (#PCDATA)>$/;"	e
+nombre	markup/xml/pt1/activitat3/the.dtd	/^<!ATTLIST juego nombre CDATA #REQUIRED>$/;"	a
+nombre	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT nombre (#PCDATA)>$/;"	e
+nombre_cancion	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT nombre_cancion (#PCDATA)>$/;"	e
+nombre_lugar	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT nombre_lugar (#PCDATA)>$/;"	e
+nse4387ba40101	markup/html/activitat1/images/Flag_of_Tokyo_Metropolis.svg	/^<svg viewBox="-13.5 -9 27 18" width="900" height="600" xmlns="http:\/\/www.w3.org\/2000\/svg" xm/;"	n	uri:http://www.w3.org/2000/svg
+num	cpp/tests/0003/test0003.cpp	/^		int num;$/;"	m	class:classeTest	typeref:typename:int	file:
+num_habitacions	sql/tableTest.sql	/^  num_habitacions number(3),$/;"	E	table:hotels
+ofile	rust/fasta_cli_tools/src/main.rs	/^    ofile: Option<PathBuf>$/;"	m	struct:ComplementOptions
+ofile	rust/fasta_cli_tools/src/main.rs	/^    ofile: Option<PathBuf>$/;"	m	struct:RevCompOptions
+ofile	rust/fasta_cli_tools/src/main.rs	/^    ofile: Option<PathBuf>$/;"	m	struct:ReverseOptions
+on_member_join	python/bots/le-bot.py	/^async def on_member_join(member):$/;"	f
+on_member_remove	python/bots/le-bot.py	/^async def on_member_remove(member):$/;"	f
+on_ready	python/bots/le-bot.py	/^async def on_ready():$/;"	f
+on_ready	python/bots/un-bot.py	/^async def on_ready():$/;"	f
+onnav	markup/html/activitat8/index.html	/^      <img src="images\/image.jpg" alt="Some image" id="onnav">$/;"	I
+op	python/calc/calc.py	/^    op = input("Introdueixi operació:\\n").split(" ")$/;"	v
+ordinadors	markup/xml/pt1/activitat1/xarxa.dtd	/^<!ELEMENT ordinadors (pc*)>$/;"	e
+output_file	rust/fasta_cli_tools/src/main.rs	/^    output_file: PathBuf,$/;"	m	struct:FormatOptions
+output_file	rust/fasta_cli_tools/src/main.rs	/^    output_file: PathBuf,$/;"	m	struct:GenerateOptions
+output_file_name	rust/fasta_cli_tools/src/main.rs	/^    output_file_name: PathBuf,    $/;"	m	struct:CutOptions
+outputs	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	o
+p.foot	markup/html/activitat7/css/master.css	/^p.foot {$/;"	c
+pais	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT pais (#PCDATA)>$/;"	e
+panita	cpp/tests/0003/test0003.cpp	/^		string panita;$/;"	m	class:classeTest	typeref:typename:string	file:
+passwd	markup/html/pe1uf1nf1/index.html	/^          <input type="password" id="passwd">$/;"	I
+passwd_gen	python/py-passwd-gen/psswd-gen.py	/^def passwd_gen(length) -> tuple[str, str]:$/;"	f	typeref:typename:tuple[str,str]
+pc	markup/xml/pt1/activitat1/xarxa.dtd	/^<!ELEMENT pc (nom, configuracio, sistemaOperatiu)>$/;"	e
+pe2_cities	sql/examen1.sql	/^create table pe2_cities ($/;"	t
+pe2_employees	sql/examen1.sql	/^create table pe2_employees ($/;"	t
+pe2_employeesprojects	sql/examen1.sql	/^create table pe2_employeesprojects ($/;"	t
+pe2_projects	sql/examen1.sql	/^create table pe2_projects ($/;"	t
+persona	markup/xml/pt1/activitat2/agenda.dtd	/^<!ELEMENT persona (nombre, email*, relacion*, fijo*, movil*)>$/;"	e
+personaje	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT personaje (nombre,vidas,armas*,herramientas,superpoder?)>$/;"	e
+photo1	markup/html/activitat8/index.html	/^      <div class="photos" id="photo1">$/;"	I
+photo2	markup/html/activitat8/index.html	/^      <div class="photos" id="photo2">$/;"	I
+photo3	markup/html/activitat8/index.html	/^      <div class="photos" id="photo3">$/;"	I
+photo4	markup/html/activitat8/index.html	/^      <div class="photos" id="photo4">$/;"	I
+ping	python/bots/le-bot.py	/^async def ping(ctx):$/;"	f
+ping	python/bots/un-bot.py	/^async def ping(ctx):$/;"	f
+planeta	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT planeta (#PCDATA)>$/;"	e
+planta	sql/tableTest.sql	/^  planta number(5),$/;"	E	table:habitacions
+poblacio	markup/xml/pt1/activitat1/comanda.dtd	/^<!ELEMENT poblacio (#PCDATA)>$/;"	e
+printHumanData	cpp/cppTests/humanoids/humanoidTest.cpp	/^void printHumanData(human::Human humanToPrint) {$/;"	f	typeref:typename:void
+printHumanData	cpp/cppTests/humanoids/newhumanoid.cpp	/^void printHumanData(human::Human humanToPrint) {$/;"	f	typeref:typename:void
+profe	markup/html/activitat6/index.html	/^        <input id="profe" type="" list="llistatProfes" name="profe">$/;"	I
+project_desc	sql/examen1.sql	/^  project_desc varchar2(40) not null,$/;"	E	table:pe2_projects
+project_id	sql/examen1.sql	/^  project_id number,$/;"	E	table:pe2_employeesprojects
+project_id	sql/examen1.sql	/^  project_id number,$/;"	E	table:pe2_projects
+pswsm-python	python/README.md	/^# pswsm-python$/;"	c
+pswsm-repo	README.md	/^# pswsm-repo$/;"	c
+pswsm-rust	rust/README.md	/^# pswsm-rust$/;"	c
+py_passwd_gen	python/README.md	/^## py_passwd_gen$/;"	s	chapter:pswsm-python
+qC	python/calc/calc.py	/^    qC = input("Vols fer una altra operació?[y\/n]\\n")$/;"	v
+qtt_EUR	sql/tableTest.sql	/^  qtt_EUR number(4),$/;"	E	table:compres
+read2str	rust/fasta_cli_tools/src/fasta_ops/view.rs	/^macro_rules! read2str {$/;"	M
+registres	sql/tableTest.sql	/^create table registres ($/;"	t
+relacion	markup/xml/pt1/activitat2/agenda.dtd	/^<!ELEMENT relacion (#PCDATA)>$/;"	e
+reset	markup/html/activitat6/index.html	/^      <input id="reset" type="reset" value="Esborra">$/;"	I
+resta	cpp/calc/calc-main.cpp	/^float resta(float a, float b) { float r = a - b; return r; }$/;"	f	typeref:typename:float
+resta	python/calc/calc.py	/^def resta(a, b):$/;"	f
+rev	rust/fasta_cli_tools/src/fasta_ops/make.rs	/^pub fn rev(file: PathBuf, ofile: Option<PathBuf>) -> Result<String, io::Error> {$/;"	f
+rev_f	rust/fasta_cli_tools/src/fasta_ops/make.rs	/^fn rev_f(file: PathBuf, ofile: Option<PathBuf>) -> Result<Fasta, io::Error> {$/;"	f
+revcomp	rust/fasta_cli_tools/src/fasta_ops/make.rs	/^pub fn revcomp(file: PathBuf, ofile: Option<PathBuf>) -> Result<String, io::Error> {$/;"	f
+revcomp_f	rust/fasta_cli_tools/src/fasta_ops/make.rs	/^fn revcomp_f(file: PathBuf, ofile: Option<PathBuf>) -> Result<Fasta, io::Error> {$/;"	f
+reverse	rust/fasta_cli_tools/src/fasta_ops/fasta.rs	/^    pub fn reverse(&self) -> Fasta {$/;"	P	implementation:Fasta
+rol	python/bots/le-bot.py	/^async def rol(ctx, *, nickname):$/;"	f
+rustc_fingerprint	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	n
+satisRange	markup/html/activitat7/index.html	/^          <input id="satisRange" type="range" name="satisRange" min="0" max="100" step="5">$/;"	I
+satisfaccio	markup/html/activitat6/index.html	/^        <input id="satisfaccio" type="range" name="satisfaccio" min="0" max="10">$/;"	I
+say	python/bots/le-bot.py	/^async def say(ctx, *, text):$/;"	f
+sayd	python/bots/le-bot.py	/^async def sayd(ctx, *, text):$/;"	f
+search	markup/html/activitat10/index.html	/^  <aside id="search">$/;"	I
+selectBloodGenotype	cpp/cppTests/humanoids/baseHumanoid.hpp	/^  std::string selectBloodGenotype(std::vector<std::string> bts) {$/;"	f	namespace:human	typeref:typename:std::string
+selectName	cpp/cppTests/humanoids/baseHumanoid.hpp	/^  std::string selectName(std::vector<std::string> possibleNames) {$/;"	f	namespace:human	typeref:typename:std::string
+select_rnd_int	rust/testing/src/main.rs	/^fn select_rnd_int(max_number: u64) -> u64 {$/;"	f
+select_rnd_str	rust/fasta_cli_tools/src/fasta_ops/make.rs	/^fn select_rnd_str(string_list: &Vec<String>) -> String {$/;"	f
+select_rnd_str	rust/testing/src/main.rs	/^fn select_rnd_str(string_list: Vec<String>) -> String {$/;"	f
+select_string	python/humans/humans.py	/^def select_string(strings: list[str]) -> str:$/;"	f	typeref:typename:str
+selectgenotype	rust/humans/src/main.rs	/^  fn selectgenotype(self) -> None {$/;"	P	implementation:Blood
+sendTime	markup/html/activitat6/index.html	/^        <input id="sendTime" type="datetime-local" name="sendTime">$/;"	I
+sequence	rust/fasta_cli_tools/src/fasta_ops/fasta.rs	/^    pub sequence: String$/;"	m	struct:Fasta
+setAlgo	cpp/tests/0004/test0004.cpp	/^   void setAlgo(int n) {algo = n;}$/;"	f	class:claseTest	typeref:typename:void	file:
+setAltres	cpp/tests/0004/test0004.cpp	/^   void setAltres(std::string s) {altres = s;}$/;"	f	class:claseTest	typeref:typename:void	file:
+sex	cpp/cppTests/humanoids/baseHumanoid.hpp	/^    char sex;$/;"	m	class:human::Human	typeref:typename:char
+shoot	python/bots/le-bot.py	/^async def shoot(ctx, chamber):$/;"	f
+si	markup/html/activitat6/index.html	/^        <input id="si" type="radio" name="repeteix" value="si">$/;"	I
+sistemaOperatiu	markup/xml/pt1/activitat1/xarxa.dtd	/^<!ELEMENT sistemaOperatiu (#PCDATA)>$/;"	e
+smx	markup/html/activitat6/index.html	/^        <input id="smx" type="radio" name="cicle" value="smx">$/;"	I
+state	cpp/cppTests/pawnTesting/baseHumanoid.hpp	/^  bool state;$/;"	m	class:Humanoid	typeref:typename:bool
+status	python/bots/le-bot.py	/^status = cycle(["Ouuuh yeah, diamantes....", "De lunes a domingo voy todo viciado,", "La antorch/;"	v
+status	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	s	object:outputs.17598535894874457435
+status	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	s	object:outputs.2797684049618456168
+status	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	s	object:outputs.5309432699494263626
+status	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	s	object:outputs.931469667778813386
+stderr	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	s	object:outputs.17598535894874457435
+stderr	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	s	object:outputs.2797684049618456168
+stderr	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	s	object:outputs.5309432699494263626
+stderr	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	s	object:outputs.931469667778813386
+stdout	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	s	object:outputs.17598535894874457435
+stdout	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	s	object:outputs.2797684049618456168
+stdout	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	s	object:outputs.5309432699494263626
+stdout	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	s	object:outputs.931469667778813386
+success	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	b	object:outputs.17598535894874457435
+success	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	b	object:outputs.2797684049618456168
+success	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	b	object:outputs.5309432699494263626
+success	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	b	object:outputs.931469667778813386
+successes	rust/humans/target/.rustc_info.json	/^{"rustc_fingerprint":6638864301609445754,"outputs":{"5309432699494263626":{"success":true,"statu/;"	o
+suma	cpp/calc/calc-main.cpp	/^float suma(float a, float b) { float r = a + b; return r; }$/;"	f	typeref:typename:float
+suma	python/calc/calc.py	/^def suma(a, b):$/;"	f
+superpoder	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT superpoder EMPTY>$/;"	e
+table	markup/html/activitat4/css/master.css	/^table { text-align: center; border-collapse: collapse; }$/;"	s
+table	markup/html/activitat5/css/master.css	/^table { border-collapse: collapse; width: 75%; margin: auto; }$/;"	s
+table	markup/html/activitat7/css/master.css	/^table {$/;"	s
+taulaedats	markup/html/pe1uf1nf1/index.html	/^      <table id="taulaedats">$/;"	I
+td	markup/html/activitat4/css/master.css	/^td, th { border: 1pt solid red; padding: 10px 5px; }$/;"	s
+td	markup/html/activitat5/css/master.css	/^td, th { border: 1pt solid darkgray; text-align: center; padding: auto; }$/;"	s
+td:hover	markup/html/activitat5/css/master.css	/^td:hover { background-color: #333; }$/;"	s
+td:hover:last-child	markup/html/activitat5/css/master.css	/^th:hover:last-child, td:hover:last-child { font-size: 24px; }$/;"	s
+tgt_paga	sql/tableTest.sql	/^  tgt_paga number(16),$/;"	E	table:clients
+tgt_paga	sql/tableTest.sql	/^  tgt_paga number(16),$/;"	E	table:compres
+th	markup/html/activitat4/css/master.css	/^td, th { border: 1pt solid red; padding: 10px 5px; }$/;"	s
+th	markup/html/activitat5/css/master.css	/^td, th { border: 1pt solid darkgray; text-align: center; padding: auto; }$/;"	s
+th.oncol	markup/html/activitat5/css/master.css	/^th.oncol { background-color: #fff; color: #f00; }$/;"	c
+th.oncol::first-letter	markup/html/activitat5/css/master.css	/^th.oncol::first-letter { font-size: 24px }$/;"	c
+th.onrow	markup/html/activitat5/css/master.css	/^th.onrow { background-color: #f00; color: #fff; }$/;"	c
+th:hover:last-child	markup/html/activitat5/css/master.css	/^th:hover:last-child, td:hover:last-child { font-size: 24px; }$/;"	s
+times	cpp/calc/calc-main.cpp	/^float times(float a, float b) { float r = a * b; return r; }$/;"	f	typeref:typename:float
+tipus	sql/tableTest.sql	/^  tipus varchar2(10) default 'diari',$/;"	E	table:forfaits
+tipus	sql/tableTest.sql	/^  tipus varchar2(10),$/;"	E	table:transportadors
+to	rust/fasta_cli_tools/src/main.rs	/^    to: usize,$/;"	m	struct:CutOptions
+to_string	rust/fasta_cli_tools/src/fasta_ops/fasta.rs	/^    pub fn to_string(&self) -> String {$/;"	P	implementation:Fasta
+topnav	markup/html/pe1uf1nf1/index.html	/^  <nav id="topnav">$/;"	I
+transportadors	sql/tableTest.sql	/^create table transportadors ($/;"	t
+ul	markup/html/css/master.css	/^ul {$/;"	s
+ul>li	markup/html/activitat8/css/master.css	/^ul>li {$/;"	s
+ul>li:hover	markup/html/activitat8/css/master.css	/^ul>li:hover { background-color: #fff; color: #000; }$/;"	s
+unBot	python/bots/un-bot.py	/^unBot = commands.Bot(command_prefix='<>')$/;"	v
+unassig_date	sql/examen1.sql	/^  unassig_date date,$/;"	E	table:pe2_employeesprojects
+unete	python/bots/un-bot.py	/^async def unete(ctx):$/;"	f
+uppercase	rust/fasta_cli_tools/src/main.rs	/^    uppercase: bool,$/;"	m	struct:FormatOptions
+viatge	sql/tableTest.sql	/^create table viatge ($/;"	t
+vidas	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT vidas (#PCDATA)>$/;"	e
+video	markup/html/activitat7/css/master.css	/^video {$/;"	s
+video	markup/html/activitat8/css/master.css	/^video {$/;"	s
+view	rust/fasta_cli_tools/src/fasta_ops.rs	/^pub mod view;$/;"	n
+x	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT x (#PCDATA)>$/;"	e
+xarxa	markup/xml/pt1/activitat1/xarxa.dtd	/^<!ELEMENT xarxa (domini, ordinadors+)>$/;"	e
+xaviergutierrez	markup/xml/pt1/activitat2/activitat2.xml	/^  <persona genero="hombre" id="xaviergutierrez">$/;"	i
+xlink	markup/html/activitat1/images/Flag_of_Tokyo_Metropolis.svg	/^<svg viewBox="-13.5 -9 27 18" width="900" height="600" xmlns="http:\/\/www.w3.org\/2000\/svg" xm/;"	n	uri:http://www.w3.org/1999/xlink
+xs	markup/xml/pt4/P4.xml	/^<agenda xmlns:xs="http:\/\/www.w3.org\/2001\/XMLSchema-instance" xs:noNamespaceSchemaLocation="P/;"	n	uri:http://www.w3.org/2001/XMLSchema-instance
+y	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT y (#PCDATA)>$/;"	e
+z	markup/xml/pt1/activitat3/the.dtd	/^<!ELEMENT z (#PCDATA)>$/;"	e
+zip_code	sql/examen1.sql	/^  zip_code varchar2(6),$/;"	E	table:pe2_cities
+zip_code	sql/examen1.sql	/^  zip_code varchar2(6),$/;"	E	table:pe2_employees
+zones	sql/tableTest.sql	/^create table zones ($/;"	t
+Índex Pràctiques	markup/html/index.html	/^  <title>Índex Pràctiques<\/title>$/;"	j
