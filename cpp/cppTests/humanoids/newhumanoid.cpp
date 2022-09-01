@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include  "/home/pswsm/github/pswsm-repo/cpp/cppTests/humanoids/baseHumanoid.hpp"
+#include  "./baseHumanoid.hpp"
 
 void printHumanData(human::Human humanToPrint) {
   std::string humanValues[8] = {"First Name", "Last Name", "Nick Name", "Natural Age", "Biological Age", "Sex", "Blood", "Currently"};
