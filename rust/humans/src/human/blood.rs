@@ -6,10 +6,8 @@ pub struct Blood {
 }
 
 impl Blood {
-  pub fn select_genotype(self) -> None {
-    let mut rng = rand::thread_rng.thread_rng();
-    let y: i8 = rng.gen_range(0, 6);
-    self.genotype = self.possibleGenotypes[y];
-  }
+    pub const fn new() -> Blood {
+        Blood { genotype: String::new(), fenotype: String::new() }
+    }
 }
 

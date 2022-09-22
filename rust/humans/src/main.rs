@@ -1,5 +1,7 @@
 mod human;
-use crate::human::Human;
 
-fn main() {
-}
+use human::{
+    Human,
+};
+
+fn main() {}
