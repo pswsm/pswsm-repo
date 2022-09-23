@@ -1,3 +1,12 @@
 [submodule "rust/fasta_cli_tools"]
 	path = rust/fasta_cli_tools
 	url = https://github.com/pswsm/fasta_cli_tools
+[submodule "pswsm-rust"]
+	path = pswsm-rust
+	url = https://github.com/pswsm/pswsm-rust.git
+[submodule "pswsm-php"]
+	path = pswsm-php
+	url = https://github.com/pswsm/pswsm-php.git
+[submodule "pswsm-python"]
+	path = pswsm-python
+	url = https://github.com/pswsm/pswsm-python.git
