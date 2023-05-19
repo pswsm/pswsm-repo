@@ -1,9 +1,10 @@
 #include "iostream"
+#include <ostream>
 
 class claseTest {
   private:
    int algo = 100;
-    std::string altres = "lol, very funny";
+   std::string altres = "lol, very funny";
 
   public:
     // Set
@@ -20,5 +21,6 @@ int main() {
   prova.getAlgo();
   prova.setAlgo(120000);
   prova.getAlgo();
+  std::cout << prova.getAlgo() << "\n" << prova.getAltres() << std::endl;
   return 0;
 }
