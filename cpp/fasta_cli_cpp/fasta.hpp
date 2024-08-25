@@ -1,8 +1,15 @@
 #pragma once
-#include <iostream>
 #include <vector>
 
 namespace BioCpp {
+  class Header {
+    private:
+      std::string value;
+
+    public:
+      Header(std::string value): value{value} {};
+  };
+  
   class Fasta {
     private:
     std::vector<char> chain;
