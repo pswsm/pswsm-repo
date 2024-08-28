@@ -1,10 +1,14 @@
 import gleam/bytes_builder
+import gleam/dynamic
 import gleam/erlang/process
 import gleam/http
 import gleam/http/request
 import gleam/http/response
+import gleam/io
 import gleam/json
+import gleam/list
 import gleam/option
+import infra
 import mist
 import utils
 
@@ -56,24 +60,45 @@ pub fn handle_get_api(
     base_response
     |> response.set_body(mist.Bytes(
       bytes_builder.new()
-      |> bytes_builder.append(
-        bytes_builder.new()
-        |> bytes_builder.append_string(
-          json.object([#("message", json.string("Hello, World!"))])
-          |> json.to_string,
-        )
-        |> bytes_builder.to_bit_array,
+      |> bytes_builder.append_string(
+        json.object([#("message", json.string("Hello, World!"))])
+        |> json.to_string,
       ),
     ))
 
   let path_segments = request.path_segments(req)
 
-  // TODO: uncomment when proper api
-  let _req =
+  let req =
     req
     |> request.set_path(
       utils.remove_first(path_segments) |> utils.implode(option.Some("/")),
     )
-  // TODO: handle deeper api paths :)
-  response
+  case request.path_segments(req) {
+    ["users"] -> handle_get_user(response)
+    _ -> response
+  }
+}
+
+fn handle_get_user(base_response: response.Response(mist.ResponseData)) {
+  io.debug("Handling get user")
+  let users =
+    infra.ask(
+      infra.localdb,
+      "select * from users",
+      [],
+      dynamic.tuple2(dynamic.int, dynamic.string),
+    )
+
+  base_response
+  |> response.set_body(mist.Bytes(
+    bytes_builder.new()
+    |> bytes_builder.append_string(
+      users
+      |> list.map(fn(t) {
+        json.object([#("id", json.int(t.0)), #("name", json.string(t.1))])
+      })
+      |> json.preprocessed_array()
+      |> json.to_string,
+    ),
+  ))
 }
