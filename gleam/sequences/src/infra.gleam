@@ -1,4 +1,5 @@
 import gleam/dynamic
+import gleam/io
 import gleam/option
 import sqlight
 
@@ -21,4 +22,12 @@ pub fn ask(
     Ok(result) -> result
     _ -> panic
   }
+}
+
+pub fn order(who conn: String, query what: String) {
+  io.debug("Ordering: " <> what)
+  io.debug("From: " <> conn)
+  use connection <- sqlight.with_connection(conn)
+
+  sqlight.exec(what, connection)
 }
