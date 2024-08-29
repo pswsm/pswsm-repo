@@ -1,4 +1,5 @@
 import gleam/dynamic
+import gleam/option
 import sqlight
 
 pub const localdb = "localdb"
@@ -6,14 +7,17 @@ pub const localdb = "localdb"
 pub const memory = ":memory:"
 
 pub fn ask(
-  who: String,
-  what: String,
-  with: List(_),
-  format: fn(dynamic.Dynamic) -> Result(a, List(dynamic.DecodeError)),
+  who table: String,
+  query what: String,
+  fill with: option.Option(List(_)),
+  decoder format: fn(dynamic.Dynamic) -> Result(a, List(dynamic.DecodeError)),
 ) {
-  use connection <- sqlight.with_connection(who)
+  let fill = option.unwrap(with, [])
+  use connection <- sqlight.with_connection(table)
 
-  case sqlight.query(what, connection, with, format) {
+  io.debug("Asking: " <> what)
+
+  case sqlight.query(what, connection, fill, format) {
     Ok(result) -> result
     _ -> panic
   }
