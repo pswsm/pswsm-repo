@@ -13,3 +13,8 @@ pub fn implode(llista: List(String), with: option.Option(String)) -> String {
   |> string_builder.join(option.unwrap(with, ""))
   |> string_builder.to_string()
 }
+
+pub fn extract_last_tuple3(tuple tuple: #(x, y, z)) -> z {
+  let #(_, _, last) = tuple
+  last
+}
