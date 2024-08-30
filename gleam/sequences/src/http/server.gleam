@@ -12,6 +12,7 @@ import gleam/list
 import gleam/option
 import gleam/result
 import gleam/string_builder
+import http/errors
 import infra
 import mist
 import utils
@@ -28,17 +29,7 @@ pub fn run() {
     |> response.set_header("Content-Type", "application/json")
     |> response.set_body(mist.Bytes(bytes_builder.new()))
 
-  let not_found =
-    response.new(404)
-    |> response.set_body(mist.Bytes(
-      bytes_builder.new() |> bytes_builder.append_string("Not found"),
-    ))
-
-  let _not_supported =
-    response.new(405)
-    |> response.set_body(mist.Bytes(
-      bytes_builder.new() |> bytes_builder.append_string("Method not supported"),
-    ))
+  let not_found = errors.new_not_found()
 
   let assert Ok(_) =
     fn(req: request.Request(mist.Connection)) -> response.Response(
@@ -47,7 +38,7 @@ pub fn run() {
       case req.method, request.path_segments(req) {
         http.Get, ["api", ..] -> handle_get_api(req, json_response)
         http.Post, ["api", ..] -> handle_post_api(req, json_response)
-        _, _ -> not_found
+        _, _ -> not_found |> errors.to_response
       }
     }
     |> mist.new
@@ -78,6 +69,7 @@ pub fn handle_get_api(
     |> request.set_path(
       utils.remove_first(path_segments) |> utils.implode(option.Some("/")),
     )
+
   case request.path_segments(req) {
     ["users"] -> handle_get_user(response)
     _ -> response
@@ -103,6 +95,7 @@ fn handle_get_user(base_response: response.Response(mist.ResponseData)) {
         json.object([#("id", json.int(t.0)), #("name", json.string(t.1))])
       })
       |> json.preprocessed_array()
+      |> fn(users) { json.object([#("users", users)]) }
       |> json.to_string,
     ),
   ))
@@ -130,7 +123,7 @@ pub fn handle_post_user(
   res: response.Response(mist.ResponseData),
 ) {
   mist.read_body(req, 1024 * 1024 * 10)
-  |> result.nil_error()
+  |> result.map_error(fn(_) { errors.new_bad_request() })
   |> result.try(fn(req) {
     json.decode_bits(
       req.body,
@@ -143,7 +136,9 @@ pub fn handle_post_user(
       ),
     )
     |> io.debug
-    |> result.nil_error
+    |> result.map_error(fn(_) {
+      errors.new_bad_request() |> errors.set_message("Invalid JSON")
+    })
   })
   |> result.map(fn(user) {
     let query =
@@ -155,14 +150,11 @@ pub fn handle_post_user(
       |> string_builder.append(dict.get(user, "username") |> result.unwrap(""))
       |> string_builder.append("')")
       |> string_builder.to_string
-    infra.order(who: infra.localdb, query: query)
+    infra.order(db: infra.localdb, query: query)
   })
   // TODO: handle errors
   |> io.debug
-  |> result.map_error(fn(_) {
-    response.new(500)
-    |> response.set_body(mist.Bytes(bytes_builder.new()))
-  })
+  |> result.map_error(fn(_) { errors.new_internal_server_error() })
   |> result.map(fn(_) {
     res
     |> response.set_body(mist.Bytes(
@@ -173,14 +165,6 @@ pub fn handle_post_user(
       ),
     ))
   })
-  |> result.lazy_unwrap(fn() {
-    res
-    |> response.set_body(mist.Bytes(
-      bytes_builder.new()
-      |> bytes_builder.append_string(
-        json.object([#("message", json.string("Invalid request"))])
-        |> json.to_string,
-      ),
-    ))
-  })
+  |> result.map_error(fn(error) { error |> errors.to_response })
+  |> result.unwrap_both
 }
