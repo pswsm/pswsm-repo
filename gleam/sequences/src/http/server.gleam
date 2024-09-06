@@ -77,28 +77,32 @@ pub fn handle_get_api(
 }
 
 fn handle_get_user(base_response: response.Response(mist.ResponseData)) {
-  io.debug("Handling get user")
-  let users =
-    infra.ask(
-      infra.localdb,
-      "select * from users",
-      option.None,
-      dynamic.tuple2(dynamic.int, dynamic.string),
-    )
+  let users = users.find_all(sql.localdb)
 
-  base_response
-  |> response.set_body(mist.Bytes(
-    bytes_builder.new()
-    |> bytes_builder.append_string(
-      users
-      |> list.map(fn(t) {
-        json.object([#("id", json.int(t.0)), #("name", json.string(t.1))])
-      })
-      |> json.preprocessed_array()
-      |> fn(users) { json.object([#("users", users)]) }
-      |> json.to_string,
-    ),
-  ))
+  case users {
+    Ok(users) -> {
+      base_response
+      |> response.set_body(mist.Bytes(
+        bytes_builder.new()
+        |> bytes_builder.append_string(
+          users
+          |> list.map(fn(t) {
+            json.object([
+              #(
+                "id",
+                json.string(t.0 |> bit_array.to_string |> result.unwrap("-1")),
+              ),
+              #("username", json.string(t.1)),
+            ])
+          })
+          |> json.preprocessed_array()
+          |> fn(users) { json.object([#("users", users)]) }
+          |> json.to_string,
+        ),
+      ))
+    }
+    Error(_) -> errors.new_not_found() |> errors.to_response
+  }
 }
 
 pub fn handle_post_api(
