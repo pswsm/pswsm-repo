@@ -63,13 +63,12 @@ pub fn handle_get_api(
       ),
     ))
 
-  let path_segments = request.path_segments(req)
-
   let req =
     req
-    |> request.set_path(
-      utils.remove_first(path_segments) |> utils.implode(option.Some("/")),
-    )
+    |> request.path_segments
+    |> utils.remove_first
+    |> utils.implode(option.Some("/"))
+    |> fn(path) { request.set_path(req, path) }
 
   case request.path_segments(req) {
     ["users"] -> handle_get_user(response)
