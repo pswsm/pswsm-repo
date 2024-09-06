@@ -1,6 +1,5 @@
 import gleam/dynamic
 import gleam/io
-import gleam/option
 import sqlight
 
 pub opaque type DatabaseName {
@@ -32,17 +31,16 @@ pub const memory = Memory
 pub fn ask(
   db database: DatabaseName,
   query what: String,
-  fill with: option.Option(List(_)),
+  arguments args: List(sqlight.Value),
   decoder format: fn(dynamic.Dynamic) -> Result(a, List(dynamic.DecodeError)),
-) {
-  let fill = option.unwrap(with, [])
+) -> Result(List(a), sqlight.Error) {
   use connection <- sqlight.with_connection(database |> name)
 
   io.debug("Asking: " <> what)
 
-  case sqlight.query(what, connection, fill, format) {
-    Ok(result) -> result
-    _ -> panic
+  case sqlight.query(what, connection, args, format) {
+    Ok(result) -> Ok(result)
+    Error(error) -> Error(error)
   }
 }
 
