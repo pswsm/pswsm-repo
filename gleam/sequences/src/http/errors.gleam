@@ -1,5 +1,6 @@
 import gleam/bytes_builder
 import gleam/http/response
+import gleam/int
 import gleam/json
 import mist
 
@@ -50,7 +51,9 @@ pub fn to_response(error: HttpError) -> response.Response(mist.ResponseData) {
   |> response.set_body(mist.Bytes(
     bytes_builder.new()
     |> bytes_builder.append_string(
-      json.object([#("message", json.string(message(error)))])
+      json.object([#("code", json.string(code(error) |> int.to_string))])
+      |> json.to_string
+      <> json.object([#("message", json.string(message(error)))])
       |> json.to_string,
     ),
   ))
