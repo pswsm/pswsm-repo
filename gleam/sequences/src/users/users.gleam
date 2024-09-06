@@ -1,24 +1,26 @@
-import gleam/bit_array
-import gleam/bytes_builder
+//// Module containing user utilities
+
+import gleam/dynamic
 import gleam/erlang
 import gleam/int
-import gleam/io
 import gleam/option
-import gleam/result
 import gleam/string
-import infra
+import infrastructure/sql
+import sqlight
+import users/id
 import utils
 
+/// Type user
+/// Has an id, a username and a creation date as a timestamp in ms
 pub opaque type User {
-  User(id: BitArray, username: String, created_at: Int)
+  User(id: id.UserId, username: String, created_at: Int)
 }
 
+/// Create a new user
 pub fn new(uuid id: String, username username: String) -> User {
   let id =
     id
-    |> string.replace("-", "")
-    |> bytes_builder.from_string
-    |> bytes_builder.to_bit_array
+    |> id.from_string
   User(
     id: id,
     username: username,
@@ -26,31 +28,59 @@ pub fn new(uuid id: String, username username: String) -> User {
   )
 }
 
-pub fn id(user: User) -> String {
+/// The raw user id
+fn raw_id(user: User) -> BitArray {
   case user {
-    User(id, ..) ->
-      id |> bit_array.to_string |> result.lazy_unwrap(fn() { "invalid id" })
+    User(id, ..) -> id |> id.as_bit_array
   }
 }
 
-pub fn username(user: User) -> String {
+fn username(user: User) -> String {
   case user {
     User(_, username, _) -> username
   }
 }
 
-pub fn created_at(user: User) -> Int {
+fn created_at(user: User) -> Int {
   case user {
     User(_, _, created_at) -> created_at
   }
 }
 
-pub fn save(user: User, db database: option.Option(infra.DatabaseName)) {
+// TODO: move to infrastructure
+/// Save a user
+pub fn save(user: User, db database: option.Option(sql.DatabaseName)) {
   let query =
-    "INSERT INTO users (id, username) VALUES (:id:, :username:, :created_at:)"
-    |> string.replace(":id:", id(user))
+    "INSERT INTO users (id, username, created_at) VALUES (?, ?, ?)"
     |> string.replace(":username:", username(user))
     |> string.replace(":created_at:", created_at(user) |> int.to_string)
-  io.debug("saving user with \"" <> query <> "\"")
-  infra.order(database |> option.unwrap(infra.memory), query)
+  sql.ask(
+    db: database |> option.unwrap(sql.memory),
+    query: query,
+    decoder: decoder(),
+    arguments: [
+      sqlight.blob(raw_id(user)),
+      sqlight.text(username(user)),
+      sqlight.int(created_at(user)),
+    ],
+  )
+}
+
+// TODO: move to infrastructure
+/// Find a user by id
+pub fn find(user: User, where database: sql.DatabaseName) {
+  let query = "SELECT * FROM users WHERE id = ?"
+  sql.ask(db: database, query: query, decoder: decoder(), arguments: [
+    sqlight.blob(raw_id(user)),
+  ])
+}
+
+/// Find all users
+pub fn find_all(database: sql.DatabaseName) {
+  let query = "SELECT * FROM users"
+  sql.ask(db: database, query: query, decoder: decoder(), arguments: [])
+}
+
+fn decoder() {
+  dynamic.tuple3(dynamic.bit_array, dynamic.string, dynamic.int)
 }
