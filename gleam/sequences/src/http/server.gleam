@@ -139,22 +139,45 @@ pub fn handle_post_user(
         ]),
       ),
     )
-    |> io.debug
     |> result.map_error(fn(_) {
       errors.new_bad_request() |> errors.set_message("Invalid JSON")
     })
   })
+  |> result.try(fn(user_dict) {
+    dict.get(user_dict, "id")
+    |> result.is_error
+    |> fn(is_error) {
+      case is_error {
+        True ->
+          Error(
+            errors.new_bad_request() |> errors.set_message("Missing field 'id'"),
+          )
+        False -> Ok(user_dict)
+      }
+    }
+  })
+  |> result.try(fn(user_dict) {
+    dict.get(user_dict, "username")
+    |> result.is_error
+    |> fn(is_error) {
+      case is_error {
+        True ->
+          Error(
+            errors.new_bad_request()
+            |> errors.set_message("Missing field 'user'"),
+          )
+        False -> Ok(user_dict)
+      }
+    }
+  })
   |> result.map(fn(user) {
-    let query =
-      string_builder.new()
-      // TODO: get col names from dict keys
-      |> string_builder.append("insert into users (id, username) values (")
-      |> string_builder.append(dict.get(user, "id") |> result.unwrap("-1"))
-      |> string_builder.append(", '")
-      |> string_builder.append(dict.get(user, "username") |> result.unwrap(""))
-      |> string_builder.append("')")
-      |> string_builder.to_string
-    infra.order(db: infra.localdb, query: query)
+    let user =
+      users.new(
+        uuid: dict.get(user, "id") |> result.unwrap("-1"),
+        username: dict.get(user, "username") |> result.unwrap("default"),
+      )
+
+    user |> users.save(option.Some(sql.localdb))
   })
   // TODO: handle errors
   |> io.debug
