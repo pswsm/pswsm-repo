@@ -1,3 +1,4 @@
+import gleam/bit_array
 import gleam/bytes_builder
 import gleam/dict
 import gleam/dynamic
@@ -11,10 +12,10 @@ import gleam/json
 import gleam/list
 import gleam/option
 import gleam/result
-import gleam/string_builder
 import http/errors
-import infra
+import infrastructure/sql
 import mist
+import users/users
 import utils
 
 pub fn run() {
