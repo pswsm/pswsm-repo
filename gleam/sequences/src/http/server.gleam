@@ -8,12 +8,9 @@ import http/api/post
 import http/errors
 import mist
 
-pub fn run() {
+pub fn run(port: Int) {
   let _selector = process.new_selector()
   let _state = Nil
-
-  // TODO: Read from config
-  let port = 3000
 
   let json_response =
     response.new(200)
