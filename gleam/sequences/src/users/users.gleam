@@ -1,6 +1,9 @@
 import gleam/dynamic
 import gleam/erlang
+import gleam/json
+import gleam/list
 import gleam/option
+import gleam/result
 import infrastructure/queries
 import infrastructure/sql
 import infrastructure/where_clauses
@@ -32,15 +35,15 @@ pub fn new(id id: String, password p: String, username username: String) -> User
   )
 }
 
-fn id(user: User) -> BitArray {
+fn id(user: User) -> id.UserId {
   case user {
-    User(cs, ..) -> cs |> criticals.id |> id.as_bit_array
+    User(cs, ..) -> cs |> criticals.id
   }
 }
 
-fn password(user: User) -> String {
+fn password(user: User) -> password.Password {
   case user {
-    User(cs, ..) -> cs |> criticals.password |> password.to_string
+    User(cs, ..) -> cs |> criticals.password
   }
 }
 
@@ -56,7 +59,6 @@ fn created_at(user: User) -> Int {
   }
 }
 
-// TODO: move to infrastructure
 pub fn save(user: User, db database: option.Option(sql.DatabaseName)) {
   let query =
     "INSERT INTO users (id, password, username, created_at) VALUES (?, ?, ?, ?)"
@@ -65,8 +67,8 @@ pub fn save(user: User, db database: option.Option(sql.DatabaseName)) {
     query: query,
     decoder: decoder(),
     arguments: [
-      sqlight.blob(id(user)),
-      sqlight.text(password(user)),
+      sqlight.blob(id(user) |> id.as_bit_array),
+      sqlight.text(password(user) |> password.to_string),
       sqlight.text(username(user)),
       sqlight.int(created_at(user)),
     ],
@@ -78,7 +80,7 @@ pub fn save(user: User, db database: option.Option(sql.DatabaseName)) {
 pub fn find(user: User, where database: sql.DatabaseName) {
   let q =
     queries.new_query(queries.Select([]), "users", [
-      where_clauses.new("id", "=", id(user) |> sqlight.blob),
+      where_clauses.new("id", "=", id(user) |> id.as_bit_array |> sqlight.blob),
     ])
 
   sql.ask_with_query(db: database, query: q, decoder: decoder())
@@ -87,8 +89,39 @@ pub fn find(user: User, where database: sql.DatabaseName) {
 pub fn find_all(database: sql.DatabaseName) {
   let query = "SELECT * FROM users"
   sql.ask(db: database, query: query, decoder: decoder(), arguments: [])
+  |> result.try(fn(users) {
+    users
+    |> list.map(fn(user) { from_primitves(user.0, user.1, user.2, user.3) })
+    |> Ok
+  })
 }
 
 fn decoder() {
-  dynamic.tuple3(dynamic.bit_array, dynamic.string, dynamic.int)
+  dynamic.tuple4(dynamic.bit_array, dynamic.string, dynamic.string, dynamic.int)
+}
+
+fn from_primitves(
+  id: BitArray,
+  password: String,
+  username: String,
+  created_at: Int,
+) {
+  User(
+    criticals: criticals.new(
+      id.from_bit_array(id),
+      password.from(password, fn(p) { p }),
+    ),
+    username: username,
+    created_at: created_at,
+  )
+}
+
+pub fn to_resource(user: User) {
+  [
+    #("id", id(user) |> id.to_json),
+    #("password", password(user) |> password.to_json),
+    #("username", username(user) |> json.string),
+    #("created_at", created_at(user) |> json.int),
+  ]
+  |> json.object
 }

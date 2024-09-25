@@ -1,5 +1,8 @@
+import gleam/dict
+import gleam/dynamic
 import gleam/list
 import gleam/option
+import gleam/result
 import gleam/string_builder
 
 pub fn remove_first(llista: List(_)) -> List(_) {
@@ -17,4 +20,23 @@ pub fn implode(llista: List(String), with: option.Option(String)) -> String {
 pub fn extract_last_tuple3(tuple tuple: #(x, y, z)) -> z {
   let #(_, _, last) = tuple
   last
+}
+
+pub fn if_error(r: Result(a, b), then: fn(b) -> c) -> Result(a, c) {
+  case r {
+    Ok(a) -> Ok(a)
+    Error(b) -> Error(then(b))
+  }
+}
+
+pub fn key_exists(d: dict.Dict(a, b), k: a) -> Result(dict.Dict(a, b), String) {
+  case dict.get(d, k) {
+    Ok(_) -> Ok(d)
+    Error(_) ->
+      Error(
+        "Key"
+        <> { dynamic.string(dynamic.from(k)) |> result.unwrap("") }
+        <> "not found",
+      )
+  }
 }

@@ -1,11 +1,9 @@
-import gleam/bit_array
 import gleam/bytes_builder
 import gleam/http/request
 import gleam/http/response
 import gleam/json
 import gleam/list
 import gleam/option
-import gleam/result
 import http/errors
 import infrastructure/sql
 import mist
@@ -49,15 +47,7 @@ fn handle_get_user(base_response: response.Response(mist.ResponseData)) {
         bytes_builder.new()
         |> bytes_builder.append_string(
           users
-          |> list.map(fn(t) {
-            json.object([
-              #(
-                "id",
-                json.string(t.0 |> bit_array.to_string |> result.unwrap("-1")),
-              ),
-              #("username", json.string(t.1)),
-            ])
-          })
+          |> list.map(fn(user) { user |> users.to_resource })
           |> json.preprocessed_array()
           |> fn(users) { json.object([#("users", users)]) }
           |> json.to_string,
