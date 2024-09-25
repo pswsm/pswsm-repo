@@ -1,4 +1,5 @@
 import gleam/bit_array
+import gleam/json
 import gleam/result
 
 pub opaque type UserId {
@@ -23,4 +24,8 @@ pub fn as_bit_array(id: UserId) -> BitArray {
   case id {
     UserId(id) -> id
   }
+}
+
+pub fn to_json(id: UserId) -> json.Json {
+  as_string(id) |> json.string
 }
