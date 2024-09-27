@@ -1,10 +1,10 @@
 import gleam/list
 import gleam/option
 import gleam/string_builder
-import infrastructure/types.{
+import infra/types.{
   type FieldNameList, type FieldValueList, type QueryableFields, type TableName,
 }
-import infrastructure/where_clauses.{type WhereClause}
+import infra/where_clauses.{type WhereClause}
 import sqlight
 import utils
 

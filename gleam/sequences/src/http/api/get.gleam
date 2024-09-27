@@ -1,58 +1,47 @@
-import gleam/bytes_builder
-import gleam/http/request
 import gleam/http/response
 import gleam/json
 import gleam/list
-import gleam/option
-import http/errors
-import infrastructure/sql
+import http/http_errors as errors
+import http/responses
 import mist
+import users/id
+import users/user_errors
 import users/users
-import utils
 
-pub fn handle_get_api(
-  req: request.Request(mist.Connection),
-  base_response: response.Response(mist.ResponseData),
-) {
-  let response =
-    base_response
-    |> response.set_body(mist.Bytes(
-      bytes_builder.new()
-      |> bytes_builder.append_string(
-        json.object([#("message", json.string("Hello, World!"))])
-        |> json.to_string,
-      ),
-    ))
-
-  let req =
-    req
-    |> request.path_segments
-    |> utils.remove_first
-    |> utils.implode(option.Some("/"))
-    |> fn(path) { request.set_path(req, path) }
-
-  case request.path_segments(req) {
-    ["users"] -> handle_get_user(response)
-    _ -> response
+pub fn handle_get_api(path: List(String)) {
+  case path {
+    ["users"] -> find()
+    ["users", id] -> get(id)
+    _ -> errors.new_internal_server_error() |> errors.to_response
   }
 }
 
-fn handle_get_user(base_response: response.Response(mist.ResponseData)) {
-  let users = users.find_all(sql.localdb)
+fn find() -> response.Response(mist.ResponseData) {
+  let users = users.find_all()
 
   case users {
     Ok(users) -> {
-      base_response
-      |> response.set_body(mist.Bytes(
-        bytes_builder.new()
-        |> bytes_builder.append_string(
-          users
-          |> list.map(fn(user) { user |> users.to_resource })
-          |> json.preprocessed_array()
-          |> fn(users) { json.object([#("users", users)]) }
-          |> json.to_string,
-        ),
-      ))
+      let users = users |> list.map(users.to_resource)
+
+      responses.base_response()
+      |> responses.with_json_body(users |> json.preprocessed_array)
+      |> responses.to_mist
+    }
+    Error(e) ->
+      errors.new_internal_server_error()
+      |> errors.set_message(e |> user_errors.message)
+      |> errors.to_response
+  }
+}
+
+pub fn get(id id: String) {
+  let user = users.get(id |> id.from_string)
+
+  case user {
+    Ok(user) -> {
+      responses.base_response()
+      |> responses.with_json_body(user |> users.to_resource)
+      |> responses.to_mist
     }
     Error(_) -> errors.new_not_found() |> errors.to_response
   }

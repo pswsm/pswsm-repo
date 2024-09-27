@@ -1,5 +1,5 @@
 import gleam/string_builder
-import infrastructure/types.{type FieldName, type FieldType, type FieldValue}
+import infra/types.{type FieldName, type FieldType, type FieldValue}
 
 pub type WhereClause {
   WhereClause(FieldName, FieldValue, FieldType)

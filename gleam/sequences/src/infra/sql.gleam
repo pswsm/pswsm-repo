@@ -1,6 +1,8 @@
 import gleam/dynamic
 import gleam/io
-import infrastructure/queries
+import gleam/result
+import infra/infra_errors as errors
+import infra/queries
 import sqlight
 
 pub opaque type DatabaseName {
@@ -30,30 +32,28 @@ pub const localdb = LocalDb("localdb")
 pub const memory = Memory
 
 pub fn ask(
-  db database: DatabaseName,
   query what: String,
   arguments args: List(sqlight.Value),
   decoder format: fn(dynamic.Dynamic) -> Result(a, List(dynamic.DecodeError)),
-) -> Result(List(a), sqlight.Error) {
-  use connection <- sqlight.with_connection(database |> name)
+) -> Result(List(a), errors.SqlError) {
+  use connection <- sqlight.with_connection(localdb |> name)
 
-  io.debug("Asking: " <> what)
+  io.debug("-- asking: " <> what <> " --")
 
-  case sqlight.query(what, connection, args, format) {
-    Ok(result) -> Ok(result)
-    Error(error) -> Error(error)
-  }
+  sqlight.query(what, connection, args, format)
+  |> result.map_error(with: errors.from)
 }
 
 pub fn ask_with_query(
-  db database: DatabaseName,
   query what: queries.Query,
   decoder format: fn(dynamic.Dynamic) -> Result(a, List(dynamic.DecodeError)),
 ) -> Result(List(a), sqlight.Error) {
   let q = what |> queries.build
-  use connection <- sqlight.with_connection(database |> name)
 
-  io.debug("Asking: " <> q.0)
+  // TODO: get from env
+  use connection <- sqlight.with_connection(localdb |> name)
+
+  io.debug("-- asking: " <> q.0 <> " --")
 
   // README: use sqlight args for typesafety
   case sqlight.query(q.0, connection, q.1, format) {

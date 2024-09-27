@@ -2,16 +2,15 @@ import gleam/dynamic
 import gleam/erlang
 import gleam/json
 import gleam/list
-import gleam/option
 import gleam/result
-import infrastructure/queries
-import infrastructure/sql
-import infrastructure/where_clauses
+import infra/queries
+import infra/sql
+import infra/where_clauses
 import passwords/password
 import sqlight
 import users/criticals
 import users/id
-import utils
+import users/user_errors as errors
 
 pub opaque type User {
   User(criticals: criticals.Criticals, username: String, created_at: Int)
@@ -59,45 +58,50 @@ fn created_at(user: User) -> Int {
   }
 }
 
-pub fn save(user: User, db database: option.Option(sql.DatabaseName)) {
+pub fn save(user: User) -> Result(_, errors.UserError) {
   let query =
     "INSERT INTO users (id, password, username, created_at) VALUES (?, ?, ?, ?)"
-  sql.ask(
-    db: database |> option.unwrap(sql.memory),
-    query: query,
-    decoder: decoder(),
-    arguments: [
-      sqlight.blob(id(user) |> id.as_bit_array),
-      sqlight.text(password(user) |> password.to_string),
-      sqlight.text(username(user)),
-      sqlight.int(created_at(user)),
-    ],
-  )
+  sql.ask(query: query, decoder: decoder(), arguments: [
+    sqlight.blob(id(user) |> id.as_bit_array),
+    sqlight.text(password(user) |> password.to_string),
+    sqlight.text(username(user)),
+    sqlight.int(created_at(user)),
+  ])
+  |> result.map_error(errors.from_sql)
 }
 
-// TODO: move to infrastructure
 /// Find a user by id
-pub fn find(user: User, where database: sql.DatabaseName) {
+pub fn get(id id: id.UserId) -> Result(User, errors.UserError) {
   let q =
     queries.new_query(queries.Select([]), "users", [
-      where_clauses.new("id", "=", id(user) |> id.as_bit_array |> sqlight.blob),
+      where_clauses.new("id", "=", id |> id.as_bit_array |> sqlight.blob),
     ])
 
-  sql.ask_with_query(db: database, query: q, decoder: decoder())
+  sql.ask_with_query(query: q, decoder: decoder())
+  // TODO: lost error traceability here, fix this
+  |> result.map_error(fn(_) { Nil })
+  |> result.try(fn(users) { users |> list.first() })
+  |> result.map_error(fn(_) { errors.user_not_found(id) })
+  |> result.try(fn(user) { user |> from_tuple |> Ok })
 }
 
-pub fn find_all(database: sql.DatabaseName) {
+pub fn find_all() -> Result(List(User), errors.UserError) {
   let query = "SELECT * FROM users"
-  sql.ask(db: database, query: query, decoder: decoder(), arguments: [])
+  sql.ask(query: query, decoder: decoder(), arguments: [])
   |> result.try(fn(users) {
     users
     |> list.map(fn(user) { from_primitves(user.0, user.1, user.2, user.3) })
     |> Ok
   })
+  |> result.map_error(errors.from_sql)
 }
 
 fn decoder() {
   dynamic.tuple4(dynamic.bit_array, dynamic.string, dynamic.string, dynamic.int)
+}
+
+fn from_tuple(t: #(BitArray, String, String, Int)) -> User {
+  from_primitves(t.0, t.1, t.2, t.3)
 }
 
 fn from_primitves(
