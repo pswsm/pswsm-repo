@@ -5,7 +5,7 @@ import gleam/option
 import gleam/result
 import gleam/string_builder
 
-pub fn remove_first(llista: List(_)) -> List(_) {
+pub fn remove_first(llista: List(t)) -> List(t) {
   llista
   |> list.drop(1)
 }
