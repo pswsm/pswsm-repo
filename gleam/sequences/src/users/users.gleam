@@ -31,7 +31,7 @@ pub fn new(id id: String, password p: String, username username: String) -> User
   User(
     criticals: criticals,
     username: username,
-    created_at: erlang.erlang_timestamp() |> utils.extract_last_tuple3,
+    created_at: erlang.system_time(erlang.Millisecond),
   )
 }
 
