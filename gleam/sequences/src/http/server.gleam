@@ -28,11 +28,11 @@ pub fn run(port: Int) {
 fn handle(
   method m: http.Method,
   path p: List(String),
-  body b: request.Request(mist.Connection),
+  request r: request.Request(mist.Connection),
 ) -> response.Response(mist.ResponseData) {
   case m, p {
-    http.Get, ["api", ..] -> get.handle_get_api(p |> utils.remove_first)
-    http.Post, ["api", ..] -> post.handle_post_api(p, b)
+    http.Get, ["api", ..] -> get.handle_get_api(p |> utils.remove_first, r)
+    http.Post, ["api", ..] -> post.handle_post_api(p, r)
     _, _ -> http_errors.new_not_found() |> http_errors.to_response
   }
 }
