@@ -1,11 +1,13 @@
+import ffi/hash
 import gleam/json
+import gleam/result
 
 pub opaque type Password {
   Password(String)
 }
 
-pub fn new() {
-  Password("%random%")
+pub fn new(password: String) -> Password {
+  Password(password |> hash.hash |> result.unwrap_both)
 }
 
 pub fn from(f: a, transform: fn(a) -> String) {
