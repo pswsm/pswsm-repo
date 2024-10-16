@@ -1,0 +1,13 @@
+[package]
+authors = ["Pau Figueras <pswsm>"]
+name = "argon2id_ffi"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+argon2 = "0.5.3"
+rand = "0.8.5"
+rustler = "0.35.0"
+
+[lib]
+crate-type = ["cdylib"]
