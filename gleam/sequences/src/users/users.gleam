@@ -43,7 +43,7 @@ fn password(user: User) -> password.Password {
   }
 }
 
-fn username(user: User) -> String {
+pub fn username(user: User) -> String {
   case user {
     User(_, username, _) -> username
   }
