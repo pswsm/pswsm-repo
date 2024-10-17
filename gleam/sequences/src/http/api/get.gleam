@@ -1,3 +1,4 @@
+import auth/auth
 import gleam/http/request
 import gleam/http/response
 import gleam/json
@@ -14,6 +15,7 @@ pub fn handle_get_api(path: List(String), request: request.Request(_)) {
   case path {
     ["users"] -> find(request)
     ["users", id] -> get(id)
+    ["auth", username] -> auth(username)
     _ -> errors.new_internal_server_error() |> errors.to_response
   }
 }
@@ -46,6 +48,21 @@ pub fn get(id id: String) {
     Ok(user) -> {
       responses.base_response()
       |> responses.with_json_body(user |> users.to_resource)
+      |> responses.to_mist
+    }
+    Error(_) -> errors.new_not_found() |> errors.to_response
+  }
+}
+
+pub fn auth(username u: String) {
+  let auth = auth.auth(u)
+
+  case auth {
+    Ok(auth) -> {
+      responses.base_response()
+      |> responses.with_json_body(
+        [#("token", auth |> json.string)] |> json.object,
+      )
       |> responses.to_mist
     }
     Error(_) -> errors.new_not_found() |> errors.to_response
