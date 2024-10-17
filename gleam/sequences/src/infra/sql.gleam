@@ -31,6 +31,7 @@ pub const localdb = LocalDb("localdb")
 
 pub const memory = Memory
 
+@deprecated("Use `ask_with_query` instead, since it's safer")
 pub fn ask(
   query what: String,
   arguments args: List(sqlight.Value),
