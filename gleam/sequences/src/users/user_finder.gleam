@@ -19,7 +19,7 @@ pub fn get(id id: id.UserId) -> Result(users.User, user_errors.UserError) {
   // TODO: lost error traceability here, fix this
   |> result.map_error(fn(_) { Nil })
   |> result.try(fn(users) { users |> list.first() })
-  |> result.map_error(fn(_) { user_errors.user_not_found(id) })
+  |> result.map_error(fn(_) { user_errors.user_not_found(id |> id.as_string) })
   |> result.try(fn(user) { user |> users.from_tuple |> Ok })
 }
 
@@ -32,4 +32,19 @@ pub fn find_all() -> Result(List(User), user_errors.UserError) {
     |> Ok
   })
   |> result.map_error(user_errors.from_sql)
+}
+
+pub fn get_by_username(
+  username u: String,
+) -> Result(User, user_errors.UserError) {
+  let q =
+    queries.new_query(queries.Select([]), "users", [
+      where_clauses.new("username", "=", u |> sqlight.text),
+    ])
+
+  sql.ask_with_query(query: q, decoder: users.decoder())
+  |> result.map_error(fn(_) { Nil })
+  |> result.try(fn(users) { users |> list.first() })
+  |> result.map_error(fn(_) { user_errors.user_not_found(u) })
+  |> result.try(fn(user) { user |> users.from_tuple |> Ok })
 }
