@@ -10,7 +10,7 @@ import utils
 
 pub type QueryOperationType {
   Select(QueryableFields)
-  Insert(TableName, FieldNameList, FieldValueList)
+  Insert(FieldNameList, FieldValueList)
   Update(TableName, FieldNameList, FieldValueList)
   Delete(TableName, FieldNameList, FieldValueList)
 }
