@@ -13,6 +13,10 @@ pub fn new_bad_request() -> HttpError {
   RequestError(400, "Bad request")
 }
 
+pub fn new_unauthorized() -> HttpError {
+  RequestError(401, "Unauthorized")
+}
+
 pub fn new_not_found() -> HttpError {
   RequestError(404, "Not found")
 }
