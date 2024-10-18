@@ -3,7 +3,9 @@ import gleam/http/request
 import gleam/http/response
 import gleam/json
 import gleam/list
+import gleam/option
 import http/http_errors as errors
+import http/http_utils
 import http/responses
 import mist
 import users/id
@@ -20,12 +22,10 @@ pub fn handle_get_api(path: List(String), request: request.Request(_)) {
   }
 }
 
-fn find(_request: request.Request(_)) -> response.Response(mist.ResponseData) {
-  // TODO: Implement authentication
-  // request |> request.get_header("Auth")
+fn find(request r: request.Request(_)) -> response.Response(mist.ResponseData) {
+  use <- option.lazy_unwrap(http_utils.authorize(r))
 
   let users = user_finder.find_all()
-
   case users {
     Ok(users) -> {
       let users = users |> list.map(users.to_resource)
