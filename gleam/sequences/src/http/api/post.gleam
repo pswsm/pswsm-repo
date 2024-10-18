@@ -1,3 +1,5 @@
+import auth/auth
+import gleam/bool
 import gleam/dict
 import gleam/http/request
 import gleam/json
@@ -14,6 +16,19 @@ pub fn handle_post_api(
   path path: List(String),
   request req: request.Request(mist.Connection),
 ) {
+  use <- bool.guard(
+    request.get_header(req, "authorization") |> result.is_error,
+    http_errors.new_bad_request() |> http_errors.to_response,
+  )
+
+  let auth_header =
+    request.get_header(req, "authorization") |> result.unwrap("")
+
+  use <- bool.guard(
+    auth.can_access(auth_header) |> bool.negate,
+    http_errors.new_unauthorized() |> http_errors.to_response,
+  )
+
   let path = utils.remove_first(path)
 
   case path {
