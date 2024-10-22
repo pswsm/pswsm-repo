@@ -22,11 +22,7 @@ pub fn auth(username u: String) -> Result(String, AuthError) {
   |> result.map(fn(token) { token |> token.tokenize })
 }
 
-pub fn can_access(string_token t: String) -> Bool {
-  use <- bool.guard(token.from_string(t) |> result.is_error, False)
-  let token =
-    token.from_string(t)
-    |> result.unwrap(token.new("", timestamp.from_millis(0)))
-  use <- bool.guard(token |> token.is_valid |> bool.negate, False)
-  True
+pub fn can_access(token t: token.Token) -> Bool {
+  use <- bool.guard(t |> token.is_valid, True)
+  False
 }
