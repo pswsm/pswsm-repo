@@ -13,18 +13,20 @@ import users/user_errors
 import users/user_finder
 import users/users
 
-pub fn handle_get_api(path: List(String), request: request.Request(_)) {
+pub fn handle_get_api(path: List(String), request r: request.Request(_)) {
+  // TOOD: uncomment below line to enable auth for handler
+  // use <- option.lazy_unwrap(http_utils.authorize(request))
   case path {
-    ["users"] -> find(request)
-    ["users", id] -> get(id)
+    ["users"] -> find(r)
+    ["users", id] -> get(id, r)
+    // TODO: move auth to another handler
     ["auth", username] -> auth(username)
     _ -> errors.new_internal_server_error() |> errors.to_response
   }
 }
 
-fn find(request r: request.Request(_)) -> response.Response(mist.ResponseData) {
-  use <- option.lazy_unwrap(http_utils.authorize(r))
-
+fn find(request: request.Request(_)) -> response.Response(mist.ResponseData) {
+  use <- option.lazy_unwrap(http_utils.authorize(request))
   let users = user_finder.find()
   case users {
     Ok(users) -> {
@@ -41,7 +43,8 @@ fn find(request r: request.Request(_)) -> response.Response(mist.ResponseData) {
   }
 }
 
-pub fn get(id id: String) {
+pub fn get(id id: String, request r: request.Request(_)) {
+  use <- option.lazy_unwrap(http_utils.authorize(r))
   let user = user_finder.get(id |> id.from_string)
 
   case user {
