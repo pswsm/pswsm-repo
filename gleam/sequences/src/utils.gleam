@@ -22,10 +22,10 @@ pub fn extract_last_tuple3(tuple tuple: #(x, y, z)) -> z {
   last
 }
 
-pub fn if_error(r: Result(a, b), then: fn(b) -> c) -> Result(a, c) {
+pub fn if_error(r: Result(a, b), then: fn(b) -> c, otherwise: fn(a) -> c) -> c {
   case r {
-    Ok(a) -> Ok(a)
-    Error(b) -> Error(then(b))
+    Error(b) -> then(b)
+    Ok(a) -> otherwise(a)
   }
 }
 
