@@ -46,16 +46,15 @@ pub fn build(q: Query) -> #(String, List(types.FieldType)) {
               })
               |> string_builder.append(" FROM ")
               |> string_builder.append(table_name)
-              |> string_builder.append(" WHERE ")
               |> fn(builder) {
                 case list.length(wc) {
                   0 -> builder
                   _ ->
-                    string_builder.append(
-                      builder,
+                    string_builder.append(builder, " WHERE ")
+                    |> string_builder.append(
                       wc
-                        |> list.map(fn(c) { c |> where_clauses.to_string() })
-                        |> utils.implode(option.Some(" AND ")),
+                      |> list.map(fn(c) { c |> where_clauses.to_string() })
+                      |> utils.implode(option.Some(" AND ")),
                     )
                 }
               }
