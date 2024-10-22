@@ -1,6 +1,5 @@
 import gleam/list
 import gleam/result
-import infra/infra_errors
 import infra/queries
 import infra/sql
 import infra/where_clauses
@@ -8,6 +7,7 @@ import sqlight
 import users/id
 import users/user_errors
 import users/users.{type User}
+import utils
 
 /// Find a user by id
 pub fn get(id id: id.UserId) -> Result(users.User, user_errors.UserError) {
@@ -24,7 +24,7 @@ pub fn get(id id: id.UserId) -> Result(users.User, user_errors.UserError) {
   |> result.try(fn(user) { user |> users.from_tuple |> Ok })
 }
 
-pub fn find_all() -> Result(List(User), user_errors.UserError) {
+pub fn find() -> Result(List(User), user_errors.UserError) {
   let query = queries.new_query(queries.Select([]), "users", [])
   sql.ask_with_query(query: query, decoder: users.decoder())
   |> result.try(fn(users) {
@@ -32,7 +32,6 @@ pub fn find_all() -> Result(List(User), user_errors.UserError) {
     |> list.map(fn(user) { user |> users.from_tuple })
     |> Ok
   })
-  |> result.map_error(infra_errors.from)
   |> result.map_error(user_errors.from_sql)
 }
 

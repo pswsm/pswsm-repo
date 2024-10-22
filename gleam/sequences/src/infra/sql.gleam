@@ -2,6 +2,7 @@ import gleam/dynamic
 import gleam/io
 import gleam/result
 import infra/infra_errors as errors
+import infra/infra_errors
 import infra/queries
 import sqlight
 
@@ -31,7 +32,7 @@ pub const localdb = LocalDb("localdb")
 
 pub const memory = Memory
 
-@deprecated("Use `ask_with_query` instead, since it's safer")
+@deprecated("Use `ask_with_query` instead")
 pub fn ask(
   query what: String,
   arguments args: List(sqlight.Value),
@@ -48,7 +49,7 @@ pub fn ask(
 pub fn ask_with_query(
   query what: queries.Query,
   decoder format: fn(dynamic.Dynamic) -> Result(a, List(dynamic.DecodeError)),
-) -> Result(List(a), sqlight.Error) {
+) -> Result(List(a), infra_errors.SqlError) {
   let q = what |> queries.build
 
   // TODO: get from env
@@ -59,7 +60,7 @@ pub fn ask_with_query(
   // README: use sqlight args for typesafety
   case sqlight.query(q.0, connection, q.1, format) {
     Ok(result) -> Ok(result)
-    Error(error) -> Error(error)
+    Error(error) -> Error(error |> infra_errors.from)
   }
 }
 

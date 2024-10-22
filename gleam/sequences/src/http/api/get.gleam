@@ -25,7 +25,7 @@ pub fn handle_get_api(path: List(String), request: request.Request(_)) {
 fn find(request r: request.Request(_)) -> response.Response(mist.ResponseData) {
   use <- option.lazy_unwrap(http_utils.authorize(r))
 
-  let users = user_finder.find_all()
+  let users = user_finder.find()
   case users {
     Ok(users) -> {
       let users = users |> list.map(users.to_resource)
