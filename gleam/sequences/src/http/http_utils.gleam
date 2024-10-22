@@ -30,7 +30,7 @@ pub fn authorize(
     |> option.Some
   })
   use <- bool.guard(
-    auth.can_access(token),
+    auth.can_access(token) |> bool.negate,
     http_errors.new_unauthorized()
       |> http_errors.set_message("Token expired")
       |> http_errors.to_response
