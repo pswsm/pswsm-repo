@@ -16,12 +16,14 @@ pub fn get(id id: id.UserId) -> Result(users.User, user_errors.UserError) {
       where_clauses.new("id", "=", id |> id.as_bit_array |> sqlight.blob),
     ])
 
-  sql.ask_with_query(query: q, decoder: users.decoder())
-  // TODO: lost error traceability here, fix this
-  |> result.map_error(fn(_) { Nil })
-  |> result.try(fn(users) { users |> list.first() })
-  |> result.map_error(fn(_) { user_errors.user_not_found(id |> id.as_string) })
-  |> result.try(fn(user) { user |> users.from_tuple |> Ok })
+  use users <- utils.if_error(
+    sql.ask_with_query(query: q, decoder: users.decoder()),
+    fn(xdxd) { user_errors.from_sql(xdxd) |> Error },
+  )
+  use user <- utils.if_error(users |> list.first(), fn(_) {
+    user_errors.user_not_found(id |> id.as_string) |> Error
+  })
+  Ok(user |> users.from_tuple)
 }
 
 pub fn find() -> Result(List(User), user_errors.UserError) {
@@ -43,9 +45,12 @@ pub fn get_by_username(
       where_clauses.new("username", "=", u |> sqlight.text),
     ])
 
-  sql.ask_with_query(query: q, decoder: users.decoder())
-  |> result.map_error(fn(_) { Nil })
-  |> result.try(fn(users) { users |> list.first() })
-  |> result.map_error(fn(_) { user_errors.user_not_found(u) })
-  |> result.try(fn(user) { user |> users.from_tuple |> Ok })
+  use users <- utils.if_error(
+    sql.ask_with_query(query: q, decoder: users.decoder()),
+    fn(xdxd) { user_errors.from_sql(xdxd) |> Error },
+  )
+  use user <- utils.if_error(users |> list.first(), fn(_) {
+    user_errors.user_not_found(u) |> Error
+  })
+  Ok(user |> users.from_tuple)
 }
