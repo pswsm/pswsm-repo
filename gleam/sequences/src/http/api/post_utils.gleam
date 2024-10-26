@@ -26,24 +26,21 @@ pub fn decode_body(
   })
 }
 
-pub fn validate_fields(
+pub fn validate_body_fields(
   d: Result(dict.Dict(String, String), errors.HttpError),
   keys: List(String),
 ) -> Result(dict.Dict(String, String), errors.HttpError) {
   keys
-  |> list.fold(d, fn(acc, key) { validate(acc, key) })
+  |> list.fold(d, fn(acc, key) { validate_body_key(acc, key) })
 }
 
-fn validate(
-  d: Result(dict.Dict(String, String), errors.HttpError),
-  key: String,
+fn validate_body_key(
+  target_dict d: Result(dict.Dict(String, String), errors.HttpError),
+  key key: String,
 ) -> Result(dict.Dict(String, String), errors.HttpError) {
-  case d {
-    Ok(b) ->
-      utils.key_exists(b, key)
-      |> result.map_error(fn(_) {
-        errors.new_bad_request() |> errors.set_message("Missing key: " <> key)
-      })
-    Error(e) -> Error(e)
-  }
+  use target_dict <- utils.if_error(d, fn(e) { Error(e) })
+  use _ <- utils.if_error(utils.get_key(target_dict, key), fn(error_message) {
+    Error(errors.new_bad_request() |> errors.set_message(error_message))
+  })
+  d
 }
