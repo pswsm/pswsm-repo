@@ -1,6 +1,4 @@
-import gleam/dict
 import gleam/http/request
-import gleam/json
 import gleam/option
 import gleam/result
 import http/api/post_utils
@@ -27,31 +25,36 @@ pub fn handle_post_api(
 }
 
 fn handle_post_user(req: request.Request(mist.Connection)) {
-  mist.read_body(req, 1024 * 1024 * 10)
-  |> result.map_error(fn(_) { http_errors.new_bad_request() })
-  |> result.try(post_utils.decode_body)
-  |> post_utils.validate_fields(["id", "password", "username"])
-  |> result.map(fn(user) {
-    users.new(
-      id: dict.get(user, "id") |> result.unwrap("default"),
-      password: dict.get(user, "password") |> result.unwrap("default"),
-      username: dict.get(user, "username") |> result.unwrap("default"),
-    )
+  use body <- utils.if_error(mist.read_body(req, 1024 * 1024 * 10), fn(_) {
+    http_errors.new_bad_request() |> http_errors.to_response
   })
-  |> result.try(fn(user) {
-    users.save(user)
-    |> result.map_error(fn(error) {
-      http_errors.new_internal_server_error()
-      |> http_errors.set_message(error |> user_errors.message)
-    })
+  use decoded_body <- utils.if_error(post_utils.decode_body(body), fn(_) {
+    http_errors.new_bad_request() |> http_errors.to_response
   })
-  |> result.map(fn(_) {
-    responses.base_response()
-    |> responses.with_json_body(
-      json.object([#("message", json.string("User created"))]),
-    )
-    |> responses.to_mist
+  use validated_body <- utils.if_error(
+    post_utils.validate_body_fields(Ok(decoded_body), [
+      "id", "password", "username",
+    ]),
+    fn(error) { error |> http_errors.to_response },
+  )
+  use username <- utils.if_error(
+    utils.get_key(validated_body, "username"),
+    fn(_) { http_errors.new_bad_request() |> http_errors.to_response },
+  )
+  use password <- utils.if_error(
+    utils.get_key(validated_body, "password"),
+    fn(_) { http_errors.new_bad_request() |> http_errors.to_response },
+  )
+  use id <- utils.if_error(utils.get_key(validated_body, "id"), fn(_) {
+    http_errors.new_bad_request() |> http_errors.to_response
   })
-  |> result.map_error(fn(error) { error |> http_errors.to_response })
-  |> result.unwrap_both
+
+  let user = users.new(id, username, password)
+  use _created_user <- utils.if_error(users.save(user), fn(error_message) {
+    http_errors.new_internal_server_error()
+    |> http_errors.set_message(user_errors.message(error_message))
+    |> http_errors.to_response
+  })
+
+  responses.created() |> responses.to_mist
 }
