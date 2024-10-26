@@ -29,14 +29,11 @@ pub fn if_error(r: Result(a, b), then: fn(b) -> c, otherwise: fn(a) -> c) -> c {
   }
 }
 
-pub fn key_exists(d: dict.Dict(a, b), k: a) -> Result(dict.Dict(a, b), String) {
-  case dict.get(d, k) {
-    Ok(_) -> Ok(d)
-    Error(_) ->
-      Error(
-        "Key"
-        <> { dynamic.string(dynamic.from(k)) |> result.unwrap("") }
-        <> "not found",
-      )
-  }
+pub fn get_key(d: dict.Dict(a, b), k: a) -> Result(b, String) {
+  use value <- if_error(dict.get(d, k), fn(_err) {
+    let d_key = dynamic.from(k)
+    { "Key" <> { dynamic.string(d_key) |> result.unwrap("") } <> " not found" }
+    |> Error
+  })
+  Ok(value)
 }
