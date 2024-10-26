@@ -4,9 +4,19 @@ import gleam/json
 import gleam/string_builder
 import mist
 
+@deprecated("Use `ok` instead")
 pub fn base_response() -> response.Response(String) {
   response.new(200)
   |> response.set_header("Content-Type", "application/json")
+}
+
+pub fn ok() -> response.Response(String) {
+  response.new(200)
+  |> response.set_header("Content-Type", "application/json")
+}
+
+pub fn created() -> response.Response(String) {
+  response.new(201)
 }
 
 pub fn with_json_body(
