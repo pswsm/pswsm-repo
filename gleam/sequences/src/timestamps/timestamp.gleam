@@ -1,7 +1,7 @@
 import gleam/erlang
 
 pub opaque type Timestamp {
-  Timestamp(Int)
+  Timestamp(value: Int)
 }
 
 /// Returns the current time as a timestamp in milliseconds.
