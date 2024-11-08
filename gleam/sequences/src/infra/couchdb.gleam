@@ -3,6 +3,7 @@ import gleam/http
 import gleam/http/request
 import gleam/http/response
 import gleam/httpc
+import gleam/int
 import gleam/json.{type Json}
 import gleam/list
 import infra/infra_errors
@@ -16,7 +17,7 @@ fn handle_response_codes(
     200 -> Ok(res.body)
     201 -> Ok(res.body)
     401 -> Error(infra_errors.new_permissions_error("Missing permissions"))
-    404 -> Error(infra_errors.new_read_error(res.body))
+    404 -> Error(infra_errors.new_not_found_error(res.body))
     _ -> Error(infra_errors.new_read_error(res.body))
   }
 }
@@ -27,16 +28,31 @@ pub fn get_doc(
   matching pattern: #(String, String),
 ) -> Result(String, infra_errors.InfrastructureError) {
   use auth <- authenticate()
-  use req <- utils.if_error(
-    request.to(uri <> "/" <> db <> "/" <> pattern.1),
-    fn(_) { Error(infra_errors.new_read_error("Failed to create request")) },
-  )
+  use req <- utils.if_error(request.to(uri <> "/" <> db <> "/_find"), fn(_) {
+    Error(infra_errors.new_read_error("Failed to create request"))
+  })
   let req_with_headers =
     request.prepend_header(req, "accept", "application/json")
+    |> request.prepend_header("content-type", "application/json")
     |> request.set_cookie("AuthSession", auth.1)
+    |> request.set_method(http.Post)
+    |> request.set_body(
+      [
+        #(
+          "selector",
+          [#(pattern.0, pattern.1 |> json.string)]
+            |> json.object,
+        ),
+      ]
+      |> json.object
+      |> json.to_string,
+    )
+  logger.debug(req_with_headers.body)
   use res <- utils.if_error(httpc.send(req_with_headers), fn(_) {
     Error(infra_errors.new_read_error("Failed to get response"))
   })
+  logger.debug(res.body)
+  logger.debug(res.status |> int.to_string)
   handle_response_codes(res)
 }
 
