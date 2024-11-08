@@ -1,7 +1,7 @@
 import infra/infra_errors
 
 pub opaque type UserError {
-  UserNotFound(String)
+  UserNotFound(message: String)
   GenericUserError(message: String)
 }
 
@@ -9,7 +9,11 @@ pub fn user_not_found(identifier id: String) -> UserError {
   UserNotFound(id)
 }
 
-pub fn from_sql(error: infra_errors.SqlError) -> UserError {
+pub fn generic_user_error(message: String) -> UserError {
+  GenericUserError(message)
+}
+
+pub fn from_sql(error: infra_errors.InfrastructureError) -> UserError {
   infra_errors.get_message(error) |> GenericUserError
 }
 
