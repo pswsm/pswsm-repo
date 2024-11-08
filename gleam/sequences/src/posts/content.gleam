@@ -1,5 +1,5 @@
 pub opaque type Content {
-  Content(String)
+  Content(value: String)
 }
 
 pub fn new(content: String) -> Content {
@@ -7,7 +7,5 @@ pub fn new(content: String) -> Content {
 }
 
 pub fn value_of(content: Content) -> String {
-  case content {
-    Content(value) -> value
-  }
+  content.value
 }
