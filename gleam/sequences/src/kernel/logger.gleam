@@ -9,23 +9,23 @@ pub opaque type Severity {
   Error(value: String, level: logging.LogLevel)
 }
 
-pub fn debug() -> Severity {
-  Debug("debug", logging.Debug)
+pub fn debug(message to_log: String) -> String {
+  Debug("debug", logging.Debug) |> log(to_log)
 }
 
-pub fn info() -> Severity {
-  Info("info", logging.Info)
+pub fn info(message to_log: String) -> String {
+  Info("info", logging.Info) |> log(to_log)
 }
 
-pub fn warning() -> Severity {
-  Warning("warning", logging.Warning)
+pub fn warning(message to_log: String) -> String {
+  Warning("warning", logging.Warning) |> log(to_log)
 }
 
-pub fn error() -> Severity {
-  Error("error", logging.Error)
+pub fn error(message to_log: String) -> String {
+  Error("error", logging.Error) |> log(to_log)
 }
 
-pub fn log(with severity: Severity, log message: String) -> Nil {
+fn log(with severity: Severity, log message: String) -> String {
   let message_builder =
     json.to_string_builder(
       json.object([
@@ -33,5 +33,7 @@ pub fn log(with severity: Severity, log message: String) -> Nil {
         #("message", json.string(message)),
       ]),
     )
-  logging.log(severity.level, message_builder |> string_builder.to_string)
+  let message = message_builder |> string_builder.to_string
+  logging.log(severity.level, message)
+  message
 }
