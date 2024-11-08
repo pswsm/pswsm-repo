@@ -65,7 +65,7 @@ fn authenticate(
 ) -> Result(b, infra_errors.InfrastructureError) {
   let assert Ok(auth_base_uri) = os.get_env("COUCHDB_URI")
   let auth_uri = auth_base_uri <> "/_session"
-  logger.debug() |> logger.log("authenticating with uri: " <> auth_uri)
+  logger.debug("authenticating with uri: " <> auth_uri)
   use req <- utils.if_error(request.to(auth_uri), fn(_) {
     Error(infra_errors.unknown_error("failed to authenticate"))
   })

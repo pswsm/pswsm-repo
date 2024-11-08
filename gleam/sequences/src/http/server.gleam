@@ -33,8 +33,7 @@ fn handle(
   path p: List(String),
   request r: request.Request(mist.Connection),
 ) -> response.Response(mist.ResponseData) {
-  logger.info()
-  |> logger.log(
+  logger.info(
     http.method_to_string(m) |> string.uppercase
     <> " "
     <> p |> utils.implode(option.Some("/")),
