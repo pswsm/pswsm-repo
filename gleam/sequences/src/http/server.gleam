@@ -2,9 +2,12 @@ import gleam/erlang/process
 import gleam/http
 import gleam/http/request
 import gleam/http/response
+import gleam/option
+import gleam/string
 import http/api/get
 import http/api/post
 import http/http_errors
+import kernel/logger
 import mist
 import utils
 
@@ -30,6 +33,12 @@ fn handle(
   path p: List(String),
   request r: request.Request(mist.Connection),
 ) -> response.Response(mist.ResponseData) {
+  logger.info()
+  |> logger.log(
+    http.method_to_string(m) |> string.uppercase
+    <> " "
+    <> p |> utils.implode(option.Some("/")),
+  )
   case m, p {
     http.Get, ["api", ..] -> get.handle_get_api(p |> utils.remove_first, r)
     http.Post, ["api", ..] -> post.handle_post_api(p, r)
