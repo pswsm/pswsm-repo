@@ -9,6 +9,11 @@ pub opaque type HttpError {
   ServerError(code: Int, message: String)
 }
 
+pub fn bad_request(message: String) -> HttpError {
+  RequestError(400, message)
+}
+
+@deprecated("Use `bad_request` instead")
 pub fn new_bad_request() -> HttpError {
   RequestError(400, "Bad request")
 }
