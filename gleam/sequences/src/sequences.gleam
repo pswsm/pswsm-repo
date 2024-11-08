@@ -1,5 +1,8 @@
-import http/server
+import dotenv_gleam
+import kernel/kernel
 
 pub fn main() {
-  server.run(3000)
+  dotenv_gleam.config()
+  kernel.start_logs()
+  kernel.start_server()
 }
