@@ -1,31 +1,29 @@
 import gleam/bit_array
 import gleam/json
-import gleam/result
 
 pub opaque type UserId {
-  UserId(BitArray)
+  UserId(value: String)
 }
 
 pub fn from_string(raw_id: String) -> UserId {
-  UserId(raw_id |> bit_array.from_string)
-}
-
-pub fn from_bit_array(raw_id: BitArray) -> UserId {
   UserId(raw_id)
 }
 
+@deprecated("Use `value_of` instead")
 pub fn as_string(id: UserId) -> String {
-  case id {
-    UserId(id) -> id |> bit_array.to_string |> result.unwrap("-1")
-  }
-}
-
-pub fn as_bit_array(id: UserId) -> BitArray {
   case id {
     UserId(id) -> id
   }
 }
 
+pub fn as_bit_array(id: UserId) -> BitArray {
+  id.value |> bit_array.from_string
+}
+
 pub fn to_json(id: UserId) -> json.Json {
-  as_string(id) |> json.string
+  value_of(id) |> json.string
+}
+
+pub fn value_of(id: UserId) -> String {
+  id.value
 }
