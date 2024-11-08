@@ -22,18 +22,44 @@ pub fn extract_last_tuple3(tuple tuple: #(x, y, z)) -> z {
   last
 }
 
-pub fn if_error(r: Result(a, b), then: fn(b) -> c, otherwise: fn(a) -> c) -> c {
+pub fn if_error(
+  on r: Result(a, b),
+  then do: fn(b) -> c,
+  otherwise execute: fn(a) -> c,
+) -> c {
   case r {
-    Error(b) -> then(b)
-    Ok(a) -> otherwise(a)
+    Error(b) -> do(b)
+    Ok(a) -> execute(a)
+  }
+}
+
+pub fn is_empty(
+  this list: List(a),
+  then do: fn() -> c,
+  otherwise execute: fn(List(a)) -> c,
+) -> c {
+  case list {
+    [] -> do()
+    [_, ..] -> execute(list)
   }
 }
 
 pub fn get_key(d: dict.Dict(a, b), k: a) -> Result(b, String) {
   use value <- if_error(dict.get(d, k), fn(_err) {
     let d_key = dynamic.from(k)
-    { "Key" <> { dynamic.string(d_key) |> result.unwrap("") } <> " not found" }
+    { "Key " <> { dynamic.string(d_key) |> result.unwrap("") } <> " not found" }
     |> Error
   })
   Ok(value)
+}
+
+pub fn if_none(
+  on o: option.Option(a),
+  then do: fn() -> b,
+  otherwise execute: fn(a) -> b,
+) -> b {
+  case o {
+    option.None -> do()
+    option.Some(a) -> execute(a)
+  }
 }
