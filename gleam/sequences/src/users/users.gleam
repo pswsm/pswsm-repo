@@ -36,7 +36,15 @@ pub fn from_primitves(
   )
 }
 
-pub fn to_primitives(user: User) {
+/// Convert a user to a JSON-compatible object
+///
+/// Example:
+/// ```gleam
+/// let user = new("alice", "password")
+/// to_primitives(user)
+/// // -> [{"_id": "alice", "password": "password", "created_at": 123456789}]
+/// ```
+pub fn to_primitives(this user: User) {
   [
     #("_id", get_username(user) |> username.value_of |> json.string),
     #("password", get_password(user) |> password.value_of |> json.string),
