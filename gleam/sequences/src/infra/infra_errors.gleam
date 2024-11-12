@@ -3,7 +3,7 @@ pub opaque type InfrastructureError {
   ReadError(message: String)
   PermissionsError(message: String)
   UknownError(message: String)
-  NotFundError(message: String)
+  NotFoundError(message: String)
 }
 
 pub fn new_save_error(info message: String) -> InfrastructureError {
@@ -27,5 +27,5 @@ pub fn get_message(error: InfrastructureError) -> String {
 }
 
 pub fn new_not_found_error(info message: String) -> InfrastructureError {
-  NotFundError(message)
+  NotFoundError(message)
 }

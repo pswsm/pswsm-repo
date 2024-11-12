@@ -9,8 +9,7 @@ pub opaque type Infraestructura {
 }
 
 pub fn connect_couch(use_callback cb: fn(Infraestructura) -> a) -> a {
-  let infra = CouchDB("http://localhost:5984")
-  cb(infra)
+  CouchDB("http://localhost:5984") |> cb
 }
 
 pub fn get(
@@ -21,9 +20,7 @@ pub fn get(
   case infra {
     CouchDB(uri) -> {
       couchdb.get_doc(uri, db, what)
-      |> result.map_error(fn(infra_error) {
-        infra_errors.get_message(infra_error)
-      })
+      |> result.map_error(infra_errors.get_message(_))
     }
   }
 }
@@ -35,9 +32,7 @@ pub fn persist(
   case infra {
     CouchDB(uri) -> {
       couchdb.persist_doc(uri, doc)
-      |> result.map_error(fn(infra_error) {
-        infra_errors.get_message(infra_error)
-      })
+      |> result.map_error(infra_errors.get_message(_))
     }
   }
 }
