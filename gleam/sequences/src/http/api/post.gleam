@@ -5,8 +5,11 @@ import http/http_errors
 import http/http_utils
 import http/responses
 import mist
+import users/id
+import users/password
 import users/user_errors
 import users/user_saver
+import users/username
 import users/users
 import utils
 
@@ -33,16 +36,25 @@ fn handle_post_user(req: request.Request(mist.Connection)) {
     post_utils.decode_body(body),
     http_errors.to_response,
   )
-  use username <- utils.if_error(
+  use id <- utils.if_error(
     utils.get_key(decoded_body, "id"),
     post_utils.get_key_error,
   )
-  use password <- utils.if_error(
+  use username <- utils.if_error(
+    utils.get_key(decoded_body, "username"),
+    post_utils.get_key_error,
+  )
+  use raw_password <- utils.if_error(
     utils.get_key(decoded_body, "password"),
     post_utils.get_key_error,
   )
 
-  let user = users.new(username, password)
+  use password <- utils.if_error(password.new(raw_password), fn(_) {
+    http_errors.bad_request(option.Some("invalid password"))
+    |> http_errors.to_response
+  })
+
+  let user = users.new(id.from_string(id), username.new(username), password)
 
   use _saved_user <- utils.if_error(user_saver.save(user), fn(error) {
     http_errors.new_internal_server_error()

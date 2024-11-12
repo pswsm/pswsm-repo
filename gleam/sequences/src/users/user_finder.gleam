@@ -7,9 +7,10 @@ import users/users
 import utils
 
 fn primitive_decoder() {
-  dynamic.decode3(
+  dynamic.decode4(
     users.from_primitves,
     dynamic.field("_id", dynamic.string),
+    dynamic.field("username", dynamic.string),
     dynamic.field("password", dynamic.string),
     dynamic.field("created_at", dynamic.int),
   )
@@ -28,5 +29,5 @@ pub fn get_by_username(
     json.decode(from: document, using: primitive_decoder()),
     fn(_) { Error(user_errors.user_not_found("User not found")) },
   )
-  Ok(user)
+  user
 }
