@@ -3,7 +3,6 @@ import gleam/http
 import gleam/http/request
 import gleam/http/response
 import gleam/httpc
-import gleam/int
 import gleam/json.{type Json}
 import gleam/list
 import infra/infra_errors
@@ -47,12 +46,9 @@ pub fn get_doc(
       |> json.object
       |> json.to_string,
     )
-  logger.debug(req_with_headers.body)
   use res <- utils.if_error(httpc.send(req_with_headers), fn(_) {
     Error(infra_errors.new_read_error("Failed to get response"))
   })
-  logger.debug(res.body)
-  logger.debug(res.status |> int.to_string)
   handle_response_codes(res)
 }
 
@@ -76,10 +72,12 @@ pub fn persist_doc(
 }
 
 fn authenticate(
-  cont callback: fn(#(String, String)) ->
+  continue callback: fn(#(String, String)) ->
     Result(b, infra_errors.InfrastructureError),
 ) -> Result(b, infra_errors.InfrastructureError) {
   let assert Ok(auth_base_uri) = os.get_env("COUCHDB_URI")
+  let assert Ok(couchdb_username) = os.get_env("COUCHDB_USERNAME")
+  let assert Ok(couchdb_password) = os.get_env("COUCHDB_PASSWORD")
   let auth_uri = auth_base_uri <> "/_session"
   logger.debug("authenticating with uri: " <> auth_uri)
   use req <- utils.if_error(request.to(auth_uri), fn(_) {
@@ -92,7 +90,9 @@ fn authenticate(
       "application/x-www-form-urlencoded;charset=utf-8",
     )
     |> request.prepend_header("accept", "application/json")
-    |> request.set_body("name=admin&password=admin_password")
+    |> request.set_body(
+      "name=" <> couchdb_username <> "&password=" <> couchdb_password,
+    )
     |> request.set_method(http.Post)
 
   use res <- utils.if_error(httpc.send(prepared_request), fn(_) {
