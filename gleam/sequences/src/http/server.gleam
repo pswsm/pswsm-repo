@@ -39,7 +39,7 @@ fn handle(
     <> p |> utils.implode(option.Some("/")),
   )
   case m, p {
-    http.Get, ["api", ..] -> get.handle_get_api(p |> utils.remove_first, r)
+    http.Get, ["api", ..] -> get.handle_get_api(p, r)
     http.Post, ["api", ..] -> post.handle_post_api(p, r)
     _, _ -> http_errors.new_not_found() |> http_errors.to_response
   }

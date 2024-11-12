@@ -21,18 +21,18 @@ pub fn authorize(
   request r: request.Request(mist.Connection),
 ) -> option.Option(response.Response(mist.ResponseData)) {
   use header <- utils.if_error(request.get_header(r, "authorization"), fn(_) {
-    http_errors.new_bad_request() |> http_errors.to_response |> option.Some
+    http_errors.bad_request(option.None)
+    |> http_errors.to_response
+    |> option.Some
   })
   use token <- utils.if_error(token.from_string(header), fn(message) {
-    http_errors.new_unauthorized()
-    |> http_errors.set_message(message)
+    http_errors.unauthorized(option.Some(message))
     |> http_errors.to_response
     |> option.Some
   })
   use <- bool.guard(
     auth.can_access(token) |> bool.negate,
-    http_errors.new_unauthorized()
-      |> http_errors.set_message("Token expired")
+    http_errors.unauthorized(option.Some("token expired"))
       |> http_errors.to_response
       |> option.Some,
   )

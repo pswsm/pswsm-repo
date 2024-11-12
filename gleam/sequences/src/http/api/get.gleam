@@ -12,6 +12,7 @@ import users/users
 import utils
 
 pub fn handle_get_api(path: List(String), request r: request.Request(_)) {
+  let path = path |> utils.remove_first
   case path {
     ["users", id] -> get(id, r)
     ["auth", username] -> auth(username)

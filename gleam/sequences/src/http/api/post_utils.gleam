@@ -5,6 +5,7 @@ import gleam/http/response
 import gleam/int
 import gleam/json
 import gleam/list
+import gleam/option
 import gleam/result
 import http/http_errors as errors
 import mist
@@ -23,7 +24,7 @@ pub fn decode_body(
       ]),
     ),
   )
-  |> result.map_error(fn(_) { errors.bad_request("Invalid JSON") })
+  |> result.map_error(fn(_) { errors.bad_request(option.Some("Invalid JSON")) })
 }
 
 pub fn validate_body_fields(
@@ -39,8 +40,8 @@ fn validate_body_key(
   key key: String,
 ) -> Result(dict.Dict(String, String), errors.HttpError) {
   use target_dict <- utils.if_error(d, fn(e) { Error(e) })
-  use _ <- utils.if_error(utils.get_key(target_dict, key), fn(error_message) {
-    Error(errors.bad_request(error_message))
+  use _ <- utils.if_error(utils.get_key(target_dict, key), fn(e) {
+    Error(errors.bad_request(option.Some(e)))
   })
   d
 }
@@ -48,6 +49,6 @@ fn validate_body_key(
 pub fn get_key_error(
   message error: String,
 ) -> response.Response(mist.ResponseData) {
-  errors.bad_request(error)
+  errors.bad_request(option.Some(error))
   |> errors.to_response
 }
