@@ -10,7 +10,10 @@ pub fn get_by_username(
   use infra <- infraestructura.connect_couch()
   use user <- utils.if_error(
     infra
-      |> infraestructura.get("users", #("username", username.value_of(username))),
+      |> infraestructura.find("users", #(
+        "username",
+        username.value_of(username),
+      )),
     fn(error) { Error(user_errors.user_not_found(error)) },
   )
   user |> Ok
