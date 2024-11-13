@@ -1,13 +1,10 @@
 import gleam/dynamic
-import gleam/int
 import gleam/json
-import gleam/result
-import gleam/string
-import gleam/string_builder
 import gwt
 import timestamps
 import users/id
 import users/username
+import users/users
 import utils
 
 pub opaque type Token {
@@ -19,11 +16,10 @@ pub opaque type Token {
 }
 
 pub fn new(
-  user_id id: id.UserId,
-  user_name username: username.Username,
+  for user: users.User,
   valid_till expiry: timestamps.Timestamp,
 ) -> Token {
-  Token(id, username, expiry)
+  Token(users.get_id(user), users.get_username(user), expiry)
 }
 
 fn get_id(token t: Token) -> id.UserId {
@@ -36,19 +32,6 @@ fn get_username(token t: Token) -> username.Username {
 
 fn get_expiry(token t: Token) -> timestamps.Timestamp {
   t.expiry
-}
-
-@deprecated("Use `to_jwt` instead")
-pub fn tokenize(token: Token) -> String {
-  token
-  |> get_id
-  |> id.value_of
-  |> string_builder.from_string
-  |> string_builder.append(".")
-  |> string_builder.append(get_username(token) |> username.value_of)
-  |> string_builder.append(".")
-  |> string_builder.append(get_expiry(token) |> timestamps.to_string)
-  |> string_builder.to_string
 }
 
 pub fn to_jwt(token: Token) -> String {
@@ -68,18 +51,6 @@ pub fn to_jwt(token: Token) -> String {
 
 pub fn is_valid(token t: Token) -> Bool {
   t |> get_expiry |> timestamps.is_future
-}
-
-pub fn from_string(token: String) -> Result(Token, String) {
-  let parts = token |> string.split(".")
-  case parts {
-    [id, username, expiry] -> {
-      let expiry =
-        expiry |> int.parse |> result.unwrap(0) |> timestamps.from_millis
-      Ok(Token(id.from_string(id), username.new(username), expiry))
-    }
-    _ -> Error("Invalid token")
-  }
 }
 
 pub fn from_jwt(jwt: String) -> Result(Token, String) {
