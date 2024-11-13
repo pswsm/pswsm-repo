@@ -16,7 +16,7 @@ pub fn new(password: String) -> Result(Password, PasswordError) {
   hashed_password |> Password |> Ok
 }
 
-pub fn from(f: a, transform: fn(a) -> String) {
+pub fn from(f: a, transform: fn(a) -> String) -> Password {
   Password(transform(f))
 }
 
