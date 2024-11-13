@@ -1,10 +1,10 @@
+import gleam/dynamic
 import gleam/json
 import timestamps
 import users/id
 import users/password
 import users/user_errors as errors
 import users/username
-import utils
 
 pub opaque type User {
   User(
@@ -28,12 +28,22 @@ pub fn get_id(user: User) -> id.UserId {
   user.user_id
 }
 
-fn get_password(user: User) -> password.Password {
+pub fn get_password(user: User) -> password.Password {
   user.password
 }
 
 pub fn get_username(user: User) -> username.Username {
   user.username
+}
+
+pub fn primitive_decoder() {
+  dynamic.decode4(
+    from_primitves,
+    dynamic.field("_id", dynamic.string),
+    dynamic.field("username", dynamic.string),
+    dynamic.field("password", dynamic.string),
+    dynamic.field("created_at", dynamic.int),
+  )
 }
 
 pub fn from_primitves(
@@ -42,9 +52,7 @@ pub fn from_primitves(
   password: String,
   created_at: Int,
 ) -> Result(User, errors.UserError) {
-  use password <- utils.if_error(password.new(password), fn(_) {
-    Error(errors.generic_user_error("Invalid password"))
-  })
+  let password = password.from(password, fn(p) { p })
   User(
     id.from_string(id),
     username.new(username),
