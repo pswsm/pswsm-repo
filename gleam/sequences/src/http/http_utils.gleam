@@ -27,7 +27,15 @@ pub fn authorize(
     |> http_errors.to_response
     |> option.Some
   })
-  use token <- utils.if_error(token.from_jwt(header), fn(message) {
+  use #(_, header_token) <- utils.if_error(
+    header |> string.split_once(" "),
+    fn(_) {
+      http_errors.bad_request(option.Some("invalid authorization header"))
+      |> http_errors.to_response
+      |> option.Some
+    },
+  )
+  use token <- utils.if_error(token.from_jwt(header_token), fn(message) {
     http_errors.unauthorized(option.Some(message))
     |> http_errors.to_response
     |> option.Some
