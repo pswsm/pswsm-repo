@@ -22,6 +22,10 @@ pub fn not_found(message: option.Option(String)) -> HttpError {
   RequestError(404, message)
 }
 
+pub fn forbidden(message: option.Option(String)) -> HttpError {
+  RequestError(403, message)
+}
+
 @deprecated("Use `bad_request` instead")
 pub fn new_bad_request() -> HttpError {
   RequestError(400, option.Some("Bad request"))

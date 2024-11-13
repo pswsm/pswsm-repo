@@ -1,9 +1,11 @@
 import auth/auth
 import auth/token
 import gleam/bool
+import gleam/http
 import gleam/http/request
 import gleam/http/response
 import gleam/option
+import gleam/string
 import http/http_errors
 import mist
 import utils
@@ -25,7 +27,7 @@ pub fn authorize(
     |> http_errors.to_response
     |> option.Some
   })
-  use token <- utils.if_error(token.from_string(header), fn(message) {
+  use token <- utils.if_error(token.from_jwt(header), fn(message) {
     http_errors.unauthorized(option.Some(message))
     |> http_errors.to_response
     |> option.Some
@@ -37,4 +39,13 @@ pub fn authorize(
       |> option.Some,
   )
   option.None
+}
+
+pub fn method_not_allowed(
+  req: request.Request(_),
+) -> response.Response(mist.ResponseData) {
+  let method = req.method |> http.method_to_string |> string.uppercase
+  let path = req.path
+  http_errors.bad_request(option.Some("cannot " <> method <> " " <> path))
+  |> http_errors.to_response
 }
