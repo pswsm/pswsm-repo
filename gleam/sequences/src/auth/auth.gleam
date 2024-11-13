@@ -1,31 +1,40 @@
 import auth/token
+import ffi/verify
 import gleam/bool
-import gleam/erlang
-import gleam/result
+import kernel/logger
 import timestamps
-import users/user_errors
-import users/user_finder
-import users/username
+import users/password
 import users/users
+import utils
 
 pub type AuthError {
-  AuthError(String)
+  AuthError(message: String)
 }
 
-pub fn auth(username u: String) -> Result(String, AuthError) {
-  let current_time =
-    erlang.system_time(erlang.Millisecond) |> timestamps.from_millis
+pub fn get_message(from error: AuthError) -> String {
+  error.message
+}
 
-  user_finder.get_by_username(username.new(u))
-  |> result.map_error(fn(error) { AuthError(user_errors.message(error)) })
-  |> result.map(fn(user) {
-    token.new(
-      user |> users.get_id,
-      user |> users.get_username,
-      current_time |> timestamps.add_hours(12),
-    )
-  })
-  |> result.map(fn(token) { token |> token.to_jwt })
+pub fn auth(
+  user u: users.User,
+  password p: password.Password,
+) -> Result(String, AuthError) {
+  let user_password = users.get_password(u)
+  let validity: timestamps.Timestamp =
+    timestamps.new() |> timestamps.add_hours(1)
+
+  use verify_result <- utils.if_error(
+    verify.verify(password.value_of(p), password.value_of(user_password)),
+    fn(e) {
+      logger.debug(e)
+      AuthError("could not verify password") |> Error
+    },
+  )
+
+  case verify_result {
+    True -> token.new(u, validity) |> token.to_jwt |> Ok
+    False -> AuthError("password incorrect") |> Error
+  }
 }
 
 pub fn can_access(token t: token.Token) -> Bool {
