@@ -21,7 +21,7 @@ fn handle_response_codes(
   }
 }
 
-pub fn get_doc(
+pub fn find_doc(
   from uri: String,
   on db: String,
   matching pattern: #(String, String),
