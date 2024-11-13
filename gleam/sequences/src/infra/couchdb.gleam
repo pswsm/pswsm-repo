@@ -5,6 +5,8 @@ import gleam/http/response
 import gleam/httpc
 import gleam/json.{type Json}
 import gleam/list
+import infra/couchdb/find
+import infra/couchdb/get
 import infra/infra_errors
 import kernel/logger
 import utils
@@ -21,34 +23,23 @@ fn handle_response_codes(
   }
 }
 
-pub fn find_doc(
+pub fn find(
   from uri: String,
   on db: String,
   matching pattern: #(String, String),
 ) -> Result(String, infra_errors.InfrastructureError) {
-  use auth <- authenticate()
-  use req <- utils.if_error(request.to(uri <> "/" <> db <> "/_find"), fn(_) {
-    Error(infra_errors.new_read_error("Failed to create request"))
-  })
-  let req_with_headers =
-    request.prepend_header(req, "accept", "application/json")
-    |> request.prepend_header("content-type", "application/json")
-    |> request.set_cookie("AuthSession", auth.1)
-    |> request.set_method(http.Post)
-    |> request.set_body(
-      [
-        #(
-          "selector",
-          [#(pattern.0, pattern.1 |> json.string)]
-            |> json.object,
-        ),
-      ]
-      |> json.object
-      |> json.to_string,
-    )
-  use res <- utils.if_error(httpc.send(req_with_headers), fn(_) {
-    Error(infra_errors.new_read_error("Failed to get response"))
-  })
+  use #(_, cookie) <- authenticate()
+  use res <- utils.if_error(find.document(uri, db, pattern, cookie), Error(_))
+  handle_response_codes(res)
+}
+
+pub fn get(
+  from uri: String,
+  on db: String,
+  matching id: String,
+) -> Result(String, infra_errors.InfrastructureError) {
+  use #(_, cookie) <- authenticate()
+  use res <- utils.if_error(get.document(uri, db, id, cookie), Error(_))
   handle_response_codes(res)
 }
 
@@ -71,7 +62,7 @@ pub fn persist_doc(
   handle_response_codes(res)
 }
 
-fn authenticate(
+pub fn authenticate(
   continue callback: fn(#(String, String)) ->
     Result(b, infra_errors.InfrastructureError),
 ) -> Result(b, infra_errors.InfrastructureError) {
