@@ -41,6 +41,6 @@ fn handle(
   case m, p {
     http.Get, ["api", ..] -> get.handle_get_api(p, r)
     http.Post, ["api", ..] -> post.handle_post_api(p, r)
-    _, _ -> http_errors.new_not_found() |> http_errors.to_response
+    _, _ -> http_errors.not_found(option.None) |> http_errors.to_response
   }
 }

@@ -18,6 +18,10 @@ pub fn unauthorized(message: option.Option(String)) -> HttpError {
   RequestError(401, message)
 }
 
+pub fn not_found(message: option.Option(String)) -> HttpError {
+  RequestError(404, message)
+}
+
 @deprecated("Use `bad_request` instead")
 pub fn new_bad_request() -> HttpError {
   RequestError(400, option.Some("Bad request"))
@@ -28,6 +32,7 @@ pub fn new_unauthorized() -> HttpError {
   RequestError(401, option.Some("Unauthorized"))
 }
 
+@deprecated("Use `not_found` instead")
 pub fn new_not_found() -> HttpError {
   RequestError(404, option.Some("Not found"))
 }
