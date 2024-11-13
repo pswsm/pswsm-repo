@@ -44,13 +44,17 @@ pub fn is_empty(
   }
 }
 
-pub fn get_key(d: dict.Dict(a, b), k: a) -> Result(b, String) {
+pub fn get_key(
+  from d: dict.Dict(a, b),
+  key k: a,
+  parse with: fn(b) -> c,
+) -> Result(c, String) {
   use value <- if_error(dict.get(d, k), fn(_err) {
     let d_key = dynamic.from(k)
     { "Key " <> { dynamic.string(d_key) |> result.unwrap("") } <> " not found" }
     |> Error
   })
-  Ok(value)
+  Ok(value |> with)
 }
 
 pub fn if_none(
