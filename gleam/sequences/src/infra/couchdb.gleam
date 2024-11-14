@@ -5,6 +5,7 @@ import gleam/http/response
 import gleam/httpc
 import gleam/json.{type Json}
 import gleam/list
+import infra/couchdb/create
 import infra/couchdb/find
 import infra/couchdb/get
 import infra/infra_errors
@@ -17,19 +18,18 @@ fn handle_response_codes(
   case res.status {
     200 -> Ok(res.body)
     201 -> Ok(res.body)
-    401 -> Error(infra_errors.new_permissions_error("Missing permissions"))
-    404 -> Error(infra_errors.new_not_found_error(res.body))
-    _ -> Error(infra_errors.new_read_error(res.body))
+    401 -> Error(infra_errors.PermissionsError("Missing permissions"))
+    404 -> Error(infra_errors.NotFoundError(res.body))
+    _ -> Error(infra_errors.ReadError(res.body))
   }
 }
 
 pub fn find(
   from uri: String,
-  on db: String,
   matching pattern: #(String, String),
 ) -> Result(String, infra_errors.InfrastructureError) {
   use #(_, cookie) <- authenticate()
-  use res <- utils.if_error(find.document(uri, db, pattern, cookie), Error(_))
+  use res <- utils.interrogant(find.document(uri, pattern, cookie))
   handle_response_codes(res)
 }
 
@@ -39,7 +39,7 @@ pub fn get(
   matching id: String,
 ) -> Result(String, infra_errors.InfrastructureError) {
   use #(_, cookie) <- authenticate()
-  use res <- utils.if_error(get.document(uri, db, id, cookie), Error(_))
+  use res <- utils.interrogant(get.document(uri, db, id, cookie))
   handle_response_codes(res)
 }
 
@@ -47,18 +47,8 @@ pub fn persist_doc(
   to uri: String,
   this document: Json,
 ) -> Result(String, infra_errors.InfrastructureError) {
-  use auth <- authenticate()
-  use req <- utils.if_error(request.to(uri), fn(_) {
-    Error(infra_errors.new_save_error("Failed to create request"))
-  })
-  let req_with_headers =
-    request.prepend_header(req, "content-type", "application/json")
-    |> request.prepend_header("accept", "application/json")
-    |> request.set_body(document |> json.to_string)
-    |> request.set_cookie("AuthSession", auth.1)
-  use res <- utils.if_error(httpc.send(req_with_headers), fn(_) {
-    Error(infra_errors.new_save_error("Failed to get response"))
-  })
+  use #(_, auth) <- authenticate()
+  use res <- utils.interrogant(create.document(document, uri, auth))
   handle_response_codes(res)
 }
 
@@ -72,26 +62,26 @@ pub fn authenticate(
   let auth_uri = auth_base_uri <> "/_session"
   logger.debug("authenticating with uri: " <> auth_uri)
   use req <- utils.if_error(request.to(auth_uri), fn(_) {
-    Error(infra_errors.unknown_error("failed to authenticate"))
+    Error(infra_errors.UknownError("failed to authenticate"))
   })
   let prepared_request =
     req
+    |> request.set_method(http.Post)
+    |> request.prepend_header("accept", "application/json")
     |> request.prepend_header(
       "content-type",
       "application/x-www-form-urlencoded;charset=utf-8",
     )
-    |> request.prepend_header("accept", "application/json")
     |> request.set_body(
       "name=" <> couchdb_username <> "&password=" <> couchdb_password,
     )
-    |> request.set_method(http.Post)
 
   use res <- utils.if_error(httpc.send(prepared_request), fn(_) {
-    Error("failed to get response" |> infra_errors.unknown_error)
+    Error("failed to get response" |> infra_errors.UknownError)
   })
 
   use cookie <- utils.if_error(response.get_cookies(res) |> list.first, fn(_) {
-    Error("failed to get cookie" |> infra_errors.unknown_error)
+    Error("failed to get cookie" |> infra_errors.UknownError)
   })
 
   callback(cookie)
