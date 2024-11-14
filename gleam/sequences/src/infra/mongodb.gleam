@@ -16,10 +16,10 @@ pub fn get_doc(
   let collection = mungo.collection(connection, collection)
   use maybe_document <- utils.if_error(
     mungo.find_one(collection, [data], [], 500),
-    fn(_) { Error(infra_errors.new_read_error("Failed to find")) },
+    fn(_) { Error(infra_errors.ReadError("Failed to find")) },
   )
   use document <- utils.if_none(maybe_document, fn() {
-    Error(infra_errors.new_read_error("Document not found"))
+    Error(infra_errors.ReadError("Document not found"))
   })
   io.debug("Found document: ")
   io.debug(document)
@@ -33,7 +33,7 @@ pub fn persist_doc(
   io.debug("Persisting document on " <> uri)
   // use auth <- authenticate()
   use req <- utils.if_error(request.to(uri), fn(_) {
-    Error(infra_errors.new_save_error("Failed to create request"))
+    Error(infra_errors.SaveError("Failed to create request"))
   })
   let req_with_headers =
     request.prepend_header(req, "content-type", "application/json")
@@ -41,9 +41,9 @@ pub fn persist_doc(
     |> request.set_body(document |> json.to_string)
   // |> request.set_cookie("AuthSession", auth)
   use _res <- utils.if_error(httpc.send(req_with_headers), fn(_) {
-    Error(infra_errors.new_save_error("Failed to get response"))
+    Error(infra_errors.SaveError("Failed to get response"))
   })
-  Error(infra_errors.unknown_error("Not implemented"))
+  Error(infra_errors.UknownError("Not implemented"))
 }
 
 fn start(
@@ -52,7 +52,7 @@ fn start(
     Result(b, infra_errors.InfrastructureError),
 ) -> Result(b, infra_errors.InfrastructureError) {
   use client <- utils.if_error(mungo.start(uri, 300), fn(_) {
-    Error(infra_errors.new_read_error("Failed to start http client"))
+    Error(infra_errors.ReadError("Failed to start http client"))
   })
 
   callback(client)
