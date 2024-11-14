@@ -1,9 +1,7 @@
-import gleam/dynamic
 import gleam/json
 import timestamps
 import users/id
 import users/password
-import users/user_errors as errors
 import users/username
 
 pub opaque type User {
@@ -36,22 +34,12 @@ pub fn get_username(user: User) -> username.Username {
   user.username
 }
 
-pub fn primitive_decoder() {
-  dynamic.decode4(
-    from_primitves,
-    dynamic.field("_id", dynamic.string),
-    dynamic.field("username", dynamic.string),
-    dynamic.field("password", dynamic.string),
-    dynamic.field("created_at", dynamic.int),
-  )
-}
-
 pub fn from_primitves(
   id: String,
   username: String,
   password: String,
   created_at: Int,
-) -> Result(User, errors.UserError) {
+) -> User {
   let password = password.from(password, fn(p) { p })
   User(
     id.from_string(id),
@@ -59,7 +47,6 @@ pub fn from_primitves(
     password,
     created_at: timestamps.from_millis(created_at),
   )
-  |> Ok
 }
 
 /// Convert a user to a JSON-compatible object
