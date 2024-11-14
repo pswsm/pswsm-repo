@@ -1,8 +1,6 @@
 import gleam/dynamic
 import gleam/int
 import gleam/json
-import gleam/list
-import gleam/result
 import users/users
 import utils
 
@@ -41,8 +39,4 @@ pub fn map(map_this docs: String) -> Result(List(users.User), json.DecodeError) 
       )),
     ),
   )
-  |> result.map(fn(users) {
-    users
-    |> list.filter_map(fn(user) { user })
-  })
 }

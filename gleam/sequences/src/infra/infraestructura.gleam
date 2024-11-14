@@ -1,7 +1,9 @@
 import gleam/erlang/os
 import gleam/json
 import gleam/list
+import gleam/option
 import gleam/result
+import gleam/string
 import infra/couchdb
 import infra/find_users_mapper
 import infra/infra_errors
@@ -10,25 +12,47 @@ import utils
 
 // TODO Type uri as Uri and not String
 pub opaque type Infraestructura {
-  CouchDB(uri: String)
+  CouchDB(uri: String, extra_path: option.Option(String))
 }
 
-pub fn connect_couch(use_callback cb: fn(Infraestructura) -> a) -> a {
+fn merge_uri(uri: String, extra_path: option.Option(String)) -> String {
+  case extra_path {
+    option.None -> uri
+    option.Some(path) -> uri <> path
+  }
+}
+
+pub fn connect_couch(
+  extra path: String,
+  use_callback cb: fn(Infraestructura) -> a,
+) -> a {
   let assert Ok(uri) = os.get_env("COUCHDB_URI")
 
-  CouchDB(uri) |> cb
+  case path {
+    "" -> {
+      CouchDB(uri, option.None) |> cb
+    }
+    _ -> {
+      let extra_path = case string.starts_with(path, "/") {
+        True -> option.Some(path)
+        False -> option.Some("/" <> path)
+      }
+
+      CouchDB(uri, extra_path) |> cb
+    }
+  }
 }
 
 pub fn find(
   which infra: Infraestructura,
-  on db: String,
   asking_for what: #(String, String),
 ) -> Result(users.User, String) {
   case infra {
-    CouchDB(uri) -> {
-      use docs <- utils.if_error(couchdb.find(uri, db, what), fn(infra_error) {
-        infra_error |> infra_errors.get_message |> Error
-      })
+    CouchDB(uri, path) -> {
+      use docs <- utils.if_error(
+        couchdb.find(merge_uri(uri, path), what),
+        fn(infra_error) { infra_error |> infra_errors.get_message |> Error },
+      )
       use matching_docs <- utils.if_error(find_users_mapper.map(docs), fn(_) {
         "unknown error aaaaaaaaaa" |> Error
       })
@@ -45,8 +69,8 @@ pub fn persist(
   saving doc: json.Json,
 ) -> Result(String, String) {
   case infra {
-    CouchDB(uri) -> {
-      couchdb.persist_doc(uri, doc)
+    CouchDB(uri, extra_path) -> {
+      couchdb.persist_doc(merge_uri(uri, extra_path), doc)
       |> result.map_error(infra_errors.get_message(_))
     }
   }
