@@ -33,6 +33,16 @@ pub fn if_error(
   }
 }
 
+pub fn interrogant(
+  on r: Result(a, b),
+  then do: fn(a) -> Result(c, b),
+) -> Result(c, b) {
+  case r {
+    Error(b) -> Error(b)
+    Ok(a) -> do(a)
+  }
+}
+
 pub fn is_empty(
   this list: List(a),
   then do: fn() -> c,
