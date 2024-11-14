@@ -11,11 +11,11 @@ import http/http_utils
 import http/responses
 import kernel/logger
 import mist
+import users/create
 import users/id
 import users/password
 import users/user_errors
 import users/user_finder
-import users/user_saver
 import users/username
 import users/users
 import utils
@@ -61,7 +61,9 @@ fn handle_post_user(req: request.Request(mist.Connection)) {
 
   let user = users.new(id, username, password)
 
-  use _saved_user <- utils.if_error(user_saver.save(user), fn(error) {
+  // TODO: user_creator creates User record and persists,
+  // User record should not be created here in the route handler
+  use _ <- utils.if_error(create.create(user), fn(error) {
     http_errors.new_internal_server_error()
     |> http_errors.set_message(user_errors.message(error))
     |> http_errors.to_response

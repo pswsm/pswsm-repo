@@ -1,19 +1,18 @@
 import ffi/hash
-import utils
+import gleam/result
 
 pub opaque type Password {
-  Password(String)
+  Password(value: String)
 }
 
 pub type PasswordError {
-  PasswordError
+  PasswordError(message: String)
 }
 
 pub fn new(password: String) -> Result(Password, PasswordError) {
-  use hashed_password <- utils.if_error(hash.hash(password), fn(_) {
-    Error(PasswordError)
-  })
-  hashed_password |> Password |> Ok
+  hash.hash(password)
+  |> result.map(Password(_))
+  |> result.map_error(PasswordError)
 }
 
 pub fn from(f: a, transform: fn(a) -> String) -> Password {
@@ -21,7 +20,5 @@ pub fn from(f: a, transform: fn(a) -> String) -> Password {
 }
 
 pub fn value_of(p: Password) -> String {
-  case p {
-    Password(s) -> s
-  }
+  p.value
 }
