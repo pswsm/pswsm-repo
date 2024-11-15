@@ -17,7 +17,7 @@ pub fn get_by_username(
   use users <- utils.if_error(
     {
       infra
-      |> infraestructura.find(#("username", username.value_of(username)))
+      |> infraestructura.find_by(#("username", username.value_of(username)))
       |> result.map_error(user_errors.user_not_found)
     },
     Error(_),

@@ -42,7 +42,7 @@ pub fn connect_couch(
   }
 }
 
-pub fn find(
+pub fn find_by(
   which infra: Infraestructura,
   asking_for what: #(String, String),
 ) -> Result(List(users.User), String) {
