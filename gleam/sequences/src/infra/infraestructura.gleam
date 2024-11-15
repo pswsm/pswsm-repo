@@ -56,10 +56,7 @@ pub fn find(
       use matching_docs <- utils.if_error(find_users_mapper.map(docs), fn(_) {
         "unknown error aaaaaaaaaa" |> Error
       })
-      use user <- utils.if_error(matching_docs |> list.first, fn(_) {
-        "no matching docs" |> Error
-      })
-      user |> Ok
+      Ok(matching_docs)
     }
   }
 }
