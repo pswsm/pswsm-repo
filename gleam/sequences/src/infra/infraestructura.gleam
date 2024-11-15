@@ -1,6 +1,5 @@
 import gleam/erlang/os
 import gleam/json
-import gleam/list
 import gleam/option
 import gleam/result
 import gleam/string
@@ -46,7 +45,7 @@ pub fn connect_couch(
 pub fn find(
   which infra: Infraestructura,
   asking_for what: #(String, String),
-) -> Result(users.User, String) {
+) -> Result(List(users.User), String) {
   case infra {
     CouchDB(uri, path) -> {
       use docs <- utils.if_error(
