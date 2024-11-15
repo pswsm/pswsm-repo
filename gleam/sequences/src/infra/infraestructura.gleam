@@ -61,6 +61,22 @@ pub fn find(
   }
 }
 
+pub fn get_by_id(
+  from infra: Infraestructura,
+  id id: String,
+  using constructor: fn(String) -> b,
+) -> Result(b, String) {
+  case infra {
+    CouchDB(uri, path) -> {
+      use doc <- utils.if_error(
+        couchdb.get(merge_uri(uri, path), id),
+        fn(infra_error) { infra_error |> infra_errors.get_message |> Error },
+      )
+      Ok(constructor(doc))
+    }
+  }
+}
+
 pub fn persist(
   which infra: Infraestructura,
   saving doc: json.Json,
