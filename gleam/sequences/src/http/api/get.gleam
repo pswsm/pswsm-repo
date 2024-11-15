@@ -4,9 +4,9 @@ import gleam/option
 import http/http_errors as errors
 import http/http_utils
 import http/responses
+import users/id
 import users/user_errors
 import users/user_finder
-import users/username
 import users/users
 import utils
 
@@ -18,10 +18,10 @@ pub fn handle_get_api(path: List(String), request r: request.Request(_)) {
   }
 }
 
-pub fn get(id username: String, request r: request.Request(_)) {
+pub fn get(id user_id: String, request r: request.Request(_)) {
   use <- option.lazy_unwrap(http_utils.authorize(r))
   use user <- utils.if_error(
-    user_finder.get_by_username(username.new(username)),
+    user_finder.get_by_id(id.from_string(user_id)),
     fn(error) {
       errors.not_found(option.Some(user_errors.message(error)))
       |> errors.to_response
