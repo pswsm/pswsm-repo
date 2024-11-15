@@ -21,6 +21,14 @@ fn merge_uri(uri: String, extra_path: option.Option(String)) -> String {
   }
 }
 
+pub fn get_default(for: String, use_callabck cb: fn(Infraestructura) -> a) -> a {
+  let assert Ok(infra_target) = os.get_env("INFRA_TARGET")
+  case infra_target {
+    "couchdb" -> connect_couch(for, cb)
+    _ -> panic as "Unknown infra target"
+  }
+}
+
 pub fn connect_couch(
   extra path: String,
   use_callback cb: fn(Infraestructura) -> a,
