@@ -1,3 +1,4 @@
+import gleam/http
 import gleam/http/request
 import gleam/http/response
 import gleam/httpc
@@ -15,7 +16,8 @@ pub fn document(
     Error(infra_errors.UknownError("Failed to create request"))
   })
   let req_with_headers =
-    request.prepend_header(req, "content-type", "application/json")
+    request.set_method(req, http.Post)
+    |> request.prepend_header("content-type", "application/json")
     |> request.prepend_header("accept", "application/json")
     |> request.set_body(document |> json.to_string)
     |> request.set_cookie("AuthSession", cookie)

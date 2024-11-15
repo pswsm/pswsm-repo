@@ -16,8 +16,7 @@ fn handle_response_codes(
   response res: response.Response(String),
 ) -> Result(String, infra_errors.InfrastructureError) {
   case res.status {
-    200 -> Ok(res.body)
-    201 -> Ok(res.body)
+    200 | 201 -> Ok(res.body)
     401 -> Error(infra_errors.PermissionsError("Missing permissions"))
     404 -> Error(infra_errors.NotFoundError(res.body))
     _ -> Error(infra_errors.ReadError(res.body))
@@ -35,11 +34,10 @@ pub fn find(
 
 pub fn get(
   from uri: String,
-  on db: String,
-  matching id: String,
+  id id: String,
 ) -> Result(String, infra_errors.InfrastructureError) {
   use #(_, cookie) <- authenticate()
-  use res <- utils.interrogant(get.document(uri, db, id, cookie))
+  use res <- utils.interrogant(get.document(uri, id, cookie))
   handle_response_codes(res)
 }
 
@@ -60,7 +58,6 @@ pub fn authenticate(
   let assert Ok(couchdb_username) = os.get_env("COUCHDB_USERNAME")
   let assert Ok(couchdb_password) = os.get_env("COUCHDB_PASSWORD")
   let auth_uri = auth_base_uri <> "/_session"
-  logger.debug("authenticating with uri: " <> auth_uri)
   use req <- utils.if_error(request.to(auth_uri), fn(_) {
     Error(infra_errors.UknownError("failed to authenticate"))
   })

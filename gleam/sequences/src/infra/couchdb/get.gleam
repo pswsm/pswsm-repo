@@ -8,11 +8,10 @@ import utils
 
 pub fn document(
   from uri: String,
-  on db: String,
   matching id: String,
   with cookie: String,
 ) -> Result(response.Response(String), infra_errors.InfrastructureError) {
-  use req <- utils.if_error(request.to(uri <> "/" <> db <> "/" <> id), fn(_) {
+  use req <- utils.if_error(request.to(uri <> "/" <> id), fn(_) {
     Error(infra_errors.ReadError("Failed to create request"))
   })
   let req_with_headers =
