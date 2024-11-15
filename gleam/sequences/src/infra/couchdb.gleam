@@ -9,7 +9,6 @@ import infra/couchdb/create
 import infra/couchdb/find
 import infra/couchdb/get
 import infra/infra_errors
-import kernel/logger
 import utils
 
 fn handle_response_codes(
