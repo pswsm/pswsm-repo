@@ -1,7 +1,9 @@
 import gleam/json
+import infra/infraestructura
 import posts/content
 import posts/title
 import users/users
+import utils
 
 pub opaque type Post {
   Post(author: users.User, title: title.Title, content: content.Content)
@@ -15,7 +17,13 @@ pub fn new(
   Post(user, title, content)
 }
 
-pub fn save() -> Result(Nil, Nil) {
+pub fn save(this post: Post) -> Result(Nil, Nil) {
+  use db <- infraestructura.get_default("posts")
+
+  use status <- utils.if_error(
+    infraestructura.persist(db, to_primitives(post) |> json.object),
+    fn(_) { Error(Nil) },
+  )
   Ok(Nil)
 }
 
