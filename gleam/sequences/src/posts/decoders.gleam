@@ -1,7 +1,12 @@
 import gleam/dynamic
 import gleam/int
+import gleam/json
 import posts/post
 import utils
+
+pub fn to_domain(doc: String) -> Result(post.Post, json.DecodeError) {
+  json.decode(doc, post(False))
+}
 
 pub fn post(
   body: Bool,
