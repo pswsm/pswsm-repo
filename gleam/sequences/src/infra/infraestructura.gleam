@@ -68,6 +68,12 @@ pub fn find_by(
   }
 }
 
+/// Get a document by its id
+///
+/// # Arguments
+/// from infra: Infraestructura - The infrastructure to use
+/// id: String - The id of the document to get
+/// constructor: fn(String) -> b - A function to construct the result from the document
 pub fn get_by_id(
   from infra: Infraestructura,
   id id: String,
