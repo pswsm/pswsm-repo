@@ -11,6 +11,9 @@ import http/http_utils
 import http/responses
 import kernel/logger
 import mist
+import posts/decoders
+import posts/errors
+import posts/post
 import users/create
 import users/id
 import users/password
@@ -29,6 +32,7 @@ pub fn handle_post_api(
   case path {
     ["users", ..] -> handle_post_user(req)
     ["tokens", ..] -> handle_post_tokens(req)
+    ["posts", ..] -> handle_posts(req)
     _ -> http_utils.method_not_allowed(req)
   }
 }
@@ -111,4 +115,25 @@ fn handle_post_tokens(with request: request.Request(mist.Connection)) {
     [#("accessToken", auth |> json.string)] |> json.object |> json.to_string,
   )
   |> responses.to_mist
+}
+
+fn handle_posts(request req: request.Request(mist.Connection)) {
+  use request <- utils.if_error(mist.read_body(req, 1024 * 1024 * 10), fn(_) {
+    http_errors.bad_request(option.Some("invalid body"))
+    |> http_errors.to_response
+  })
+  use posted_post <- utils.if_error(
+    json.decode_bits(request.body, decoders.post(True)),
+    fn(_) {
+      http_errors.bad_request(option.Some("invalid post"))
+      |> http_errors.to_response
+    },
+  )
+
+  use _ <- utils.if_error(post.save(posted_post), fn(error) {
+    http_errors.bad_request(option.Some(error |> errors.log))
+    |> http_errors.to_response
+  })
+
+  responses.created() |> responses.to_mist
 }
