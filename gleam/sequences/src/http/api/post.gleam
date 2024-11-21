@@ -129,11 +129,9 @@ fn handle_posts(request req: request.Request(mist.Connection)) {
       |> http_errors.to_response
     },
   )
-
   use _ <- utils.if_error(post.save(posted_post), fn(error) {
     http_errors.bad_request(option.Some(error |> errors.log))
     |> http_errors.to_response
   })
-
   responses.created() |> responses.to_mist
 }

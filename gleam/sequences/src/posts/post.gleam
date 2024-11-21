@@ -28,7 +28,6 @@ pub fn new(
 
 pub fn save(this post: Post) -> Result(Nil, errors.PostError) {
   use db <- infraestructura.get_default("posts")
-
   use _db_object <- utils.if_error(
     infraestructura.persist(db, to_primitives(post) |> json.object),
     fn(infra_msg) { errors.post_error(infra_msg) |> Error },
