@@ -11,9 +11,9 @@ import http/http_utils
 import http/responses
 import kernel/logger
 import mist
-import posts/decoders
-import posts/errors
-import posts/post
+import posts/apps/saver
+import posts/domain/decoders
+import posts/domain/errors
 import users/create
 import users/id
 import users/password
@@ -123,13 +123,13 @@ fn handle_posts(request req: request.Request(mist.Connection)) {
     |> http_errors.to_response
   })
   use posted_post <- utils.if_error(
-    json.decode_bits(request.body, decoders.post(True)),
+    json.decode_bits(request.body, decoders.post(True)) |> io.debug,
     fn(_) {
       http_errors.bad_request(option.Some("invalid post"))
       |> http_errors.to_response
     },
   )
-  use _ <- utils.if_error(post.save(posted_post), fn(error) {
+  use _ <- utils.if_error(saver.save(posted_post), fn(error) {
     http_errors.bad_request(option.Some(error |> errors.log))
     |> http_errors.to_response
   })
