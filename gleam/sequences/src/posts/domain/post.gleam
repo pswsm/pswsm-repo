@@ -1,8 +1,8 @@
 import gleam/json
 import infra/infraestructura
-import posts/content
-import posts/errors
-import posts/title
+import posts/domain/content
+import posts/domain/errors
+import posts/domain/title
 import timestamps
 import users/id
 import utils
@@ -41,7 +41,7 @@ pub fn to_primitives(post: Post) -> List(#(String, json.Json)) {
     #("author", id.to_json(post.author)),
     #("title", title.value_of(post.title) |> json.string),
     #("content", content.value_of(post.content) |> json.string),
-    #("date", timestamps.to_string(post.date) |> json.string),
+    #("date", timestamps.value_of(post.date) |> json.int),
   ]
 }
 

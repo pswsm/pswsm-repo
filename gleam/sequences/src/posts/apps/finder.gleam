@@ -1,8 +1,8 @@
 import gleam/result
 import infra/infraestructura
-import posts/decoders
-import posts/errors
-import posts/post
+import posts/domain/decoders
+import posts/domain/errors
+import posts/domain/post
 import utils
 
 pub fn get(by id: String) -> Result(post.Post, errors.PostError) {
