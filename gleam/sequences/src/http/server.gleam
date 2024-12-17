@@ -20,6 +20,7 @@ pub fn run(port: Int) {
       mist.ResponseData,
     ) {
       handle(req.method, request.path_segments(req), req)
+      |> response.set_header("access-control-allow-origin", "*")
     }
     |> mist.new
     |> mist.port(port)
