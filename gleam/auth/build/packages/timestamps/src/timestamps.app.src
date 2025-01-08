@@ -1,0 +1,9 @@
+{application, timestamps, [
+    {vsn, "1.0.0"},
+    {applications, [gleam_erlang,
+                    gleam_stdlib,
+                    gleeunit]},
+    {description, "timestamp in Gleam"},
+    {modules, [timestamps]},
+    {registered, []}
+]}.
