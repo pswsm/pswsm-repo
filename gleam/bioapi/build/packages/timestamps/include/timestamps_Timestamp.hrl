@@ -1,1 +1,0 @@
--record(timestamp, {value :: integer()}).
