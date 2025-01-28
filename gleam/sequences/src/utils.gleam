@@ -33,6 +33,8 @@ pub fn if_error(
   }
 }
 
+/// If the given result it's an `Error`, returns it,
+/// else runs callback function.
 pub fn interrogant(
   on r: Result(a, b),
   then do: fn(a) -> Result(c, b),

@@ -1,5 +1,8 @@
 import gleam/erlang/os
+import gleam/http
 import gleam/int
+import http/api/get
+import http/route
 import http/server
 import logging
 import utils
@@ -11,7 +14,16 @@ pub fn start_logs() {
 
 pub fn start_server() {
   let port = get_port()
-  server.run(port)
+  server.run(port, [
+    server.Controller(
+      route.Route(http.Get, ["api", "users"]),
+      get.get_user_controller,
+    ),
+    server.Controller(
+      route.Route(http.Get, ["api", "posts"]),
+      get.get_post_controller,
+    ),
+  ])
 }
 
 fn level_from_env() -> logging.LogLevel {

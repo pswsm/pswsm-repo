@@ -65,3 +65,9 @@ pub fn to_primitives(this user: User) {
     #("created_at", user.created_at |> timestamps.value_of |> json.int),
   ]
 }
+
+pub fn parts(
+  of this: User,
+) -> #(id.UserId, username.Username, password.Password, timestamps.Timestamp) {
+  #(get_id(this), get_username(this), get_password(this), this.created_at)
+}

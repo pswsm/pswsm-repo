@@ -1,6 +1,4 @@
-import gleam/json
 import gleam/option
-import gleam/string_builder
 import logging
 import timestamps
 
@@ -34,17 +32,8 @@ pub fn error(
 fn log(
   with severity: Severity,
   log message: String,
-  happened at: timestamps.Timestamp,
+  happened _at: timestamps.Timestamp,
 ) -> String {
-  let message_builder =
-    json.to_string_builder(
-      json.object([
-        #("severity", json.string(severity.value)),
-        #("message", json.string(message)),
-        #("timestamp", json.string(timestamps.to_string(at))),
-      ]),
-    )
-  let message = message_builder |> string_builder.to_string
   logging.log(severity.level, message)
   message
 }
