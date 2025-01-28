@@ -1,24 +1,15 @@
-# sequences
+# posts server (callled sequences for reasons)
 
-[![Package Version](https://img.shields.io/hexpm/v/sequences)](https://hex.pm/packages/sequences)
-[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/sequences/)
+It's a project, not a library.
 
-```sh
-gleam add sequences@1
-```
-```gleam
-import sequences
+Clone the whole repo (pswsm-repo) as of now, I'll try to change it in the near future.
 
-pub fn main() {
-  // TODO: An example of the project in use
-}
-```
+Required env variables to run:
+- INFRA_TARGET : The infrastructure target. Currently only suports CouchDB.
+- COUCHDB_URI : The couchdb link
+- COUCHDB_USERNAME : Teh CouchDB auth username
+- COUCHDB_PASSWORD : CouchDB auth pasword
 
-Further documentation can be found at <https://hexdocs.pm/sequences>.
-
-## Development
-
-```sh
-gleam run   # Run the project
-gleam test  # Run the tests
-```
+Optional variables:
+- PORT : Defaults to `3000`
+- LOG_LEVEL : Defaults to `info`. [`debug`, `info`, `warning`, `error`]
