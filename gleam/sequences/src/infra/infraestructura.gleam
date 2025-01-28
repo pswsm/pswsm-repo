@@ -12,7 +12,6 @@ import utils
 // TODO Type uri as Uri and not String
 pub opaque type Infraestructura {
   CouchDB(uri: String, extra_path: option.Option(String))
-  Sqlite(db_path: String, table: String)
 }
 
 fn merge_uri(uri: String, extra_path: option.Option(String)) -> String {
@@ -26,17 +25,8 @@ pub fn get_default(for: String, use_callabck cb: fn(Infraestructura) -> a) -> a 
   let assert Ok(infra_target) = os.get_env("INFRA_TARGET")
   case infra_target {
     "couchdb" -> connect_couch(for, cb)
-    "sqlite" -> connect_sqlite(table: for, use_callback: cb)
     _ -> panic as "Unknown infra target"
   }
-}
-
-pub fn connect_sqlite(
-  table t: String,
-  use_callback cb: fn(Infraestructura) -> a,
-) -> a {
-  let assert Ok(path) = os.get_env("SQLITE_PATH")
-  Sqlite(db_path: path, table: t) |> cb
 }
 
 pub fn connect_couch(
@@ -75,7 +65,6 @@ pub fn find_by(
       })
       Ok(matching_docs)
     }
-    Sqlite(_db, _table) -> todo as "unimplemented"
   }
 }
 
@@ -98,7 +87,6 @@ pub fn get_by_id(
       )
       Ok(constructor(doc))
     }
-    Sqlite(_db, _table) -> todo as "sql unimplemented!"
   }
 }
 
@@ -110,9 +98,6 @@ pub fn persist(
     CouchDB(uri, extra_path) -> {
       couchdb.persist_doc(merge_uri(uri, extra_path), doc)
       |> result.map_error(infra_errors.get_message(_))
-    }
-    Sqlite(_db, _table) -> {
-      todo as "sql unimplemented!"
     }
   }
 }
